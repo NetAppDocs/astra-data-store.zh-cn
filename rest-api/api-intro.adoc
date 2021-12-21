@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: rest-api/api-intro.html 
+keywords: introduction, astra control, api, rest api, astra, kubernetes 
+summary: Astra Control 具有一个 REST API ，可用于使用编程语言或 Curl 等实用程序直接访问 Astra Control 功能。 
+---
+= 使用 Astra Control REST API 实现自动化
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/rest-api/
+
+
+Astra Control 具有一个 REST API ，可用于使用编程语言或 Curl 等实用程序直接访问 Astra Control 功能。您还可以使用 Ansible 和其他自动化技术管理 Astra Control 部署。
+
+要设置和管理 Kubernetes 应用程序，您可以使用 Astra Control UI 或 Astra Control API 。
+
+要了解更多信息，请转到 https://docs.netapp.com/us-en/astra-automation/["Astra Control 自动化文档"^]。

@@ -1,0 +1,16 @@
+---
+section: get-started
+title: 入门
+entries:
+- title: Astra Data Store 预览要求
+  url: "/get-started/requirements.html"
+- title: 快速启动 Astra Data Store 预览
+  url: "/get-started/quick-start.html"
+- title: 安装 Astra Data Store 预览版
+  url: "/get-started/install-ads.html"
+- title: 设置 Astra Data Store 预览组件
+  url: "/get-started/setup-ads.html"
+- title: Astra 数据存储预览限制
+  url: "/get-started/capabilities.html"
+- title: 常见问题解答
+  url: "/get-started/faq-ads.html"

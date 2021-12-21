@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增强功能和错误修复。 
+---
+= 此版本的 Astra 数据存储中的内容和 #8217
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+我们很高兴地宣布， Astra Data Store 的预览版为 21.12 。
+
+
+
+== 2021 年 12 月 21 日（ 21.12 ）
+
+初始版本的 Astra 数据存储。
+
+* link:../concepts/intro.html["它是什么"]
+* link:../concepts/architecture.html["部署模式和组件"]
+* link:../get-started/requirements.html["入门所需的资源"]
+* link:../get-started/install-ads.html["安装"] 和 
+* link:../use/kubectl-commands-ads.html["管理和监控性能"]
+* link:../use/monitor-with-cloud-insights.html["使用 Cloud Insights 进行监控"]
+* link:../support/get-help-ads.html["获取帮助"] 和 
+
+
+
+
+== 了解更多信息
+
+* link:../release-notes/known-issues.html["已知问题"]
+* link:../release-notes/known-limitations.html["已知限制"]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["NetApp 知识库文章"]
+

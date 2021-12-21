@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues.html 
+keywords: astra, control center, bugs, known issues, problems 
+summary: 已知问题可确定可能妨碍您成功使用此版本产品的问题。 
+---
+= 已知问题
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+已知问题用于确定可能会阻止您成功使用此产品预览版的问题。
+
+
+
+== Astra Data Store 预览版无法识别默认的 Calico WireGuard 接口名称
+
+此错误会导致 Pod 崩溃。作为临时解决策，请更改 Calico 的 Felix 配置中的 wireguardInterfaceName 设置，以指定不带点的接口名称。例如：
+
+[listing]
+----
+calicoctl patch felixconfiguration default --type='merge' -p '{"spec":{"wireguardInterfaceName":"calico_wg"}}'
+----
+除了在每个节点上使用新名称创建接口之外，此更改还可能会留下原始 wireguard.cali 接口。删除这些接口以防止此问题描述重复发生。
+
+
+
+== Astra Data Store 预览版无法识别采用 VXLAN 配置和 Calico CNI 的网络接口名称
+
+此错误会导致 Pod 崩溃。作为临时解决策，禁用 VXLAN 配置。
+
+
+
+== 如果 Pod 处于崩溃环路中，使用默认活跃度探针值的 MongoDB 部署将失败
+
+作为临时解决策，请在 MongoDB 部署规范中将活跃度探针 initialDelaySeconds 设置为 600 秒。
+
+
+
+== 了解更多信息
+
+* link:../release-notes/known-limitations.html["已知限制"]
+

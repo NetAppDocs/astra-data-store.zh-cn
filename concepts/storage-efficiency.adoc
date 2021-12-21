@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: concepts/storage-efficiency.html 
+keywords: how astra works, how Astra works, what Astra is, astra data store, 
+summary: Astra Data Store 采用精简配置，零块消除，数据压缩和重复数据删除等存储效率技术。 
+---
+= Astra 数据存储中的存储效率
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra 数据存储使用基于 ONTAP 和 SolidFire 技术的存储效率技术，包括：
+
+* * 精简配置 * ：精简配置卷是指不预先预留存储的卷。而是根据需要动态分配存储。删除卷或 LUN 中的数据后，可用空间将释放回存储系统
+* * 零块检测和消除 * ：采用精简配置的 ONTAP 存储系统可以检测卷中已置零的区域，以便回收该空间并将其用于其他位置。
+* * 数据压缩 * ：数据压缩通过将数据块组合到数据压缩组中来减少卷所需的物理存储量，每个数据块都存储为一个块。与传统压缩方法相比，压缩数据的读取速度更快，因为 ONTAP 仅解压缩包含所请求数据的压缩组，而不是解压缩整个文件。
+* * 重复数据删除 * ：重复数据删除可通过丢弃重复块并将其替换为对单个共享块的引用来减少卷（或 AFF 聚合中的所有卷）所需的存储量。读取经过重复数据删除的数据通常不会对性能产生任何影响。除了过载的节点之外，写入所产生的费用可以忽略不计。
+
+
+默认情况下，所有这些功能均处于启用状态。
+
+请参见 https://docs.netapp.com/ontap-9/index.jsp["存储效率详细信息"]。
+
+
+
+== 有关详细信息 ...
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 文档"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra 控制中心文档"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 文档"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["使用 Astra Control API"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP 文档"^]
+

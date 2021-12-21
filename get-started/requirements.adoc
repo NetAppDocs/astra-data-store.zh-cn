@@ -1,0 +1,202 @@
+---
+sidebar: sidebar 
+permalink: get-started/requirements.html 
+keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+summary: 首先验证对您的环境的支持。 
+---
+= Astra Data Store 预览要求
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+首先验证您的环境是否满足 Astra Data Store 预览要求。
+
+Astra Data Store 预览版既支持裸机部署，也支持基于 VM 的部署。Astra Data Store 预览集群可以在具有四个或更多工作节点的 Kubernetes 集群上运行。Astra Data Store 预览软件可以与在同一 Kubernetes 集群上运行的其他应用程序共存。
+
+Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kubernetes 工作负载配置 PV 。未来版本的 Astra Data Store 将支持 VM 工作负载。
+
+
+
+== Kubernetes 工作节点资源要求
+
+以下是为 Kubernetes 集群中每个工作节点上的 Astra Data Store 预览软件分配的最低资源要求：
+
+|===
+| 资源 | 最小值 | 最大值 
+
+
+| 数据驱动器的数量  a| 
+* 3 （存在单独的缓存设备）
+* 4 （如果不存在缓存设备）
+
+| 14 
+
+
+| 数据驱动器大小 | 100 GiB | 4 TiB 
+
+
+| 可选缓存设备的数量 | 1 （大小为 8 GiB 或更大） | 不适用 
+
+
+| vCPU 数量 | 9 | 9 
+
+
+| RAM | 34 GiB | 34 GiB 
+|===
+
+NOTE: 为了获得最佳写入性能，您应配置一个专用的高持久性，低延迟，低容量缓存设备。
+
+每个工作节点都有以下附加要求：
+
+* 主机磁盘（启动）上要存储 Astra Data Store 预览日志文件的可用空间为 100 GiB 或更大。
+* 至少为集群，数据和管理流量提供一个 10GbE 或更快的网络接口。此外，还可以使用一个额外的 1GbE 或更快的接口来隔离管理流量。
+
+
+
+
+== 硬件和软件要求
+
+已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。如果您的 Kubernetes 集群配置不同，请访问 NetApp 社区支持。
+
+.硬件平台
+* HPE DL360
+* HPE DL380
+* Dell R640
+* Dell R740
+
+
+Astra Data Store 预览版已通过以下驱动器类型的验证：
+
+* * 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上。
++
+** SATA 或 NVMe TLC SSD 。
+
+
+* * 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版。
++
+** 基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库。
+** 驱动器显示为虚拟磁盘或直通驱动器。
+
+
+
+
+
+NOTE: 如果主机在硬件 RAID 控制器后使用 SSD ，请将硬件 RAID 控制器配置为使用 " 直通 " 模式。
+
+
+NOTE: 每个驱动器都应具有唯一的序列号。在虚拟机创建期间，在虚拟机高级设置中添加属性 `disk.enableid=true` 。
+
+.软件
+* 虚拟机管理程序： Astra Data Store 预览版已通过基于 VMware 的 VM 部署与 ESXi 7.0 的验证。Astra Data Store 预览版不支持基于 KVM 的部署。
+* 已在以下主机操作系统上验证 Astra Data Store 预览版：
++
+** Red Hat Enterprise Linux 8.4
+** Red Hat Enterprise Linux 8.2
+** Red Hat Enterprise Linux 7.9
+** Red Hat Enterprise Linux CoreOS （ RHCOS ）
+** CentOS 8
+** Ubuntu 20.04
+
+
+* Astra Data Store 预览版已通过以下 Kubernetes 分发版的验证：
++
+** Red Hat OpenShift 4.7
+** Google Anthos 1.7
+** Kubernetes 1.21
+** Kubernetes 1.20
+
+
+
+
+
+NOTE: Astra Data Store 预览版需要使用 Astra Trident 21.10.1 版进行存储配置和编排。请参见 link:setup-ads.html#install-astra-trident["Astra Trident 安装说明"]。
+
+
+
+== 网络要求
+
+Astra Data Store 预览版要求每个集群有一（ 1 ）个 IP 地址用于 MVIP 。它必须是与 MIP 位于同一子网中的未使用或未配置的 IP 地址。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。
+
+此外，还可以按下表所述配置每个节点：
+
+
+NOTE: 此表使用了以下缩写词： mip ： management IP address cip ： cluster ip address MVIP ： management virtual IP address
+
+|===
+| Configuration | 所需的 IP 地址 
+
+
+| 每个节点一个网络接口  a| 
+* 每个节点两（ 2 ）个：
++
+** MIP/CIP ：每个节点的管理接口上有一（ 1 ）个预配置的 IP 地址
+** Data IP ：在与 MIP 相同的子网中，每个节点一（ 1 ）个未使用或未配置的 IP 地址
+
+
+
+
+
+
+| 每个节点两个网络接口  a| 
+* 每个节点三（ 3 ）个：
++
+** MIP ：每个节点的管理接口上有一（ 1 ）个预配置的 IP 地址
+** CIP ：在与 MIP 不同的子网中，每个节点的数据接口上有一（ 1 ）个预先配置的 IP 地址
+** Data IP ：在与 CIP 相同的子网中，每个节点一（ 1 ）个未使用或未配置的 IP 地址
+
+
+
+
+|===
+
+NOTE: 对于这两种配置，应省略集群自定义资源（ CR ）文件 `asadscluster.YAML` 中的数据网络网关字段。每个节点上的现有路由配置可容纳所有地址。
+
+
+NOTE: 这些配置中不使用任何 VLAN 标记。
+
+
+
+== CSI 驱动程序
+
+Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Trident 21.10.1 。Astra Data Store 预览版可配置为 link:../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["存储后端"] 使用 Astra Trident 配置永久性卷。
+
+
+
+== CNI 配置
+
+Astra Data Store 预览已通过 Calico 和 Weave Net CNI 的验证。
+
+这些 CNI 要求禁用主机防火墙（ firewalld ）。
+
+
+
+== 永久性卷共享要求
+
+每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。对于 Astra Data Store 预览版中的永久性卷，请考虑以下要求：
+
+.要求
+* NFSv4.1 客户端 / 服务器必须安装在 Kubernetes 集群上。
+* 必须在工作节点上安装 nfs-utils 软件包。
+* Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。
+
+
+
+
+== 许可
+
+要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。 https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"] 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。
+
+
+
+== AutoSupport 配置
+
+Astra 数据存储预览版要求启用 AutoSupport 并连接到 AutoSupport 后端。这可以通过直接 Internet 访问或代理配置来实现。
+
+。 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["用于发送强制遥测 AutoSupport 捆绑包的定期设置"] 不应更改。如果禁用定期发送 AutoSupport 捆绑包，则集群将被锁定，并且无法创建新卷，直到再次启用定期设置为止。
+
+
+
+== 下一步行动
+
+查看 link:quick-start.html["快速入门"] 概述。

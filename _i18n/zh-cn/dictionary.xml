@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="09d2d3af569490e66174ce93301cd0b0" category="summary">Astra 数据存储为 Kubernetes 原生容器化应用程序提供持久存储和数据管理服务。Astra 数据存储是 Astra 系列产品的一部分。</block>
+  <block id="0033a0be965b04e889c13f8699fa52ca" category="doc">Astra Data Store 预览文档</block>
+  <block id="43ec8122a289489e5938e6da7d7803ad" category="summary">NetApp 以多种方式为 Astra 数据存储提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 帐户包括通过 Web 服务单提供的远程技术支持。</block>
+  <block id="f5291aae1c11df631ccc337d79334351" category="doc">自动支持监控</block>
+  <block id="49640cf3000ef562beb7641cb71c199d" category="paragraph">AutoSupport 监控 Astra 数据存储系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：</block>
+  <block id="650717c72d7a99e6505592f83821e4ed" category="list-text">控制面板</block>
+  <block id="8c4aa541ee911e8d80451ef8cc304806" category="list-text">存储</block>
+  <block id="dc9f6facbb662cedbda63315bcb2bf67" category="inline-link-macro">Astra Data Store 集群安装</block>
+  <block id="89966e257924f9020c7df5273a9de7c5" category="paragraph">默认情况下，期间会启用 AutoSupport <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block> 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 NetApp 支持站点（ NSS ）或可供手动下载。</block>
+  <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="list-title">选项</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-xref"></block>
+  <block id="023abf142a3991d559ced0ca57282d6a" category="list-text"><block ref="73e64b817c03e14fe2277fa69c7e863e" category="inline-xref-macro-rx"></block></block>
+  <block id="0e670f718cb5e0f313f7a5754b53af80" category="list-text"><block ref="fd89cb1e95c5a94c74489125cde6510b" category="inline-xref-macro-rx"></block></block>
+  <block id="12086876b40161f34ebcda9b4141c63d" category="list-text"><block ref="e2db2b0a425a63f84b57e5abb9f20b22" category="inline-xref-macro-rx"></block></block>
+  <block id="314287d647e9716574bbc7c100fb9867" category="list-text"><block ref="def4bcae3ecda655c7b733ea3980c265" category="inline-xref-macro-rx"></block></block>
+  <block id="1263660ba67e88caf8eb2431d28c44d1" category="list-text"><block ref="c812ac4d7fb1d494d99e57543c82a134" category="inline-xref-macro-rx"></block></block>
+  <block id="c8259bf35a2bdc9b87f057557d330e25" category="section-title">AutoSupport 触发器和场景</block>
+  <block id="b23b84a773fe2431825b44f4b9bc0ddb" category="paragraph">AutoSupport 捆绑包可通过以下方式触发：</block>
+  <block id="a5facf88e98d4f3b6218267651739d68" category="list-text">定期： ASUP 捆绑包按 CR 中定义的间隔创建。</block>
+  <block id="ec673413fc3a41ebc533e1c38f2e18a1" category="list-text">User triggered ：您可以手动创建自己的 ASUP 以查看日志。</block>
+  <block id="30bf10f9e77440cd5b50c15719c81944" category="list-text">核心转储：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。</block>
+  <block id="c2d8f28a841240c2f4d90140f7810bf1" category="list-text">基于 CallHome 事件：从操作系统的特定 CallHome 事件生成 ASUP 。</block>
+  <block id="3c71d7ce3356413ca73e41268c0f7c83" category="list-text">基于 Kubernetes 事件：通过控制平面中的特定 Kubernetes 事件生成 ASUP 。</block>
+  <block id="372fb9362736f0e8d582ec96df84fb6a" category="paragraph">这些触发情形会生成以下 AutoSupport 类型之一：</block>
+  <block id="f0f6261dd53f9b5eff98e12509221bf7" category="list-text">ControlPlane AutoSupport ：一组 Astra 数据存储控制平面日志和 CRS 。</block>
+  <block id="25a6232591674a3c1dbb24564f4d87fb" category="list-text">Storage AutoSupport ：存储报告和性能数据的集合。</block>
+  <block id="1ced1baf40d2db9de38616ea88ac1a4b" category="list-text">核心转储 AutoSupport ：系统核心转储的集合。</block>
+  <block id="4d58342c8fbe7548f0680da50eadd915" category="section-title">配置自定义控制平面 AutoSupport 收集</block>
+  <block id="0249554f3cd3fae8f1cc2c62f50f7ada" category="paragraph">您可以创建一个自定义 AutoSupport 收集配置，用于报告控制平面事件。默认情况下，大多数安装都已在期间启用定期事件报告 <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block>。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步骤</block>
+  <block id="704170cc11bda8cddca282c117836b3a" category="list-text">自定义以下命令以创建控制面板集合 CR ：</block>
+  <block id="0e06b0da9f80219a18d8739f0120abbd" category="list-text">定义自定义参数：</block>
+  <block id="b29d2ef49a96707c2d8b5968d23c62a8" category="list-text">` &lt;myASUPname&gt;` ：要生成的 AutoSupport CR 的名称。</block>
+  <block id="b1779b1163734addf83359e7b817be1d" category="list-text">` -e &lt; 事件名称 &gt;` ：触发收集事件名称的事件名称应在 component-YAML （挂载到支持控制器）中预定义。</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">示例</block>
+  <block id="c9fcbda668b713374776401ef822c1e8" category="list-text">根据需要为系统添加其他参数：</block>
+  <block id="92a4815b61cd107e54a5baa926431efe" category="list-text">` -cluster` ：在多集群环境中需要此标志。</block>
+  <block id="7e1232afa7e6c41607b3fb287f2b8b1e" category="list-text">` -localCollection` ：启用本地收集。默认值为 `false 。`</block>
+  <block id="14435a527eab4059647b1d681292642e" category="list-text">` -forceUpload` ：启用强制上传。默认值为 `false 。`</block>
+  <block id="7559d5f261056c6409821093bd2ec415" category="list-text">` — retry` ：启用重试。默认值为 `false 。`</block>
+  <block id="c7e88254029f9cd1420ef53afd3e08fe" category="section-title">配置自定义 Storage AutoSupport 收集</block>
+  <block id="ffe879572b8c2c46707f262f58096e3c" category="paragraph">您可以创建自定义 AutoSupport 收集配置，以报告存储组件事件。默认情况下，大多数安装都已在期间启用定期事件报告 <block ref="358123e8ea557abd0b8691f487f24c11" category="inline-link-macro-rx"></block>。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：</block>
+  <block id="aa1f065e1e83bd408811c0d6b5def6ad" category="list-text">自定义以下命令以创建存储收集 CR ：</block>
+  <block id="685637f8394db77947ca4501d806f8a0" category="paragraph">性能事件示例：</block>
+  <block id="72bb3d88e5af1a36a5333ae707bc5a35" category="list-text">` -t &lt;ISO_format&gt; -d &lt;hours&gt;` ：在指定的持续时间内为所有节点收集存储 ASUP 。请使用标准 ISO 日期时间格式（` -t` ），持续时间（ `D` ）以小时为单位。例如：</block>
+  <block id="46fb87c66087faf2d690569c0074fb91" category="list-text">` -nodes &lt; 节点名称 &gt;` ：为指定节点收集存储 ASUP 。例如：</block>
+  <block id="79b4eb1f989dedc89bda6deb12b79b34" category="list-text">` -nodes nodename1 ， nodeame2 ， nodeame3` ：为指定节点收集存储 ASUP ：</block>
+  <block id="7023c4aeddebc994995578d8b53dd967" category="section-title">列出系统中的 ASUP</block>
+  <block id="94369fb85acb6fa2be47fe3361d265c9" category="paragraph">使用以下命令按名称列出系统中的 ASUP ：</block>
+  <block id="6d55356ca8cb9b27cfa6e2bb46ebb089" category="paragraph">响应示例：</block>
+  <block id="e5c24e1b7c0879d053fead5eeda95740" category="section-title">下载 ASUP 捆绑包</block>
+  <block id="af20eab0ce8bde78126bef44b877ca8c" category="paragraph">您可以使用此命令下载本地收集的 ASUP 捆绑包。使用 ` -o &lt; 位置 &gt;` 指定当前工作目录以外的位置：</block>
+  <block id="9c83e144e5481ac6766f4055e566594d" category="floating-title">了解更多信息</block>
+  <block id="4be9b50faf5ab46a9d28ac23f7713bec" category="inline-link">如何将文件上传到 NetApp （需要登录）</block>
+  <block id="3b6bf15bbdfc90c8dc6d6778808539e1" category="list-text"><block ref="3b6bf15bbdfc90c8dc6d6778808539e1" category="inline-link-rx"></block></block>
+  <block id="62270328bca14e3c5f465539f788f727" category="summary">NetApp 以多种方式为 Astra 数据存储提供支持。全天候提供免费的自助支持选项，例如知识库（ KB ）文章和 Slack 频道。</block>
+  <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">获取帮助</block>
+  <block id="d552a345b3d00c6f71959b92aa25ca1b" category="paragraph">NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供免费自助服务支持选项，例如知识库（ KB ）文章和可宽延的渠道。</block>
+  <block id="def636186f6865da6164029742c5770c" category="admonition">您可以获得有关 Astra Data Store 预览版的社区技术支持。此预览版本不支持通过 NetApp 支持站点（ NSS ）创建案例。您可以通过反馈选项联系支持部门，也可以使用 Slack 渠道自助服务。</block>
+  <block id="975b87a5b34ee0b24e625810de1f893e" category="section-title">自助服务支持选项</block>
+  <block id="6b9b3535d917a5890db4ef00a3718361" category="paragraph">这些选项全天候免费提供：</block>
+  <block id="51ad2162ed9916cdcbfc1328306dae36" category="inline-link">知识库（需要登录）</block>
+  <block id="ad73b9e5ef9788348d09f760c02c490b" category="list-text"><block ref="ad73b9e5ef9788348d09f760c02c490b" category="inline-link-rx"></block></block>
+  <block id="8eed336b7ebd92f099ff152efa62f5f1" category="paragraph">搜索与 Astra Data Store 预览相关的文章，常见问题解答或中断修复信息。</block>
+  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">文档。</block>
+  <block id="9a4d3fdb6af496c18bc70f14153f8c4f" category="paragraph">这是您当前正在查看的文档站点。</block>
+  <block id="d848bab8e653fc20f34b1c1978752770" category="inline-link">netapp" 容器 " 可宽延通道</block>
+  <block id="9b8b012f5616c6319fb498a523fa4b0e" category="list-text"><block ref="9b8b012f5616c6319fb498a523fa4b0e" category="inline-link-rx"></block></block>
+  <block id="43af2a6a35a58993fd484dd742044607" category="paragraph">转到 " 容器 " 渠道，与同行和专家建立联系。</block>
+  <block id="9945b7c9f8a0452d5794aa8f1b4132db" category="list-text">反馈电子邮件</block>
+  <block id="ddcadc1ed2a47b8718aecd096c744e15" category="paragraph">发送电子邮件至 astra.feedback@netapp.com ，告知我们您的想法，想法或顾虑。</block>
+  <block id="c5384541d9e6cac27f9cab2bc075e08e" category="inline-link">NetApp 知识库文章</block>
+  <block id="0d5d403d97559647821c34bcade73e7a" category="list-text"><block ref="d83d8c86f659bf9b2c03970d84b53394" category="inline-link-rx"></block></block>
+  <block id="b3103953d0eb8d92f14a4edc6e2fe28a" category="summary">将 kubectl 命令与 Astra 数据存储一起使用以更换驱动器。</block>
+  <block id="bbbd86c2ee5337914a858400c6fdb7a2" category="doc">更换驱动器</block>
+  <block id="fe7c99ee714339295ef1464eff2444c5" category="paragraph">下面概述了更换集群中的故障驱动器所需的步骤。</block>
+  <block id="6abc782590a9e4461a3103ce82904d1a" category="list-text">通过 SSH 连接到节点</block>
+  <block id="586c3d689add9e8ff9e8264c2552c925" category="list-text">获取活动驱动器列表。</block>
+  <block id="ed11c0c26d855c72f3b6547a036cb5a8" category="list-text">获取链接到此节点的所有驱动器的列表。</block>
+  <block id="63e6369a6b7286c516a9cab733fe6c19" category="list-text">确定可用驱动器。</block>
+  <block id="311e84b375634f29273ecd1e56331924" category="list-text">请注意驱动器自定义资源（ CR ）发生故障。</block>
+  <block id="eb060d511b605e93f2a2a260b6dbc752" category="list-text">更换驱动器。</block>
+  <block id="17e4f1d2261b575388ad40a2b50c86bb" category="list-text">验证驱动器是否已成功更换并在集群 CR 中处于活动状态。</block>
+  <block id="688a9f01064d517d6da081a5ac8353d0" category="list-text">获取集群详细信息：</block>
+  <block id="f0f5fac9602d88bc27f0edf960dda8b8" category="paragraph">示例：</block>
+  <block id="7b06a5238c5e244fde425c0502ff9d3a" category="list-text">通过 SSH 连接到节点：</block>
+  <block id="bc7abe9efdcfac99c4454b9d769a43c5" category="list-text">列出该节点上的所有活动驱动器：</block>
+  <block id="54472d1da4b0c6eadf8684e846b25dcc" category="paragraph">响应：</block>
+  <block id="78047a701b859d83c0a00c4143555a87" category="list-text">列出该节点上的所有驱动器：</block>
+  <block id="1cc9c9a0c87e673adf2c5e47e941fc0e" category="list-text">创建故障驱动器 CR ：</block>
+  <block id="feccfba3029817911cc680409d111a15" category="list-text">获取故障驱动器详细信息：</block>
+  <block id="539962a87680a6acac5f72ff73171888" category="list-text">编辑故障驱动器 CR 并将其更换为可用驱动器。</block>
+  <block id="bfa727649cf39a210039fea03d2b045b" category="list-text">确认驱动器在集群 CR 和节点中处于活动状态。</block>
+  <block id="2c4bb7389deaecb2c2ce1a2a3017a90e" category="summary">将 kubectl 命令与 Astra 数据存储一起使用以替换节点。</block>
+  <block id="eb5f70a21af0a4657d2e1ba9f24d1234" category="doc">更换节点</block>
+  <block id="d78735cfb1e1011678392c0293bd3a10" category="paragraph">将 kubectl 命令与 Astra 数据存储一起使用，以替换集群中的故障节点。</block>
+  <block id="ba6892cf573144bb73e7929641b57d17" category="list-text">列出 `astrads-system` 命名空间中的 Pod （我们的示例使用一个 1x5 配置，其中集群中有 4 个节点）：</block>
+  <block id="b1e1294486624403d0533e5b77f81b1f" category="list-text">列出所有节点：</block>
+  <block id="4dc1585b3b71bcdfd423771772b26a73" category="list-text">描述集群：</block>
+  <block id="61941ab5e153651276d8ff166c98fa79" category="list-text">验证故障节点上的节点 HA 是否标记为 "False" ：</block>
+  <block id="2e0a0e5f63a3e34661e5cebf3e1bfc05" category="list-text">修改集群 CR 以删除故障节点。节点数将减少为 3 ：</block>
+  <block id="89f09133b136e91c07cf22c261722f17" category="list-text">验证是否已从集群中删除此节点：</block>
+  <block id="59dc031f69b69e9710c74b6b626b9484" category="list-text">通过修改集群 CR 将节点添加到集群以进行更换。节点数将递增至 4 。验证是否已选取新节点进行添加。</block>
+  <block id="d527387e5ececcd43839b7eb86a061bf" category="summary">需要执行主机维护或软件包升级时，应将节点置于维护模式。</block>
+  <block id="0b8dd151b58b6bf3c7360c3a78b26e04" category="doc">将节点置于维护模式</block>
+  <block id="c7e8e8a7f1a6fb5362aeff0689ff1a73" category="admonition">节点必须是 Astra 数据存储集群的一部分。</block>
+  <block id="6a070a29c656f8942eb8d0ed53f9f79e" category="paragraph">当节点处于维护模式时，您无法添加节点。</block>
+  <block id="8574c080b5c15d6898aac8d0b601c5d8" category="list-text">显示节点详细信息。</block>
+  <block id="d290550b0009c972401d893478976353" category="list-text">获取卷的详细信息：</block>
+  <block id="41fc664a86b897717b81a010b7cf950e" category="list-text">启用维护模式：</block>
+  <block id="a50914cbb8e47a537a25014f5b12edc5" category="paragraph">处于维护模式的将启动为 "False" ，并更改为 "True" ，而维护状态将从 " 准备维护 " 更改为 " 准备维护 " 。</block>
+  <block id="d13de4a83d7b44c2e65495def8ef1c7b" category="section-title">有关详细信息 ...</block>
+  <block id="809ce4b8d42d2f4a54279fffa78b7e08" category="inline-link-macro">使用 kubectl 命令管理 Astra Data Store 资产</block>
+  <block id="55f3d07228facede0763d324535936dd" category="paragraph">另请参见此信息。* <block ref="71dd6be9bbc5ad66a4c62fe63d832feb" category="inline-link-macro-rx"></block>。</block>
+  <block id="6e9e51fbbff14f80e8168a1cfe154faf" category="summary">Astra Control 具有一个 REST API ，可用于使用编程语言或 Curl 等实用程序直接访问 Astra Control 功能。</block>
+  <block id="d755391e5d933eadfa1864b13155afeb" category="doc">使用 Astra Control REST API 实现自动化</block>
+  <block id="ce8c3cae4f2c01197a36e6ffb040472a" category="paragraph">Astra Control 具有一个 REST API ，可用于使用编程语言或 Curl 等实用程序直接访问 Astra Control 功能。您还可以使用 Ansible 和其他自动化技术管理 Astra Control 部署。</block>
+  <block id="25a597384655d8562854aa2ef853e0d2" category="paragraph">要设置和管理 Kubernetes 应用程序，您可以使用 Astra Control UI 或 Astra Control API 。</block>
+  <block id="4cb6c41d46d2f006d629608f64213d6f" category="inline-link">Astra Control 自动化文档</block>
+  <block id="bd0d75f3c5e39de86dcfaa2135656772" category="paragraph">要了解更多信息，请转到<block ref="a3a0846fef2d3938044e5c73697831f2" category="inline-link-rx"></block>。</block>
+  <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">已知问题可确定可能妨碍您成功使用此版本产品的问题。</block>
+  <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">已知问题</block>
+  <block id="cbf07725210d7794bc72ba637e814463" category="paragraph">已知问题用于确定可能会阻止您成功使用此产品预览版的问题。</block>
+  <block id="0e4fba3a066f36e9068d0c009d7e645b" category="section-title">Astra Data Store 预览版无法识别默认的 Calico WireGuard 接口名称</block>
+  <block id="0a2658de7347bd058fe644ff8377e067" category="paragraph">此错误会导致 Pod 崩溃。作为临时解决策，请更改 Calico 的 Felix 配置中的 wireguardInterfaceName 设置，以指定不带点的接口名称。例如：</block>
+  <block id="7b9da3c0b330f1b48579aeceb36d8fe9" category="paragraph">除了在每个节点上使用新名称创建接口之外，此更改还可能会留下原始 wireguard.cali 接口。删除这些接口以防止此问题描述重复发生。</block>
+  <block id="611ef1043a7be23a79c733584b983303" category="section-title">Astra Data Store 预览版无法识别采用 VXLAN 配置和 Calico CNI 的网络接口名称</block>
+  <block id="dbeae861992513b6eb728dc3b93f660d" category="paragraph">此错误会导致 Pod 崩溃。作为临时解决策，禁用 VXLAN 配置。</block>
+  <block id="7c88f5c8e51811bf930b3f587b58d58a" category="section-title">如果 Pod 处于崩溃环路中，使用默认活跃度探针值的 MongoDB 部署将失败</block>
+  <block id="c4a3b0f34e2b8b73bccefd6f730679b0" category="paragraph">作为临时解决策，请在 MongoDB 部署规范中将活跃度探针 initialDelaySeconds 设置为 600 秒。</block>
+  <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">已知限制</block>
+  <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
+  <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">NetApp 会定期更新 Astra 数据存储，为您提供新功能，增强功能和错误修复。</block>
+  <block id="fd8fab2b77961e520a179634de8b2fa4" category="doc">此版本的 Astra 数据存储中的内容和 #8217</block>
+  <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">我们很高兴地宣布， Astra Data Store 的预览版为 21.12 。</block>
+  <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021 年 12 月 21 日（ 21.12 ）</block>
+  <block id="2cea7660cc7ef2af10814b0f736a7797" category="paragraph">初始版本的 Astra 数据存储。</block>
+  <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">它是什么</block>
+  <block id="0366914bfcaaf0f822d79c3c7babc483" category="list-text"><block ref="0366914bfcaaf0f822d79c3c7babc483" category="inline-link-macro-rx"></block></block>
+  <block id="6251e202756531d0b1e4a8c3e94d6bc4" category="inline-link-macro">部署模式和组件</block>
+  <block id="37732ccd7c5f71d8c53932d31af19327" category="list-text"><block ref="37732ccd7c5f71d8c53932d31af19327" category="inline-link-macro-rx"></block></block>
+  <block id="c9a21e3a3141bc9001bc0958ff7af4e0" category="inline-link-macro">入门所需的资源</block>
+  <block id="0523965ded2c88ae66e7e4d44ca41a94" category="list-text"><block ref="0523965ded2c88ae66e7e4d44ca41a94" category="inline-link-macro-rx"></block></block>
+  <block id="349838fb1d851d3e2014b9fe39203275" category="inline-link-macro">安装</block>
+  <block id="a0f848942ce863cf53c0fa6cc684007d" category="inline-link-macro">设置</block>
+  <block id="b6112d00a521fccefa4489b14d465a3b" category="list-text"><block ref="533d2f97327ab5644c4038f91999940c" category="inline-link-macro-rx"></block> 和 <block ref="becc72e9ee6a9f1ae4fca00b065a0abf" category="inline-link-macro-rx"></block></block>
+  <block id="fe366a9f18dfbeaa4e78c3a9f022d4ce" category="inline-link-macro">管理和监控性能</block>
+  <block id="1ddf7bdaa53df7ef6d128c918699a43f" category="list-text"><block ref="1ddf7bdaa53df7ef6d128c918699a43f" category="inline-link-macro-rx"></block></block>
+  <block id="28c965a9c3773d02a3f2f37460517913" category="inline-link-macro">使用 Cloud Insights 进行监控</block>
+  <block id="c76917f270d30a203529be3a9e423159" category="list-text"><block ref="c76917f270d30a203529be3a9e423159" category="inline-link-macro-rx"></block></block>
+  <block id="3d947721e690a3b1a861a1ed8113ded8" category="inline-link-macro">使用自动支持监控</block>
+  <block id="a2349035bf4872c12c78cb2d856a9336" category="list-text"><block ref="be0f477de0f57aea94404872654dcee8" category="inline-link-macro-rx"></block> 和 <block ref="60f068e3a346c283b9ad7095bc3a22bf" category="inline-link-macro-rx"></block></block>
+  <block id="0956972ccb3f1ffed4c31a057c597e7d" category="list-text"><block ref="0956972ccb3f1ffed4c31a057c597e7d" category="inline-link-macro-rx"></block></block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">发行说明</block>
+  <block id="9496fd053449dc632695aa62786ebaf1" category="inline-link-macro">此版本的 Astra 数据存储中的内容</block>
+  <block id="1761491776db9658a9d9f4322aef4187" category="list-text"><block ref="1761491776db9658a9d9f4322aef4187" category="inline-link-macro-rx"></block></block>
+  <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub 贡献者</block>
+  <block id="65ed3c4720fad34d453db54755338725" category="paragraph">在 Twitter @NetAppDoc 上关注我们。通过成为发送有关文档的反馈 <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> 或发送电子邮件至 doccomments@netapp.com 。</block>
+  <block id="1eba71d64e6c5e410e558530711e835b" category="summary">已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。</block>
+  <block id="e42bc9d321b4abe3662a7990b5c7c37f" category="paragraph">已知限制表示此产品预览版不支持或无法与之正确交互的平台，设备或功能。仔细审查这些限制。</block>
+  <block id="93c6ecb767e400f580fe2b79b925ed35" category="section-title">不支持删除一个或多个节点的功能</block>
+  <block id="02ae7b81eed73967ba19efba8b18a845" category="paragraph">Astra Data Store 预览版支持更换发生故障的节点，但不支持节点删除功能。</block>
+  <block id="4a92e856a033d3527db5b721839de67c" category="section-title">不支持添加或删除驱动器的功能</block>
+  <block id="b283330938a2efd574971709e0eb1a96" category="paragraph">Astra Data Store 预览版支持更换故障驱动器，但不支持在现有集群中添加或删除驱动器。</block>
+  <block id="1c27587bda352fa09c49c0026f2f1347" category="section-title">启用防火墙后，未验证 Astra Data Store 预览功能</block>
+  <block id="8dfd25c9737e74df2610fe1998679141" category="paragraph">Astra Data Store 预览版要求禁用主机 firewalld 。尚未验证使用 Calico HostEndpoint 等 CNI 工具启用防火墙。</block>
+  <block id="a2b9bc64ef0e19631f5f577e78217a8c" category="section-title">升级或修补程序需要全新安装</block>
+  <block id="6227dd6927c26840de69af22a82ed17f" category="paragraph">Astra Data Store 预览版不适用于生产工作负载。</block>
+  <block id="91103fd1bd4fa8531dc6f4bac0120409" category="section-title">基于 Ubuntu 的裸机或虚拟机直通部署需要 NVMe TLC SSD</block>
+  <block id="d9873749f0f8e850c1b913dbe83b4686" category="paragraph">此限制不适用于基于 RHEL ， RHCOS 或 CentOS 的部署。</block>
+  <block id="4d8d4f4d8e18c7039f1e4975914b919f" category="summary">您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。</block>
+  <block id="9006a134fd1870aca1877d5e1e68dae9" category="doc">使用 Cloud Insights 监控指标</block>
+  <block id="611bcab913954802c9283b2b3ed655ea" category="paragraph">您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。</block>
+  <block id="0767b737d4d06155bc7689973c1cf5a3" category="list-text"><block ref="906865744b562a0c4fafd3d196089f39" category="inline-xref-macro-rx"></block></block>
+  <block id="ecb31804db885e53cbb56c093d6c0d23" category="list-text"><block ref="3db1750a737cabf57020a57538c06b10" category="inline-xref-macro-rx"></block></block>
+  <block id="4efd15a2c3c529389df09953218abde1" category="list-text"><block ref="be7c6a43d5af7285cc473ab6ceb17a78" category="inline-xref-macro-rx"></block></block>
+  <block id="c5b465091c9b07cf9c61a8e84e738e0b" category="list-text"><block ref="d2580e21da8a2e295d08a3fb642259f0" category="inline-xref-macro-rx"></block></block>
+  <block id="76a54526b50db93a67991b9df579b40e" category="inline-image-macro">显示 Astra 数据存储指标的 Cloud Insights</block>
+  <block id="74cf95137df35241bf62c4cf6aaa0a33" category="paragraph">以下是 Cloud Insights 中显示的一些示例 Astra 数据存储预览指标：<block ref="b65cc9dd5d7dd9b89d038ad2252a3b1c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="712f099047cda3cd74ff8f01de43d978" category="paragraph">您还可以使用显示在 Astra Data Store 预览版中生成的指标列表 <block ref="00ffaabd9466e38e21fd83d76092ff60" category="inline-xref-macro-rx"></block>。</block>
+  <block id="350a0608f79ae84c665bdb915a99b6f4" category="section-title">执行 Cloud Insight 连接前提条件</block>
+  <block id="7d14a02fd20aa817b9f312556759bc77" category="paragraph">在将 Astra 数据存储与 Cloud Insights 连接之前，您需要：</block>
+  <block id="7b67f0c7b487cbbd9d0de335853f47bc" category="inline-link-macro">安装 Astra 数据存储监控操作员</block>
+  <block id="c0bad834430ab85bd4725a526a7d982c" category="list-text"><block ref="efb24d61a911f445480068deb62ef590" category="inline-link-macro-rx"></block>。</block>
+  <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">安装 kubectl-astrad 二进制文件</block>
+  <block id="75f04a74c77e9463b905044df556832c" category="list-text"><block ref="0eacfcf04ba7b53f6921ae59c21fee42" category="inline-link-macro-rx"></block> 按照 Astra Data Store 预览安装文档进行操作。</block>
+  <block id="e6ba49b0d11a72603e691022f17a15ab" category="inline-link-macro">创建 Cloud Insights 帐户</block>
+  <block id="64d3b11fec8198c348c02089354e0e98" category="list-text"><block ref="3df917f86d29a2e2f04984ff132f6c20" category="inline-link-macro-rx"></block>。</block>
+  <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">确保以下命令可用： `jk ， curl ， grep` 和 `JQ`</block>
+  <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">收集以下信息：</block>
+  <block id="bb9b8565e3823e4ec709b95221f40bd1" category="list-text">对以下类别具有读 / 写权限的 * Cloud Insights API 密钥 * ：采集单元，数据收集，数据载入和日志载入。此参数将用于读 / 写操作，设置采集单元和设置数据载入过程。</block>
+  <block id="c4907f71169d00508df63ef9afdc68a1" category="list-text">* Kubernetes API 服务器 IP 地址和端口 * 。用于监控 Astra Data Store 预览集群。</block>
+  <block id="621014ace1f1a70456f973648580f813" category="list-text">* Kubernetes API 令牌 * 。此选项用于调用 Kubernetes API 。</block>
+  <block id="e76594ced2224ed170caf674cdb7add8" category="list-text">* 永久性卷配置 * 。有关如何配置永久性卷的信息。有关详细信息，请参见下面的 " 采集单元 " 。</block>
+  <block id="3d3a08f39e79301ab5c0cdfa66b5b7ff" category="section-title">下载并运行安装脚本</block>
+  <block id="af33037136184f5cf3624e0858a76571" category="paragraph">Cloud Insights 提供了 Bash 脚本，用于通过监控操作员启用 Astra 数据存储预览监控。安装脚本将安装一个采集单元以及 Astra 数据存储收集器，一个 Telegraf 代理和一个 Fluent Bit Agent 。</block>
+  <block id="bf6aeb656eff14833c40fdf5b3a48145" category="paragraph">下载 Cloud Insights 租户域名和选定 API 访问密钥后，此域名和 API 访问密钥将嵌入安装程序脚本中。</block>
+  <block id="9d4660ed840630e640b31ec3c061e7bc" category="paragraph">然后，指标将按如下所示发送：</block>
+  <block id="3adb3d8a32b42a2857ad4c4b8a9003a6" category="list-text">Telegraf 将向 Cloud Insights 数据湖发送指标。</block>
+  <block id="40c73fe92317526aa4df3d36fd3ad73d" category="list-text">Fluent Bit 会将日志发送到日志载入服务。</block>
+  <block id="62e3ff407f1c5be1f52dc2ff6bf6ea49" category="list-text">如果您还没有 Cloud Insights 帐户，请创建一个。</block>
+  <block id="f5f5c23c1738f3c9d968460a7922f3de" category="list-text">登录到 Cloud Insights 。</block>
+  <block id="94c971acbf0b49c19d73a3f5dbe825f8" category="list-text">从 Cloud Insights 菜单中，单击 * 管理 * &gt; * 数据收集器 * 。</block>
+  <block id="2270d720d24e785df27898c7da44a849" category="list-text">单击 * + Data Collector* 以添加新收集器。</block>
+  <block id="b3cf4c5680f339b50263248f2dc48379" category="inline-image-macro">显示 Astra 数据存储图块的 Cloud Insights</block>
+  <block id="866756ca1b4623d0fb04ca4b14daa435" category="paragraph"><block ref="866756ca1b4623d0fb04ca4b14daa435" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0064fffa49fa46977bec11c251364b0a" category="list-text">单击 * Astra Data Store* 图块。</block>
+  <block id="a634a0958bbdef5350d68e97eacc5ba6" category="list-text">选择正确的 API 访问令牌或创建新的 API 访问令牌。</block>
+  <block id="70830da013f2c90eadbbf13f0eea52ad" category="list-text">按照说明下载安装程序脚本，更新权限并运行此脚本。</block>
+  <block id="0198ace6f08bad7ae327801e20fff81f" category="paragraph">此脚本包含您的 Cloud Insights 租户 URL 和选定 API 访问令牌。</block>
+  <block id="e9cb0fa56b60ddf0f40cb6d55732a359" category="inline-image-macro">显示 Astra 数据存储安装页面的 Cloud Insights</block>
+  <block id="7b0669fbc22af2b3bf66ea2884c43b85" category="paragraph"><block ref="7b0669fbc22af2b3bf66ea2884c43b85" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e9b4c864cce989f3d20b0b6aeb60895a" category="list-text">完成脚本后，单击 * 完成设置 * 。</block>
+  <block id="5b2bcd3ee1bf241ef578bd747aaa2275" category="paragraph">安装脚本完成后， Astra Data Store 收集器将显示在 Datasources 列表中。</block>
+  <block id="6050a6b00788c5a261f4b24b7978d60a" category="admonition">如果脚本因错误而退出，您可以在解决错误后重新运行它。如果您的环境不使用默认设置，则该脚本支持其他参数，例如监控操作员命名空间和 Kubernetes API 服务器端口。使用 `` -h"`` 选项查看使用情况和帮助文本。</block>
+  <block id="2863b1500d8c376831f57b60f0cbed61" category="paragraph">运行安装脚本会生成如下输出：</block>
+  <block id="99e77960ebd5aad3286059bfbd0615c5" category="section-title">采集单元存储</block>
+  <block id="7d53bd0f620e632b71c278ad068a19b9" category="paragraph">采集单元需要三个永久性卷来存储安装文件，配置数据和日志。监控操作员使用默认存储类创建永久性卷请求。在运行安装程序脚本时，您可以使用 ` -s` 选项指定其他存储类名称。</block>
+  <block id="2d71aa866fd6e440cf6290ebb9f988be" category="paragraph">如果您的 Kubernetes 集群没有存储配置程序（例如 NetApp Trident ），您可以在运行安装程序脚本时使用 ` -r` 选项提供本地文件系统路径。设置 ` -r` 选项后，安装程序脚本会在提供的目录中创建三个永久性卷。此目录至少需要 150 GB 的可用空间。</block>
+  <block id="20d6c8958970fb1a2ce1a95613e7665b" category="section-title">代理 CR 示例</block>
+  <block id="445c2dfab85f0763a057d90aef225a43" category="paragraph">以下是运行安装程序脚本后 `monitoring-NetApp` 代理 CR 的外观示例。</block>
+  <block id="483cd8f1747e8a0029d3cad4d22f2e94" category="section-title">安装程序脚本帮助</block>
+  <block id="062a54c44bdfd9858c8054292864b1a5" category="paragraph">安装程序脚本的完整帮助文本如下所示：</block>
+  <block id="23dd88d71d7767914d0ba74ce09182b0" category="section-title">编辑 Cloud Insights 连接</block>
+  <block id="d542a9812ed087b9931c2c36f1357b43" category="paragraph">您可以稍后编辑 Kubernetes API 密钥或 Cloud Insights API 密钥：</block>
+  <block id="03d3f4f6b02641ad0957f7ae992ab815" category="list-text">如果要更新 Kubernetes API 密钥，应从 Cloud Insights UI 编辑 Astra 数据存储收集器。</block>
+  <block id="c022dc42fc6794590ff337762e9aa004" category="list-text">如果要更新用于遥测和日志的 Cloud Insights API 密钥，应使用 kubectl 命令编辑监控操作员 CR 。</block>
+  <block id="38c3b25ebad55273cd701d86d7c5674d" category="section-title">更新 Kubernetes API 令牌</block>
+  <block id="27322a77dff94e81f835410f4584b839" category="list-text">选择 * 管理 * &gt; * 数据收集器 * 以访问数据收集器页面。</block>
+  <block id="9e23ceb78a6420f20917e3be85d18084" category="list-text">找到 Astra Data Store 集群的条目。</block>
+  <block id="2a3e436e3df2f6c013a096178e37bd12" category="list-text">单击页面右侧的菜单，然后选择 * 编辑 * 。</block>
+  <block id="dad6a897e4f52efceaed582e77ec0445" category="section-title">更新 Cloud Insights API 访问令牌</block>
+  <block id="b511b5f3ed5ea6ca0fd6cb60a0fd377a" category="list-text">选择 * 管理 * &gt; * API 访问 * 并单击 * + API 访问令牌 * ，创建新的 Cloud Insights API 访问令牌。</block>
+  <block id="83400e61f62d567ac8c59eb422c53296" category="list-text">编辑代理 CR ：</block>
+  <block id="a9555691664079ea9bedb729314bc590" category="list-text">找到 `output-sink` 部分，然后找到名为 ` "Ci"` 的条目。</block>
+  <block id="662b463e12d39626a0f9269cb252a7db" category="list-text">对于标签 `api-key` ，请将当前值替换为新的 API 密钥。</block>
+  <block id="48d5af6637803a576ddb9b4b5335594f" category="paragraph">此部分如下所示：</block>
+  <block id="08b6b5aaedb7004643c0c9f98ad82005" category="list-text">保存并退出编辑器窗口。</block>
+  <block id="26d9ef960bdd0f4e9874ad46ba43d683" category="paragraph">监控操作员将更新 Telegraf 和 Fluent Bit 以使用新的 API 密钥。</block>
+  <block id="3186f8d18929c5ad50382958c1069796" category="section-title">断开与 Cloud Insights 的连接</block>
+  <block id="dd3afc6527618de50ab808c19960d8e5" category="paragraph">要断开与 Cloud Insights 的连接，您需要先从 Cloud Insights UI 中删除 Astra 数据存储收集器。完成后，您可以从监控操作员中删除采集单元， Telegraf 和 Fluent 位配置。</block>
+  <block id="82c5052cb623901eefe95a965c322b31" category="section-title">删除 Astra 数据存储收集器</block>
+  <block id="3f82a83a5c61062d40184dc63f47bb9a" category="list-text">选择屏幕右侧的串行菜单，然后选择 * 删除 * 。</block>
+  <block id="4a4676a685d60e6b1f5813c3907f9ab6" category="list-text">单击确认页面上的 * 删除 * 。</block>
+  <block id="c65fb1125fbf2f9e2e44e32e61b62a02" category="section-title">删除采集单元， Telegraf 和 Fluent 位</block>
+  <block id="ec2389605ec052321571ac13ec063738" category="list-text">找到 `au` 部分并设置 `isenabled ： false`</block>
+  <block id="90db19427057dc11bc0e2f5c8cf30876" category="list-text">找到 `flual-bit` 部分，然后删除名为 ` ads-tail ci` 的插件。如果没有其他插件，您可以删除 `flual-bit` 部分。</block>
+  <block id="ba6f7b853b4d707dd3cf6b7f2c0f497e" category="list-text">找到 `telaff` 部分，然后删除名为 ` ads-open-metric` 的插件。如果没有其他插件，您可以删除 `电报` 部分。</block>
+  <block id="1339f6affca26c5e554081de2348724c" category="list-text">找到 `output-sink` 部分，然后删除名为 ` "Ci"` 的接收器。</block>
+  <block id="0b8e607bb970ba8b1809c142f6ee9d2c" category="paragraph">监控操作员将更新 Telegraf 和 Fluent 位配置并删除采集单元 POD 。</block>
+  <block id="79e2afd2ba4ca7ab8246defff43d1c68" category="list-text">如果您使用本地目录作为采集单元 PV ，而不是存储配置程序，请删除这些 PV ：</block>
+  <block id="950c71908905ca13bfc6137988331cc3" category="paragraph">然后，删除运行 AU 的节点上的实际目录。</block>
+  <block id="c1943291194b3d4796fcf7f9eff18d27" category="list-text">删除采集单元 POD 后，您可以从 Cloud Insights 中删除采集单元。</block>
+  <block id="e7b273b59c7a2201eeccd5ba9337bd87" category="list-text">在 Cloud Insights 菜单中，选择 * 管理 * &gt; * 数据收集器 * 。</block>
+  <block id="6e4c4ac7964722923536e1f01d80dab2" category="list-text">单击 * 采集单元 * 选项卡。</block>
+  <block id="2fa6aa4ecba5f4acf3de663c21cc69ea" category="list-text">单击采集单元 POD 旁边的菜单。</block>
+  <block id="874db297b2254479eeb702a2d7fa8dab" category="list-text">单击 * 删除 * 。</block>
+  <block id="0dd656c262cdf7d8dc379079337de685" category="paragraph">监控操作员将更新 Telegraf 和 Fluent 位配置并删除采集单元。</block>
+  <block id="6b40eaae8ec9ab8ff4f2fcec876f582d" category="section-title">打开指标 API 帮助</block>
+  <block id="6f04ea05bd96c0439a8a2cd32768b309" category="paragraph">下面列出了可用于从 Astra Data Store 预览版收集指标的 API 。</block>
+  <block id="d6e7985c9eb9d0b51b91b2cb937d7335" category="list-text">"help" 行说明了指标。</block>
+  <block id="626ded8565b78fc3552661d6afa5cae0" category="list-text">"type" 行表示指标是量表还是计数器。</block>
+  <block id="3af93db73b99aaf3e341694343e7f989" category="summary">您可以在 Astra Data Store 中使用 kubectl 命令来维护集群。</block>
+  <block id="12ca355b0c012fc5e428b77818d39316" category="doc">管理集群</block>
+  <block id="dccfc7385a8459db3905293ca31d8c1d" category="paragraph">您可以使用带有 Astra Data Store 预览版的 kubectl 命令来管理集群。</block>
+  <block id="3ab6bb8b4346e7149828a717be5f5138" category="list-text"><block ref="1e29c863bc7525a154916f08787ad250" category="inline-xref-macro-rx"></block></block>
+  <block id="27ec3c702a92a11dcf758cfea1abd08f" category="list-text"><block ref="63b70cc1a1cc1ef2d48b82d0f99fbd99" category="inline-xref-macro-rx"></block></block>
+  <block id="26eacaaf63559bf861e3022ecb6de84a" category="list-text"><block ref="df0e18c8da4815d4cb1f63aa721a5430" category="inline-xref-macro-rx"></block></block>
+  <block id="df1c8140731b102d7eda9ae07adf0d06" category="list-text"><block ref="e337a3bd799ea0d3465602eaa898ac0b" category="inline-xref-macro-rx"></block></block>
+  <block id="eed5ddc8f738970611f01ee16f2a17e5" category="section-title">您将需要什么</block>
+  <block id="f425bc9b9a4cd4b2207bc5a3ff7a2f1e" category="inline-link-macro">安装 Astra Data Store 预览版</block>
+  <block id="320f561fe46d717efd6bede4ccf31772" category="list-text">安装了 kubectl 和 kubectl-astrad 插件的系统。请参见 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="3791a6ae58ebb531548b4b5a1906c3fa" category="admonition">此节点必须已属于 Astra Data Store 预览集群。</block>
+  <block id="646c25c2e81dc15df50a3ca0d9a039da" category="paragraph">当节点处于维护模式时，您无法向集群添加节点。在此示例中，我们将 nhcitj1525 置于维护模式。</block>
+  <block id="96ae38b31ba3daa2e5358239c685687b" category="list-text">显示节点详细信息：</block>
+  <block id="892cf5da18b48d5c81fecbbacebc26d1" category="list-text">确保节点尚未处于维护模式：</block>
+  <block id="407875538f0a5a391fa066b78db80f35" category="list-text">启用维护模式。</block>
+  <block id="20ffff966b6d15e3131eac8732b5d367" category="list-text">列出节点。</block>
+  <block id="115e5b2861ab6ca4176365b8e50c0e9f" category="list-text">检查维护模式的状态：</block>
+  <block id="1e6c99c260c3791bc14b2fa000dc2725" category="paragraph">处于维护模式的将以 "False" 开头，并更改为 "True" 。 维护状态从 " 准备维护 " 更改为 " 准备维护 " 。</block>
+  <block id="b058dc0e7d56297138ea75a1af7eb2e8" category="list-text">完成节点维护后，禁用维护模式：</block>
+  <block id="7970cfd813155c614358a18b3df1afd0" category="list-text">确保节点不再处于维护模式：</block>
+  <block id="179c07bdb3db1669e2d4e1a337247468" category="section-title">添加节点</block>
+  <block id="9a39cfe3410df3b493ee309248b9a863" category="paragraph">要添加的节点应属于 Kubernetes 集群，并且其配置应与集群中的其他节点类似。</block>
+  <block id="d284e8ebe75ed39c496430b2e6213263" category="list-text">如果新节点的 dataIP 尚未加入 ADSCluster CR ，请执行以下操作：</block>
+  <block id="dcc8b731e63482e766610e7c44274b50" category="list-text">编辑 astradscluster CR 并在 ADS Data Networks Addresses 字段中添加额外的 dataIP ：</block>
+  <block id="2d258c624d61d2388efacfc246d2439e" category="list-text">保存 CR 文件。</block>
+  <block id="bf024c9e7bfc344f7b2e8beaba8eb53f" category="list-text">将节点添加到 Astra Data Store 预览集群：</block>
+  <block id="653c040f4e29a0c02bb862820aea4503" category="list-text">否则，只需添加节点：</block>
+  <block id="16e457b8846355beaf7788602b579a97" category="list-text">验证是否已添加此节点：</block>
+  <block id="dd7423a16788f2363740161a60d6ab15" category="paragraph">使用 kubectl 命令和 Astra Data Store 预览版替换集群中的故障节点。</block>
+  <block id="f7f731ad8fc3e94f259d6032d191fe26" category="paragraph">当集群中的驱动器发生故障时，必须尽快更换驱动器以确保数据完整性。驱动器发生故障时，您将在集群 CR 节点状态，集群运行状况信息和指标端点中看到故障驱动器信息。</block>
+  <block id="1121c6f763d5f0bfb1ec39e88bdcd87c" category="listing-title">在 nodeStatuss.driveStatuses 中显示故障驱动器的 &lt;code&gt; 集群 &lt;/code&gt; 示例</block>
+  <block id="3b7be6cf23b8894b5b7543d0892eae78" category="paragraph">故障驱动器 CR 会在集群中自动创建，其名称与故障驱动器的 UUID 相对应。</block>
+  <block id="8a3067d20951ac8d217fa22953c683f9" category="list-text">使用 `kubectl astrad show-replacements` 命令列出可能的替代驱动器，该命令可筛选符合更换限制（未在集群中使用，未挂载，无分区以及等于或大于故障驱动器）的驱动器。</block>
+  <block id="ca6aaabf5c74238b64f1f77fc1078fb1" category="paragraph">要在不筛选可能的替代驱动器的情况下列出所有驱动器，请在 `sHow-replacements` 命令中添加 ` -all` 。</block>
+  <block id="6c3c161fd5fdd3643cb3089d85b3eb2e" category="list-text">使用 `replace` 命令将驱动器替换为已传递的序列号。如果 `` -wait` 时间已过，则命令将完成替换或失败。</block>
+  <block id="125f85ae4d1ff2dd68b6b65a8b46611f" category="list-text">如果使用不适当的 ` -replaceWith` 序列号执行 `kubectl astrad faileddrive replace` ，则会显示类似以下内容的错误：</block>
+  <block id="2353ebc5bf4ef03285a31f63f7edecb7" category="list-text">要重新运行驱动器更换，请使用 `` -force` 和上一个命令：</block>
+  <block id="fa66deafe43eeb85efe57503fb3ae064" category="inline-link-macro">使用 kubectl 命令管理 Astra Data Store 预览</block>
+  <block id="1547e6ff05871151dc93bb10fd889d5c" category="list-text"><block ref="1547e6ff05871151dc93bb10fd889d5c" category="inline-link-macro-rx"></block></block>
+  <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">要卸载 Astra 数据存储，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和命名空间。</block>
+  <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">卸载 Astra Data Store 预览版</block>
+  <block id="66c366a59302f9026a436cdc64aca9e6" category="paragraph">要卸载 Astra Data Store 预览版，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和 Astra Data Store 预览命名空间。</block>
+  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">您需要什么？ #8217 ；将需要什么</block>
+  <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">root 管理权限</block>
+  <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store 预览卸载过程将指导您完成以下高级步骤：</block>
+  <block id="05424633f0bd5eefeaa3629e5c4d1ae1" category="list-text"><block ref="cab67cc4c69f00a37ed4ae97c08b5a2c" category="inline-xref-macro-rx"></block></block>
+  <block id="46c883ff8d48945b15db394f9ac2050d" category="list-text"><block ref="c650fcae59c3ef6d3a0e731f55d376df" category="inline-xref-macro-rx"></block></block>
+  <block id="0bc81830f1dfb9de112bee2d6bd91b91" category="list-text"><block ref="26d229d5e2e3968e71c3402c5a09214b" category="inline-xref-macro-rx"></block></block>
+  <block id="cacd3064543c7be5a9b55ffd25a40141" category="list-text"><block ref="d494c9949a6c752fae5f375dcac6bb64" category="inline-xref-macro-rx"></block></block>
+  <block id="62cbbbe20a4f7204713f61b69b29e278" category="list-text"><block ref="223e6ae0705bfe1f48c64c892d4f772f" category="inline-xref-macro-rx"></block></block>
+  <block id="334982a7418a341303b6f2204ca1e0fe" category="list-text"><block ref="621e8ae438ccf9d5bd1e2f424bbe8b78" category="inline-xref-macro-rx"></block></block>
+  <block id="85e4b847a7452c3cb60874d0fbf806b3" category="list-text"><block ref="9ae241411ebdbe5b7431af3f015cef5e" category="inline-xref-macro-rx"></block></block>
+  <block id="701ee8f26f3e562b59500c03be25b586" category="section-title">删除现有工作负载和绑定</block>
+  <block id="7b657a06e01fc8d3bacd2994dde0affd" category="paragraph">卸载 Astra Data Store 预览版之前，必须先删除以下内容</block>
+  <block id="7a5d6c83503f246649c3952c68522edf" category="list-text">使用 Astra Data Store 预览版作为存储后端的所有应用程序工作负载</block>
+  <block id="6d1bd33ff6421dfef67de0310c86b001" category="list-text">使用 Astra Data Store 预览作为后端的 Trident 绑定</block>
+  <block id="713b0c98704e3691534fea10f986b89a" category="paragraph">这样可以确保 Kubernetes 环境保持干净，这在重新安装时非常重要。</block>
+  <block id="563b0034df7b9c29d189cfa04d6244d4" category="section-title">卸载 Astra Data Store 预览集群和控制平面</block>
+  <block id="9f5b1d3ae9147b57f79e1ece23b92700" category="paragraph">按照以下步骤手动卸载 Astra Data Store 预览版。</block>
+  <block id="18f297cd2cf5f61e0d2e236b72408d65" category="section-title">删除卷和导出策略</block>
+  <block id="be76d934b781f3ee17c195e53deaa2ed" category="paragraph">在删除集群之前，您应删除 Astra Data Store 预览卷和导出策略。</block>
+  <block id="aab34a85b3bc4cdb35a9e59425861289" category="admonition">如果不先删除卷和导出策略，则集群删除过程将暂停，直到删除 Astra Data Store 预览卷对象为止。在开始删除集群之前删除这些项会更高效。</block>
+  <block id="54b956b8b0644f1e413223dc1aee2b0e" category="list-text">删除卷：</block>
+  <block id="c93baa78349985fc4b5eeeffc09a33f8" category="list-text">删除导出策略：</block>
+  <block id="7563aa62543c07a40f533dd0e0ae2014" category="section-title">删除 Astra Data Store 预览集群</block>
+  <block id="d7c0a4c83a2044822dabefb932c42b79" category="paragraph">删除集群时，只会删除 Astra Data Store 预览集群对象自定义资源（ CR ）以及集群范围的资源。</block>
+  <block id="8dbff560b4fb498559cc825c3ba8de41" category="admonition">即使在删除集群后，操作符， nodeinfo Pod 和集群控制器（即 Kubernetes 范围的资源）仍会保持不变。</block>
+  <block id="b3178373b149d14e46085126525f79d6" category="paragraph">删除集群还会从节点卸载底层操作系统，从而停止 `fireap` 和 `netwd` 服务。</block>
+  <block id="ed4aa92f77103f4b2c27a6ee04599f0e" category="paragraph">卸载程序大约需要一分钟才能完成。然后，开始删除 Astra Data Store 预览集群范围的资源。</block>
+  <block id="cca5f52fa80eb378d8e9e4499d5a49f7" category="list-text">删除集群：</block>
+  <block id="224bb9d3e58164d87f1e7b1480ff3195" category="section-title">删除许可证</block>
+  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">通过 SSH 连接到集群中的每个工作节点，并验证` fireap` 或 `netwd `未在工作节点中运行。</block>
+  <block id="922f0882e69507614b86bbe67722122a" category="list-text">删除 Astra Data Store 预览许可证：</block>
+  <block id="9524d1588970b8601d9a6c11fbff86d2" category="section-title">删除 Astra Data Store 预览安装</block>
+  <block id="89471d1ad77aea625df3d06c6b912a6f" category="paragraph">删除集群中的控制器，操作员，命名空间和支持 Pod 。</block>
+  <block id="b1449c85674b9416a7aad84e20c0bc41" category="list-text">删除 Astra Data Store 预览安装对象：</block>
+  <block id="172b5b6fca79ce433371dc5198dee6b3" category="list-text">删除数据存储 DemonSets 和所有 Astra Data Store 预览控制器资源：</block>
+  <block id="a7285e1a3509c614618f679da04ecd63" category="list-text">删除其余项目和操作符 YAML 文件：</block>
+  <block id="a9bcd8b892d07fc3f59e83751bb61630" category="section-title">验证是否删除了 astrads-system 命名空间</block>
+  <block id="df660d992b6a3c556d9a2c4e04a32d00" category="paragraph">确保以下命令不返回任何结果：</block>
+  <block id="742a4dc582c34fb3bbb34a9f3cbeebe6" category="section-title">确保工作节点上未运行容器</block>
+  <block id="1c04122c814ac034ca14e14adb8c12af" category="paragraph">验证 `fireap` 或 `netwd` 等容器是否未在工作节点上运行。在每个节点上运行以下命令。</block>
+  <block id="9a92a0354fa775cc894dda9e1e38f27b" category="section-title">手动删除示例</block>
+  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">下面显示了执行手动卸载脚本的示例。</block>
+  <block id="81b61a86df10dc2cb308e96040fb3001" category="summary">例如，您可以在 Astra Data Store 中使用 kubectl 命令来配置要与 Confluent 结合使用的端点。</block>
+  <block id="d273de2a7e6e6a63f6353f5a40dccab4" category="doc">配置和监控事件日志</block>
+  <block id="e1e4be2e0e9d34430d4dead51a9b0d00" category="paragraph">要监控事件管理系统（ EMS ）日志，您可以执行以下高级任务：</block>
+  <block id="0de641807620f6884634e5c2be424935" category="list-text"><block ref="81fcee92e269c16204175cb82e012cfb" category="inline-xref-macro-rx"></block></block>
+  <block id="58c63f3edc4f001668005eb15ebea250" category="list-text"><block ref="d225a94a27cd5322a26847f79953016b" category="inline-xref-macro-rx"></block></block>
+  <block id="d54ee8ea5a6436047b24aa6453cd273d" category="list-text"><block ref="0f415edabe024849c5f59aa6603d2415" category="inline-xref-macro-rx"></block>。</block>
+  <block id="adb1a7214aa7125992d5a44a62de94d5" category="section-title">在 Astra Data Store 预览集群自定义资源（ CR ）中配置监控</block>
+  <block id="9d72b006a6d605a65b501b1b03349829" category="paragraph">如果尚未在 Astra Data Store 预览集群 CR 上配置监控选项，您可以使用 `astrad` extensions 进行设置。</block>
+  <block id="90bd1d70191335d705a79fedb6c343b1" category="paragraph">输入 ...</block>
+  <block id="5976be1a3647c1d1d6df4ce77cd4c6de" category="paragraph">其中：</block>
+  <block id="c5f610ac611fbf25aebdcb7de1887bca" category="list-text">已安装代理的命名空间：这是监控代理，它是监控操作员的 CR 。</block>
+  <block id="3cf816c5eb575aae005fa877a4221022" category="list-text">` -r` 是可选的。</block>
+  <block id="55d4dcfd496ed26612f1ed4e159ccc06" category="section-title">设置 Cloud Insights</block>
+  <block id="0a4b147ab38de7df220f6ee52041f91b" category="inline-link-macro">如何设置 NetApp Cloud Insights</block>
+  <block id="79d4adf2aeb2c6fc85b983dc5d4d6f9a" category="paragraph">请参见 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> 用于 Astra Data Store 预览版。</block>
+  <block id="a0c8187b710dd8d0521c6fc63ed20869" category="section-title">将事件日志流式传输到 Elastic</block>
+  <block id="9121f315839d8a93e2079fd601d5e184" category="paragraph">要将 EMS 事件和其他 POD 日志流式传输到将日志流式传输到 Elastic 等第三方端点，请使用 `astrad` 扩展。</block>
+  <block id="4af77be2edf71f87d3321c846afd5117" category="admonition">弹性主机名可以是 IP 地址。</block>
+  <block id="9cce7a0f3945aa56f21e3dc73f7b5c53" category="summary">您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra 数据存储任务。</block>
+  <block id="9d008b99518fac45f7d187af6cdf7b49" category="doc">将 Astra 控制中心与 Astra Data Store 预览结合使用</block>
+  <block id="5c44ae2c3fecaf90b28c9365e2a18f93" category="paragraph">您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra Data Store 预览任务。</block>
+  <block id="c74d76591828afc252e7610bdae71ca9" category="section-title">为 Astra 数据存储预览设置 Astra 控制中心</block>
+  <block id="04141f6e6895167b5976a22e32f00290" category="paragraph">要使用适用于 Astra Data Store 的 Astra 控制中心 UI 预览版，您需要完成以下任务：</block>
+  <block id="1c0d9f7d761fc733b600942ce233b4ea" category="inline-link">将 Astra Data Store 预览集群导入到您的 Astra Control Center 安装中</block>
+  <block id="d15c24960fb67cfd894bc720e9d2ff2d" category="list-text">添加集群。这是安装了 Astra Data Store 预览版的底层 Kubernetes 集群。请参见<block ref="6761f7730b26a17df3c3b59e4408b7b0" category="inline-link-rx"></block>。</block>
+  <block id="e1f95da35f557b3cdc93de4656df9aaa" category="list-text">为该集群添加 Astra Data Store 预览存储后端。</block>
+  <block id="4e649e66878b3f3b5aec5f752e57b985" category="admonition">如果您添加了存储后端，并且不存在具有 Astra Data Store 预览版的 Kubernetes 集群，则需要先添加一个集群。</block>
+  <block id="2e94174c851b8d4d2427c96e0af4821c" category="section-title">您可以在 Astra 控制中心执行的操作</block>
+  <block id="eb243fd6f95dd4bfb1d1ccb0cca34d9f" category="paragraph">在为 Astra 数据存储预览设置 Astra 控制中心后，您可以使用 Astra 控制中心 UI 完成以下任务：</block>
+  <block id="882a9f885522357b173d285f48508e0a" category="inline-link">使用 Astra 控制中心监控 Astra Data Store 预览资产的运行状况</block>
+  <block id="20a4a00ee22fc4ed42dc6dde7ca930a2" category="list-text"><block ref="8cc2b5fb4f2b8a99de3d80d9680561a7" category="inline-link-rx"></block>。</block>
+  <block id="b3566e6d807a064421758708ff05ddc5" category="inline-link">管理 Astra Data Store 预览后端存储</block>
+  <block id="c0d07d3b128a5a7d6f60b9e86bf4f804" category="list-text"><block ref="7c89f9f798010106cb6d616702f15231" category="inline-link-rx"></block>。</block>
+  <block id="4d4207ccf851f0f5668d15b17831080c" category="inline-link">查看节点，磁盘和永久性卷声明（ PVC ）及其状态</block>
+  <block id="5e4382914eda12bec56e077c0d932f92" category="list-text"><block ref="5df70763c7346a3df0879f904f4e4dc6" category="inline-link-rx"></block>。</block>
+  <block id="4b7a1134c870f779c0b8eecedfde4cbf" category="inline-link">Astra 系列简介</block>
+  <block id="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="list-text"><block ref="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="inline-link-rx"></block></block>
+  <block id="3a4b2c66d4bdac6ce0e3340c71a39eda" category="inline-link">Astra 控制中心文档</block>
+  <block id="281db70ca8dfcac9ebe6166029058548" category="list-text"><block ref="281db70ca8dfcac9ebe6166029058548" category="inline-link-rx"></block></block>
+  <block id="d418042930eb178009f4c27360b349f6" category="inline-link">使用 Astra Control API</block>
+  <block id="35e127abdc4e59a01dd3fd4f63603bf1" category="list-text"><block ref="35e127abdc4e59a01dd3fd4f63603bf1" category="inline-link-rx"></block></block>
+  <block id="eef59217310b72030be060a13a0bc33a" category="summary">以下是部署可与 Astra Data Store 结合使用的测试应用程序的步骤。</block>
+  <block id="6f8b987c31a2eded2819babafcfa74aa" category="doc">部署测试应用程序</block>
+  <block id="6287ae11a59823f19dbadd6558fc6297" category="paragraph">以下是部署可与 Astra Data Store 预览版结合使用的测试应用程序的步骤。</block>
+  <block id="c3a80e48f1fb8205acab156248cbc507" category="paragraph">在此示例中，我们使用 Helm 存储库从 BitNami 部署 MongoDB 图表。</block>
+  <block id="d2b286733c622d3734be88246d4edcd2" category="list-text">部署和配置了 Astra Data Store 预览集群</block>
+  <block id="d9e5235644553d4cc003fe80e853e3d9" category="list-text">Trident 安装已完成</block>
+  <block id="bf3f82feed370a6a3c6201a53bb8bbbc" category="list-text">从 BitNami 添加 Helm repo ：</block>
+  <block id="8df29821dfcdcec588d7bdf64a0c7f33" category="list-text">部署 MongoDB ：</block>
+  <block id="7ea5c1d0e18468e3cd2a62ff24d97d28" category="list-text">检查 MongoDB POD 的状态：</block>
+  <block id="93e7f0a6f24d71ade0739043509173b9" category="list-text">验证 MongoDB 使用的永久性卷声明（ PVC ）：</block>
+  <block id="43be430aa45a396e22bd22a2b6621ff9" category="list-text">使用 kubectl 命令 `get astradsvolume` 列出卷：</block>
+  <block id="8967ae8bc51f2fd95d1b63331e33ac4b" category="list-text">使用 kubectl 命令 `describe astradsvolume` 描述卷：</block>
+  <block id="3241ac56c7ab3234f3b6520c215096f2" category="summary">您可以将 kubectl 命令直接与 Astra Data Store 结合使用。</block>
+  <block id="a330f305f7c30e2f8e3640e572a7e00f" category="paragraph">您可以使用 kubectl 命令和 Kubernetes API 扩展来管理 Astra Data Store 预览资产。</block>
+  <block id="c6abcdfa1291eff527ba81e687a617a0" category="paragraph">要了解如何部署示例应用程序，请参见 <block ref="643aaff8c958edf6a7fa070276276697" category="inline-link-macro-rx"></block>。</block>
+  <block id="b48b2370de15bd20dd54023e2a0a1442" category="paragraph">有关以下集群维护信息，请参见 <block ref="dd990211a19c702186be77590654645f" category="inline-link-macro-rx"></block>：</block>
+  <block id="873001098255f2b65575c8d0ba20cc62" category="section-title">您需要的内容</block>
+  <block id="771492826a30f4c85fdb80b244427fae" category="list-text">已安装 Astra Data Store preview kubectl 插件 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block></block>
+  <block id="97e6c8a4001ce7339a364c390a9f1985" category="section-title">Astra Data Store 预览版 Kubernetes 自定义 API 资源列表</block>
+  <block id="ca0efae80c84ccf77b3a141422f85bbb" category="paragraph">您可以在 Kubernetes 中使用 kubectl 命令与 Astra Data Store 预览集群进行交互并观察其状态。</block>
+  <block id="41dda97ca4546c6156bdecc752fdf8fa" category="paragraph">从 `api-resources` 命令中列出的每个项目都代表一个 Kubernetes 自定义资源定义（ CRD ）， Astra Data Store 预览版可在内部使用该定义定义定义（ CRD ）来管理集群。</block>
+  <block id="ac50ab0e5a87902e1394b248458e29ae" category="paragraph">此列表对于获取每个 Astra Data Store 预览对象的短名称以减少键入效果特别有用，如后面所示。</block>
+  <block id="7d69a11a8d1eb3382c2f950b62b8c77e" category="list-text">显示 Astra Data Store 预览版 Kubernetes 自定义 API 资源列表：</block>
+  <block id="1c112875da75de7896516e2619bd9694" category="list-text">要获取 Kubernetes 集群中所有当前的 Astra Data Store 预览对象，请使用 `kubectl get ADS -a` 命令：</block>
+  <block id="0c01aeae2703bda0832b08ebdd30abc0" category="list-text">最后，我们将使用其中一个短名称来显示集群中卷的当前状态：</block>
+  <block id="dabf3f8ccfb5ecc1cb7e7954f3575a68" category="section-title">使用 kubectl 扩展上的 help 选项</block>
+  <block id="4db582654bba3ae1263983cc7355e3dc" category="paragraph">`kubectl astrad` 命令包含一个 ` -h` 交换机，可为您提供使用情况和标志文档。</block>
+  <block id="60044b26f73be94c6598603c14ab55d4" category="list-text">显示有关 Astra Data Store preview kubectl 扩展中所有命令的帮助：</block>
+  <block id="3962691e8a7c8b7a00673c9035950515" category="list-text">有关命令的详细信息，请使用 `astrad [command] -help` 。</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">法律声明提供对版权声明、商标、专利等的访问。</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
+  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
+  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
+  <block id="bd9a92025f272fdbcf82dbe7c6751b8e" category="inline-link-macro">Astra Data Store 21.12 版本的通知</block>
+  <block id="1f6cc7061c99b2f46c25473fe9b7ea3a" category="paragraph"><block ref="1f6cc7061c99b2f46c25473fe9b7ea3a" category="inline-link-macro-rx"></block></block>
+  <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">您可以扩展 Astra 数据存储集群。</block>
+  <block id="85c9296df6a3c9630ed684b4af8847a8" category="doc">集群扩展</block>
+  <block id="adb8e906da60ee75c25264b57f7ea87b" category="inline-link-macro">Astra 数据存储要求</block>
+  <block id="53ba6f78a5959abd0fed5dd621c61f53" category="paragraph">Astra Data Store 预览版支持集群中不同类型和功能的节点。如果要扩展集群，则 Astra Data Store 预览版支持添加具有任何性能功能的节点，只要这些节点不低于集群中性能最低的节点即可。新节点的存储容量必须与现有节点相同。所有节点（包括扩展期间的新节点）至少需要满足中的最低要求 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="ef22ff17624b3faeed227ce5c717eb5f" category="inline-link">Astra Control Service 文档</block>
+  <block id="6762180adf48075df77efbf264e982ec" category="list-text"><block ref="6762180adf48075df77efbf264e982ec" category="inline-link-rx"></block></block>
+  <block id="14d9b10c6196045941347a9e85704b50" category="inline-link">Astra Trident 文档</block>
+  <block id="4a2ab62188738135163aaaaeab1d6cfe" category="list-text"><block ref="4a2ab62188738135163aaaaeab1d6cfe" category="inline-link-rx"></block></block>
+  <block id="30f4d9ba43475ff8056fa1d73ffc972c" category="inline-link">使用 Astra API</block>
+  <block id="3d8f201e2aea311db7d1d35c86d726da" category="list-text"><block ref="3d8f201e2aea311db7d1d35c86d726da" category="inline-link-rx"></block></block>
+  <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">Cloud Insights 文档</block>
+  <block id="2b93b48daf034e4100d00b85950e109d" category="list-text"><block ref="2b93b48daf034e4100d00b85950e109d" category="inline-link-rx"></block></block>
+  <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">ONTAP 文档</block>
+  <block id="8217522f2b9eea86f1099a2aba54aebd" category="list-text"><block ref="8217522f2b9eea86f1099a2aba54aebd" category="inline-link-rx"></block></block>
+  <block id="65b6668e2c69e75ca45fd504ca3bf939" category="summary">Astra 数据存储可以部署在一个独立的 Kubernetes 集群上，该集群为在单独集群中运行的 Kubernetes 应用程序提供永久性卷，也可以部署在同时在同一节点池中托管其他应用程序的 Kubernetes 集群上，或者部署在同时在不同节点池中托管应用程序的 Kubernetes 集群上。</block>
+  <block id="36973e06a1ee8bc363ca0f0f1c586427" category="doc">Astra Data Store 部署模式</block>
+  <block id="41719d45eedf548911f2b5c2a6084cc7" category="paragraph">Astra Data Store 预览版使用与 Kubernetes 部署和协调的应用程序直接管理主机上的存储驱动器。</block>
+  <block id="e5bd7820f5eee1a96293b6b5f92bee84" category="paragraph">可使用以下选项之一将 Astra Data Store 预览版安装在裸机或虚拟服务器上：</block>
+  <block id="d807a55a4eafc3079b6b45a80be55981" category="list-text">部署在一个独立的专用 Kubernetes 集群上，为在单独集群（独立集群）中运行的 Kubernetes 应用程序提供永久性卷。</block>
+  <block id="a5389bea5b0ed77642e3dc5f2d2e70f0" category="list-text">在 Kubernetes 集群上部署，同时在同一节点池（融合集群）上托管其他工作负载应用程序。</block>
+  <block id="277369c2a44bdbde70d4978491333cf6" category="list-text">在 Kubernetes 集群上部署，同时在其他节点池（离散集群）上托管其他工作负载应用程序。</block>
+  <block id="c6f1a352df2f86c5762377fac42728cd" category="inline-link-macro">了解有关 Astra Data Store 硬件要求的更多信息</block>
+  <block id="fe0f8f78d78d43e48f544072457864fd" category="paragraph"><block ref="063de6d98610c6cc606db5d3a91db761" category="inline-link-macro-rx"></block>。</block>
+  <block id="b718411e8c696b20e6e0a5763131ff50" category="paragraph">Astra Data Store 预览是 Astra 产品系列的一部分。要了解有关整个 Astra 系列的观点，请参见<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>。</block>
+  <block id="57130318718009eaaede4b2335702fd8" category="section-title">Astra Data Store 生态系统</block>
+  <block id="c77d4df020e2f228b335bf2fb55c7074" category="paragraph">Astra Data Store 预览版可用于以下内容：</block>
+  <block id="50db2d5d2d0d6701257927c365a04231" category="list-text">* Astra 控制中心 * ：使用 Astra 控制中心软件对内部环境中的 Kubernetes 集群进行应用程序感知型数据管理。轻松备份 Kubernetes 应用程序，将数据迁移到其他集群以及即时创建有效的应用程序克隆。</block>
+  <block id="2a48cd9390eedba71d48155badc1de94" category="paragraph">Astra 控制中心支持具有 ONTAP 的 Trident 存储后端或 Astra 数据存储预览存储后端的 OpenShift Kubernetes 集群。</block>
+  <block id="c9ffa666041d225b05a55ccaba7e5458" category="list-text">* Astra Trident * ：作为 NetApp 维护的完全受支持的开源存储配置程序和编排程序， Trident 使您能够为 Docker 和 Kubernetes 管理的容器化应用程序创建存储卷。</block>
+  <block id="539ccb3278900d4337d03ac42a102ad9" category="paragraph">您可以使用 Trident 在 Astra Data Store 预览版上创建卷。</block>
+  <block id="eeab34a5f7ee15f056d5950012d06bf6" category="list-text">* Cloud Insights * ： Cloud Insights 是一款 NetApp 云基础架构监控工具，可用于监控由 Control 管理的 Kubernetes 集群的性能和利用率。Cloud Insights 将存储使用量与工作负载相关联。在 Astra Control 中启用 Cloud Insights 连接后，遥测信息将显示在 Astra Control UI 页面中。</block>
+  <block id="19f784aca41ca6786a1708bf1acf56c6" category="paragraph">Cloud Insights 会在 Astra 数据存储预览版中显示有关资源的信息。</block>
+  <block id="68298d2de3b6b29d9e494492b680fc1a" category="section-title">Astra 数据存储接口</block>
+  <block id="d015aca78df45458ee1d6533c5246919" category="paragraph">您可以使用不同的界面完成任务：</block>
+  <block id="3ce33c83106a597de03ab2e053ba936d" category="list-text">* Web 用户界面（ UI ） * ： Astra 控制服务和 Astra 控制中心使用同一个基于 Web 的 UI ，您可以在其中管理，迁移和保护应用程序。此 UI 还会显示有关 Astra Data Store 预览卷的信息。</block>
+  <block id="5dd2a4cc9e98a3b9886bcc604cfd6996" category="list-text">* API * ： Astra 控制服务和 Astra 控制中心使用相同的 Astra 控制 API 。使用 API ，您可以执行与使用 UI 相同的任务。您还可以使用 Astra Control API 检索有关 Astra Data Store 预览的信息。</block>
+  <block id="64709f1561293f714575cd6d60907b75" category="list-text">* kubectl commands* ：要使用 Astra Data Store 预览版，您还可以直接使用 kubectl 命令。</block>
+  <block id="f32d55277f0325049920c7019b1b925c" category="list-text">* Kubernetes 扩展 * ：此外，您还可以使用 Astra Data Store 预览 Kubernetes API 扩展。</block>
+  <block id="61a6bfa30a3c2204517c3ff952d4c118" category="paragraph">自定义资源定义（ CRD ）是 Kubernetes REST API 的扩展，该 API 是在部署 Astra Data Store 预览运算符时创建的。外部实体通过调用 Kubernetes API 服务器与 CRD 进行交互。Astra Data Store 预览版会监控特定 CRD 的更新，然后调用内部 REST API 。</block>
+  <block id="ca4530da8cd63a3852e628753021934a" category="summary">Astra Data Store 采用精简配置，零块消除，数据压缩和重复数据删除等存储效率技术。</block>
+  <block id="5b0b8dca4f811863182aeb743df36506" category="doc">Astra 数据存储中的存储效率</block>
+  <block id="e6e68287050475c3472e7210e67c782d" category="paragraph">Astra 数据存储使用基于 ONTAP 和 SolidFire 技术的存储效率技术，包括：</block>
+  <block id="49fd2375999e454962f2a76dea2d99b5" category="list-text">* 精简配置 * ：精简配置卷是指不预先预留存储的卷。而是根据需要动态分配存储。删除卷或 LUN 中的数据后，可用空间将释放回存储系统</block>
+  <block id="ac0967915cfa21217ac0958fa4f2a6da" category="list-text">* 零块检测和消除 * ：采用精简配置的 ONTAP 存储系统可以检测卷中已置零的区域，以便回收该空间并将其用于其他位置。</block>
+  <block id="bd4fa668e07ff5169fc38a1df5dd7fe2" category="list-text">* 数据压缩 * ：数据压缩通过将数据块组合到数据压缩组中来减少卷所需的物理存储量，每个数据块都存储为一个块。与传统压缩方法相比，压缩数据的读取速度更快，因为 ONTAP 仅解压缩包含所请求数据的压缩组，而不是解压缩整个文件。</block>
+  <block id="a0f1d24dc3084ea8b257373ed48416c3" category="list-text">* 重复数据删除 * ：重复数据删除可通过丢弃重复块并将其替换为对单个共享块的引用来减少卷（或 AFF 聚合中的所有卷）所需的存储量。读取经过重复数据删除的数据通常不会对性能产生任何影响。除了过载的节点之外，写入所产生的费用可以忽略不计。</block>
+  <block id="23d07990648d5e599c2f21bd6408d3c7" category="paragraph">默认情况下，所有这些功能均处于启用状态。</block>
+  <block id="8bb7278f8687d62c283b01b22bd11883" category="inline-link">存储效率详细信息</block>
+  <block id="aca457c35da234f961360ac0401e3ea5" category="paragraph">请参见<block ref="296e23408010636aef99223ff4789435" category="inline-link-rx"></block>。</block>
+  <block id="d4b92f4945c7eafc00261f4339999749" category="summary">Astra 数据存储可通过多种方法确保客户端和管理员对存储的访问安全，保护通信和数据以及防范病毒。</block>
+  <block id="a137afb0e5f46a6c47e411a5c9c42758" category="doc">Astra 数据存储中的安全性</block>
+  <block id="6c50ae0fd489e39bb803cec46c926c40" category="paragraph">Astra Data Store 预览版可通过多种方法确保客户端和管理员对存储的访问安全，保护通信和数据以及防止病毒。</block>
+  <block id="09339b9f65d7451119bd973b67b2cf37" category="paragraph">Astra Data Store 预览版使用以下安全方法：</block>
+  <block id="aadd8dd46108d4c406fbdaf57d8cd0e4" category="list-text">使用相互传输层安全（ MTLS ）进行通信加密</block>
+  <block id="f6c6d031927e2d5b98f75307c2b52492" category="list-text">基于角色的访问控制用于控制对功能的访问</block>
+  <block id="493310ef851cbd6318af4494b52c12e6" category="list-text">部署安全性</block>
+  <block id="d7472107bd93164aab58e7bdee6b4ee2" category="list-text">证书管理</block>
+  <block id="4c8339b442784e09f376234ea3dc70e1" category="list-text">空闲软件加密，包括内部密钥管理</block>
+  <block id="822b9a387b65a35c2ef192f62db1ed0f" category="summary">Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。</block>
+  <block id="9f828d6c562cc0df256e51d5d235c7bb" category="doc">Astra 数据存储简介</block>
+  <block id="3b5242cfb7f9537004a67d41c1abe248" category="paragraph">Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。</block>
+  <block id="29a88ba649cfc395ea85184d0913f230" category="paragraph">借助 Astra 数据存储，您可以执行以下操作：</block>
+  <block id="806e9b283c8cb7cec59b6fcd4d725669" category="list-text">* 支持 Kubernetes 容器化工作负载 * ：利用您习惯使用的企业级数据管理服务和工具支持容器化工作负载。</block>
+  <block id="d7266aefd53c2dca533afcd5c9229889" category="list-text">* 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，提供自动化，可重复的服务，从而消除 developers​ 带来的复杂性。</block>
+  <block id="bb453665f57f6823950856f7a9bad0c3" category="section-title">Astra 产品系列</block>
+  <block id="dd490b59f0194051f9d41deec8b0aefa" category="paragraph">Astra 系列产品可提供 Kubernetes 应用程序数据生命周期管理，从而简化有状态应用程序的操作。轻松保护，备份和迁移 Kubernetes 工作负载，并即时创建有效的应用程序克隆。</block>
+  <block id="b71fa69e65a9178741af35068df8a392" category="paragraph">Astra 产品包括：</block>
+  <block id="9cdf0ccc35fe6d9fdc72efbcca1bacad" category="list-text">* Astra Control* ：使用应用程序感知型数据管理工具来管理，保护和移动公有云和内部环境中的 Kubernetes 工作负载。​</block>
+  <block id="227ef150dba3452cf99d8eb20c88f292" category="list-text">* Astra 控制服务 * ：使用 NetApp 管理的服务对公有云中的 Kubernetes 工作负载进行数据管理。</block>
+  <block id="5fcaa4cc6e27b1f2dcee1db0dcee999a" category="list-text">* Astra 控制中心 * ：使用自管理软件对内部 Kubernetes 工作负载进行数据管理。</block>
+  <block id="21ae0c223c1db87f465a4b9a3e634341" category="list-text">* Astra Data Store* ：对容器和 VM 工作负载使用 Kubernetes 本机共享文件服务进行企业数据管理。</block>
+  <block id="383cdefecd7eda4a982198ecdbbce7da" category="list-text">* Astra Trident * ：与 NetApp 存储提供商合作，为 Kubernetes 工作负载配置和管理符合容器存储接口（ CSI ）要求的存储。</block>
+  <block id="9c4409443c2952d1634823228bc8d335" category="paragraph">请参见<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>。</block>
+  <block id="17d3506812ac5cd550afaae120fc3072" category="paragraph"><block ref="17d3506812ac5cd550afaae120fc3072" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b987663a30d898f74e9dd1aee179e6de" category="section-title">Astra 数据存储功能</block>
+  <block id="56a2dbf732bd1ee44e12d29d7c6007cd" category="paragraph">Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：</block>
+  <block id="f9ab1651208c253699bc488c26a8427e" category="list-text">* Kubernetes 本机共享文件服务 * ：使用标准 NFS 客户端作为容器和 VM 的统一数据存储库，为 Kubernetes 提供共享文件服务原生。​</block>
+  <block id="f9ee9cb48be574a530a87bdbd8a3fb4b" category="list-text">* 云扩展 * ：在同一资源池中提供 Kubernetes 本机多个并行文件系统，以实现类似于云的扩展和利用率，从而无需在集群之外单独管理存储。</block>
+  <block id="7012ec096e5b7ac0c86f0d874bca22cd" category="list-text">* API 优先方法 * ：将基础架构作为代码交付用于自动化集群和工作负载 management​ 。</block>
+  <block id="9aabb09d3a7120141b0d753a80fe4217" category="list-text">* 企业级数据管理 * ：提供自动化应用程序感知型数据保护和灾难恢复：</block>
+  <block id="782e83202e5dc2f388e8355633eda320" category="list-text">* NetApp 技术 * ：利用 NetApp 数据管理技术执行快照，备份，复制和克隆，以便用户可以在 Kubernetes 中构建和部署企业级应用程序。​</block>
+  <block id="8931fb12998c2c6ad5f4c5bc8829f8ef" category="list-text">* 故障恢复能力 * ：对 Kubernetes 本机工作负载使用复制和擦除编码技术，以提高故障恢复能力。</block>
+  <block id="1504325f5e4b13a89b554f4d86ce7224" category="list-text">* 数据效率 * ：通过实时重复数据删除和数据压缩功能进行扩展时控制成本。</block>
+  <block id="02636655504a22c3e2973e5b212990c4" category="list-text">* 适合您的现有环境 * ：支持基于微服务的工作负载和传统工作负载，为主要 Kubernetes 分发版提供服务，提供文件存储，并在您选择的 hardware​ 上运行。</block>
+  <block id="15266d664d91aafb32a297b47d315e6e" category="list-text">* 与 NetApp Cloud Insights * 集成：为持续 optimization​ 提供可观察性，分析和监控功能。​</block>
+  <block id="024164469d071c626f7a31250bb322f0" category="section-title">开始使用 Astra Data Store</block>
+  <block id="fdc214a356831f18e50d44483816cd46" category="inline-link-macro">了解 Astra 数据存储的要求</block>
+  <block id="ff5aa600c6539c7e081d620eb47efc0b" category="paragraph">首先， <block ref="ffd8cafe4a2e3797a817f620ac67ea91" category="inline-link-macro-rx"></block>。</block>
+  <block id="5b1afbcfd691161f9517b45cd0d4faee" category="inline-link-macro">开始使用</block>
+  <block id="fb75bcadcf4356e44d514f54d356ab25" category="paragraph">然后， <block ref="f7da4cdd4ceddcef675db38062e9c2f7" category="inline-link-macro-rx"></block>。</block>
+  <block id="e81551a1c637af1bdd2cf807058cc5e3" category="summary">首先验证对您的环境的支持。</block>
+  <block id="c066e77c0fe2c99e8fbbb9a70c883a5f" category="doc">Astra 数据存储预览限制</block>
+  <block id="dfc6ae638b43c600bcdbe8a67cf9709c" category="paragraph">Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。</block>
+  <block id="9c4529ace9ecebb0b8ed8b19226307f1" category="paragraph">Astra Data Store 预览版存在以下资源限制。</block>
+  <block id="be8545ae7ab0276e15898aae7acfbd7a" category="cell">资源</block>
+  <block id="a1d0ec6d56f8833a078b5a7ac4caf2d4" category="cell">最小值</block>
+  <block id="8321e79c278ec510f63675c040594892" category="cell">最大值</block>
+  <block id="5e9a72bd35b8b657825b42e178cc667d" category="cell">Astra Data Store 预览集群中的节点数</block>
+  <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4.</block>
+  <block id="e4da3b7fbbce2345d7772b0674a318d5" category="cell">5.</block>
+  <block id="196f991af758339a4e307e49fdc25445" category="cell">每个节点的永久性卷数</block>
+  <block id="382b0f5185773fa0f67a8ed8056c7759" category="cell">不适用</block>
+  <block id="d3d9446802a44259755d38e6d163e820" category="cell">10</block>
+  <block id="a01ecc0a6ff9ccb59344e8646621b1ab" category="cell">每个节点的永久性卷的总已配置容量</block>
+  <block id="8913df8372330703defae14976d6f14e" category="cell">1 TiB</block>
+  <block id="6bb41960470a19d97556b9240ac0b3ff" category="cell">卷大小</block>
+  <block id="726d383bc3256804ce4d5e4c45cf853b" category="cell">20 MiB</block>
+  <block id="7f9d2c4d982547805f59957ea8962556" category="cell">每个卷的快照数</block>
+  <block id="cfcd208495d565ef66e7dff9f98764da" category="cell">0</block>
+  <block id="f718499c1c8cef6730f9fd03c8125cab" category="cell">256</block>
+  <block id="9053ddee628502aa59ecc06ca8054392" category="cell">每个卷的克隆数</block>
+  <block id="45c48cce2e2d7fbdea1afc51c7c6ad26" category="cell">9</block>
+  <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra Data Store 预览版不支持 VM 工作负载。VMware VVol 工作负载支持将在未来版本中提供。</block>
+  <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">下一步行动</block>
+  <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">要求</block>
+  <block id="a695e2ec087393b67c5decc922a11745" category="paragraph">确保您的配置符合 <block ref="3675fd04b78685cacd6e23511ab11d10" category="inline-link-macro-rx"></block>。</block>
+  <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">如果您只是想快速了解问题解答，此常见问题解答会很有帮助。</block>
+  <block id="0fc384ade3fa0a49e6200f91385d65a9" category="doc">有关 Astra Data Store 预览版的常见问题</block>
+  <block id="6014dc7d785a91f39eda065d13d62e52" category="paragraph">查找有关 Astra Data Store 预览版的安装，配置，升级和故障排除的常见问题解答。</block>
+  <block id="96ab491ef73d5db0cd15f55e1552cc22" category="section-title">一般问题</block>
+  <block id="63f037cc937fa1e56c508887d619f746" category="paragraph">* 是否可以使用 Astra Data Store 预览版进行生产？ * 否虽然 Astra Data Store 的设计和开发旨在提供企业级弹性，但作为预览版， Astra Data Store 预览版不适用于生产工作负载。</block>
+  <block id="8c9b36244097b3f2c3d1ad64603311e0" category="paragraph">* 是否可以对虚拟机工作负载使用 Astra Data Store 预览版？ * Astra Data Store 预览版仅限于在 Kubernetes 上运行的应用程序，无论是裸机还是虚拟机。未来版本将支持 Kubernetes 上以及直接在 ESXi 虚拟机上运行的应用程序。了解相关信息 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="b5badd65a58ba3012cb16b9340acb2e4" category="paragraph">* Astra Data Store 预览版的运行是否依赖于其他 NetApp 产品？ * 是。Astra Data Store preview 要求在工作负载 Kubernetes 集群上部署 NetApp CSI 驱动程序 Astra Trident 21.10 及更高版本。了解相关信息 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="9c634046a90a62883b122e76b9afcef2" category="inline-link">Astra 控制中心</block>
+  <block id="289e6d386db78ca43bf58e8260069361" category="paragraph">使用 Astra Data Store 预览集群作为存储后端的应用程序可以使用<block ref="6653b3fa72bfc9c83d8e5fede6da40f0" category="inline-link-rx"></block> 21.12 版可利用应用程序感知型数据管理功能，包括数据保护，灾难恢复和 Kubernetes 工作负载迁移。</block>
+  <block id="456f2b6f01dea1c766407717c9f25ae0" category="paragraph">* 如何管理 Astra Data Store 预览集群？ * 您可以使用 kubectl 命令和 Kubernetes API 扩展来管理 Astra Data Store 预览资产。</block>
+  <block id="8769fb0b311c9d4eb4ae12703797ec2d" category="paragraph">* 如何监控 Astra 数据存储预览集群指标？ * 您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。请参见 <block ref="5f4e23cb821c4c14144c1c2b8f6c948e" category="inline-link-macro-rx"></block>。</block>
+  <block id="a3732b03ca4422ce6b70efcd6e224c8f" category="paragraph">您还可以监控日志。请参见 <block ref="3d73dda56e07b3410aee41dd59d50b4f" category="inline-link-macro-rx"></block>。</block>
+  <block id="46bc7872a1eb6d52309892745fb5728f" category="paragraph">* 我是否可以在 Kubernetes 集群中将 Astra 数据存储预览与 ONTAP 或其他存储提供程序结合使用？ * 是。Astra Data Store 预览版可与应用程序集群中的其他存储提供程序结合使用。</block>
+  <block id="cff1b9b86e8ec14449228e18e322acb1" category="paragraph">* 如果从 Astra Data Store 预览版中删除 Kubernetes 集群，则是否会卸载 Astra Trident ？ * 如果卸载 Astra Data Store 预览版，则不会从集群中卸载 Astra Trident 。如果需要卸载 Astra Trident ，则必须单独执行此操作。</block>
+  <block id="0b9c6eef4e3d3a222eb04e910d252339" category="section-title">许可</block>
+  <block id="189fe01d6ea340c87bd7dfc08e5dc6fd" category="paragraph">* Astra Data Store 预览版是否需要许可证？ * 是， Astra Data Store 预览版需要 NetApp 许可证文件（ NLF ）。</block>
+  <block id="dcc9e4907c40d4ced6733b3d7acae196" category="paragraph">了解相关信息 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
+  <block id="c9221ccf1a7bae74e765415f7fe4db6b" category="paragraph">* Astra Data Store 预览许可证有效多长时间？ * Astra Data Store 预览许可证的默认期限为自下载日期起 90 天。</block>
+  <block id="8b6311633b65017461fb3e38c2c6de22" category="section-title">在 Kubernetes 集群上安装和使用 Astra Data Store 预览版</block>
+  <block id="0525f08bcf3badaa43b64e062226d0f6" category="inline-link-macro">Astra Data Store 预览要求</block>
+  <block id="5cf5df8a91fc55a0f6311fceca215a7e" category="paragraph">* 是否可以在裸机或虚拟机上运行的 Kubernetes 集群上安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览版可以安装在裸机上运行的 Kubernetes 集群或 ESXi 虚拟机上。了解相关信息 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="5328f5bfdcae13ae4157ca7026b9e70c" category="paragraph">* 哪些版本的 Kubernetes for Astra Data Store 预览版受支持？ * Astra Data Store 预览版可与 v1.20 及更高版本兼容的 Kubernetes 分发版结合使用。但是，目前尚未对所有 Kubernetes 分发版进行验证。了解相关信息 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="4f6e7c240c01634d298aa9125681479c" category="paragraph">* 我的 Kubernetes 集群超过 5 个工作节点。是否可以在其中安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览集群可以部署在 Kubernetes 集群中的 4 个或 5 个工作节点上。您可以在 Kubernetes 集群中选择要部署 Astra Data Store 预览集群的 4 个或 5 个工作节点。</block>
+  <block id="cc41262b7d4f903b7e21bdf37c1621f9" category="inline-link-macro">安装 Astra 数据存储</block>
+  <block id="d030077fb48de9e7b7222dda3b30a2c7" category="paragraph">* Astra Data Store 预览版是否支持从专用注册表脱机安装？ * 是。可以从本地注册表脱机安装 Astra Data Store 预览版。请参见 <block ref="14497a94943dc819ca2bc8999e1f8acf" category="inline-link-macro-rx"></block>。但是， Astra Data Store 预览版需要连接（直接或通过代理）到 NetApp 支持后端（ support.netapp.com ）才能继续运行。</block>
+  <block id="1099f9b7653cec15b92fe0f36cf629ac" category="paragraph">* 使用 Astra Data Store 预览版是否需要 Internet 连接？ * Astra Data Store 预览版需要连接到 NetApp AutoSupport 后端，以便定期发送强制的遥测 AutoSupport 捆绑包。此连接可以直接连接，也可以通过代理连接。如果缺少此连接或禁用了 AutoSupport ，则集群将锁定，并且新卷创建将被禁用，直到恢复定期上传的捆绑包为止。</block>
+  <block id="bba57f874c98e85c47cc41e62b11c2f9" category="paragraph">* Astra Data Store preview 使用了哪些角色和特权？ * 您需要成为 Kube 管理员才能部署 Astra Data Store 预览运算符。</block>
+  <block id="7e262eb0471b79362fb1d998ef7816ad" category="paragraph">Astra Data Store preview 具有一个名为 `astrads-ds-nodeinfo-asadsversion` 的特权取消命名集，用于发现在选择节点时使用的节点资源。</block>
+  <block id="24e04714db6e86f8b770da300196abe4" category="paragraph">此外，操作员还将使用特权 Kubernetes 作业在选定工作节点上安装存储集群的容器，以构建 Astra Data Store 预览存储集群。</block>
+  <block id="3ac365fe03aac888c56d143184752fb0" category="paragraph">* 要安装 Astra Data Store 预览版，需要更新哪些清单文件？ * 从 NetApp 支持站点下载的 Astra Data Store 预览捆绑包中，您将获得以下清单：</block>
+  <block id="d870af338cdfa7ad024a4babd5d5c020" category="list-text">astradscluster.yaml</block>
+  <block id="de40745cae6783730dd65bb03555d562" category="list-text">astradsoperator.yaml</block>
+  <block id="d2730d5e8f46678286a382b660c902d6" category="list-text">astradsversion.yaml</block>
+  <block id="3a9c59c477bac1075df22f66ac28ffc3" category="list-text">monitoring_operator.yaml</block>
+  <block id="155295fb4d0e2d0e7c5967bbc8bd3ed3" category="paragraph">您需要使用特定于部署的配置更新 `astradscluster.yaml` 清单。请参见 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="92d1656d06303733c5e1398fb273a17e" category="section-title">故障排除和支持</block>
+  <block id="74ba5cdb40feb42b19d5c7769a72ac66" category="paragraph">通过 Astra Data Store 预览版，您可以使用 NetApp Container Slack 通道访问社区支持。此渠道由 NetApp 支持和我们的技术营销工程师监控。</block>
+  <block id="61615f0fb929e3dc8c5ed73825a9a333" category="inline-link">NetApp 容器 Slack 通道</block>
+  <block id="eb8fcf37f17153346e926af0904aa1c4" category="paragraph"><block ref="eb8fcf37f17153346e926af0904aa1c4" category="inline-link-rx"></block></block>
+  <block id="98d4a15143a74da57ac042934633419c" category="paragraph">预览版要求您的系统连接到云并集成到 NetApp Active IQ 和 AutoSupport 工具中。</block>
+  <block id="0596e50aba44f7e1a22cfd6eba221eb1" category="inline-link-macro">Astra 数据存储支持操作</block>
+  <block id="95d0cc0c791e77283e4f15685fecea58" category="paragraph">了解相关信息 <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
+  <block id="babfff07f519258008994d4fc8c24ca1" category="paragraph">* 如何提出支持案例或要求对快速问题进行澄清？ * 要提出支持案例或获得有关快速问题的澄清，请在上报告您的问题描述或问题<block ref="4b307ae9f8df03c1a35a9ddfa102ae01" category="inline-link-rx"></block>。NetApp 支持部门将与您联系，帮助您尽最大努力解决问题。</block>
+  <block id="e55eed1f8e319d189f948d8925157ae5" category="paragraph">* 如何申请新功能？ * 如果您对支持的配置或功能有任何疑问，请联系 astra.feedback@netapp.com 。</block>
+  <block id="d8d50c12bd11a2109a7a384f43b0930a" category="inline-link-macro">生成支持包</block>
+  <block id="e859e608d59cef8fc0f0cccdb868853f" category="paragraph">* 如何生成支持日志包？ * 请参见 <block ref="0e3e1e21aa20734c9ddadb346fd8f7d6" category="inline-link-macro-rx"></block> 有关为 Astra Data Store 预览版设置和下载支持日志包的说明。</block>
+  <block id="36a38d337710d18d8d4579ea32c02c53" category="paragraph">* Astra Data Store 预览无法找到我的 Kubernetes 节点。如何修复此问题？ * 请参见 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="b65c882f5478cc6c135a753a8298028e" category="paragraph">* IPv6 地址是否可用于管理，数据和集群网络？ * 否， Astra Data Store 预览版仅支持 IPv4 地址。未来版本的 Astra Data Store 预览版将增加 IPv6 支持。</block>
+  <block id="91f1ab6c785beb94a57d22cb6b25c708" category="paragraph">* 在 Astra Data Store 预览版上配置卷时使用的是什么 NFS 版本？ * 默认情况下，对于为 Kubernetes 应用程序配置的所有卷， Astra Data Store 预览版支持 NFS v4.1 。</block>
+  <block id="6c6c281439786bd3afca1ee0f6d336f2" category="paragraph">* 为什么即使我已为 Astra Data Store 预览版配置了大容量驱动器，也无法获得更大的永久性卷？ * Astra Data Store 预览版将为 Astra Data 中所有节点上的所有卷配置的最大容量限制为 1 TiB ，最多 5 TiB 存储预览集群。</block>
+  <block id="c2d1bd9541919afbacc4acc6760de5d9" category="paragraph">了解相关信息 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="14cd0e4b418e0b771908183fb5ecc24e" category="section-title">升级 Astra Data Store 预览版</block>
+  <block id="9b5fa79969e9a6e522104cdbe7e5b5d3" category="paragraph">* 是否可以从 Astra Data Store 预览版升级？ * 否Astra Data Store 预览版不适用于生产工作负载，新版本的 Astra Data Store 预览版软件需要全新安装。</block>
+  <block id="f8e5d5352b626bd2d029c4bd8ea9d47a" category="summary">安装 Astra 数据存储并满足某些环境前提条件后，您将安装或更新 Astra Trident ，配置 K8s 快照功能，设置存储后端并创建默认存储类。</block>
+  <block id="19631c9457203d96b87631ebe7414561" category="doc">设置 Astra Data Store 预览组件</block>
+  <block id="c6b43cb83affec45395d5e8463e67e03" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 K8s 快照功能，设置存储后端并创建默认存储类：</block>
+  <block id="b242850ad01d99f75ddfd4f74dfebad7" category="list-text"><block ref="e182f16fc549d59ca5882ebcc8d36a3d" category="inline-xref-macro-rx"></block></block>
+  <block id="38dbb49a55339dc2dbba9028c6176375" category="list-text"><block ref="a0e69e669f52a5cafaeb2bea82f6649c" category="inline-xref-macro-rx"></block></block>
+  <block id="01b9d33e8be610298a88d84e6d7abbfe" category="list-text"><block ref="dcd2e63384cc1964e08e6b39f6f60b05" category="inline-xref-macro-rx"></block></block>
+  <block id="f2ae91b089e1704747091d82092a79f5" category="list-text"><block ref="c8c521299e392e79ac34059fc36dd14d" category="inline-xref-macro-rx"></block></block>
+  <block id="f1fe71442cd08e74d342114df7ee1551" category="section-title">安装 Astra Trident</block>
+  <block id="5dd74befe3d85da2f57fd86a34d8fac2" category="paragraph">对于 Astra Data Store 预览版，您需要安装 Astra Trident 21.10.1 。您可以使用以下选项之一安装 Astra Trident ：</block>
+  <block id="e7447899210826e544345ba93e133255" category="inline-link">使用 tridentctl 安装 Astra Trident</block>
+  <block id="979a6aa592c9858f17cfdaa4e128d948" category="list-text"><block ref="dc8ebe7b95cc3b1176276c1b38485f4d" category="inline-link-rx"></block>。</block>
+  <block id="c9dee809ea22b77ba4c31523844ca736" category="inline-link">使用 Trident 操作员安装 Astra Trident</block>
+  <block id="9cbe472556d86bca1de7978af69e74d5" category="list-text"><block ref="802e7b84d831ea6d56a6d132aa8a7db4" category="inline-link-rx"></block>。</block>
+  <block id="c2c5c71258d8e55bd320745371789d00" category="admonition">您可以手动或使用 Helm 部署 Trident 操作员。</block>
+  <block id="d79ccdfe6809f469235ccec6dcc85362" category="section-title">安装 Kubernetes Snapshot CRD 和控制器</block>
+  <block id="fb9ed05e85a3a832de77678ce6afc3a6" category="paragraph">要创建 PVC 快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
+  <block id="f6a6928c71289ccfc6e517aa2e23c8dd" category="admonition">以下命令示例假设 ` /trident` 作为目录；但是，您使用的目录可以是用于下载 YAML 文件的任何目录。</block>
+  <block id="b3f07915b49e4ea1df947a086346e6cc" category="inline-link-macro">开始安装之前，请为 Astra Data Store 预览部署准备您的环境</block>
+  <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>。</block>
+  <block id="d4d4a15663d8f6b4a3ab637d777ff538" category="inline-link-macro">Kubernetes 快照控制器 YAML 文件</block>
+  <block id="68b8495487a0e2961614f4537c86b8e1" category="list-text">下载 <block ref="d8c329b5b76c4cf95f26f4b2ef41b13f" category="inline-link-macro-rx"></block>：</block>
+  <block id="0ed163b08314ab6e6b11e5a003acb2e4" category="list-text">k8s-setup-snapshot-controller.yaml</block>
+  <block id="3f417c6ca705789edb204b186611a6c0" category="list-text">K8s-rbac — snapshot-controller.yaml</block>
+  <block id="e04160d92f8ef05d4ce3314e8cc91137" category="inline-link-macro">YAML CRD</block>
+  <block id="d2d45e911ea557447d96c6b2cb808cb7" category="list-text">下载 <block ref="1b2aa10bf02b798532fe7f94bbd6d467" category="inline-link-macro-rx"></block>：</block>
+  <block id="88e291668f9a86bd88b88b9b98a6aee8" category="list-text">snapshot.storage.k8s.io_volumesnapshotclasses.yaml</block>
+  <block id="5bcf00e7f0cf36a49beb0a818ec6cbef" category="list-text">snapshot.storage.k8s.io_volumesnapshotcontents.yaml</block>
+  <block id="cc5824f53c7ffbd99cb349e87efde1f4" category="list-text">snapshot.storage.k8s.io_volumesnapshots.yaml</block>
+  <block id="5dd799b58f0a48e81b9090706c21ffc1" category="list-text">应用 snapshot.storage.k8s.io_volumesnapshotclasses.yaml ：</block>
+  <block id="1b2b0d3c628e11a19e1e37d392fc808b" category="list-text">应用 snapshot.storage.k8s.io_volumesnapshotcontents.yaml ：</block>
+  <block id="b30fb0bbee1d9ca780b2e525df30f42d" category="list-text">应用 snapshot.storage.k8s.io_volumesnapshots.yaml ：</block>
+  <block id="67028ffd6acae86fab652d05257a9656" category="list-text">应用 K8s-setup-snapshot-controller.yaml ：</block>
+  <block id="9352a98e83e5674124c81320233e2033" category="list-text">验证是否已应用 CRD YAML 文件：</block>
+  <block id="c5827f9636201f8d30ce9cb0189c833d" category="list-text">验证是否已应用快照控制器文件：</block>
+  <block id="84ff6443c010c054303c3cacf8168ec8" category="section-title">将 Astra 数据存储设置为存储后端</block>
+  <block id="48b4e22b3043a4f7b84801549651a221" category="paragraph">在 ads_backend.json 文件中配置存储后端参数，并创建 Astra Data Store 存储后端。</block>
+  <block id="ba5afba2f814cc846b6fd4a34619c288" category="list-text">在安全终端中打开 `ads_backend.json` ：</block>
+  <block id="7be934ce8b58f4891a1f5bec99cfea5f" category="list-text">配置 JSON 文件：</block>
+  <block id="260e28a432c0ab70e8635e32a0869a37" category="list-text">将 ` "cluster"` 值更改为 Astra Data Store 集群的集群名称。</block>
+  <block id="02122a736bce8e681ad437ec22ed0e39" category="list-text">将 ` "namespace"` 值更改为要用于创建卷的命名空间。</block>
+  <block id="f47e741eac4d14c2bfe218ed3e360ab7" category="list-text">将 ` "autoExportPolicy"` 值更改为 `true` ，除非为此后端设置了 exportpolicy CR 。</block>
+  <block id="5be18ccddef777624ac5fdc8a276d6e9" category="list-text">使用要授予访问权限的 IP 地址填充 ` "autosExportCIDRs"` 列表。使用 `0.0.0.0/0` 允许所有。</block>
+  <block id="966ad0e717b4a7b04e344eca212f3893" category="list-text">创建存储后端：</block>
+  <block id="d6b32a57b28d1a90833a60d9d8a653fc" category="section-title">创建默认的 Astra Data Store 存储类</block>
+  <block id="aa80c9eb37faf3509ae07c01f5fcb711" category="paragraph">创建 Astra Trident 默认存储类并将其应用于存储后端。</block>
+  <block id="a6c0b25130e366f4926811fccc2d9175" category="list-text">创建 trident CSI 存储类：</block>
+  <block id="337d79852891a37d41285c9101c3fff4" category="list-text">运行以下命令：</block>
+  <block id="cd0b441465398fa0d75eba9947c66599" category="list-text">创建 trident CSI ：</block>
+  <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">验证是否已添加存储类：</block>
+  <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">验证 Astra Trident 后端是否已使用默认存储类参数进行更新：</block>
+  <block id="f6b5c68237555d09d9a7f7e2de93b432" category="summary">要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。</block>
+  <block id="a99bbd4efcfb17a742c0ddb6c66d33b4" category="paragraph">要安装 Astra 数据存储预览版，请从 NetApp 支持站点下载安装包并完成此操作步骤中所述的安装步骤。</block>
+  <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">注册</block>
+  <block id="208dc8838b660b6eee73ddccec7c2e45" category="list-text">访问 NetApp 支持站点。<block ref="1fd2eaa3264309dbe654ce780a5bda21" category="inline-link-rx"></block> 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。</block>
+  <block id="dfcac5e258bdfa0f1d552f9e95472f56" category="inline-link-macro">NetApp 许可证文件（ NLF ）</block>
+  <block id="ad3b46ea44ef643f0aa6cf10b5cddef7" category="inline-link">注册</block>
+  <block id="999cdcc895cc526aaf602ee12ee3266d" category="list-text">答 <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> 用于 Astra Data Store 预览。下载许可证的说明将在您之后发送给您<block ref="ddfab7b8f273b80482ec6ca64a01b0c4" category="inline-link-rx"></block>。</block>
+  <block id="7f7646bb0a5fb6cf0454a38c4d1f06d6" category="list-text">具有活动上下文集群管理员权限的活动 kubeconfig 。</block>
+  <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">角色和权限</block>
+  <block id="806b5637c063705c8d625e758efc64b6" category="list-text">了解 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> 由 Astra Data Store 预览版使用。</block>
+  <block id="1e822a9286ce82521a4c839250498223" category="list-text">Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。</block>
+  <block id="59d5f0097f4998113fed5d843c64f82e" category="paragraph">Astra Data Store 预览安装过程将指导您完成以下高级步骤：</block>
+  <block id="a556f5398142ae7011d0de50dc8b6c5b" category="list-text"><block ref="8d9993295d6b271ce4d01f645185155b" category="inline-xref-macro-rx"></block></block>
+  <block id="6d0f824f6a186eea3583d29e3aed365a" category="list-text"><block ref="28f9f989c873aca847e12e3f56387e81" category="inline-xref-macro-rx"></block></block>
+  <block id="b70c468b8ef55be96953554233f196f8" category="list-text"><block ref="038e87b146a54831da5266e118724b0a" category="inline-xref-macro-rx"></block></block>
+  <block id="fafef40eb86a5fcb390728637ec82ad8" category="list-text"><block ref="08b9a934358b06f23bec23e40881a274" category="inline-xref-macro-rx"></block></block>
+  <block id="3f93c6b91779c776c73fe8ddbdde26b2" category="list-text"><block ref="c74831dec7277b920b9074aa393a140d" category="inline-xref-macro-rx"></block></block>
+  <block id="f52b1c1daf5c796d010750e360734182" category="list-text"><block ref="eef74539c11538f892571f8a012ef5ae" category="inline-xref-macro-rx"></block></block>
+  <block id="c8834ddc1c87f17c8d417b37fcbd87f0" category="list-text"><block ref="59d3a9e0f85930d559866ff811a1da02" category="inline-xref-macro-rx"></block></block>
+  <block id="d81ec671d645986632c1dff9a52a8d03" category="list-text"><block ref="9fcc40a9325fa4fdd116019afa5bfea2" category="inline-xref-macro-rx"></block></block>
+  <block id="38a46257d48221851cd4c911eb65d23a" category="section-title">下载 Astra Data Store 预览包并提取映像</block>
+  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">NetApp 支持站点</block>
+  <block id="ef2dd39c433a604bf33391ebcd7f3854" category="list-text">登录到<block ref="179992dc1b5e9762dea364da8b44a283" category="inline-link-rx"></block> 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。</block>
+  <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">（可选）使用以下命令验证捆绑包的签名：</block>
+  <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">提取映像：</block>
+  <block id="a179389f208c9573ee510e5e4bcceeba" category="section-title">将二进制文件和推送映像复制到本地注册表</block>
+  <block id="1acaca46449fb5c00dc1a685d015c6e5" category="list-text">将 kubectl-astrad 二进制文件从用于提取映像的目录复制到安装了 K8s kubectl 二进制文件的标准路径；例如， ` /usr/bin/` 。kubectl-astrad 是一个自定义 kubectl 扩展，用于安装和管理 Astra Data Store 预览集群。</block>
+  <block id="4f4091e1c75967c191a148ba3b601115" category="list-text">将 Astra Data Store 预览映像目录中的文件添加到本地注册表中。</block>
+  <block id="9f852ed13251aa5ddae669983b4139d7" category="admonition">有关自动加载映像的信息，请参见下面的示例脚本。</block>
+  <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">登录到注册表：</block>
+  <block id="13188191a9ba4fa03655f2853f19ca94" category="list-text">将环境变量设置为要推送 Astra Data Store 预览映像的注册表路径；例如， `repo.company.com` 。</block>
+  <block id="1251312a6e29c077a92406c8347c9cbc" category="list-text">运行脚本将映像加载到 Docker ，标记映像，并将这些映像推送到本地注册表：</block>
+  <block id="f5051f42d63dce7a9189a8b8754221f4" category="section-title">安装 Astra Data Store 预览运算符</block>
+  <block id="d650aa517255d50ce12c3c1dc0fa6cd1" category="list-text">列出 Astra Data Store 预览清单：</block>
+  <block id="2bf2749ac3d1bb0b33e707bf3fab3f63" category="list-text">使用 kubectl apply 部署操作员：</block>
+  <block id="da89009070a281ea41fbaf69a4a75bd5" category="list-text">验证 Astra 数据存储操作员 POD 是否已启动且正在运行：</block>
+  <block id="a474d63bfa2ddaeb697e978c796209e1" category="section-title">部署 Astra Data Store 预览版 YAML</block>
+  <block id="df42b724421bbda5256280183fe89e21" category="list-text">使用 kubectl Deploy 应用：</block>
+  <block id="aed417ffe5dc63aa67936840a0654828" category="list-text">验证 Pod 是否正在运行：</block>
+  <block id="768473ff6c238ddbd570531f58f36857" category="section-title">应用 Astra Data Store 预览许可证</block>
+  <block id="2168e2850f39640b087ab9ec40e09ea4" category="inline-xref">即将部署</block>
+  <block id="f3c66c687ab66bae9a385e5166892e7f" category="list-text">应用在注册预览时获取的 NetApp 许可证文件（ NLF ）。运行命令之前，请输入您所在集群的名称（` &lt;Astra-Data-Store-cluster-name&gt;` ） <block ref="544b5866c36aeaaf1e92905a0eca962d" category="inline-xref-macro-rx"></block> 或已部署许可证文件的路径（` &lt;file_path/file.txt&gt;` ）：</block>
+  <block id="a43a46b3d0bdea57bd228232adb9bf0c" category="list-text">验证是否已添加此许可证：</block>
+  <block id="4d85b327d56be8f708cd85949f327a4b" category="section-title">安装 Astra Data Store 预览集群</block>
+  <block id="0fd0a9ef6ce0637f3746e6066a53fe13" category="list-text">打开 YAML 文件：</block>
+  <block id="6bfe0a99899b6870d084eedf67275849" category="list-text">编辑 YAML 文件中的以下值。</block>
+  <block id="1e00053e55e180092ef69fbe8b9ab83c" category="admonition">以下步骤将提供一个简化的 YAML 文件示例。</block>
+  <block id="46befd76c4ec19a9001f1b49517fe11e" category="inline-xref">应用许可证</block>
+  <block id="6a89528574fff5e08faba86e8e3d65e8" category="list-text">（必需） * 元数据 * ：在 `metadata` 中，将 `name` string 更改为集群名称。此集群名称必须与您在使用时使用的集群名称相同 <block ref="a806c3cf0e02664ef4049bd63a8af194" category="inline-xref-macro-rx"></block>。</block>
+  <block id="51c12a83abe23c7ff9e9037e230ae6ff" category="list-text">（必需） * 规格 * ：在 `sPec` 中更改以下必需值：</block>
+  <block id="868e18bdd7bc8799f8c1e1f00b94d58c" category="list-text">将 `mVIP` 字符串更改为可从集群中的任何工作节点路由的浮动管理 IP 的 IP 地址。</block>
+  <block id="cc80da2ca49204147d1a136f50492c90" category="list-text">在 `adsDataNetworks` 中，添加一个逗号分隔的浮动 IP 地址列表（`addresses` ），这些地址可从要挂载 NetApp 卷的任何主机路由。每个节点使用一个浮动 IP 地址。数据网络 IP 地址的数量应至少与 Astra Data Store 预览节点的数量相同。对于 Astra Data Store 预览版，这意味着至少有 4 个地址，如果您计划稍后将集群扩展到 5 个节点，则至少需要 5 个地址。</block>
+  <block id="29b31f9baad8004ca9125758588d82c3" category="list-text">在 `adsDataNetworks` 中，指定数据网络使用的网络掩码。</block>
+  <block id="dc9f3800ee8e188d0fb3e1fb1687d270" category="list-text">在 `adsNetworkInterfaces` 中，将 `mGMT` 和 `data` 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</block>
+  <block id="575504814fb95c79b3ed9e5f1035436b" category="admonition">集群和存储网络必须位于同一接口上。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。</block>
+  <block id="8da4a001932be2ff606e6df10493966a" category="inline-xref">监控操作员</block>
+  <block id="644ad178aa7628cc443a92bf64c7cfca" category="list-text">（可选） * 显示器配置 * ：如果要配置 <block ref="0f1aa9f35704db6c7d3dfbe726efcbc1" category="inline-xref-macro-rx"></block> （如果您不使用 Astra Control Center 进行监控，则可选），从部分中删除注释，添加应用代理 CR （监控操作员资源）的命名空间（默认值为 `netapp-monitoring` ），然后添加您在先前步骤中使用的注册表的 repo路径 （`yor_registry_path` ）。</block>
+  <block id="6645e0ebb53d4b6e68be7936af3a8039" category="inline-link-macro">AutoSupport</block>
+  <block id="b20888d3010009c6ea174a1a0c0f5ef3" category="list-text">（可选） * 自动支持配置 * ：保留 <block ref="7cdd2204a3bafe4583e65edf34a51ee8" category="inline-link-macro-rx"></block> 默认值，除非您需要配置代理：</block>
+  <block id="912dac57b66d9e216d74c0e9eb1d077a" category="list-text">对于 `proxyURL` ，使用要用于 AutoSupport 捆绑包传输的端口设置代理的 URL 。</block>
+  <block id="f3fba3fb3102862b1aad8b63c0aaf749" category="admonition">大多数注释已从以下 YAML 示例中删除。</block>
+  <block id="4a212b2ee1c3b204f74bc2dcc71b7cda" category="list-text">使用 `kubectl apply` 部署集群：</block>
+  <block id="14e134a7ed0f49d1ca8cf22782ce2d36" category="list-text">等待几分钟，以完成集群创建操作，然后验证 Pod 是否正在运行：</block>
+  <block id="e820d2459278040b58fab1dcc9b93d13" category="list-text">验证集群部署进度：</block>
+  <block id="37fc959dfa0d9cc2e3d0d38b2be66c5d" category="section-title">了解与部署相关的事件</block>
+  <block id="7822a7d6e729e9615380ec0aadb6990b" category="paragraph">在集群部署期间，操作状态应从 `blank` 更改为 `in progress` 更改为 `created` 。集群部署将持续大约 8 到 10 分钟。要在部署期间监控集群事件，您可以运行以下命令之一：</block>
+  <block id="bd7c3f1dac7f5cf319de422fa4a32691" category="paragraph">以下是部署期间的关键事件：</block>
+  <block id="77e9b0cdc3fdcabe72374f66c02d8e31" category="cell">事件消息</block>
+  <block id="7277de5f2ed6f17c61f1f25594591a82" category="cell">含义</block>
+  <block id="c3ee1dbc78e2d761efcaca2d0c21d2dc" category="cell">已成功选择 4 个控制面板节点加入 ADS 集群</block>
+  <block id="e94fd6602ce1ed04ac1725ae3531fad4" category="cell">Astra Data Store 预览运算符可确定具有 CPU ，内存，存储和网络连接的节点足以创建 Astra Data Store 预览集群。</block>
+  <block id="3bf8d74892939c244e4f2ee0af58a0f0" category="cell">ADS 集群创建正在进行中</block>
+  <block id="b0fa14a74437c78bbc1e99fd182aeb71" category="cell">Astra Data Store 预览集群控制器已启动集群创建操作。</block>
+  <block id="c33b4384dd5fcfe18b76baf9e293eeba" category="cell">已创建 ADS 集群</block>
+  <block id="84a006d56f84917bd14e7225a2a02c31" category="cell">已成功创建集群。</block>
+  <block id="52e440135a5420f088a23a09ab819506" category="paragraph">如果集群的状态未更改为 `in progress` ，请查看操作员日志，了解有关节点选择的更多详细信息：</block>
+  <block id="19281350da56d254a23943fe3af63ba6" category="paragraph">如果集群状态停留在 `in progress` ，请检查集群控制器的日志：</block>
+  <block id="ae415e54f22dc20b15664df617236001" category="section-title">配置 Astra Data Store 预览监控</block>
+  <block id="25d3b233b0ff51f660dcb6bc0ba14159" category="paragraph">您可以为 Astra 控制中心监控或其他遥测服务监控配置 Astra 数据存储预览。</block>
+  <block id="479726e541dcc4c2f078e4d5569bdfaf" category="section-title">为 Astra 控制中心预览配置监控</block>
+  <block id="6203a701a3e7de109a3a27e477c119db" category="paragraph">只有在 Astra 控制中心将 Astra Data Store 预览作为后端进行管理后，才能执行以下步骤。</block>
+  <block id="268d42130d32b678b5315bca020d068f" category="list-text">配置 Astra 数据存储预览以供 Astra 控制中心监控：</block>
+  <block id="9de66ad79d82936e94f0c6094e0171fb" category="section-title">安装监控操作员</block>
+  <block id="194fbd5a522bc86a2d3b35d737225178" category="paragraph">（可选）只有当 Astra Data Store 预览版不会导入到 Astra 控制中心中时，才建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。</block>
+  <block id="75d6f2032046c897df7535bbcf1f2a76" category="list-text">运行此安装命令：</block>
+  <block id="322b884d1c713ebd73ac803c20762937" category="list-text">配置用于监控的 Astra Data Store 预览版：</block>
+  <block id="510a796972d54f6936dbae0081373fc0" category="inline-link-macro">设置任务</block>
+  <block id="ba75da3e22141799ae4615278996fda2" category="paragraph">执行以完成部署 <block ref="7324e433dd54231f6ab1c33e7f1852c1" category="inline-link-macro-rx"></block>。</block>
+  <block id="5a71d91e06ad8ead9ee7b71fb1d1cf81" category="paragraph">首先验证您的环境是否满足 Astra Data Store 预览要求。</block>
+  <block id="2b12c92b4d68979d137f7d822fbec4e4" category="paragraph">Astra Data Store 预览版既支持裸机部署，也支持基于 VM 的部署。Astra Data Store 预览集群可以在具有四个或更多工作节点的 Kubernetes 集群上运行。Astra Data Store 预览软件可以与在同一 Kubernetes 集群上运行的其他应用程序共存。</block>
+  <block id="a30195e4a11370091d267119513930ae" category="paragraph">Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kubernetes 工作负载配置 PV 。未来版本的 Astra Data Store 将支持 VM 工作负载。</block>
+  <block id="9bd63000c2af4d83a8dd902ab86c7a9d" category="section-title">Kubernetes 工作节点资源要求</block>
+  <block id="16dbbcaa8127b4161bb7231947ced857" category="paragraph">以下是为 Kubernetes 集群中每个工作节点上的 Astra Data Store 预览软件分配的最低资源要求：</block>
+  <block id="543ea7e6e8e3c3a36c4ab738b89a60dd" category="cell">数据驱动器的数量</block>
+  <block id="cadcb5c15abfc9c0b86d5a704e2447b0" category="list-text">3 （存在单独的缓存设备）</block>
+  <block id="8598b116a85f931030ddcb21423c1f99" category="list-text">4 （如果不存在缓存设备）</block>
+  <block id="aab3238922bcc25a6f606eb525ffdc56" category="cell">14</block>
+  <block id="5dcae1a0f82e51f56f8a80fa3ba302b3" category="cell">数据驱动器大小</block>
+  <block id="0ded0ce1dd3c7f144d40f6562739e768" category="cell">100 GiB</block>
+  <block id="c0fb54db4c34b6ee67c36a485d24a499" category="cell">4 TiB</block>
+  <block id="35ae311217c943858bd083552df9cdf0" category="cell">可选缓存设备的数量</block>
+  <block id="2f40c66dc5287c36ac7043a57079206d" category="cell">1 （大小为 8 GiB 或更大）</block>
+  <block id="81665fcb678cc0680902f66f3be020c4" category="cell">vCPU 数量</block>
+  <block id="e53619c1fe611a51eeeb8d148ba6e532" category="cell">RAM</block>
+  <block id="3e4ee04dedab0a44100bf5980be3b0ca" category="cell">34 GiB</block>
+  <block id="06bdc266ef961962430b8fc45fbe6b6c" category="admonition">为了获得最佳写入性能，您应配置一个专用的高持久性，低延迟，低容量缓存设备。</block>
+  <block id="e87c8f6d1c135adc9868a1a25397c000" category="paragraph">每个工作节点都有以下附加要求：</block>
+  <block id="402a4bd631dc016fa807e263fbf090e1" category="list-text">主机磁盘（启动）上要存储 Astra Data Store 预览日志文件的可用空间为 100 GiB 或更大。</block>
+  <block id="a4ca32328536a651e07fc9b06697e84b" category="list-text">至少为集群，数据和管理流量提供一个 10GbE 或更快的网络接口。此外，还可以使用一个额外的 1GbE 或更快的接口来隔离管理流量。</block>
+  <block id="630e5660de352108f57840f67c4ce73b" category="section-title">硬件和软件要求</block>
+  <block id="e628b45fbfeec85c34256d39bd5249e7" category="paragraph">已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。如果您的 Kubernetes 集群配置不同，请访问 NetApp 社区支持。</block>
+  <block id="ee6328bc3c21dc27320191d56135aa72" category="list-title">硬件平台</block>
+  <block id="d9254f66df3568a13577635eecc90e21" category="list-text">HPE DL360</block>
+  <block id="46cc405d71094428b9035eada2442cd4" category="list-text">HPE DL380</block>
+  <block id="f19b045d12ab371aab144f89dcc13406" category="list-text">Dell R640</block>
+  <block id="5036b658f8a53c4fae6b137bbbda7cdb" category="list-text">Dell R740</block>
+  <block id="e17640313f77daf8929e4ba5e5d691a6" category="paragraph">Astra Data Store 预览版已通过以下驱动器类型的验证：</block>
+  <block id="dea342ba4eabb4b927f34473091fe6ae" category="list-text">* 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上。</block>
+  <block id="55721dba481df02cbe819287631df710" category="list-text">SATA 或 NVMe TLC SSD 。</block>
+  <block id="985800e585c5b9df03d4a5349f4dfed9" category="list-text">* 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版。</block>
+  <block id="d84d026361d773e49e1bda99e54e83d6" category="list-text">基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库。</block>
+  <block id="90f320e433af1491586744499df8fa50" category="list-text">驱动器显示为虚拟磁盘或直通驱动器。</block>
+  <block id="003c6ca2750566a4e0ac19207c3b49c1" category="admonition">如果主机在硬件 RAID 控制器后使用 SSD ，请将硬件 RAID 控制器配置为使用 " 直通 " 模式。</block>
+  <block id="0b3dea0c3d33c00792e5cd4182c9c9ad" category="admonition">每个驱动器都应具有唯一的序列号。在虚拟机创建期间，在虚拟机高级设置中添加属性 `disk.enableid=true` 。</block>
+  <block id="719d067b229178f03bcfa1da4ac4dede" category="list-title">软件</block>
+  <block id="fa9b3e0c25801e6c5b183b7fb6d76601" category="list-text">虚拟机管理程序： Astra Data Store 预览版已通过基于 VMware 的 VM 部署与 ESXi 7.0 的验证。Astra Data Store 预览版不支持基于 KVM 的部署。</block>
+  <block id="c0a90441fa1d53cd1d4d17a37f82e16e" category="list-text">已在以下主机操作系统上验证 Astra Data Store 预览版：</block>
+  <block id="e394890e871b97833bb8a8e0b5404dc4" category="list-text">Red Hat Enterprise Linux 8.4</block>
+  <block id="bdc427e5a3608a3f6e387f1e0ff10e8d" category="list-text">Red Hat Enterprise Linux 8.2</block>
+  <block id="efdefb5589146725b584d2c0c715c9b3" category="list-text">Red Hat Enterprise Linux 7.9</block>
+  <block id="30acbaba7ce639c1b276cbc35a0fe207" category="list-text">Red Hat Enterprise Linux CoreOS （ RHCOS ）</block>
+  <block id="0460305b9f6d43c9d7668d990a229d26" category="list-text">CentOS 8</block>
+  <block id="73611f9a837b7a25dad3a9c5d1a98658" category="list-text">Ubuntu 20.04</block>
+  <block id="3067d2347cdf6ba6d767baaa01d8ce06" category="list-text">Astra Data Store 预览版已通过以下 Kubernetes 分发版的验证：</block>
+  <block id="08b0b3c250d07dbba69b8d2ccb1f6dcc" category="list-text">Red Hat OpenShift 4.7</block>
+  <block id="cbf3ba8909d0a2dbc7f272ae7df1dbe5" category="list-text">Google Anthos 1.7</block>
+  <block id="02325bcf14c74708f4a955f606b3d820" category="list-text">Kubernetes 1.21</block>
+  <block id="98ed355c6ed8cd291489f349a175fbff" category="list-text">Kubernetes 1.20</block>
+  <block id="b85d9f68ffe4a47f7986776cdde8c3f1" category="inline-link-macro">Astra Trident 安装说明</block>
+  <block id="34d22151cd691db2bcf1548b6583bf00" category="admonition">Astra Data Store 预览版需要使用 Astra Trident 21.10.1 版进行存储配置和编排。请参见 <block ref="2c4b7676e17cc4ce9ceda58b02f08122" category="inline-link-macro-rx"></block>。</block>
+  <block id="9251700e586dc1a410f2e755a8643751" category="section-title">网络要求</block>
+  <block id="d449a5b81d6193de4c776276bb07b83a" category="paragraph">Astra Data Store 预览版要求每个集群有一（ 1 ）个 IP 地址用于 MVIP 。它必须是与 MIP 位于同一子网中的未使用或未配置的 IP 地址。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。</block>
+  <block id="843b957e2c243e60410a67851fb2a3bc" category="paragraph">此外，还可以按下表所述配置每个节点：</block>
+  <block id="f63342c9d79c680b33aaf87240993cbf" category="admonition">此表使用了以下缩写词： mip ： management IP address cip ： cluster ip address MVIP ： management virtual IP address</block>
+  <block id="254f642527b45bc260048e30704edb39" category="cell">Configuration</block>
+  <block id="340e3eeeee2cb6f029e877359cf7fabb" category="cell">所需的 IP 地址</block>
+  <block id="c3c52e9f2e11ae59e56c2e2cefbb37b8" category="cell">每个节点一个网络接口</block>
+  <block id="a7d621303329faa794a2debe597c9a34" category="list-text">每个节点两（ 2 ）个：</block>
+  <block id="768f68274823d5a7efa1bf105abe5495" category="list-text">MIP/CIP ：每个节点的管理接口上有一（ 1 ）个预配置的 IP 地址</block>
+  <block id="d4238ff24fc1cf5a2b88b0a7b8287577" category="list-text">Data IP ：在与 MIP 相同的子网中，每个节点一（ 1 ）个未使用或未配置的 IP 地址</block>
+  <block id="e5a31bf236fa351c0c8d4d6deee7a459" category="cell">每个节点两个网络接口</block>
+  <block id="dc70d5b93667dbbfed15c42ad46a3aa5" category="list-text">每个节点三（ 3 ）个：</block>
+  <block id="2a7a869fc706abd781fd566e1ada8f71" category="list-text">MIP ：每个节点的管理接口上有一（ 1 ）个预配置的 IP 地址</block>
+  <block id="f42ce73bfdc2096b23cfed33403cdc62" category="list-text">CIP ：在与 MIP 不同的子网中，每个节点的数据接口上有一（ 1 ）个预先配置的 IP 地址</block>
+  <block id="a33be05f8cf7234feb5f33257c901f01" category="list-text">Data IP ：在与 CIP 相同的子网中，每个节点一（ 1 ）个未使用或未配置的 IP 地址</block>
+  <block id="6960e0648bb96ae26e178a20a5b245eb" category="admonition">对于这两种配置，应省略集群自定义资源（ CR ）文件 `asadscluster.YAML` 中的数据网络网关字段。每个节点上的现有路由配置可容纳所有地址。</block>
+  <block id="c6614b840aed1f56769d06419ac7f1fa" category="admonition">这些配置中不使用任何 VLAN 标记。</block>
+  <block id="ceedae14ac976bff9044b24f80f01669" category="section-title">CSI 驱动程序</block>
+  <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">存储后端</block>
+  <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Trident 21.10.1 。Astra Data Store 预览版可配置为 <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> 使用 Astra Trident 配置永久性卷。</block>
+  <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 配置</block>
+  <block id="5d9347d6b4cc0daccd2fd63126733db6" category="paragraph">Astra Data Store 预览已通过 Calico 和 Weave Net CNI 的验证。</block>
+  <block id="8830b15b981296d5edf3d00560d26ed2" category="paragraph">这些 CNI 要求禁用主机防火墙（ firewalld ）。</block>
+  <block id="950dab43d2896e395e031a5adfdb2982" category="section-title">永久性卷共享要求</block>
+  <block id="68c57e9c9ed620f9a7a94775279db0f6" category="paragraph">每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。对于 Astra Data Store 预览版中的永久性卷，请考虑以下要求：</block>
+  <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="list-title">要求</block>
+  <block id="9f24f02fc8600bb479ba376e4e8d115d" category="list-text">NFSv4.1 客户端 / 服务器必须安装在 Kubernetes 集群上。</block>
+  <block id="b9e835c1024473d6793b9eb0f6dbf66c" category="list-text">必须在工作节点上安装 nfs-utils 软件包。</block>
+  <block id="abb957fb7548aff796259f85d536571f" category="list-text">Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。</block>
+  <block id="e48fa26d86f93c0095683fa3998fe381" category="inline-link">请在此处注册</block>
+  <block id="e88524429305e37bd73a6b99a2182f42" category="paragraph">要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。<block ref="46a5ef130a429145ae865d2b93a630d6" category="inline-link-rx"></block> 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。</block>
+  <block id="0dab9f614d7de2d86a6e3ab5423bb50e" category="section-title">AutoSupport 配置</block>
+  <block id="8e15885329078651f14e154e8002de30" category="paragraph">Astra 数据存储预览版要求启用 AutoSupport 并连接到 AutoSupport 后端。这可以通过直接 Internet 访问或代理配置来实现。</block>
+  <block id="89dbe396da9bd6ab3205e241874bebca" category="inline-link-macro">用于发送强制遥测 AutoSupport 捆绑包的定期设置</block>
+  <block id="6fe9b5b6d729ff69562cf18c46d7a020" category="paragraph">。 <block ref="3ff252deb2705468c8bcd50f62610a2a" category="inline-link-macro-rx"></block> 不应更改。如果禁用定期发送 AutoSupport 捆绑包，则集群将被锁定，并且无法创建新卷，直到再次启用定期设置为止。</block>
+  <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">快速入门</block>
+  <block id="77a7c94739d3e3b6a3c106162739bbcd" category="paragraph">查看 <block ref="4a78f9b7a1530228ea4c970be46c5b94" category="inline-link-macro-rx"></block> 概述。</block>
+  <block id="a9066c7b36f74393f45392470bdf22d8" category="summary">只需几步即可开始使用 Astra 数据存储。</block>
+  <block id="3551ec406ac2e45ff0f50e87c946ab31" category="doc">快速启动 Astra Data Store 预览</block>
+  <block id="aa9dba12e956af910d79b88fd258601d" category="paragraph">此页面简要概述了开始使用 Astra Data Store 预览版所需的步骤。每个步骤中的链接将转到一个页面，其中提供了更多详细信息。</block>
+  <block id="2778cb9b46b47b6f77215d7a65f475b1" category="paragraph">试用！如果要尝试使用 Astra Data Store 预览版，可以使用 90 天预览许可证。</block>
+  <block id="9df3c7b804c4fb849cc1089fc12ec734" category="paragraph"><block ref="0b42ce17ba1a149ab9e15f2cfdeb306a" category="inline-link-rx"></block> 以获取 Astra Data Store 预览许可证。</block>
+  <block id="4854d4c0301c6f34c76f1cb78057e09e" category="list-title">跨度 class="image&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt-one"&gt;&lt;/span&gt; 查看 Kubernetes 集群要求</block>
+  <block id="600570cd3d6ec071fcd2e2a4b40dcab5" category="list-text">集群必须以运行状况良好的状态运行，并且至少具有四个联机辅助节点和一个主节点。</block>
+  <block id="769e7d2e2b3a8a07afb7dfcd707bb4dd" category="list-text">属于 Astra Data Store 预览部署的每个 Kubernetes 工作节点都应具有相同接口类型（ SATA ， SAS 或 NVMe ）的 SSD ，并具有相同数量的驱动器，这些驱动器将分配给 Astra Data Store 预览集群。</block>
+  <block id="0cffa0eb91d9096c1bc69da95e5e4e35" category="list-text">每个 SSD 都应具有唯一的序列号。</block>
+  <block id="97b110e14cbf7a5f05af63a6d2f1ec76" category="paragraph">了解更多信息 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="c75fe5e2b8c64cfb74d30735f622c966" category="list-title">跨度 class="image&gt;&lt;img src=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> Alt-twe"&gt;&lt;/span&gt; 下载并安装 Astra Data Store 预览版</block>
+  <block id="50fd5d93fc155f6d8daa37d2a86a363d" category="list-text">从下载 Astra Data Store 预览版<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>。</block>
+  <block id="a50bc7927766c9f208535b680609be39" category="list-text">在本地环境中安装 Astra Data Store 预览版。</block>
+  <block id="a03840035675e063f957fca61af14486" category="list-text">（可选）安装监控操作员。这样，您就可以连接到 NetApp Cloud Insights ，以便显示有关系统运行状况，容量和吞吐量的指标。</block>
+  <block id="299e2872cc229c70439dcff6baedd974" category="list-text">应用 Astra Data Store 预览许可证。</block>
+  <block id="f13260ded33a92f7c0c7a01b10c9be66" category="list-text">安装 Astra Data Store 预览集群。</block>
+  <block id="75eb2d08fc375034ffa9f42146096a73" category="inline-link-macro">安装 Astra Data Store 预览版</block>
+  <block id="cdc734518e1995b54180cc5fe07f8eb5" category="paragraph">了解更多信息 <block ref="500d9e2c6a6986fe091f6d5e600c02a9" category="inline-link-macro-rx"></block>。</block>
+  <block id="80de081c75779cda8e2db1de0f292684" category="list-title">跨度 class="image&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> Alt-Three &lt;/span&gt; 完成一些初始设置任务</block>
+  <block id="9e2a7f44aa27cc7ead915762de91e605" category="list-text">安装 Astra Trident 。</block>
+  <block id="630ab56d1e8b5787a5c4e0b9bf8c58f9" category="list-text">安装 Kubernetes Snapshot 自定义资源定义（ CRD ）和控制器。</block>
+  <block id="a157bce7fd181617f4e5fb414c8a59a7" category="list-text">将 Astra Data Store 预览设置为存储后端。</block>
+  <block id="49b5048005f8a05e518b57e06f640d29" category="list-text">创建 Astra Data Store 预览存储类。</block>
+  <block id="696638e6fb97f6a54feea5bca820df2e" category="inline-link-macro">初始设置过程</block>
+  <block id="dbffc0609c7e1e112b54784b54f5396d" category="paragraph">详细了解 <block ref="914fa5bd06e3aa494df742959ef37adf" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb7ba360472b1fbabfd9c8edf6be6bf9" category="paragraph">设置完 Astra Data Store 预览后，您接下来可能会执行以下操作：</block>
+  <block id="089dffadf86859c7db5c2d11bd7d5ce9" category="inline-link-macro">如何在 Astra Data Store 预览版中使用 kubectl 命令</block>
+  <block id="f4df40e87733e72d4e70e4074a33d1b8" category="list-text">使用 kubectl 命令和 kubectl astrad 扩展来管理集群，包括将节点置于维护模式，更换驱动器或更换节点等任务。了解更多信息 <block ref="a57a67e965644a2724266f2a8472546a" category="inline-link-macro-rx"></block>。</block>
+  <block id="9600e68b6bd25a2f0f71b411cd63bd34" category="inline-link-macro">配置监控端点</block>
+  <block id="e4bfa660b2212414c8cf9ec372400ea6" category="list-text">配置监控端点。了解更多信息 <block ref="1659657294c28fe6854339fca8e6e794" category="inline-link-macro-rx"></block>。</block>
+  <block id="a21c1805fc71477a920c14ffd054ae28" category="paragraph"><block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
+  <block id="f16f3c945705b1ec1c2fa1f5d55b34f4" category="sidebar">Astra 数据存储文档</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
+  <block id="950ef96ff58f56393ed7430627e7ea24" category="sidebar">了解 Astra 数据存储</block>
+  <block id="c57f988e5835170a0aaff4d1dfeaf944" category="sidebar">Astra Data Store 预览版中的内容</block>
+  <block id="62bdbe048d174b559cb770f9ebaf0895" category="sidebar">试用</block>
+  <block id="899cadfe18270498e36749fd8c70b6ea" category="sidebar">设置 Astra Data Store 预览</block>
+  <block id="7ea0911f99c3d96666fd9f883b4db9ca" category="sidebar">使用 Astra Data Store 预览版</block>
+  <block id="e961f7303467d87af5c48cca8c4d09a5" category="sidebar">使用 kubectl 命令进行管理</block>
+  <block id="b4c6e3a3c2028ba3c6664bbbda8d1964" category="sidebar">监控事件日志</block>
+  <block id="720dfdf92d4c340e9f5b8b2b368df3c9" category="sidebar">Astra 控制中心集成</block>
+  <block id="81a123ccab93cd947289b672b0e50348" category="sidebar">演示教程</block>
+  <block id="51d4cdad7d0fdc980b53468d54533be7" category="sidebar">Kubernetes 的未来</block>
+  <block id="e00a8c065b7da39a499cd9685782e767" category="sidebar">Astra Data Store 预览演示</block>
+  <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">博客社区</block>
+  <block id="6394eceb2639574114b02e6e817eb19a" category="sidebar">Astra 博客</block>
+  <block id="0ea49e56b14b87fa0b49648176f9fc81" category="sidebar">" 容器 " 通道可宽延</block>
+  <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">Kubernetes Hub</block>
+  <block id="213686afc3803be7caa09348765467fe" category="sidebar">如何获取帮助</block>
+  <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知识和支持</block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="sidebar">故障排除</block>
+  <block id="1d79052461351a56ef4f9bf9f5837f4a" category="sidebar">使用 REST API 实现自动化</block>
+  <block id="0b79795d3efc95b9976c7c5b933afce2" category="sidebar">简介</block>
+  <block id="042ad0dc0362e73320e5850115e17224" category="sidebar">使用 Astra 数据存储</block>
+  <block id="a8ecbfa098cb2532d1bd8fdb1e9c8a10" category="sidebar">管理 Astra 数据存储资产</block>
+  <block id="9b52865b9dbe62c36d0b36e7ad30777f" category="sidebar">设置应用程序</block>
+  <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">概念</block>
+  <block id="6762973af9b127d271f0d2b2aea0bc96" category="sidebar">部署模式</block>
+  <block id="fd18465573ec21a6218982055981f6b1" category="sidebar">存储效率</block>
+  <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">安全性</block>
+  <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">常见问题解答</block>
+</blocks>

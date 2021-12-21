@@ -1,0 +1,11 @@
+---
+section: release-notes
+title: 发行说明
+url: "/release-notes/rn_overview.html"
+entries:
+- title: 此版本的 Astra 数据存储中的内容
+  url: "/release-notes/whats-new.html"
+- title: 已知问题
+  url: "/release-notes/known-issues.html"
+- title: 已知限制
+  url: "/release-notes/known-limitations.html"

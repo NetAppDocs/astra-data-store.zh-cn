@@ -1,0 +1,14 @@
+---
+section: concepts
+title: 概念
+entries:
+- title: Astra 数据存储简介
+  url: "/concepts/intro.html"
+- title: 部署模式
+  url: "/concepts/architecture.html"
+- title: 集群扩展
+  url: "/concepts/expansion.html"
+- title: 存储效率
+  url: "/concepts/storage-efficiency.html"
+- title: 安全性
+  url: "/concepts/security.html"

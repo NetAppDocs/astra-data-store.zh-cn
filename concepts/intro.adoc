@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: concepts/intro.html 
+keywords: introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes 
+summary: Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。 
+---
+= Astra 数据存储简介
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。
+
+借助 Astra 数据存储，您可以执行以下操作：
+
+* * 支持 Kubernetes 容器化工作负载 * ：利用您习惯使用的企业级数据管理服务和工具支持容器化工作负载。
+* * 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，提供自动化，可重复的服务，从而消除 developers​ 带来的复杂性。
+
+
+
+
+== Astra 产品系列
+
+Astra 系列产品可提供 Kubernetes 应用程序数据生命周期管理，从而简化有状态应用程序的操作。轻松保护，备份和迁移 Kubernetes 工作负载，并即时创建有效的应用程序克隆。
+
+Astra 产品包括：
+
+* * Astra Control* ：使用应用程序感知型数据管理工具来管理，保护和移动公有云和内部环境中的 Kubernetes 工作负载。​
++
+** * Astra 控制服务 * ：使用 NetApp 管理的服务对公有云中的 Kubernetes 工作负载进行数据管理。
+** * Astra 控制中心 * ：使用自管理软件对内部 Kubernetes 工作负载进行数据管理。
+
+
+* * Astra Data Store* ：对容器和 VM 工作负载使用 Kubernetes 本机共享文件服务进行企业数据管理。
+* * Astra Trident * ：与 NetApp 存储提供商合作，为 Kubernetes 工作负载配置和管理符合容器存储接口（ CSI ）要求的存储。
+
+
+请参见 https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]。
+
+image:astra-product-family.png["Astra 产品系列"]
+
+
+
+== Astra 数据存储功能
+
+Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：
+
+* * Kubernetes 本机共享文件服务 * ：使用标准 NFS 客户端作为容器和 VM 的统一数据存储库，为 Kubernetes 提供共享文件服务原生。​
+* * 云扩展 * ：在同一资源池中提供 Kubernetes 本机多个并行文件系统，以实现类似于云的扩展和利用率，从而无需在集群之外单独管理存储。
+* * API 优先方法 * ：将基础架构作为代码交付用于自动化集群和工作负载 management​ 。
+* * 企业级数据管理 * ：提供自动化应用程序感知型数据保护和灾难恢复：
++
+** * NetApp 技术 * ：利用 NetApp 数据管理技术执行快照，备份，复制和克隆，以便用户可以在 Kubernetes 中构建和部署企业级应用程序。​
+** * 故障恢复能力 * ：对 Kubernetes 本机工作负载使用复制和擦除编码技术，以提高故障恢复能力。
+** * 数据效率 * ：通过实时重复数据删除和数据压缩功能进行扩展时控制成本。
+
+
+* * 适合您的现有环境 * ：支持基于微服务的工作负载和传统工作负载，为主要 Kubernetes 分发版提供服务，提供文件存储，并在您选择的 hardware​ 上运行。
+* * 与 NetApp Cloud Insights * 集成：为持续 optimization​ 提供可观察性，分析和监控功能。​
+
+
+
+
+== 开始使用 Astra Data Store
+
+首先， link:../get-started/requirements.html["了解 Astra 数据存储的要求"]。
+
+然后， link:../get-started/quick-start.html["开始使用"]。
+
+
+
+== 有关详细信息 ...
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 文档"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra 控制中心文档"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 文档"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["使用 Astra Control API"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights 文档"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP 文档"^]
+

@@ -1,0 +1,20 @@
+---
+sidebar: sidebar 
+permalink: release-notes/rn_overview.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增强功能和错误修复。 
+---
+= 发行说明
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+我们很高兴地宣布， Astra Data Store 的预览版为 21.12 。
+
+* link:../release-notes/whats-new.html["此版本的 Astra 数据存储中的内容"]
+* link:../release-notes/known-issues.html["已知问题"]
+* link:../release-notes/known-limitations.html["已知限制"]
+
+
+在 Twitter @NetAppDoc 上关注我们。通过成为发送有关文档的反馈 link:https://docs.netapp.com/us-en/contribute/["GitHub 贡献者"^] 或发送电子邮件至 doccomments@netapp.com 。
