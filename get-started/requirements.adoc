@@ -57,7 +57,7 @@ NOTE: 为了获得最佳写入性能，您应配置一个专用的高持久性�
 
 == 硬件和软件要求
 
-已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。如果您的 Kubernetes 集群配置不同，请访问 NetApp 社区支持。
+已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。请访问 link:../support/get-help-ads.html["NetApp 社区支持"] 如果您的 Kubernetes 集群配置不同。
 
 .硬件平台
 * HPE DL360

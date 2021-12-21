@@ -45,8 +45,8 @@ NOTE: 以下命令示例假设 ` /trident` 作为目录；但是，您使用的�
 * link:requirements.html["开始安装之前，请为 Astra Data Store 预览部署准备您的环境"]。
 * 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes 快照控制器 YAML 文件"]：
 +
-** k8s-setup-snapshot-controller.yaml
-** K8s-rbac — snapshot-controller.yaml
+** Setup-snapshot-controller.yaml
+** rbac 快照控制器 .yaml
 
 
 * 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/client/config/crd["YAML CRD"]：
@@ -101,11 +101,11 @@ kubectl apply -f trident/snapshot.storage.k8s.io_volumesnapshots.yaml
 ----
 customresourcedefinition.apiextensions.k8s.io/volumesnapshots.snapshot.storage.k8s.io created
 ----
-. 应用 K8s-setup-snapshot-controller.yaml ：
+. 应用 setup-snapshot-controller.yaml ：
 +
 [listing]
 ----
-kubectl apply -f trident/k8s-setup-snapshot-controller.yaml
+kubectl apply -f trident/setup-snapshot-controller.yaml
 ----
 +
 响应：
@@ -115,11 +115,11 @@ kubectl apply -f trident/k8s-setup-snapshot-controller.yaml
 ----
 deployment.apps/snapshot-controller created
 ----
-. 应用 K8s-setup-snapshot-controller.yaml ：
+. 应用 rbac 快照控制器 .yaml ：
 +
 [listing]
 ----
-kubectl apply -f trident/k8s-rbac-snapshot-controller.yaml
+kubectl apply -f trident/rbac-snapshot-controller.yaml
 ----
 +
 响应：
@@ -174,11 +174,11 @@ snapshot-controller-7f58886ff4-tmrd9                                    1/1     
 在 ads_backend.json 文件中配置存储后端参数，并创建 Astra Data Store 存储后端。
 
 .步骤
-. 在安全终端中打开 `ads_backend.json` ：
+. 使用安全终端创建 `ads_backend.json` ：
 +
 [listing]
 ----
-cat ads_backend.json
+vi ads_backend.json
 ----
 . 配置 JSON 文件：
 +
@@ -186,6 +186,30 @@ cat ads_backend.json
 .. 将 ` "namespace"` 值更改为要用于创建卷的命名空间。
 .. 将 ` "autoExportPolicy"` 值更改为 `true` ，除非为此后端设置了 exportpolicy CR 。
 .. 使用要授予访问权限的 IP 地址填充 ` "autosExportCIDRs"` 列表。使用 `0.0.0.0/0` 允许所有。
+.. 对于 ` "kubeconfig"` 值，请执行以下操作：
++
+... 将 .Kube/config YAML 文件转换为不含空格的 JSON 格式并将其最小化：
++
+转换示例：
+
++
+[listing]
+----
+python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=None)' < kubeconfig_filepath > kubeconf.json
+----
+... 编码为 base64 ，并使用 base64 输出作为 ` "kubeconfig"` 值：
++
+示例编码：
+
++
+[listing]
+----
+cat kubeconf.json | base64 | tr -d '\n'
+----
+
+
+
+
 +
 [listing, subs="+quotes"]
 ----
@@ -197,7 +221,7 @@ cat ads_backend.json
     *"namespace": "astrads-system",*
     *"autoExportPolicy": true,*
     *"autoExportCIDRs": ["0.0.0.0/0"],*
-    "kubeconfig": "<ID>",
+    *"kubeconfig": "<ID>",*
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
@@ -231,8 +255,6 @@ cat ads_backend.json
     ]
 }
 ----
-
-
 . 创建存储后端：
 +
 [listing]
@@ -262,11 +284,11 @@ tridentctl create backend -f ads_backend.json -n trident
 .步骤
 . 创建 trident CSI 存储类：
 +
-.. 运行以下命令：
+.. 创建 ads_sc_generic.yaml ：
 +
 [listing]
 ----
-cat ads_sc_generic.yaml
+vi ads_sc_generic.yaml
 ----
 +
 响应：

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: support/autosupport.html 
 keywords: how to use autosupport, autosupport, asup, logs, asup bundle, support ticket, support bundle 
-summary: NetApp 以多种方式为 Astra 数据存储提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 帐户包括通过 Web 服务单提供的远程技术支持。 
+summary: NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 预览帐户包括通过 Web 服务单提供的远程技术支持。 
 ---
 = 自动支持监控
 :hardbreaks:
@@ -10,13 +10,13 @@ summary: NetApp 以多种方式为 Astra 数据存储提供支持。全天候提
 :imagesdir: ../media/support/
 
 
-AutoSupport 监控 Astra 数据存储系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：
+AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：
 
 * 控制面板
 * 存储
 
 
-默认情况下，期间会启用 AutoSupport link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 集群安装"] 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 NetApp 支持站点（ NSS ）或可供手动下载。
+默认情况下，期间会启用 AutoSupport link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"] 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 NetApp 支持站点（ NSS ）或可供手动下载。
 
 .选项
 * <<AutoSupport triggers and scenarios>>
@@ -41,7 +41,7 @@ AutoSupport 捆绑包可通过以下方式触发：
 
 这些触发情形会生成以下 AutoSupport 类型之一：
 
-* ControlPlane AutoSupport ：一组 Astra 数据存储控制平面日志和 CRS 。
+* ControlPlane AutoSupport ：一组 Astra 数据存储预览控制平面日志和 CRS 。
 * Storage AutoSupport ：存储报告和性能数据的集合。
 * 核心转储 AutoSupport ：系统核心转储的集合。
 
@@ -50,7 +50,7 @@ AutoSupport 捆绑包可通过以下方式触发：
 
 == 配置自定义控制平面 AutoSupport 收集
 
-您可以创建一个自定义 AutoSupport 收集配置，用于报告控制平面事件。默认情况下，大多数安装都已在期间启用定期事件报告 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 集群安装"]。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：
+您可以创建一个自定义 AutoSupport 收集配置，用于报告控制平面事件。默认情况下，大多数安装都已在期间启用定期事件报告 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"]。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：
 
 .步骤
 . 自定义以下命令以创建控制面板集合 CR ：
@@ -90,7 +90,7 @@ kubectl astrasds asup collect -c controlplane custom-asup-name -e debug --namesp
 
 == 配置自定义 Storage AutoSupport 收集
 
-您可以创建自定义 AutoSupport 收集配置，以报告存储组件事件。默认情况下，大多数安装都已在期间启用定期事件报告 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 集群安装"]。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：
+您可以创建自定义 AutoSupport 收集配置，以报告存储组件事件。默认情况下，大多数安装都已在期间启用定期事件报告 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"]。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：
 
 .步骤
 . 自定义以下命令以创建存储收集 CR ：
