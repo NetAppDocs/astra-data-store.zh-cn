@@ -12,7 +12,7 @@ summary: 首先验证对您的环境的支持。
 
 Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。
 
-Astra Data Store 预览版存在以下资源限制。
+Astra Data Store 预览版具有以下资源限制。
 
 |===
 | 资源 | 最小值 | 最大值 
@@ -37,6 +37,9 @@ Astra Data Store 预览版存在以下资源限制。
 |===
 
 NOTE: Astra Data Store 预览版不支持 VM 工作负载。VMware VVol 工作负载支持将在未来版本中提供。
+
+
+NOTE: Astra Data Store 预览会限制性能，不应用于性能特征化。
 
 
 

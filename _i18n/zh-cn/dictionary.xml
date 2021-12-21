@@ -515,7 +515,6 @@
   <block id="e81551a1c637af1bdd2cf807058cc5e3" category="summary">首先验证对您的环境的支持。</block>
   <block id="c066e77c0fe2c99e8fbbb9a70c883a5f" category="doc">Astra 数据存储预览限制</block>
   <block id="dfc6ae638b43c600bcdbe8a67cf9709c" category="paragraph">Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。</block>
-  <block id="9c4529ace9ecebb0b8ed8b19226307f1" category="paragraph">Astra Data Store 预览版存在以下资源限制。</block>
   <block id="be8545ae7ab0276e15898aae7acfbd7a" category="cell">资源</block>
   <block id="a1d0ec6d56f8833a078b5a7ac4caf2d4" category="cell">最小值</block>
   <block id="8321e79c278ec510f63675c040594892" category="cell">最大值</block>
@@ -802,7 +801,6 @@
   <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">存储后端</block>
   <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Trident 21.10.1 。Astra Data Store 预览版可配置为 <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> 使用 Astra Trident 配置永久性卷。</block>
   <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 配置</block>
-  <block id="5d9347d6b4cc0daccd2fd63126733db6" category="paragraph">Astra Data Store 预览已通过 Calico 和 Weave Net CNI 的验证。</block>
   <block id="8830b15b981296d5edf3d00560d26ed2" category="paragraph">这些 CNI 要求禁用主机防火墙（ firewalld ）。</block>
   <block id="950dab43d2896e395e031a5adfdb2982" category="section-title">永久性卷共享要求</block>
   <block id="68c57e9c9ed620f9a7a94775279db0f6" category="paragraph">每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。对于 Astra Data Store 预览版中的永久性卷，请考虑以下要求：</block>
@@ -879,4 +877,74 @@
   <block id="fd18465573ec21a6218982055981f6b1" category="sidebar">存储效率</block>
   <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">安全性</block>
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">常见问题解答</block>
+  <block id="9242577a835539354b36df9d5785b04f" category="paragraph">Astra Data Store 预览版具有以下资源限制。</block>
+  <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra Data Store 预览会限制性能，不应用于性能特征化。</block>
+  <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">选择以下 Astra Data Store 安装过程之一</block>
+  <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra 数据存储安装概述</block>
+  <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">选择并完成以下 Astra Data Store 安装过程之一：</block>
+  <block id="d99bdf0294b88b88ebeb7c5a3dd478d0" category="inline-link-macro">使用标准流程安装 Astra 数据存储</block>
+  <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>。</block>
+  <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">如果您使用的是 Red Hat OpenShift ，请使用 OpenShift 安装 Astra Data Store</block>
+  <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>。</block>
+  <block id="d3d764264531a47774f6224c0245037c" category="inline-link-macro">在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版</block>
+  <block id="012afa59aa5540c24544e89ee39ecf33" category="paragraph">或者，您也可以 <block ref="ec1d518175157305e3ede5bea61d33e3" category="inline-link-macro-rx"></block>。</block>
+  <block id="a425a235822edd430a58eacccd757806" category="paragraph">Astra 数据存储预览已通过以下 CNI 的验证：</block>
+  <block id="66f992fd154333db12979224b40bb01d" category="list-text">适用于 Vanilla Kubernetes 集群的 Calico 和 Weave Net CNI</block>
+  <block id="1c6ba40a804a7b27053cbc1e9b881a53" category="list-text">适用于 Red Hat OpenShift 容器平台（ OCP ）的 OpenShift SDN</block>
+  <block id="5d12f25a06af3175aac5ead4076ccaa5" category="list-text">Cilium for Google Anthos</block>
+  <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">如何在 OpenShift 中安装 Astra 数据存储</block>
+  <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">在 Red Hat OpenShift 容器平台上安装 Astra Data Store 预览版</block>
+  <block id="58151efb3c608d0873e52f26a375688e" category="paragraph">要在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra 数据存储预览版，请从 NetApp 支持站点下载安装包并完成此操作步骤中所述的安装步骤。</block>
+  <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">为部署 Astra Data Store 准备您的环境</block>
+  <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">开始安装之前， <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>。</block>
+  <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">NetApp 许可证文件</block>
+  <block id="5e33d62267635f1264e9a158679068f0" category="list-text">答 <block ref="137bea87b1ed38b6b747ca593fab05eb" category="inline-link-macro-rx"></block> （ nlf ），用于 Astra Data Store 预览。注册后，系统将向您发送许可证下载说明。</block>
+  <block id="fb124d22233366c281eae5c20e8f50a5" category="inline-link-macro">角色和特权</block>
+  <block id="3fbcff5931f9df10a12c3e41b3b6e99c" category="list-text">了解 <block ref="05c77a29e62e6b5374baaf8c208c49d9" category="inline-link-macro-rx"></block> 由 Astra Data Store 预览版使用。</block>
+  <block id="0b5bf43f901bdaa6ab67ba6ba2b415f0" category="list-text">Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="section-title">关于此任务</block>
+  <block id="66a4210255768fa7ce150f406e4d2de3" category="list-text"><block ref="8aad3752e2094aac1115c216d64491e4" category="inline-xref-macro-rx"></block></block>
+  <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
+  <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
+  <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
+  <block id="1023cca3cbe0355c454587fe233fb54e" category="list-text"><block ref="7e400ca6d12cb414decd3ba7def8d69f" category="inline-xref-macro-rx"></block></block>
+  <block id="d4f09e9e88e4dabee8c9d9e2326277ac" category="list-text">登录到<block ref="ce05c15478baf1fd107c1e0b09c6e8b0" category="inline-link-rx"></block> 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。</block>
+  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（可选）验证捆绑包的签名：</block>
+  <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">创建命名空间以部署 Astra Data Store 预览版</block>
+  <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">创建一个 `astrads-system` 命名空间，其中将安装所有 Astra Data Store 预览组件。</block>
+  <block id="7baf7b8d385cfa43e2ebd4decbe383e8" category="list-text">创建命名空间：</block>
+  <block id="9484da3843b6d29183c961f5805374c0" category="paragraph">示例： ads_namespace.yaml</block>
+  <block id="7a981942788d33c4001730188b89e6db" category="section-title">创建自定义 SCC</block>
+  <block id="9279e1a9a6dc21e00ad8bfe646d12d80" category="paragraph">OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。</block>
+  <block id="d84d14dd008a483ff803734de04a9be6" category="paragraph">受限 SCC 不提供 Astra Data Store 预览集群 Pod 所需的权限。使用此操作步骤可为 Astra 数据存储预览提供所需的权限（在示例中列出）。</block>
+  <block id="2593c56a647b16e5b609f03e09ff7e38" category="paragraph">将自定义 SCC 分配给 Astra Data Store 预览命名空间的默认服务帐户。</block>
+  <block id="a404b42248dc15fc7c9f96beb39ce0bf" category="list-text">创建自定义 SCC ：</block>
+  <block id="675d6759427bcd3ef0478a3576c113b4" category="paragraph">示例： ads_privileged_scc.yaml</block>
+  <block id="44988a3cdc9c8d194b4f0791b2fd559e" category="list-text">使用 `oc get SCC` 命令显示新添加的 SCC ：</block>
+  <block id="1ff7f0ad4e23e88d48bae4f9be6bf1d6" category="section-title">创建角色和角色绑定</block>
+  <block id="fc67753b692b97bd691fc9ce7e3373f7" category="paragraph">为 Astra Data Store 预览版创建所需的角色和角色绑定，以供默认服务帐户使用。</block>
+  <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">以下 YAML 定义可分配 `astrads.netapp.io` API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。</block>
+  <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">创建定义的角色和角色绑定：</block>
+  <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">示例： oc_role_Bindings.yaml</block>
+  <block id="d7dde07915bbe8056e6854c2b5e50480" category="section-title">准备工作节点</block>
+  <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。</block>
+  <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 `kubelet config` 文件的 YAML 格式。</block>
+  <block id="619b377b67311492e2301f498fa6a192" category="list-text">在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。</block>
+  <block id="8116c401bbe8d3e819e7fbeab37dfd9c" category="list-text">在应用集群 YAML 之前，在所有 Kubernetes 节点上完成此操作步骤。</block>
+  <block id="e75a81ccddd342b222755829558870b4" category="admonition">如果不执行此操作，则 Astra Data Store 预览集群安装将失败。</block>
+  <block id="ab99eb629243e2831288d50f19591112" category="list-text">使用 `kubectl apply` 命令部署操作员：</block>
+  <block id="a0043c0af3acf54941321b091a08c953" category="list-text">使用 `kubectl apply` 命令进行部署：</block>
+  <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">如果已启用 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
+  <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">之所以需要执行此步骤，是因为 `selinux` 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 `CrashLoopBackoff` 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。</block>
+  <block id="312c22a3876f69404939d1690151fbc4" category="section-title">设置 IP 表</block>
+  <block id="003e4c2f8867f9fd50148b316d4b989e" category="paragraph">OpenShift SDN （ OpenShift 的默认 CNI 插件）不会以掩码形式查询从主机环回接口（ 127.0.1/localhost ）到 HostPorts 的流量。</block>
+  <block id="1b3b86daa5e0644271ca947c2224f310" category="paragraph">Astra Data Store 预览集群需要添加一个 NAT 规则，用于将流量从本地主机转发到集群服务端口（ 9920 ）。</block>
+  <block id="b39a623813791d04ac10ef1fc42a7fc5" category="list-text">记下 NAT 表输出链中当前 `KUBE-HOSTPORTS` 规则的行号。</block>
+  <block id="f510c1d362dbb0428437b2f895e8982a" category="paragraph">在以下示例中， `KUBE-HOSTPORTS` 位于位置 4 。</block>
+  <block id="adcb2cd59b5d01edf7ca1f67e980ac9f" category="list-text">向 `KUBE-HOSTPORTS` 条目上方的 NAT 表添加新规则。</block>
+  <block id="d912cfb09e8afcc3ecc44ba849dbd502" category="list-text">验证新添加的规则是否已添加到 `KUBE-HOSTPORTS` 规则上方的 NAT 表中。</block>
+  <block id="ec3c5f90c4d136c23a12315138fd7c45" category="admonition">在 Astra Data Store 预览集群中的所有节点上执行这些步骤。</block>
+  <block id="c7763a055763bd20203aefad4f95491e" category="admonition">如果 Astra Data Store 预览集群节点重新启动，请重复上述步骤。</block>
+  <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">安装概述</block>
+  <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">在 OpenShift 上安装 Astra Data Store 预览版</block>
 </blocks>

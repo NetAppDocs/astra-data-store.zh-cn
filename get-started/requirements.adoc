@@ -165,7 +165,12 @@ Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Tride
 
 == CNI 配置
 
-Astra Data Store 预览已通过 Calico 和 Weave Net CNI 的验证。
+Astra 数据存储预览已通过以下 CNI 的验证：
+
+* 适用于 Vanilla Kubernetes 集群的 Calico 和 Weave Net CNI
+* 适用于 Red Hat OpenShift 容器平台（ OCP ）的 OpenShift SDN
+* Cilium for Google Anthos
+
 
 这些 CNI 要求禁用主机防火墙（ firewalld ）。
 

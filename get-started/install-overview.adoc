@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: get-started/install-overview.html 
+keywords: astra, astra data store, kubernetes, how to install astra data store, openshift, OpenShift 
+summary: 选择以下 Astra Data Store 安装过程之一 
+---
+= Astra 数据存储安装概述
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/
+
+
+选择并完成以下 Astra Data Store 安装过程之一：
+
+* link:../get-started/install-ads.html["使用标准流程安装 Astra 数据存储"]。
+* link:../get-started/install-ads-openshift.html["如果您使用的是 Red Hat OpenShift ，请使用 OpenShift 安装 Astra Data Store"]。
+
