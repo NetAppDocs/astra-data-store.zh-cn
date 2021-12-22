@@ -173,6 +173,49 @@ astrads-system  storage-callhome.reboot.unknown-20211115t182204...  3           
 ----
 ./kubectl-astrasds asup download <ASUP_bundle_name> -o <location>
 ----
+
+
+== 上传核心文件
+
+如果服务崩溃，则会创建 AutoSupport （ ASUP ）消息以及崩溃时包含相关内存内容的文件（称为核心文件）。Astra Data Store 预览版会自动将 ASUP 消息上传到 NetApp 支持，但您需要手动上传核心文件，以便它与 ASUP 消息关联。
+
+.步骤
+. 使用以下 `kubectl` 命令查看 ASUP 消息：
++
+[listing]
+----
+kubectl astrasds asup list --namespace=astrads-system
+----
++
+您应看到类似于以下内容的输出：
+
++
+[listing]
+----
+NAMESPACE      NAME                                                SEQUENCE NUMBER EVENT                           SIZE    STATE       LOCAL COLLECTION
+
+astrads-system  storage-coredump-20211216t140851311961680               1              coredump                197848373       compressed      astrads-ds-support-sxxn7:/var/firetap/firegen/persist/core.firestorm.2630_1639665426.gz
+----
+. 使用以下 `kubectl` 命令从 ASUP 消息中下载核心文件。使用 ` -o` 选项为下载的文件指定目标目录。
++
+[listing]
+----
+kubectl astrads asup download storage-coredump-20211216t140851311961680 -o <absolute_path_to_destination_directory>
+----
++
+
+NOTE: 在极少数情况下，您可能无法下载核心文件，因为其他核心文件已取代它。发生这种情况时，命令将返回错误 `cannot stat ： no such file or directory` 。如果您看到此错误，可以 link:get-help-ads.html["获取帮助"]。
+
+. 打开 Web 浏览器并浏览到 https://upload.netapp.com/sg["NetApp 身份验证文件上传工具"^]，如果您尚未登录，请输入您的 NetApp 支持凭据。
+. 选中 * 我没有案例编号 * 复选框。
+. 在 * 最近的区域 * 菜单中，选择最接近您的区域。
+. 选择 * 上传 * 按钮。
+. 浏览并选择先前下载的核心文件。
++
+此时将开始上传。上传完成后，将显示一条成功消息。
+
+
+
 [discrete]
 == 了解更多信息
 

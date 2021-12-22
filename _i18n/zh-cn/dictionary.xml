@@ -953,4 +953,18 @@
   <block id="09ce0132fe4a6b9c816cfa9dd6f50e2b" category="list-text">创建 ads_sc_generic.yaml ：</block>
   <block id="a305f5d0a6acf6a2da171a4f1b666e48" category="inline-link-macro">NetApp 社区支持</block>
   <block id="de91f7f5684c6f3e8a57330d26f57452" category="paragraph">已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。请访问 <block ref="4245b61ee966e939cf6bf2ddb806f6be" category="inline-link-macro-rx"></block> 如果您的 Kubernetes 集群配置不同。</block>
+  <block id="e569dc044792d2bf4595c7af9541daed" category="section-title">上传核心文件</block>
+  <block id="2fa417be1459dc86d7a81f0505693461" category="paragraph">如果服务崩溃，则会创建 AutoSupport （ ASUP ）消息以及崩溃时包含相关内存内容的文件（称为核心文件）。Astra Data Store 预览版会自动将 ASUP 消息上传到 NetApp 支持，但您需要手动上传核心文件，以便它与 ASUP 消息关联。</block>
+  <block id="1861872a87cd1bd45477d1bd8bde8fbc" category="list-text">使用以下 `kubectl` 命令查看 ASUP 消息：</block>
+  <block id="d0848afd8553c34945705222a97a4553" category="paragraph">您应看到类似于以下内容的输出：</block>
+  <block id="e3e003fbe97f56e5da7b9836f13e40cd" category="list-text">使用以下 `kubectl` 命令从 ASUP 消息中下载核心文件。使用 ` -o` 选项为下载的文件指定目标目录。</block>
+  <block id="aef336662f3dd955f1ffe1b4d962e8dd" category="inline-link-macro">获取帮助</block>
+  <block id="8bcac861b17be24df6709af819869bde" category="admonition">在极少数情况下，您可能无法下载核心文件，因为其他核心文件已取代它。发生这种情况时，命令将返回错误 `cannot stat ： no such file or directory` 。如果您看到此错误，可以 <block ref="3739596c2aaab59aab39ba4eae26a099" category="inline-link-macro-rx"></block>。</block>
+  <block id="cdc3fa95d906838557c8a847620eb81b" category="inline-link">NetApp 身份验证文件上传工具</block>
+  <block id="a439a006232750ae691d05d0261a0055" category="list-text">打开 Web 浏览器并浏览到<block ref="7a5a649adac8f34c2a7fd32a7967050a" category="inline-link-rx"></block>，如果您尚未登录，请输入您的 NetApp 支持凭据。</block>
+  <block id="c22afea75269fa3da9fbdc9995d18a90" category="list-text">选中 * 我没有案例编号 * 复选框。</block>
+  <block id="acb4ffaf34e8909b437a59a61a13b49b" category="list-text">在 * 最近的区域 * 菜单中，选择最接近您的区域。</block>
+  <block id="ccdb41b7a646fbb51f839a4e474a81cb" category="list-text">选择 * 上传 * 按钮。</block>
+  <block id="aeb709613322d29961877072452bfe23" category="list-text">浏览并选择先前下载的核心文件。</block>
+  <block id="d3b3561d6d067e8ee0dccc1a1af988d9" category="paragraph">此时将开始上传。上传完成后，将显示一条成功消息。</block>
 </blocks>
