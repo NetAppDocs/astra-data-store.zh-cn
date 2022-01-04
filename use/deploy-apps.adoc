@@ -24,7 +24,7 @@ summary: 以下是部署可与 Astra Data Store 结合使用的测试应用程�
 +
 [listing]
 ----
-helm repo add bitnami https://helm.repo.eng.netapp.com/
+helm repo add bitnami https://charts.bitnami.com/bitnami
 ----
 . 部署 MongoDB ：
 +
