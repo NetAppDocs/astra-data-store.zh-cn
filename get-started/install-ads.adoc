@@ -10,14 +10,14 @@ summary: 要在满足某些环境前提条件后安装 Astra 数据存储库，�
 :imagesdir: ../media/get-started/
 
 
-要安装 Astra 数据存储预览版，请从 NetApp 支持站点下载安装包并完成此操作步骤中所述的安装步骤。
+要安装 Astra Data Store 预览版，请从下载安装包 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并完成此操作步骤中所述的安装步骤。
 
 或者，您也可以 link:install-ads-openshift.html["在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版"]。
 
 .您需要什么？ #8217 ；将需要什么
 * link:requirements.html["开始安装之前，请为 Astra Data Store 预览部署准备您的环境"]。
-* 访问 NetApp 支持站点。 https://www.netapp.com/cloud-services/astra/data-store-form/["注册"] 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。
-* 答 link:../get-started/requirements.html#licensing["NetApp 许可证文件（ NLF ）"] 用于 Astra Data Store 预览。下载许可证的说明将在您之后发送给您 https://www.netapp.com/cloud-services/astra/data-store-form["注册"]。
+* 访问 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]。 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。
+* 答 link:../get-started/requirements.html#licensing["NetApp 许可证文件（ NLF ）"] 用于 Astra Data Store 预览。下载许可证的说明将在您之后发送给您 https://www.netapp.com/cloud-services/astra/data-store-form["注册"^]。
 * 具有活动上下文集群管理员权限的活动 kubeconfig 。
 * 了解 link:../get-started/faq-ads.html#installation-and-use-of-astra-data-store-preview-on-a-kubernetes-cluster["角色和权限"] 由 Astra Data Store 预览版使用。
 * Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。
@@ -39,7 +39,7 @@ Astra Data Store 预览安装过程将指导您完成以下高级步骤：
 
 == 下载 Astra Data Store 预览包并提取映像
 
-. 登录到 https://mysupport.netapp.com/site/downloads/evaluation/astra-data-store/download["NetApp 支持站点"^] 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。
 . （可选）使用以下命令验证捆绑包的签名：
 +
 [listing]

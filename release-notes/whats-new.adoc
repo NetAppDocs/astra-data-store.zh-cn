@@ -33,5 +33,5 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 
 * link:../release-notes/known-issues.html["已知问题"]
 * link:../release-notes/known-limitations.html["已知限制"]
-* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["NetApp 知识库文章"]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["NetApp 知识库文章"^]
 

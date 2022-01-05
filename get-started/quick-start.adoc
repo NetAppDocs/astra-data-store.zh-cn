@@ -14,7 +14,7 @@ summary: 只需几步即可开始使用 Astra 数据存储。
 
 试用！如果要尝试使用 Astra Data Store 预览版，可以使用 90 天预览许可证。
 
-https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"] 以获取 Astra Data Store 预览许可证。
+https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 以获取 Astra Data Store 预览许可证。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 查看 Kubernetes 集群要求
 * 集群必须以运行状况良好的状态运行，并且至少具有四个联机辅助节点和一个主节点。

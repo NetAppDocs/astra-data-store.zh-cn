@@ -10,11 +10,11 @@ summary: 如何在 OpenShift 中安装 Astra 数据存储
 :imagesdir: ../media/get-started/
 
 
-要在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra 数据存储预览版，请从 NetApp 支持站点下载安装包并完成此操作步骤中所述的安装步骤。
+要在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview ，请从下载安装包 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并完成此操作步骤中所述的安装步骤。
 
 .您需要什么？ #8217 ；将需要什么
 * 开始安装之前， link:requirements.html["为部署 Astra Data Store 准备您的环境"]。
-* 访问 NetApp 支持站点。 https://www.netapp.com/cloud-services/astra/data-store-form/["注册"] 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。
+* 访问 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]。 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。
 * 答 link:requirements.html#licensing["NetApp 许可证文件"] （ nlf ），用于 Astra Data Store 预览。注册后，系统将向您发送许可证下载说明。
 * 具有活动上下文集群管理员权限的活动 kubeconfig 。
 * 了解 link:faq-ads.html["角色和特权"] 由 Astra Data Store 预览版使用。
@@ -46,7 +46,7 @@ Astra Data Store 预览安装过程将指导您完成以下高级步骤：
 
 == 下载 Astra Data Store 预览包并提取映像
 
-. 登录到 https://mysupport.netapp.com/site/["NetApp 支持站点"] 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。
 . （可选）验证捆绑包的签名：
 +
 [listing]

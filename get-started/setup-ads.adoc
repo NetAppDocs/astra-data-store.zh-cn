@@ -43,13 +43,13 @@ NOTE: 以下命令示例假设 ` /trident` 作为目录；但是，您使用的�
 
 .您需要什么？ #8217 ；将需要什么
 * link:requirements.html["开始安装之前，请为 Astra Data Store 预览部署准备您的环境"]。
-* 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes 快照控制器 YAML 文件"]：
+* 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes 快照控制器 YAML 文件"^]：
 +
 ** Setup-snapshot-controller.yaml
 ** rbac 快照控制器 .yaml
 
 
-* 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/client/config/crd["YAML CRD"]：
+* 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/client/config/crd["YAML CRD"^]：
 +
 ** snapshot.storage.k8s.io_volumesnapshotclasses.yaml
 ** snapshot.storage.k8s.io_volumesnapshotcontents.yaml

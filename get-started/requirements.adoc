@@ -190,7 +190,7 @@ Astra 数据存储预览已通过以下 CNI 的验证：
 
 == 许可
 
-要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。 https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"] 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。
+要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。 https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。
 
 
 

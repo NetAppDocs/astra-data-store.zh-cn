@@ -16,7 +16,7 @@ AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 
 * 存储
 
 
-默认情况下，期间会启用 AutoSupport link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"] 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 NetApp 支持站点（ NSS ）或可供手动下载。
+默认情况下，期间会启用 AutoSupport link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"] 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 https://mysupport.netapp.com/site/["NetApp 支持站点（ NSS ）"^] 或可供手动下载。
 
 .选项
 * <<AutoSupport triggers and scenarios>>
