@@ -17,6 +17,9 @@ Astra Data Store 预览版既支持裸机部署，也支持基于 VM 的部署�
 Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kubernetes 工作负载配置 PV 。未来版本的 Astra Data Store 将支持 VM 工作负载。
 
 
+NOTE: 如果您计划从 Astra 控制中心管理 Astra Data Store 预览集群，请确保您的 Astra Data Store 预览集群符合 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirements["由 Astra 控制中心管理的集群的要求"^] 除了此处概述的要求之外。
+
+
 
 == Kubernetes 工作节点资源要求
 
@@ -39,10 +42,10 @@ Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kube
 | 可选缓存设备的数量 | 1 （大小为 8 GiB 或更大） | 不适用 
 
 
-| vCPU 数量 | 9 | 9 
+| vCPU 数量 | 10 | 10 
 
 
-| RAM | 34 GiB | 34 GiB 
+| RAM | 35 GiB | 35 GiB 
 |===
 
 NOTE: 为了获得最佳写入性能，您应配置一个专用的高持久性，低延迟，低容量缓存设备。

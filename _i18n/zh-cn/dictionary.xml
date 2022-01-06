@@ -715,7 +715,6 @@
   <block id="2f40c66dc5287c36ac7043a57079206d" category="cell">1 （大小为 8 GiB 或更大）</block>
   <block id="81665fcb678cc0680902f66f3be020c4" category="cell">vCPU 数量</block>
   <block id="e53619c1fe611a51eeeb8d148ba6e532" category="cell">RAM</block>
-  <block id="3e4ee04dedab0a44100bf5980be3b0ca" category="cell">34 GiB</block>
   <block id="06bdc266ef961962430b8fc45fbe6b6c" category="admonition">为了获得最佳写入性能，您应配置一个专用的高持久性，低延迟，低容量缓存设备。</block>
   <block id="e87c8f6d1c135adc9868a1a25397c000" category="paragraph">每个工作节点都有以下附加要求：</block>
   <block id="402a4bd631dc016fa807e263fbf090e1" category="list-text">主机磁盘（启动）上要存储 Astra Data Store 预览日志文件的可用空间为 100 GiB 或更大。</block>
@@ -967,4 +966,7 @@
   <block id="99fe05ab680c40d38239fb7349931f94" category="paragraph">要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。<block ref="757d0023964aa1a63172c6b6c4a3c459" category="inline-link-rx"></block> 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。</block>
   <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">要在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview ，请从下载安装包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并完成此操作步骤中所述的安装步骤。</block>
   <block id="b2d8407a2a6a35cada2688cd35c7c330" category="paragraph"><block ref="0bcb35f051e8c1238923547e4a123c09" category="inline-link-rx"></block> 以获取 Astra Data Store 预览许可证。</block>
+  <block id="d6de7af55cd34df4b1343663f9fa47a7" category="inline-link">由 Astra 控制中心管理的集群的要求</block>
+  <block id="9cca478435cbf9a301f081bd39778626" category="admonition">如果您计划从 Astra 控制中心管理 Astra Data Store 预览集群，请确保您的 Astra Data Store 预览集群符合<block ref="83b31cb7736faa6a9df5c1f9a84caa88" category="inline-link-rx"></block> 除了此处概述的要求之外。</block>
+  <block id="4471592d544ec3b277df3be14efdb667" category="cell">35 GiB</block>
 </blocks>
