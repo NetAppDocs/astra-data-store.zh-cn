@@ -930,7 +930,6 @@
   <block id="52ba8594eda2bfe84ddd95e4ab3876f6" category="paragraph">转换示例：</block>
   <block id="8760732111b0a693f9646bbe82410c8d" category="list-text">编码为 base64 ，并使用 base64 输出作为 ` "kubeconfig"` 值：</block>
   <block id="bfa0adf4d3cdd7138899e834388c02a3" category="paragraph">示例编码：</block>
-  <block id="09ce0132fe4a6b9c816cfa9dd6f50e2b" category="list-text">创建 ads_sc_generic.yaml ：</block>
   <block id="a305f5d0a6acf6a2da171a4f1b666e48" category="inline-link-macro">NetApp 社区支持</block>
   <block id="de91f7f5684c6f3e8a57330d26f57452" category="paragraph">已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。请访问 <block ref="4245b61ee966e939cf6bf2ddb806f6be" category="inline-link-macro-rx"></block> 如果您的 Kubernetes 集群配置不同。</block>
   <block id="e569dc044792d2bf4595c7af9541daed" category="section-title">上传核心文件</block>
@@ -969,4 +968,6 @@
   <block id="d6de7af55cd34df4b1343663f9fa47a7" category="inline-link">由 Astra 控制中心管理的集群的要求</block>
   <block id="9cca478435cbf9a301f081bd39778626" category="admonition">如果您计划从 Astra 控制中心管理 Astra Data Store 预览集群，请确保您的 Astra Data Store 预览集群符合<block ref="83b31cb7736faa6a9df5c1f9a84caa88" category="inline-link-rx"></block> 除了此处概述的要求之外。</block>
   <block id="4471592d544ec3b277df3be14efdb667" category="cell">35 GiB</block>
+  <block id="3fd265fc18b2cccf42e00f564f3cc354" category="list-text">更改为下载 Trident 安装程序的目录：</block>
+  <block id="293acccfcaa84144747d7d17dbd3128e" category="list-text">创建 ads_sc_example.yaml ：</block>
 </blocks>

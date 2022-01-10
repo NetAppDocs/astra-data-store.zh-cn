@@ -195,7 +195,7 @@ vi ads_backend.json
 +
 [listing]
 ----
-python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=None)' < kubeconfig_filepath > kubeconf.json
+python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=None)' < ~/.kube/config > kubeconf.json
 ----
 ... 编码为 base64 ，并使用 base64 输出作为 ` "kubeconfig"` 值：
 +
@@ -221,7 +221,7 @@ cat kubeconf.json | base64 | tr -d '\n'
     *"namespace": "astrads-system",*
     *"autoExportPolicy": true,*
     *"autoExportCIDRs": ["0.0.0.0/0"],*
-    *"kubeconfig": "<ID>",*
+    *"kubeconfig": "<base64_output_of_kubeconf_json>",*
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
@@ -255,11 +255,17 @@ cat kubeconf.json | base64 | tr -d '\n'
     ]
 }
 ----
+. 更改为下载 Trident 安装程序的目录：
++
+[listing]
+----
+cd <trident-installer or path to folder containing tridentctl>
+----
 . 创建存储后端：
 +
 [listing]
 ----
-tridentctl create backend -f ads_backend.json -n trident
+./tridentctl create backend -f ads_backend.json -n trident
 ----
 +
 响应示例：
@@ -284,11 +290,11 @@ tridentctl create backend -f ads_backend.json -n trident
 .步骤
 . 创建 trident CSI 存储类：
 +
-.. 创建 ads_sc_generic.yaml ：
+.. 创建 ads_sc_example.yaml ：
 +
 [listing]
 ----
-vi ads_sc_generic.yaml
+vi ads_sc_example.yaml
 ----
 +
 响应：
@@ -311,7 +317,7 @@ mountOptions:
 +
 [listing]
 ----
-kubectl create -f ads_sc_generic.yaml
+kubectl create -f ads_sc_example.yaml
 ----
 +
 响应：
@@ -338,11 +344,17 @@ kubectl get storageclass -A
 NAME          PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 trident-csi   csi.trident.netapp.io   Delete          Immediate           true                   6h29m
 ----
+. 更改为下载 Trident 安装程序的目录：
++
+[listing]
+----
+cd <trident-installer or path to folder containing tridentctl>
+----
 . 验证 Astra Trident 后端是否已使用默认存储类参数进行更新：
 +
 [listing]
 ----
-tridentctl get backend -n trident -o yaml
+./tridentctl get backend -n trident -o yaml
 ----
 +
 响应示例：
