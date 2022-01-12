@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head class="at-element-marker">
+  <title>安装 Astra Data Store 预览版</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="安装 Astra Data Store 预览版" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/get-started/install-ads.html" />
+	<meta property="og:description" content="要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。">
+  <meta name="keywords" content=" astra, astra data store, install, deploy, download">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/zh-cn/astra-data-store/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-data-store/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/zh-cn/astra-data-store/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-data-store/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-data-store/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-data-store/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/zh-cn/astra-data-store/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/zh-cn/astra-data-store/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/zh-cn/astra-data-store/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/zh-cn/astra-data-store/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/zh-cn/astra-data-store/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/astra-data-store/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/astra-data-store/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/zh-cn/astra-data-store/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-cn/astra-data-store/css/tabbed-blocks.css" type="text/css">
+  <link rel="stylesheet" href='/zh-cn/astra-data-store/css/product-family.css' type="text/css">
+  
+
+  
+  <link rel='stylesheet' href='/zh-cn/astra-data-store/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/zh-cn/astra-data-store/js/na-search.js'></script>
+  
+
+  
+  <script src='/zh-cn/astra-data-store/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/zh-cn/astra-data-store/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/astra-data-store/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/zh-cn/astra-data-store/js/na-utility.js'></script>
+  <script src='/zh-cn/astra-data-store/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/zh-cn/astra-data-store/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/zh-cn/astra-data-store/js/toc.js'></script>
+  <script src='/zh-cn/astra-data-store/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/zh-cn/astra-data-store/js/version-dropdown.js'></script>
+  <script src='/zh-cn/astra-data-store/js/product-family.js'></script>
+  <script src='/zh-cn/astra-data-store/js/FileSaver.min.js'></script>
+  <script src='/zh-cn/astra-data-store/js/jszip-utils.min.js'></script>
+  <script src='/zh-cn/astra-data-store/js/jszip.min.js'></script>
+  <script src='/zh-cn/astra-data-store/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">产品和解决方案</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">支持和培训</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">云中心</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">社区</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">日志</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">客户案例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">联系人</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">联系人</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-cn/astra-data-store/search.html"
+          data-type="widget" 
+          data-placeholder="搜索文档" 
+          data-no-results-found="未找到与 {query} 匹配的结果。" 
+          data-did-you-mean="搜索 {suggestion}。" 
+          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
+          data-results-found="找到 {hitCount} 个结果"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">简体中文</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/get-started/install-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/install-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/get-started/install-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" >
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/zh-cn/astra-data-store/pdfs/fullsite-sidebar/Astra_Data_Store_预览文档.pdf" >
+          <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/发行说明.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            发行说明
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/概念.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            概念
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/入门.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            入门
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/安装概述.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            安装概述
+          </a>
+          
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/get-started/install-ads.pdf" >
+    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/使用_Astra_数据存储.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            使用 Astra 数据存储
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/知识和支持.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            知识和支持
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-cn/astra-data-store/images/pdf-zip.png" width="16" height="16"/>
+      <pre>收集单独的 PDF 文档<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/index.html">
+        Astra 数据存储文档
+      </a></li><li class="subfolders "><a href="/zh-cn/astra-data-store/release-notes/rn_overview.html">
+        <div class="na-navbar-padding"> 发行说明</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/release-notes/whats-new.html">
+        此版本的 Astra 数据存储中的内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/release-notes/known-issues.html">
+        已知问题
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/release-notes/known-limitations.html">
+        已知限制
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 概念</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/intro.html">
+        Astra 数据存储简介
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/architecture.html">
+        部署模式
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/expansion.html">
+        集群扩展
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/storage-efficiency.html">
+        存储效率
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/security.html">
+        安全性
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 入门</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/requirements.html">
+        Astra Data Store 预览要求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/quick-start.html">
+        快速启动 Astra Data Store 预览
+      </a></li><li class="subfolders "><a href="/zh-cn/astra-data-store/get-started/install-overview.html">
+        <div class="na-navbar-padding"> 安装概述</div>
+      </a>
+      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/install-ads.html">
+        安装 Astra Data Store 预览版
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/install-ads-openshift.html">
+        在 OpenShift 上安装 Astra Data Store 预览版
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/setup-ads.html">
+        设置 Astra Data Store 预览组件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/capabilities.html">
+        Astra 数据存储预览限制
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/faq-ads.html">
+        常见问题解答
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用 Astra 数据存储</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/kubectl-commands-ads.html">
+        管理 Astra 数据存储资产
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/deploy-apps.html">
+        设置应用程序
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
+        管理集群
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
+        使用 Cloud Insights 监控指标
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/configure-endpoints.html">
+        配置和监控事件日志
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/ads-acc-ui.html">
+        Astra 控制中心集成
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads.html">
+        卸载 Astra Data Store 预览版
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 知识和支持</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/support/troubleshooting-ads.html">
+        故障排除
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/support/get-help-ads.html">
+        获取帮助
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/support/autosupport.html">
+        自动支持监控
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/legal-notices.html">
+        法律声明
+      </a></li></ul>
+</div>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">主页</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">文档</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-cn/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          安装 Astra Data Store 预览版
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 简体中文版经机器翻译而成，仅供参考。如与英语版出现任何冲突，应以英语版为准。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">安装 Astra Data Store 预览版</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-01-05 06:01:36 +0000">01/05/2022</time>
+    
+  
+
+<span>提供者
+  <a target="_blank" href="https://github.com/netapp-dbagwell">
+    <img  class="avatar avatar-small"
+          alt="netapp-dbagwell"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/amgrissino">
+    <img  class="avatar avatar-small"
+          alt="amgrissino"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-mwallis">
+    <img  class="avatar avatar-small"
+          alt="netapp-mwallis"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>要安装 Astra Data Store 预览版，请从下载安装包 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp 支持站点"</a> 并完成此操作步骤中所述的安装步骤。</p>
+</div>
+<div class="paragraph">
+<p>或者，您也可以 <a href="install-ads-openshift.html">"在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版"</a>。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要什么？ #8217 ；将需要什么</div>
+<ul>
+<li>
+<p><a href="requirements.html">"开始安装之前，请为 Astra Data Store 预览部署准备您的环境"</a>。</p>
+</li>
+<li>
+<p>访问 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp 支持站点"</a>。 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。</p>
+</li>
+<li>
+<p>答 <a href="../get-started/requirements.html#licensing">"NetApp 许可证文件（ NLF ）"</a> 用于 Astra Data Store 预览。下载许可证的说明将在您之后发送给您 <a href="https://www.netapp.com/cloud-services/astra/data-store-form" target="_blank" rel="noopener">"注册"</a>。</p>
+</li>
+<li>
+<p>具有活动上下文集群管理员权限的活动 kubeconfig 。</p>
+</li>
+<li>
+<p>了解 <a href="../get-started/faq-ads.html#installation-and-use-of-astra-data-store-preview-on-a-kubernetes-cluster">"角色和权限"</a> 由 Astra Data Store 预览版使用。</p>
+</li>
+<li>
+<p>Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Astra Data Store 预览安装过程将指导您完成以下高级步骤：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Download the Astra Data Store preview bundle and extract the images">[Download the Astra Data Store preview bundle and extract the images]</a></p>
+</li>
+<li>
+<p><a href="#Copy the binary and push images to your local registry">[Copy the binary and push images to your local registry]</a></p>
+</li>
+<li>
+<p><a href="#Install the Astra Data Store preview operator">[Install the Astra Data Store preview operator]</a></p>
+</li>
+<li>
+<p><a href="#Deploy the Astra Data Store preview version YAML">[Deploy the Astra Data Store preview version YAML]</a></p>
+</li>
+<li>
+<p><a href="#Apply the Astra Data Store preview license">[Apply the Astra Data Store preview license]</a></p>
+</li>
+<li>
+<p><a href="#Install the Astra Data Store preview cluster">[Install the Astra Data Store preview cluster]</a></p>
+</li>
+<li>
+<p><a href="#Understand deployment-related events">[Understand deployment-related events]</a></p>
+</li>
+<li>
+<p><a href="#Configure Astra Data Store preview monitoring">[Configure Astra Data Store preview monitoring]</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="下载-astra-data-store-预览包并提取映像">下载 Astra Data Store 预览包并提取映像</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>登录到 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp 支持站点"</a> 并下载 Astra Data Store 预览包（<code>2021.12_asadatastore.tar</code> ）。</p>
+</li>
+<li>
+<p>（可选）使用以下命令验证捆绑包的签名：</p>
+<div class="listingblock">
+<div class="content">
+<pre>openssl dgst -sha256 -verify 2021.12_astradatastore.pub -signature 2021.12_astradatastore.sig 2021.12_astradatastore.tar</pre>
+</div>
+</div>
+</li>
+<li>
+<p>提取映像：</p>
+<div class="listingblock">
+<div class="content">
+<pre>tar -xvf 2021.12_astradatastore.tar</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="将二进制文件和推送映像复制到本地注册表">将二进制文件和推送映像复制到本地注册表</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>将 kubectl-astrad 二进制文件从用于提取映像的目录复制到安装了 K8s kubectl 二进制文件的标准路径；例如， ` /usr/bin/` 。kubectl-astrad 是一个自定义 kubectl 扩展，用于安装和管理 Astra Data Store 预览集群。</p>
+<div class="listingblock">
+<div class="content">
+<pre>cp -p ./bin/kubectl-astrads /usr/bin/.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>将 Astra Data Store 预览映像目录中的文件添加到本地注册表中。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+有关自动加载映像的信息，请参见下面的示例脚本。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>登录到注册表：</p>
+<div class="listingblock">
+<div class="content">
+<pre>docker login [your_registry_path]</pre>
+</div>
+</div>
+</li>
+<li>
+<p>将环境变量设置为要推送 Astra Data Store 预览映像的注册表路径；例如， <code>repo.company.com</code> 。</p>
+<div class="listingblock">
+<div class="content">
+<pre>export REGISTRY=repo.company.com/astrads</pre>
+</div>
+</div>
+</li>
+<li>
+<p>运行脚本将映像加载到 Docker ，标记映像，并将这些映像推送到本地注册表：</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>for astraImageFile in $(ls images/*.tar) ; do
+   astraImage=$(docker load --input ${astraImageFile} | sed 's~Loaded image: ~~')
+   astraImageShort=`echo $astraImage | sed 's~.*/~~'`
+   docker tag ${astraImage} ${REGISTRY}/${astraImageShort}
+   docker push ${REGISTRY}/${astraImageShort}
+done
+sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="安装-astra-data-store-预览运算符">安装 Astra Data Store 预览运算符</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>列出 Astra Data Store 预览清单：</p>
+<div class="listingblock">
+<div class="content">
+<pre>ls manifests/*yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>manifests/astradscluster.yaml
+manifests/astradsoperator.yaml
+manifests/astradsversion.yaml
+manifests/monitoring_operator.yaml</pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用 kubectl apply 部署操作员：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl apply -f ./manifests/astradsoperator.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>namespace/astrads-system created
+customresourcedefinition.apiextensions.k8s.io/astradsautosupports.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradscloudsnapshots.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsclusters.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsdeployments.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsexportpolicies.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsfaileddrives.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradslicenses.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsnfsoptions.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsnodeinfoes.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsqospolicies.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsvolumefiles.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsvolumes.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsvolumesnapshots.astrads.netapp.io created
+role.rbac.authorization.k8s.io/astrads-leader-election-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradscloudsnapshot-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradscloudsnapshot-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradscluster-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradscluster-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradslicense-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradslicense-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolume-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolume-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-autosupport-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-autosupport-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-manager-role created
+clusterrole.rbac.authorization.k8s.io/astrads-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/astrads-netappexportpolicy-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappexportpolicy-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappsdsdeployment-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappsdsdeployment-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnfsoption-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnfsoption-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnodeinfo-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnodeinfo-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-proxy-role created
+rolebinding.rbac.authorization.k8s.io/astrads-leader-election-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-proxy-rolebinding created
+configmap/astrads-autosupport-cm created
+configmap/astrads-firetap-cm created
+configmap/astrads-fluent-bit-cm created
+configmap/astrads-kevents-asup created
+configmap/astrads-metrics-cm created
+service/astrads-operator-metrics-service created
+deployment.apps/astrads-operator created</pre>
+</div>
+</div>
+</li>
+<li>
+<p>验证 Astra 数据存储操作员 POD 是否已启动且正在运行：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get pods -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                                READY   STATUS    RESTARTS   AGE
+astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="部署-astra-data-store-预览版-yaml">部署 Astra Data Store 预览版 YAML</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>使用 kubectl Deploy 应用：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl apply -f ./manifests/astradsversion.yaml</pre>
+</div>
+</div>
+</li>
+<li>
+<p>验证 Pod 是否正在运行：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get pods -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                                          READY   STATUS    RESTARTS   AGE
+astrads-cluster-controller-7f6f884645-xxf2n   1/1     Running   0          117s
+astrads-ds-nodeinfo-astradsversion-2jqnk      1/1     Running   0          2m7s
+astrads-ds-nodeinfo-astradsversion-dbk7v      1/1     Running   0          2m7s
+astrads-ds-nodeinfo-astradsversion-rn9tt      1/1     Running   0          2m7s
+astrads-ds-nodeinfo-astradsversion-vsmhv      1/1     Running   0          2m7s
+astrads-license-controller-fb8fd56bc-bxq7j    1/1     Running   0          2m2s
+astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="应用-astra-data-store-预览许可证">应用 Astra Data Store 预览许可证</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>应用在注册预览时获取的 NetApp 许可证文件（ NLF ）。运行命令之前，请输入您所在集群的名称（` &lt;Astra-Data-Store-cluster-name&gt;` ） <a href="#Install the Astra Data Store preview cluster">即将部署</a> 或已部署许可证文件的路径（` &lt;file_path/file.txt&gt;` ）：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl astrads license add --license-file-path &lt;file_path/file.txt&gt; --ads-cluster-name &lt;Astra-Data-Store-cluster-name&gt; -n astrads-system</pre>
+</div>
+</div>
+</li>
+<li>
+<p>验证是否已添加此许可证：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl astrads license list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME        ADSCLUSTER                  VALID   PRODUCT                     EVALUATION  ENDDATE     VALIDATED
+p100000006  astrads-example-cluster    true    Astra Data Store Preview    true        2022-01-23  2021-11-04T14:38:54Z</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="安装-astra-data-store-预览集群">安装 Astra Data Store 预览集群</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>打开 YAML 文件：</p>
+<div class="listingblock">
+<div class="content">
+<pre>vim ./manifests/astradscluster.yaml</pre>
+</div>
+</div>
+</li>
+<li>
+<p>编辑 YAML 文件中的以下值。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+以下步骤将提供一个简化的 YAML 文件示例。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>（必需） * 元数据 * ：在 <code>metadata</code> 中，将 <code>name</code> string 更改为集群名称。此集群名称必须与您在使用时使用的集群名称相同 <a href="#Apply the Astra Data Store preview license">应用许可证</a>。</p>
+</li>
+<li>
+<p>（必需） * 规格 * ：在 <code>sPec</code> 中更改以下必需值：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>将 <code>mVIP</code> 字符串更改为可从集群中的任何工作节点路由的浮动管理 IP 的 IP 地址。</p>
+</li>
+<li>
+<p>在 <code>adsDataNetworks</code> 中，添加一个逗号分隔的浮动 IP 地址列表（<code>addresses</code> ），这些地址可从要挂载 NetApp 卷的任何主机路由。每个节点使用一个浮动 IP 地址。数据网络 IP 地址的数量应至少与 Astra Data Store 预览节点的数量相同。对于 Astra Data Store 预览版，这意味着至少有 4 个地址，如果您计划稍后将集群扩展到 5 个节点，则至少需要 5 个地址。</p>
+</li>
+<li>
+<p>在 <code>adsDataNetworks</code> 中，指定数据网络使用的网络掩码。</p>
+</li>
+<li>
+<p>在 <code>adsNetworkInterfaces</code> 中，将 <code>mGMT</code> 和 <code>data</code> 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+集群和存储网络必须位于同一接口上。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>（可选） * 显示器配置 * ：如果要配置 <a href="#Install the monitoring operator">监控操作员</a> （如果您不使用 Astra Control Center 进行监控，则可选），从部分中删除注释，添加应用代理 CR （监控操作员资源）的命名空间（默认值为 <code>netapp-monitoring</code> ），然后添加您在先前步骤中使用的注册表的 repo路径 （<code>yor_registry_path</code> ）。</p>
+</li>
+<li>
+<p>（可选） * 自动支持配置 * ：保留 <a href="../support/autosupport.html">"AutoSupport"</a> 默认值，除非您需要配置代理：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>对于 <code>proxyURL</code> ，使用要用于 AutoSupport 捆绑包传输的端口设置代理的 URL 。</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+大多数注释已从以下 YAML 示例中删除。
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: astrads.netapp.io/v1alpha1
+kind: AstraDSCluster
+<strong>metadata:</strong>
+  <strong>name: astrads-cluster-name</strong>
+  namespace: astrads-system
+<strong>spec:</strong>
+  adsNodeConfig:
+    cpu: 9
+    memory: 34
+  adsNodeCount: 4
+  <strong>mvip: ""</strong>
+  <strong>adsDataNetworks:</strong>
+    <strong>- addresses: ""</strong>
+      <strong>netmask:</strong>
+  # Specify the network interface names to use for management, cluster and storage networks.
+  # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
+  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
+  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # NOTE: The cluster and storage networks need to be on the same interface.
+  <strong>adsNetworkInterfaces:</strong>
+    <strong>managementInterface: "mgmt"</strong>
+    <strong>clusterInterface: "data"</strong>
+    <strong>storageInterface: "data"</strong>
+  # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
+ <strong># monitoringConfig:</strong>
+   <strong># namespace: "netapp-monitoring"</strong>
+   <strong># repo: "[YOUR REGISTRY]"</strong>
+  autoSupportConfig:
+    autoUpload: true
+    enabled: true
+    coredumpUpload: false
+    historyRetentionCount: 25
+    destinationURL: "https://support.netapp.com/put/AsupPut"
+    # ProxyURL defines the URL of the proxy with port to be used for AutoSupport bundle transfer
+    <strong># proxyURL:</strong>
+    periodic:
+      - schedule: "0 0 * * *"
+        periodicconfig:
+        - component:
+            name: storage
+            event: dailyMonitoring
+          userMessage: Daily Monitoring Storage AutoSupport bundle
+          nodes: all
+        - component:
+            name: controlplane
+            event: daily
+          userMessage: Daily Control Plane AutoSupport bundle</pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用 <code>kubectl apply</code> 部署集群：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl apply -f ./manifests/astradscluster.yaml</pre>
+</div>
+</div>
+</li>
+<li>
+<p>等待几分钟，以完成集群创建操作，然后验证 Pod 是否正在运行：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get pods -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应示例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME READY STATUS RESTARTS AGE
+astrads-cluster-controller-7c67cc7f7b-2jww2 1/1 Running 0 7h31m
+astrads-deployment-support-788b859c65-2qjkn 3/3 Running 19 12d
+astrads-ds-astrads-cluster-1ab0dbc-j9jzc 1/1 Running 0 5d2h
+astrads-ds-astrads-cluster-1ab0dbc-k9wp8 1/1 Running 0 5d1h
+astrads-ds-astrads-cluster-1ab0dbc-pwk42 1/1 Running 0 5d2h
+astrads-ds-astrads-cluster-1ab0dbc-qhvc6 1/1 Running 0 8h
+astrads-ds-nodeinfo-astradsversion-gcmj8 1/1 Running 1 12d
+astrads-ds-nodeinfo-astradsversion-j826x 1/1 Running 3 12d
+astrads-ds-nodeinfo-astradsversion-vdthh 1/1 Running 3 12d
+astrads-ds-nodeinfo-astradsversion-xwgsf 1/1 Running 0 12d
+astrads-ds-support-828vw 2/2 Running 2 5d2h
+astrads-ds-support-cfzts 2/2 Running 0 8h
+astrads-ds-support-nzkkr 2/2 Running 15 7h49m
+astrads-ds-support-xxbnp 2/2 Running 1 5d2h
+astrads-license-controller-86c69f76bb-s6fb7 1/1 Running 0 8h
+astrads-operator-79ff8fbb6d-vpz9m 1/1 Running 0 8h</pre>
+</div>
+</div>
+</li>
+<li>
+<p>验证集群部署进度：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get astradscluster -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应示例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                        STATUS    VERSION    SERIAL NUMBER    MVIP       AGE
+
+astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="了解与部署相关的事件">了解与部署相关的事件</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在集群部署期间，操作状态应从 <code>blank</code> 更改为 <code>in progress</code> 更改为 <code>created</code> 。集群部署将持续大约 8 到 10 分钟。要在部署期间监控集群事件，您可以运行以下命令之一：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get events --field-selector involvedObject.kind=AstraDSCluster -n astrads-system</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl describe astradscluster &lt;cluster name&gt; -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>以下是部署期间的关键事件：</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">事件消息</th>
+<th class="tableblock halign-left valign-top">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已成功选择 4 个控制面板节点加入 ADS 集群</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Data Store 预览运算符可确定具有 CPU ，内存，存储和网络连接的节点足以创建 Astra Data Store 预览集群。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADS 集群创建正在进行中</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Astra Data Store 预览集群控制器已启动集群创建操作。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已创建 ADS 集群</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已成功创建集群。</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>如果集群的状态未更改为 <code>in progress</code> ，请查看操作员日志，了解有关节点选择的更多详细信息：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl logs -n astrads-system &lt;astrads operator pod name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>如果集群状态停留在 <code>in progress</code> ，请检查集群控制器的日志：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl logs -n astrads-system &lt;astrads cluster controller pod name&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="配置-astra-data-store-预览监控">配置 Astra Data Store 预览监控</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以为 Astra 控制中心监控或其他遥测服务监控配置 Astra 数据存储预览。</p>
+</div>
+<div class="sect2">
+<h3 id="为-astra-控制中心预览配置监控">为 Astra 控制中心预览配置监控</h3>
+<div class="paragraph">
+<p>只有在 Astra 控制中心将 Astra Data Store 预览作为后端进行管理后，才能执行以下步骤。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>配置 Astra 数据存储预览以供 Astra 控制中心监控：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="安装监控操作员">安装监控操作员</h3>
+<div class="paragraph">
+<p>（可选）只有当 Astra Data Store 预览版不会导入到 Astra 控制中心中时，才建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>运行此安装命令：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl apply -f ./manifests/monitoring_operator.yaml</pre>
+</div>
+</div>
+</li>
+<li>
+<p>配置用于监控的 Astra Data Store 预览版：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="下一步行动">下一步行动</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>执行以完成部署 <a href="setup-ads.html">"设置任务"</a>。</p>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[安装 Astra Data Store 预览版](https://docs.netapp.com/zh-cn/astra-data-store/get-started/install-ads.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/get-started/install-ads.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">想就我们的网站提供反馈?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">请告诉我们</a>
+  <a href="https://docs.netapp.com/zh-cn/announcements/" class="n-footer__copyright">通知</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-cn/astra-data-store/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-cn/astra-data-store/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-cn/astra-data-store/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-cn/astra-data-store/js/www-ntap.js'></script>
+    <script src='/zh-cn/astra-data-store/js/tabbed-blocks.js'></script>
+  </body>
+
+  
+</html>
