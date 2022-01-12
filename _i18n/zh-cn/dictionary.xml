@@ -163,19 +163,15 @@
   <block id="4d8d4f4d8e18c7039f1e4975914b919f" category="summary">您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。</block>
   <block id="9006a134fd1870aca1877d5e1e68dae9" category="doc">使用 Cloud Insights 监控指标</block>
   <block id="611bcab913954802c9283b2b3ed655ea" category="paragraph">您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。</block>
-  <block id="0767b737d4d06155bc7689973c1cf5a3" category="list-text"><block ref="906865744b562a0c4fafd3d196089f39" category="inline-xref-macro-rx"></block></block>
   <block id="ecb31804db885e53cbb56c093d6c0d23" category="list-text"><block ref="3db1750a737cabf57020a57538c06b10" category="inline-xref-macro-rx"></block></block>
   <block id="4efd15a2c3c529389df09953218abde1" category="list-text"><block ref="be7c6a43d5af7285cc473ab6ceb17a78" category="inline-xref-macro-rx"></block></block>
   <block id="c5b465091c9b07cf9c61a8e84e738e0b" category="list-text"><block ref="d2580e21da8a2e295d08a3fb642259f0" category="inline-xref-macro-rx"></block></block>
   <block id="76a54526b50db93a67991b9df579b40e" category="inline-image-macro">显示 Astra 数据存储指标的 Cloud Insights</block>
   <block id="74cf95137df35241bf62c4cf6aaa0a33" category="paragraph">以下是 Cloud Insights 中显示的一些示例 Astra 数据存储预览指标：<block ref="b65cc9dd5d7dd9b89d038ad2252a3b1c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="712f099047cda3cd74ff8f01de43d978" category="paragraph">您还可以使用显示在 Astra Data Store 预览版中生成的指标列表 <block ref="00ffaabd9466e38e21fd83d76092ff60" category="inline-xref-macro-rx"></block>。</block>
-  <block id="350a0608f79ae84c665bdb915a99b6f4" category="section-title">执行 Cloud Insight 连接前提条件</block>
   <block id="7d14a02fd20aa817b9f312556759bc77" category="paragraph">在将 Astra 数据存储与 Cloud Insights 连接之前，您需要：</block>
   <block id="7b67f0c7b487cbbd9d0de335853f47bc" category="inline-link-macro">安装 Astra 数据存储监控操作员</block>
-  <block id="c0bad834430ab85bd4725a526a7d982c" category="list-text"><block ref="efb24d61a911f445480068deb62ef590" category="inline-link-macro-rx"></block>。</block>
   <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">安装 kubectl-astrad 二进制文件</block>
-  <block id="75f04a74c77e9463b905044df556832c" category="list-text"><block ref="0eacfcf04ba7b53f6921ae59c21fee42" category="inline-link-macro-rx"></block> 按照 Astra Data Store 预览安装文档进行操作。</block>
   <block id="e6ba49b0d11a72603e691022f17a15ab" category="inline-link-macro">创建 Cloud Insights 帐户</block>
   <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">确保以下命令可用： `jk ， curl ， grep` 和 `JQ`</block>
   <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">收集以下信息：</block>
@@ -300,7 +296,6 @@
   <block id="46c883ff8d48945b15db394f9ac2050d" category="list-text"><block ref="c650fcae59c3ef6d3a0e731f55d376df" category="inline-xref-macro-rx"></block></block>
   <block id="0bc81830f1dfb9de112bee2d6bd91b91" category="list-text"><block ref="26d229d5e2e3968e71c3402c5a09214b" category="inline-xref-macro-rx"></block></block>
   <block id="cacd3064543c7be5a9b55ffd25a40141" category="list-text"><block ref="d494c9949a6c752fae5f375dcac6bb64" category="inline-xref-macro-rx"></block></block>
-  <block id="62cbbbe20a4f7204713f61b69b29e278" category="list-text"><block ref="223e6ae0705bfe1f48c64c892d4f772f" category="inline-xref-macro-rx"></block></block>
   <block id="334982a7418a341303b6f2204ca1e0fe" category="list-text"><block ref="621e8ae438ccf9d5bd1e2f424bbe8b78" category="inline-xref-macro-rx"></block></block>
   <block id="85e4b847a7452c3cb60874d0fbf806b3" category="list-text"><block ref="9ae241411ebdbe5b7431af3f015cef5e" category="inline-xref-macro-rx"></block></block>
   <block id="701ee8f26f3e562b59500c03be25b586" category="section-title">删除现有工作负载和绑定</block>
@@ -426,7 +421,6 @@
   <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">ONTAP 文档</block>
   <block id="8217522f2b9eea86f1099a2aba54aebd" category="list-text"><block ref="8217522f2b9eea86f1099a2aba54aebd" category="inline-link-rx"></block></block>
   <block id="65b6668e2c69e75ca45fd504ca3bf939" category="summary">Astra 数据存储可以部署在一个独立的 Kubernetes 集群上，该集群为在单独集群中运行的 Kubernetes 应用程序提供永久性卷，也可以部署在同时在同一节点池中托管其他应用程序的 Kubernetes 集群上，或者部署在同时在不同节点池中托管应用程序的 Kubernetes 集群上。</block>
-  <block id="36973e06a1ee8bc363ca0f0f1c586427" category="doc">Astra Data Store 部署模式</block>
   <block id="41719d45eedf548911f2b5c2a6084cc7" category="paragraph">Astra Data Store 预览版使用与 Kubernetes 部署和协调的应用程序直接管理主机上的存储驱动器。</block>
   <block id="e5bd7820f5eee1a96293b6b5f92bee84" category="paragraph">可使用以下选项之一将 Astra Data Store 预览版安装在裸机或虚拟服务器上：</block>
   <block id="d807a55a4eafc3079b6b45a80be55981" category="list-text">部署在一个独立的专用 Kubernetes 集群上，为在单独集群（独立集群）中运行的 Kubernetes 应用程序提供永久性卷。</block>
@@ -435,46 +429,31 @@
   <block id="c6f1a352df2f86c5762377fac42728cd" category="inline-link-macro">了解有关 Astra Data Store 硬件要求的更多信息</block>
   <block id="fe0f8f78d78d43e48f544072457864fd" category="paragraph"><block ref="063de6d98610c6cc606db5d3a91db761" category="inline-link-macro-rx"></block>。</block>
   <block id="b718411e8c696b20e6e0a5763131ff50" category="paragraph">Astra Data Store 预览是 Astra 产品系列的一部分。要了解有关整个 Astra 系列的观点，请参见<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>。</block>
-  <block id="57130318718009eaaede4b2335702fd8" category="section-title">Astra Data Store 生态系统</block>
   <block id="c77d4df020e2f228b335bf2fb55c7074" category="paragraph">Astra Data Store 预览版可用于以下内容：</block>
   <block id="50db2d5d2d0d6701257927c365a04231" category="list-text">* Astra 控制中心 * ：使用 Astra 控制中心软件对内部环境中的 Kubernetes 集群进行应用程序感知型数据管理。轻松备份 Kubernetes 应用程序，将数据迁移到其他集群以及即时创建有效的应用程序克隆。</block>
   <block id="2a48cd9390eedba71d48155badc1de94" category="paragraph">Astra 控制中心支持具有 ONTAP 的 Trident 存储后端或 Astra 数据存储预览存储后端的 OpenShift Kubernetes 集群。</block>
   <block id="c9ffa666041d225b05a55ccaba7e5458" category="list-text">* Astra Trident * ：作为 NetApp 维护的完全受支持的开源存储配置程序和编排程序， Trident 使您能够为 Docker 和 Kubernetes 管理的容器化应用程序创建存储卷。</block>
   <block id="539ccb3278900d4337d03ac42a102ad9" category="paragraph">您可以使用 Trident 在 Astra Data Store 预览版上创建卷。</block>
-  <block id="eeab34a5f7ee15f056d5950012d06bf6" category="list-text">* Cloud Insights * ： Cloud Insights 是一款 NetApp 云基础架构监控工具，可用于监控由 Control 管理的 Kubernetes 集群的性能和利用率。Cloud Insights 将存储使用量与工作负载相关联。在 Astra Control 中启用 Cloud Insights 连接后，遥测信息将显示在 Astra Control UI 页面中。</block>
-  <block id="19f784aca41ca6786a1708bf1acf56c6" category="paragraph">Cloud Insights 会在 Astra 数据存储预览版中显示有关资源的信息。</block>
-  <block id="68298d2de3b6b29d9e494492b680fc1a" category="section-title">Astra 数据存储接口</block>
   <block id="d015aca78df45458ee1d6533c5246919" category="paragraph">您可以使用不同的界面完成任务：</block>
   <block id="3ce33c83106a597de03ab2e053ba936d" category="list-text">* Web 用户界面（ UI ） * ： Astra 控制服务和 Astra 控制中心使用同一个基于 Web 的 UI ，您可以在其中管理，迁移和保护应用程序。此 UI 还会显示有关 Astra Data Store 预览卷的信息。</block>
   <block id="5dd2a4cc9e98a3b9886bcc604cfd6996" category="list-text">* API * ： Astra 控制服务和 Astra 控制中心使用相同的 Astra 控制 API 。使用 API ，您可以执行与使用 UI 相同的任务。您还可以使用 Astra Control API 检索有关 Astra Data Store 预览的信息。</block>
-  <block id="64709f1561293f714575cd6d60907b75" category="list-text">* kubectl commands* ：要使用 Astra Data Store 预览版，您还可以直接使用 kubectl 命令。</block>
-  <block id="f32d55277f0325049920c7019b1b925c" category="list-text">* Kubernetes 扩展 * ：此外，您还可以使用 Astra Data Store 预览 Kubernetes API 扩展。</block>
   <block id="61a6bfa30a3c2204517c3ff952d4c118" category="paragraph">自定义资源定义（ CRD ）是 Kubernetes REST API 的扩展，该 API 是在部署 Astra Data Store 预览运算符时创建的。外部实体通过调用 Kubernetes API 服务器与 CRD 进行交互。Astra Data Store 预览版会监控特定 CRD 的更新，然后调用内部 REST API 。</block>
   <block id="ca4530da8cd63a3852e628753021934a" category="summary">Astra Data Store 采用精简配置，零块消除，数据压缩和重复数据删除等存储效率技术。</block>
-  <block id="5b0b8dca4f811863182aeb743df36506" category="doc">Astra 数据存储中的存储效率</block>
-  <block id="e6e68287050475c3472e7210e67c782d" category="paragraph">Astra 数据存储使用基于 ONTAP 和 SolidFire 技术的存储效率技术，包括：</block>
   <block id="49fd2375999e454962f2a76dea2d99b5" category="list-text">* 精简配置 * ：精简配置卷是指不预先预留存储的卷。而是根据需要动态分配存储。删除卷或 LUN 中的数据后，可用空间将释放回存储系统</block>
   <block id="ac0967915cfa21217ac0958fa4f2a6da" category="list-text">* 零块检测和消除 * ：采用精简配置的 ONTAP 存储系统可以检测卷中已置零的区域，以便回收该空间并将其用于其他位置。</block>
   <block id="bd4fa668e07ff5169fc38a1df5dd7fe2" category="list-text">* 数据压缩 * ：数据压缩通过将数据块组合到数据压缩组中来减少卷所需的物理存储量，每个数据块都存储为一个块。与传统压缩方法相比，压缩数据的读取速度更快，因为 ONTAP 仅解压缩包含所请求数据的压缩组，而不是解压缩整个文件。</block>
   <block id="a0f1d24dc3084ea8b257373ed48416c3" category="list-text">* 重复数据删除 * ：重复数据删除可通过丢弃重复块并将其替换为对单个共享块的引用来减少卷（或 AFF 聚合中的所有卷）所需的存储量。读取经过重复数据删除的数据通常不会对性能产生任何影响。除了过载的节点之外，写入所产生的费用可以忽略不计。</block>
   <block id="23d07990648d5e599c2f21bd6408d3c7" category="paragraph">默认情况下，所有这些功能均处于启用状态。</block>
   <block id="8bb7278f8687d62c283b01b22bd11883" category="inline-link">存储效率详细信息</block>
-  <block id="aca457c35da234f961360ac0401e3ea5" category="paragraph">请参见<block ref="296e23408010636aef99223ff4789435" category="inline-link-rx"></block>。</block>
   <block id="d4b92f4945c7eafc00261f4339999749" category="summary">Astra 数据存储可通过多种方法确保客户端和管理员对存储的访问安全，保护通信和数据以及防范病毒。</block>
-  <block id="a137afb0e5f46a6c47e411a5c9c42758" category="doc">Astra 数据存储中的安全性</block>
   <block id="6c50ae0fd489e39bb803cec46c926c40" category="paragraph">Astra Data Store 预览版可通过多种方法确保客户端和管理员对存储的访问安全，保护通信和数据以及防止病毒。</block>
   <block id="09339b9f65d7451119bd973b67b2cf37" category="paragraph">Astra Data Store 预览版使用以下安全方法：</block>
   <block id="aadd8dd46108d4c406fbdaf57d8cd0e4" category="list-text">使用相互传输层安全（ MTLS ）进行通信加密</block>
-  <block id="f6c6d031927e2d5b98f75307c2b52492" category="list-text">基于角色的访问控制用于控制对功能的访问</block>
   <block id="493310ef851cbd6318af4494b52c12e6" category="list-text">部署安全性</block>
   <block id="d7472107bd93164aab58e7bdee6b4ee2" category="list-text">证书管理</block>
   <block id="4c8339b442784e09f376234ea3dc70e1" category="list-text">空闲软件加密，包括内部密钥管理</block>
   <block id="822b9a387b65a35c2ef192f62db1ed0f" category="summary">Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。</block>
   <block id="9f828d6c562cc0df256e51d5d235c7bb" category="doc">Astra 数据存储简介</block>
-  <block id="3b5242cfb7f9537004a67d41c1abe248" category="paragraph">Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。</block>
-  <block id="29a88ba649cfc395ea85184d0913f230" category="paragraph">借助 Astra 数据存储，您可以执行以下操作：</block>
-  <block id="806e9b283c8cb7cec59b6fcd4d725669" category="list-text">* 支持 Kubernetes 容器化工作负载 * ：利用您习惯使用的企业级数据管理服务和工具支持容器化工作负载。</block>
-  <block id="d7266aefd53c2dca533afcd5c9229889" category="list-text">* 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，提供自动化，可重复的服务，从而消除 developers​ 带来的复杂性。</block>
   <block id="bb453665f57f6823950856f7a9bad0c3" category="section-title">Astra 产品系列</block>
   <block id="dd490b59f0194051f9d41deec8b0aefa" category="paragraph">Astra 系列产品可提供 Kubernetes 应用程序数据生命周期管理，从而简化有状态应用程序的操作。轻松保护，备份和迁移 Kubernetes 工作负载，并即时创建有效的应用程序克隆。</block>
   <block id="b71fa69e65a9178741af35068df8a392" category="paragraph">Astra 产品包括：</block>
@@ -485,7 +464,6 @@
   <block id="383cdefecd7eda4a982198ecdbbce7da" category="list-text">* Astra Trident * ：与 NetApp 存储提供商合作，为 Kubernetes 工作负载配置和管理符合容器存储接口（ CSI ）要求的存储。</block>
   <block id="9c4409443c2952d1634823228bc8d335" category="paragraph">请参见<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>。</block>
   <block id="17d3506812ac5cd550afaae120fc3072" category="paragraph"><block ref="17d3506812ac5cd550afaae120fc3072" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b987663a30d898f74e9dd1aee179e6de" category="section-title">Astra 数据存储功能</block>
   <block id="56a2dbf732bd1ee44e12d29d7c6007cd" category="paragraph">Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：</block>
   <block id="f9ab1651208c253699bc488c26a8427e" category="list-text">* Kubernetes 本机共享文件服务 * ：使用标准 NFS 客户端作为容器和 VM 的统一数据存储库，为 Kubernetes 提供共享文件服务原生。​</block>
   <block id="f9ee9cb48be574a530a87bdbd8a3fb4b" category="list-text">* 云扩展 * ：在同一资源池中提供 Kubernetes 本机多个并行文件系统，以实现类似于云的扩展和利用率，从而无需在集群之外单独管理存储。</block>
@@ -496,7 +474,6 @@
   <block id="1504325f5e4b13a89b554f4d86ce7224" category="list-text">* 数据效率 * ：通过实时重复数据删除和数据压缩功能进行扩展时控制成本。</block>
   <block id="02636655504a22c3e2973e5b212990c4" category="list-text">* 适合您的现有环境 * ：支持基于微服务的工作负载和传统工作负载，为主要 Kubernetes 分发版提供服务，提供文件存储，并在您选择的 hardware​ 上运行。</block>
   <block id="15266d664d91aafb32a297b47d315e6e" category="list-text">* 与 NetApp Cloud Insights * 集成：为持续 optimization​ 提供可观察性，分析和监控功能。​</block>
-  <block id="024164469d071c626f7a31250bb322f0" category="section-title">开始使用 Astra Data Store</block>
   <block id="fdc214a356831f18e50d44483816cd46" category="inline-link-macro">了解 Astra 数据存储的要求</block>
   <block id="ff5aa600c6539c7e081d620eb47efc0b" category="paragraph">首先， <block ref="ffd8cafe4a2e3797a817f620ac67ea91" category="inline-link-macro-rx"></block>。</block>
   <block id="5b1afbcfd691161f9517b45cd0d4faee" category="inline-link-macro">开始使用</block>
@@ -951,7 +928,6 @@
   <block id="30f6976fd56ced2f4cf61b05186ff1c1" category="admonition">您可以获得有关 Astra Data Store 预览版的社区技术支持。使用创建案例<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> 不适用于预览版本。您可以通过反馈选项联系支持部门，也可以使用 Slack 渠道自助服务。</block>
   <block id="2a78d6757f0c5e50314bbac0fd7b7197" category="list-text"><block ref="2a78d6757f0c5e50314bbac0fd7b7197" category="inline-link-rx"></block></block>
   <block id="915175f508b5f3177445a98b51f0097f" category="list-text"><block ref="4bd40507b5d2224d965f5d4747d374a9" category="inline-link-rx"></block></block>
-  <block id="370d30d60f255a6b1433c4bffa91f24a" category="list-text"><block ref="8ab0f7c088572fbc1585d10ad0d13c53" category="inline-link-macro-rx"></block>。</block>
   <block id="98c3c6380874a3d6a2da7db71afe52d7" category="paragraph">使用 Astra Data Store 预览集群作为存储后端的应用程序可以使用<block ref="73c15736d78e1e14f234b40f7cdc3048" category="inline-link-rx"></block> 21.12 版可利用应用程序感知型数据管理功能，包括数据保护，灾难恢复和 Kubernetes 工作负载迁移。</block>
   <block id="4c0ef7c9699c23c05811fdaa8dd6d7fc" category="paragraph">* 在安装 Astra Data Store 预览版时需要更新哪些清单文件？ * 来自从下载的 Astra Data Store 预览版软件包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>，您将获得以下清单：</block>
   <block id="1e16f2b8556745da1de7a0b75522a635" category="paragraph"><block ref="1e16f2b8556745da1de7a0b75522a635" category="inline-link-rx"></block></block>
@@ -970,4 +946,40 @@
   <block id="4471592d544ec3b277df3be14efdb667" category="cell">35 GiB</block>
   <block id="3fd265fc18b2cccf42e00f564f3cc354" category="list-text">更改为下载 Trident 安装程序的目录：</block>
   <block id="293acccfcaa84144747d7d17dbd3128e" category="list-text">创建 ads_sc_example.yaml ：</block>
+  <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="summary">了解如何解决您可能遇到的一些常见问题。</block>
+  <block id="79c5785e2761673e59d8eea6f1277fe2" category="paragraph"><block ref="79c5785e2761673e59d8eea6f1277fe2" category="inline-link-rx"></block></block>
+  <block id="fcf3732107edd2c588fd7dabdefed930" category="list-text"><block ref="8a03da8c89b5b4fdd3e09ba19496220c" category="inline-xref-macro-rx"></block></block>
+  <block id="bdde4838c0c12aa2ae1296167700c7b3" category="section-title">完成 Cloud Insight 连接前提条件任务</block>
+  <block id="6987bbde2267c8be13f8b6d922b41b0c" category="list-text"><block ref="dcf5b80fa05febc0501b6d9fcc7d3ab0" category="inline-link-macro-rx"></block> 这是 Astra Data Store 预览安装说明的一部分。</block>
+  <block id="45c6d9e32db908ddd56d04c07d49c401" category="list-text"><block ref="bfb34ca8335b0b73a54237f9edc747d4" category="inline-link-macro-rx"></block> 这是 Astra Data Store 预览安装说明的一部分。</block>
+  <block id="de6bf4315ca097a0bda1ff06c7c49a20" category="list-text"><block ref="e1e29d7386d2d73bd3f1ef7e80229929" category="inline-link-rx"></block>。</block>
+  <block id="4b41569e5e1165e5cfb321225dc3ea12" category="list-text"><block ref="35d6f1edf9ca8898423c009341c23fb1" category="inline-xref-macro-rx"></block></block>
+  <block id="24bea87dd5f03c9343f832d514436b14" category="list-text"><block ref="116c093341ed114bc7b46f219680ab08" category="inline-xref-macro-rx"></block></block>
+  <block id="92e02155816dfb43131e8093bd99081a" category="section-title">删除 OpenShift 容器平台资源</block>
+  <block id="e1252e9238ffdc665337569f9a3d15ac" category="paragraph">如果您在 Red Hat OpenShift 容器平台（ OCP ）上安装了 Astra Data Store preview ，则可以卸载 OCP 安全上下文约束（ SCC ）和绑定资源。</block>
+  <block id="ee9ff707f9f8b22acbf949454f477868" category="paragraph">OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。</block>
+  <block id="7e6e334737be518763a54980c076bd52" category="paragraph">完成标准卸载过程后，请完成以下步骤。</block>
+  <block id="ea3636dddb52a396bae27bd0e6aed06e" category="list-text">删除 SCC 资源：</block>
+  <block id="fd617944a08113e478bdc0aa81855d1e" category="list-text">删除 rolebindings 资源：</block>
+  <block id="c4bc5ab0b4775b4a9c0dc56e5a147ad0" category="admonition">忽略这些步骤中的 " 未找到资源错误 " 。 </block>
+  <block id="2d2b3d157d3e998229a25a7e0b312343" category="list-text">从所有 Kubernetes 节点中删除 ` /var/lib/kubelet/config.yaml` 。 </block>
+  <block id="06ae80c1558e7ebb2d814d7146df1dd4" category="doc">Astra Data Store 预览部署模式</block>
+  <block id="70944dd74ab42c58bf0bbebb73b3d92e" category="section-title">Astra Data Store 预览生态系统</block>
+  <block id="9d106b821e7a6c048ee7d651cb427fe8" category="list-text">* Cloud Insights * ： Cloud Insights 是一款 NetApp 云基础架构监控工具，可用于监控由 Control 管理的 Kubernetes 集群的性能和利用率。Cloud Insights 将存储使用量与工作负载相关联。</block>
+  <block id="7614f60c48f7bfbd460529648c031f07" category="paragraph">在 Astra Control 中启用 Cloud Insights 连接后，遥测信息将显示在 Astra Control UI 页面中。Cloud Insights 显示有关在 Astra 数据存储预览版中管理的资源的信息。</block>
+  <block id="34a795c2035a86d18808381c47d8586b" category="section-title">Astra Data Store 预览界面</block>
+  <block id="4265f71c8e49f4a6e5349ee2484a5ddb" category="list-text">* kubectl 命令 * ：要使用 Astra Data Store 预览版，您可以直接使用 kubectl 命令。</block>
+  <block id="0277c6cbc171c0c7131585e332028573" category="list-text">* Kubernetes 扩展 * ：此外，您还可以使用 Astra Data Store 预览 Kubernetes API 扩展。</block>
+  <block id="59b52b662628e0a0664716e98856b5d3" category="doc">Astra Data Store 预览版中的存储效率</block>
+  <block id="c593500c8f6f300bb8cbf4acdb85b4ae" category="paragraph">Astra 数据存储预览版使用基于 NetApp ONTAP 和 SolidFire 技术的存储效率技术，包括：</block>
+  <block id="17e8381dc8f4cb6d73926f1e7a8de1e1" category="paragraph">请参见<block ref="64bad5f12122d75c9f4258c5070a56b3" category="inline-link-rx"></block>。</block>
+  <block id="aaad6395404f293dfe1fcbb100ed7fdf" category="doc">Astra Data Store 中的安全性预览</block>
+  <block id="85f04e298b2fa787e636338a4499f93f" category="list-text">基于角色的访问控制，用于控制对功能的访问</block>
+  <block id="7a99a9db224c8af4d42ebcb83f72eb95" category="doc">Astra 数据存储预览简介</block>
+  <block id="4f41b6ecbc684298440aa61fd902e22e" category="paragraph">Astra 数据存储预览版是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。</block>
+  <block id="1ab55fa5b9c4c19372d7d6871e2ad91a" category="paragraph">使用 Astra Data Store 预览版，您可以执行以下操作：</block>
+  <block id="13423660d468d089ecff44a943262590" category="list-text">* 支持 Kubernetes 容器化工作负载 * ：使用您习惯使用的企业级数据管理服务和工具。</block>
+  <block id="658b90d4dc3b6a2eac6d3fe324c8cfcc" category="list-text">* 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，以提供自动化，可重复的服务，消除 developers​ 带来的复杂性。</block>
+  <block id="de08a04337cd312be055df354ff4a143" category="section-title">Astra Data Store 预览功能</block>
+  <block id="8868678235b1972f674ec06ef7e3b57f" category="section-title">开始使用 Astra Data Store 预览版</block>
 </blocks>

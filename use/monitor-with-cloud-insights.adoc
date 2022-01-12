@@ -12,7 +12,7 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 
 您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。
 
-* <<Perform Cloud Insight connection prerequisites>>
+* <<Complete Cloud Insight connection prerequisite tasks>>
 * <<Download and run the installation script>>
 * <<Edit the Cloud Insights connection>>
 * <<Disconnect from Cloud Insights>>
@@ -24,13 +24,13 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 
 
 
-== 执行 Cloud Insight 连接前提条件
+== 完成 Cloud Insight 连接前提条件任务
 
 在将 Astra 数据存储与 Cloud Insights 连接之前，您需要：
 
-* link:install-ads.html#install-the-monitoring-operator["安装 Astra 数据存储监控操作员"]。
-* link:install-ads.html#copy-the-binary-and-push-images-to-your-local-registry["安装 kubectl-astrad 二进制文件"] 按照 Astra Data Store 预览安装文档进行操作。
-* link:https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["创建 Cloud Insights 帐户"^]。
+* link:../get-started/install-ads.html["安装 Astra 数据存储监控操作员"] 这是 Astra Data Store 预览安装说明的一部分。
+* link:../get-started/install-ads.html["安装 kubectl-astrad 二进制文件"] 这是 Astra Data Store 预览安装说明的一部分。
+* https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["创建 Cloud Insights 帐户"^]。
 * 确保以下命令可用： `jk ， curl ， grep` 和 `JQ`
 
 

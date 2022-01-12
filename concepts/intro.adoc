@@ -4,18 +4,18 @@ permalink: concepts/intro.html
 keywords: introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes 
 summary: Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。 
 ---
-= Astra 数据存储简介
+= Astra 数据存储预览简介
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。
+Astra 数据存储预览版是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。
 
-借助 Astra 数据存储，您可以执行以下操作：
+使用 Astra Data Store 预览版，您可以执行以下操作：
 
-* * 支持 Kubernetes 容器化工作负载 * ：利用您习惯使用的企业级数据管理服务和工具支持容器化工作负载。
-* * 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，提供自动化，可重复的服务，从而消除 developers​ 带来的复杂性。
+* * 支持 Kubernetes 容器化工作负载 * ：使用您习惯使用的企业级数据管理服务和工具。
+* * 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，以提供自动化，可重复的服务，消除 developers​ 带来的复杂性。
 
 
 
@@ -42,7 +42,7 @@ image:astra-product-family.png["Astra 产品系列"]
 
 
 
-== Astra 数据存储功能
+== Astra Data Store 预览功能
 
 Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：
 
@@ -62,7 +62,7 @@ Astra Data Store 可通过以下功能为您的云原生 applications​ 提供�
 
 
 
-== 开始使用 Astra Data Store
+== 开始使用 Astra Data Store 预览版
 
 首先， link:../get-started/requirements.html["了解 Astra 数据存储的要求"]。
 

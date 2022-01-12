@@ -4,13 +4,13 @@ permalink: concepts/storage-efficiency.html
 keywords: how astra works, how Astra works, what Astra is, astra data store, 
 summary: Astra Data Store 采用精简配置，零块消除，数据压缩和重复数据删除等存储效率技术。 
 ---
-= Astra 数据存储中的存储效率
+= Astra Data Store 预览版中的存储效率
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra 数据存储使用基于 ONTAP 和 SolidFire 技术的存储效率技术，包括：
+Astra 数据存储预览版使用基于 NetApp ONTAP 和 SolidFire 技术的存储效率技术，包括：
 
 * * 精简配置 * ：精简配置卷是指不预先预留存储的卷。而是根据需要动态分配存储。删除卷或 LUN 中的数据后，可用空间将释放回存储系统
 * * 零块检测和消除 * ：采用精简配置的 ONTAP 存储系统可以检测卷中已置零的区域，以便回收该空间并将其用于其他位置。
@@ -20,7 +20,7 @@ Astra 数据存储使用基于 ONTAP 和 SolidFire 技术的存储效率技术�
 
 默认情况下，所有这些功能均处于启用状态。
 
-请参见 https://docs.netapp.com/ontap-9/index.jsp["存储效率详细信息"]。
+请参见 https://docs.netapp.com/ontap-9/index.jsp["存储效率详细信息"^]。
 
 
 

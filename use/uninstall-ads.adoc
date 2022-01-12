@@ -22,9 +22,10 @@ Astra Data Store 预览卸载过程将指导您完成以下高级步骤：
 * <<Delete the volumes and export policies>>
 * <<Delete the Astra Data Store preview cluster>>
 * <<Delete the license>>
-* <<Delete the astrads installation>>
+* <<Delete the Astra Data Store preview installation>>
 * <<Validate the removal of the astrads-system namespace>>
 * <<Ensure containers are not running on worker nodes>>
+* <<Delete OpenShift Container Platform resources>>
 
 
 
@@ -164,6 +165,35 @@ NOTE: 即使在删除集群后，操作符， nodeinfo Pod 和集群控制器（
 ssh <mynode1>
 # runc list
 ----
+
+
+== 删除 OpenShift 容器平台资源
+
+如果您在 Red Hat OpenShift 容器平台（ OCP ）上安装了 Astra Data Store preview ，则可以卸载 OCP 安全上下文约束（ SCC ）和绑定资源。
+
+OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。
+
+完成标准卸载过程后，请完成以下步骤。
+
+. 删除 SCC 资源：
++
+[listing]
+----
+oc delete -f ads_privileged_scc.yaml
+----
+. 删除 rolebindings 资源：
++
+[listing]
+----
+oc delete -f oc_role_bindings.yaml
+----
++
+
+NOTE: 忽略这些步骤中的 " 未找到资源错误 " 。 
+
+. 从所有 Kubernetes 节点中删除 ` /var/lib/kubelet/config.yaml` 。 
+
+
 
 
 == 手动删除示例

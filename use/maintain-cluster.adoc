@@ -203,7 +203,7 @@ Status:              Added
 +
 [listing]
 ----
- # cat nate_hosts/netappsdscluster.yaml
+ # cat manifests/astradscluster.yaml
 apiVersion: astrads.netapp.io/v1alpha1
 kind: AstraDSCluster
 metadata:
@@ -286,7 +286,7 @@ spec:
             event: daily
           userMessage: Daily Control Plane AutoSupport bundle
 
-[root@scspr2409016001 42733317_42952507_1x5Node_Astra_DAS-002]# cat nate_hosts/netappsdscluster.yaml
+[root@scspr2409016001 42733317_42952507_1x5Node_Astra_DAS-002]# cat manifests/astradscluster.yaml
 apiVersion: astrads.netapp.io/v1alpha1
 kind: AstraDSCluster
 metadata:
@@ -374,7 +374,7 @@ spec:
             name: controlplane
             event: daily
           userMessage: Daily Control Plane AutoSupport bundle
- kubectl apply -f nate_hosts/netappsdscluster.yaml
+ kubectl apply -f manifests/astradscluster.yaml
 astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured
 ----
 . 验证是否已从集群中删除此节点：
@@ -410,8 +410,8 @@ Metadata:
 +
 [listing]
 ----
-rvi nate_hosts/netappsdscluster.yaml
-cat nate_hosts/netappsdscluster.yaml
+rvi manifests/astradscluster.yaml
+cat manifests/astradscluster.yaml
 apiVersion: astrads.netapp.io/v1alpha1
 kind: AstraDSCluster
 metadata:
@@ -421,7 +421,7 @@ metadata:
 +
 [listing]
 ----
-~% kubectl apply -f nate_hosts/netappsdscluster.yaml
+~% kubectl apply -f manifests/astradscluster.yaml
 astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured
 
 ~% kubectl get pods -n astrads-system

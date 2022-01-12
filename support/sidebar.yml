@@ -2,6 +2,8 @@
 section: support
 title: 知识和支持
 entries:
+- title: 故障排除
+  url: "/support/troubleshooting-ads.html"
 - title: 获取帮助
   url: "/support/get-help-ads.html"
 - title: 自动支持监控
