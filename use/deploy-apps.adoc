@@ -30,7 +30,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 +
 [listing]
 ----
-helm install --set persistence.storageClass=trident-csi mongohelm4 mongodb --namespace=ns-mongodb --create-namespace
+helm install mongohelm4 --set persistence.storageClass=trident-csi bitnami/mongodb --namespace=ns-mongodb --create-namespace
 ----
 . 检查 MongoDB POD 的状态：
 +
