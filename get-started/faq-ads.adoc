@@ -92,7 +92,7 @@ https://netapp.io/slack["NetApp 容器 Slack 通道"^]
 
 * 如何申请新功能？ * 如果您对支持的配置或功能有任何疑问，请联系 astra.feedback@netapp.com 。
 
-* 如何生成支持日志包？ * 请参见 link:../support/get-help.html#generate-support-bundle-to-provide-to-netapp-support["生成支持包"] 有关为 Astra Data Store 预览版设置和下载支持日志包的说明。
+* 如何生成支持日志包？ * 请参见 link:../support/get-help-ads.html#generate-support-bundle-to-provide-to-netapp-support["生成支持包"] 有关为 Astra Data Store 预览版设置和下载支持日志包的说明。
 
 * Astra Data Store 预览无法找到我的 Kubernetes 节点。如何修复此问题？ * 请参见 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。
 

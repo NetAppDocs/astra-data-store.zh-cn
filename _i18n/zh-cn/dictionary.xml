@@ -541,7 +541,6 @@
   <block id="95d0cc0c791e77283e4f15685fecea58" category="paragraph">了解相关信息 <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
   <block id="e55eed1f8e319d189f948d8925157ae5" category="paragraph">* 如何申请新功能？ * 如果您对支持的配置或功能有任何疑问，请联系 astra.feedback@netapp.com 。</block>
   <block id="d8d50c12bd11a2109a7a384f43b0930a" category="inline-link-macro">生成支持包</block>
-  <block id="e859e608d59cef8fc0f0cccdb868853f" category="paragraph">* 如何生成支持日志包？ * 请参见 <block ref="0e3e1e21aa20734c9ddadb346fd8f7d6" category="inline-link-macro-rx"></block> 有关为 Astra Data Store 预览版设置和下载支持日志包的说明。</block>
   <block id="36a38d337710d18d8d4579ea32c02c53" category="paragraph">* Astra Data Store 预览无法找到我的 Kubernetes 节点。如何修复此问题？ * 请参见 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。</block>
   <block id="b65c882f5478cc6c135a753a8298028e" category="paragraph">* IPv6 地址是否可用于管理，数据和集群网络？ * 否， Astra Data Store 预览版仅支持 IPv4 地址。未来版本的 Astra Data Store 预览版将增加 IPv6 支持。</block>
   <block id="91f1ab6c785beb94a57d22cb6b25c708" category="paragraph">* 在 Astra Data Store 预览版上配置卷时使用的是什么 NFS 版本？ * 默认情况下，对于为 Kubernetes 应用程序配置的所有卷， Astra Data Store 预览版支持 NFS v4.1 。</block>
@@ -982,4 +981,5 @@
   <block id="658b90d4dc3b6a2eac6d3fe324c8cfcc" category="list-text">* 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，以提供自动化，可重复的服务，消除 developers​ 带来的复杂性。</block>
   <block id="de08a04337cd312be055df354ff4a143" category="section-title">Astra Data Store 预览功能</block>
   <block id="8868678235b1972f674ec06ef7e3b57f" category="section-title">开始使用 Astra Data Store 预览版</block>
+  <block id="1165a0185db86745710cb672405b42d6" category="paragraph">* 如何生成支持日志包？ * 请参见 <block ref="fabd9c024e7cacda497223e92e4a9bcb" category="inline-link-macro-rx"></block> 有关为 Astra Data Store 预览版设置和下载支持日志包的说明。</block>
 </blocks>
