@@ -703,24 +703,24 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-17 16:39:05 +0000">01/17/2022</time>
+    <time datetime="2022-01-21 20:23:02 +0000">01/21/2022</time>
     
   
 
 <span>提供者
-  <a target="_blank" href="https://github.com/netapp-mwallis">
-    <img  class="avatar avatar-small"
-          alt="netapp-mwallis"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53353653?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-dbagwell">
     <img  class="avatar avatar-small"
           alt="netapp-dbagwell"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-mwallis">
+    <img  class="avatar avatar-small"
+          alt="netapp-mwallis"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -747,7 +747,7 @@
 <p>Astra Data Store 预览版既支持裸机部署，也支持基于 VM 的部署。Astra Data Store 预览集群可以在具有四个或更多工作节点的 Kubernetes 集群上运行。Astra Data Store 预览软件可以与在同一 Kubernetes 集群上运行的其他应用程序共存。</p>
 </div>
 <div class="paragraph">
-<p>Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kubernetes 工作负载配置 PV 。未来版本的 Astra Data Store 将支持 VM 工作负载。</p>
+<p>Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kubernetes 工作负载配置永久性卷。未来版本的 Astra Data Store 将支持 VM 工作负载。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -767,7 +767,7 @@
 <h2 id="kubernetes-工作节点资源要求">Kubernetes 工作节点资源要求</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>以下是为 Kubernetes 集群中每个工作节点上的 Astra Data Store 预览软件分配的最低资源要求：</p>
+<p>以下是在 Kubernetes 集群中每个工作节点上分配给 Astra Data Store 预览软件所需的资源要求：</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -993,7 +993,7 @@ Astra Data Store 预览版需要使用 Astra Trident 21.10.1 版进行存储配�
 <h2 id="网络要求">网络要求</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store 预览版要求每个集群有一（ 1 ）个 IP 地址用于 MVIP 。它必须是与 MIP 位于同一子网中的未使用或未配置的 IP 地址。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。</p>
+<p>Astra Data Store 预览版要求每个集群为 MVIP 配置一个 IP 地址。它必须是与 MIP 位于同一子网中的未使用或未配置的 IP 地址。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。</p>
 </div>
 <div class="paragraph">
 <p>此外，还可以按下表所述配置每个节点：</p>
@@ -1047,7 +1047,7 @@ Astra Data Store 预览版需要使用 Astra Trident 21.10.1 版进行存储配�
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>每个节点三（ 3 ）个：</p>
+<p>每个节点三个：</p>
 <div class="ulist">
 <ul>
 <li>

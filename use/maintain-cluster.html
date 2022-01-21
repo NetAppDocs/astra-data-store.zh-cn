@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-17 16:39:05 +0000">01/17/2022</time>
+    <time datetime="2022-01-21 20:23:02 +0000">01/21/2022</time>
     
   
 
@@ -713,6 +713,14 @@
           alt="amgrissino"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-dbagwell">
+    <img  class="avatar avatar-small"
+          alt="netapp-dbagwell"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53352450?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -751,12 +759,8 @@
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="您将需要什么">您将需要什么</h2>
-<div class="sectionbody">
 <div class="ulist">
+<div class="title">您需要什么？ #8217 ；将需要什么</div>
 <ul>
 <li>
 <p>安装了 kubectl 和 kubectl-astrad 插件的系统。请参见 <a href="../get-started/install-ads.html">"安装 Astra Data Store 预览版"</a>。</p>
@@ -811,7 +815,7 @@
 <div class="listingblock">
 <div class="content">
 <pre>~% kubectl astrads maintenance list
-NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT
+NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE                      MAINTENANCE VARIANT
 kubectl astrads    maintenance     create node4 --node-name="nhcitjj1525" --variant=Node
 
 Maintenance mode astrads-system/node4 created</pre>
@@ -852,7 +856,7 @@ node4   nhcitjj1525     true            ReadyForMaintenance     Node</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>处于维护模式的将以 "False" 开头，并更改为 "True" 。 维护状态从 " 准备维护 " 更改为 " 准备维护 " 。</p>
+<p>维护` 模式下的 <code>将以 `false</code> 开头，并更改为 <code>true</code> 。<code>M状态</code> 从 <code>PreparingForMaintenance</code> 更改为 <code>ReadyforMaintenance</code> 。</p>
 </div>
 </li>
 <li>
@@ -885,7 +889,7 @@ node4   nhcitjj1525     true            ReadyForMaintenance     Node</pre>
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>如果新节点的 dataIP 尚未加入 ADSCluster CR ，请执行以下操作：</p>
+<p>如果新节点的数据 IP 尚未加入 astradscluster CR ，请执行以下操作：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -965,7 +969,7 @@ cluster-multinodes-21209   created         4</pre>
 </div>
 </li>
 <li>
-<p>验证故障节点上的节点 HA 是否标记为 "False" ：</p>
+<p>验证故障节点上的 <code>Node HA</code> 是否标记为 <code>false</code> ：</p>
 <div class="listingblock">
 <div class="content">
 <pre>~% kubectl describe astradscluster -n astrads-system
@@ -1177,8 +1181,8 @@ astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured</pre>
 <div class="listingblock">
 <div class="content">
 <pre>~% kubectl get nodes --show-labels
-NAME                                            STATUS   ROLES                 AGE   VERSION   LABELS
-sti-astramaster-237   Ready control-plane,master   24h   v1.20.0
+NAME                  STATUS ROLES                 AGE   VERSION   LABELS
+sti-astramaster-237   Ready  control-plane,master  24h   v1.20.0
 sti-rx2540-532d       Ready  &lt;none&gt;                24h   v1.20.0
 sti-rx2540-533d       Ready  &lt;none&gt;                24h
 
@@ -1253,7 +1257,7 @@ scsi-36000..  c3e197f2... Active         sti-rx2540... cluster-multinodes-21209<
 <p>当集群中的驱动器发生故障时，必须尽快更换驱动器以确保数据完整性。驱动器发生故障时，您将在集群 CR 节点状态，集群运行状况信息和指标端点中看到故障驱动器信息。</p>
 </div>
 <div class="listingblock">
-<div class="title">在 nodeStatuss.driveStatuses 中显示故障驱动器的 &lt;code&gt; 集群 &lt;/code&gt; 示例</div>
+<div class="title">在 nodeStatuss.driveStatuses 中显示故障驱动器的集群示例</div>
 <div class="content">
 <pre>$ kubectl get adscl -A -o yaml
 ...
@@ -1324,7 +1328,7 @@ sdh   /scsi-36000c29417  45000c  0                false     100GB</pre>
 </div>
 </li>
 <li>
-<p>使用 <code>replace</code> 命令将驱动器替换为已传递的序列号。如果 <code>` -wait</code> 时间已过，则命令将完成替换或失败。</p>
+<p>使用 <code>replace</code> 命令将驱动器替换为已传递的序列号。如果 ` -wait` 时间已过，则命令将完成替换或失败。</p>
 <div class="listingblock">
 <div class="content">
 <pre>~% kubectl astrads faileddrive replace --cluster arda-6e4b4af --name 6000c290 --replaceWith 45000c --wait
@@ -1347,7 +1351,7 @@ Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 Fir
 </div>
 </li>
 <li>
-<p>要重新运行驱动器更换，请使用 <code>` -force</code> 和上一个命令：</p>
+<p>要重新运行驱动器更换，请使用 ` -force` 和上一个命令：</p>
 <div class="listingblock">
 <div class="content">
 <pre>~%  kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith VALID_SERIAL_NUMBER --force</pre>

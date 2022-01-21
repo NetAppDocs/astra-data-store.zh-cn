@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-17 16:39:05 +0000">01/17/2022</time>
+    <time datetime="2022-01-21 20:23:02 +0000">01/21/2022</time>
     
   
 
@@ -716,19 +716,19 @@
           style="border-radius: 50%;"/>
   </a>
   
-  <a target="_blank" href="https://github.com/netapp-mwallis">
-    <img  class="avatar avatar-small"
-          alt="netapp-mwallis"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53353653?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-dbagwell">
     <img  class="avatar avatar-small"
           alt="netapp-dbagwell"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53352450?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-mwallis">
+    <img  class="avatar avatar-small"
+          alt="netapp-mwallis"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53353653?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -765,22 +765,18 @@
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="您需要的内容">您需要的内容</h2>
-<div class="sectionbody">
 <div class="ulist">
+<div class="title">您需要什么？ #8217 ；将需要什么</div>
 <ul>
 <li>
-<p>已安装 Astra Data Store preview kubectl 插件 <a href="../get-started/install-ads.html">"安装 Astra Data Store 预览版"</a></p>
+<p>您安装在中的 Astra Data Store 预览 kubectl 插件 <a href="../get-started/install-ads.html">"安装 Astra Data Store 预览版"</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-data-store-预览版-kubernetes-自定义-api-资源列表">Astra Data Store 预览版 Kubernetes 自定义 API 资源列表</h2>
+<h2 id="列出适用于-astra-data-store-预览版的-kubernetes-自定义-api-资源">列出适用于 Astra Data Store 预览版的 Kubernetes 自定义 API 资源</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>您可以在 Kubernetes 中使用 kubectl 命令与 Astra Data Store 预览集群进行交互并观察其状态。</p>
@@ -794,7 +790,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>显示 Astra Data Store 预览版 Kubernetes 自定义 API 资源列表：</p>
+<p>显示用于 Astra Data Store 预览的 Kubernetes 自定义 API 资源列表：</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl api-resources --api-group astrads.netapp.io
@@ -859,7 +855,7 @@ astrads-system   astradslicense.astrads.netapp.io/e0   astrads-cluster-9f1 true 
 </div>
 </li>
 <li>
-<p>最后，我们将使用其中一个短名称来显示集群中卷的当前状态：</p>
+<p>使用以下短名称之一显示集群中卷的当前状态：</p>
 <div class="listingblock">
 <div class="content">
 <pre>bash-4.2$ kubectl get adsvo -A
