@@ -60,7 +60,7 @@ pvc-1133453a-e2f5-48a5   8830116Ki   10.192.2.192   jai-ads      true
 +
 [listing]
 ----
-~% kubectl describe  astradsvolume pvc-1133453a-e2f5-48a5 -n astrads-system
+~% kubectl describe astradsvolume pvc-1133453a-e2f5-48a5 -n astrads-system
 Name:         pvc-1133453a-e2f5-48a5-a06c-d14b8aa7be07
 Namespace:    astrads-system
 Labels:       astrads.netapp.io/cluster=jai-ads

@@ -18,10 +18,7 @@ summary: 您可以在 Astra Data Store 中使用 kubectl 命令来维护集群�
 * <<Replace a drive>>
 
 
-
-
-== 您将需要什么
-
+.您需要什么？ #8217 ；将需要什么
 * 安装了 kubectl 和 kubectl-astrad 插件的系统。请参见 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。
 
 
@@ -57,7 +54,7 @@ NOTE: 此节点必须已属于 Astra Data Store 预览集群。
 [listing]
 ----
 ~% kubectl astrads maintenance list
-NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT
+NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE                      MAINTENANCE VARIANT
 kubectl astrads    maintenance     create node4 --node-name="nhcitjj1525" --variant=Node
 
 Maintenance mode astrads-system/node4 created
@@ -91,7 +88,7 @@ NAME    NODE NAME       IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARI
 node4   nhcitjj1525     true            ReadyForMaintenance     Node
 ----
 +
-处于维护模式的将以 "False" 开头，并更改为 "True" 。 维护状态从 " 准备维护 " 更改为 " 准备维护 " 。
+维护` 模式下的 `将以 `false` 开头，并更改为 `true` 。`M状态` 从 `PreparingForMaintenance` 更改为 `ReadyforMaintenance` 。
 
 . 完成节点维护后，禁用维护模式：
 +
@@ -114,7 +111,7 @@ node4   nhcitjj1525     true            ReadyForMaintenance     Node
 要添加的节点应属于 Kubernetes 集群，并且其配置应与集群中的其他节点类似。
 
 .步骤
-. 如果新节点的 dataIP 尚未加入 ADSCluster CR ，请执行以下操作：
+. 如果新节点的数据 IP 尚未加入 astradscluster CR ，请执行以下操作：
 +
 .. 编辑 astradscluster CR 并在 ADS Data Networks Addresses 字段中添加额外的 dataIP ：
 +
@@ -173,7 +170,7 @@ sti-rx2540-535d...  Added       cluster-multinodes-21209
 CLUSTER NAME               CLUSTER STATUS  NODE COUNT
 cluster-multinodes-21209   created         4
 ----
-. 验证故障节点上的节点 HA 是否标记为 "False" ：
+. 验证故障节点上的 `Node HA` 是否标记为 `false` ：
 +
 [listing]
 ----
@@ -382,8 +379,8 @@ astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured
 [listing]
 ----
 ~% kubectl get nodes --show-labels
-NAME                                            STATUS   ROLES                 AGE   VERSION   LABELS
-sti-astramaster-237   Ready control-plane,master   24h   v1.20.0
+NAME                  STATUS ROLES                 AGE   VERSION   LABELS
+sti-astramaster-237   Ready  control-plane,master  24h   v1.20.0
 sti-rx2540-532d       Ready  <none>                24h   v1.20.0
 sti-rx2540-533d       Ready  <none>                24h
 
@@ -451,7 +448,7 @@ scsi-36000..  c3e197f2... Active         sti-rx2540... cluster-multinodes-21209
 
 当集群中的驱动器发生故障时，必须尽快更换驱动器以确保数据完整性。驱动器发生故障时，您将在集群 CR 节点状态，集群运行状况信息和指标端点中看到故障驱动器信息。
 
-.在 nodeStatuss.driveStatuses 中显示故障驱动器的 <code> 集群 </code> 示例
+.在 nodeStatuss.driveStatuses 中显示故障驱动器的集群示例
 [listing]
 ----
 $ kubectl get adscl -A -o yaml
@@ -517,7 +514,7 @@ sdh   /scsi-36000c29417  45000c  0                false     100GB
 
 
 ----
-. 使用 `replace` 命令将驱动器替换为已传递的序列号。如果 `` -wait` 时间已过，则命令将完成替换或失败。
+. 使用 `replace` 命令将驱动器替换为已传递的序列号。如果 ` -wait` 时间已过，则命令将完成替换或失败。
 +
 [listing]
 ----
@@ -536,7 +533,7 @@ Failed drive 6000c2927 has been set to use BAD_SERIAL_NUMBER as a replacement
 Drive replacement didn't complete within 25 seconds
 Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 FiretapUUID:444a5468 Serial:6000c Path:/scsi-36000c FailureReason:AdminFailed Node:sti-b200-0214a.lab.netapp.com} Cluster:astrads-cluster-f51b10a State:ReadyToReplace Conditions:[{Message: "Replacement drive serial specified doesn't exist", Reason: "DriveSelectionFailed", Status: False, Type:' Done"]}
 ----
-. 要重新运行驱动器更换，请使用 `` -force` 和上一个命令：
+. 要重新运行驱动器更换，请使用 ` -force` 和上一个命令：
 +
 [listing]
 ----

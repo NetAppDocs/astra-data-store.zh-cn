@@ -22,16 +22,13 @@ summary: 您可以将 kubectl 命令直接与 Astra Data Store 结合使用。
 * 更换节点
 
 
-
-
-== 您需要的内容
-
-* 已安装 Astra Data Store preview kubectl 插件 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]
+.您需要什么？ #8217 ；将需要什么
+* 您安装在中的 Astra Data Store 预览 kubectl 插件 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]
 
 
 
 
-== Astra Data Store 预览版 Kubernetes 自定义 API 资源列表
+== 列出适用于 Astra Data Store 预览版的 Kubernetes 自定义 API 资源
 
 您可以在 Kubernetes 中使用 kubectl 命令与 Astra Data Store 预览集群进行交互并观察其状态。
 
@@ -39,7 +36,7 @@ summary: 您可以将 kubectl 命令直接与 Astra Data Store 结合使用。
 
 此列表对于获取每个 Astra Data Store 预览对象的短名称以减少键入效果特别有用，如后面所示。
 
-. 显示 Astra Data Store 预览版 Kubernetes 自定义 API 资源列表：
+. 显示用于 Astra Data Store 预览的 Kubernetes 自定义 API 资源列表：
 +
 [listing]
 ----
@@ -100,7 +97,7 @@ astrads-system   astradsautosupport.astrads.netapp.io/storage-callhome.dbs.clust
 NAMESPACE        NAME                                  ADSCLUSTER          VALID PRODUCT          EVALUATION ENDDATE    VALIDATED
 astrads-system   astradslicense.astrads.netapp.io/e0   astrads-cluster-9f1 true  Astra Data Store true       2022-02-07 2021-12-16T20:43:23Z
 ----
-. 最后，我们将使用其中一个短名称来显示集群中卷的当前状态：
+. 使用以下短名称之一显示集群中卷的当前状态：
 +
 [listing]
 ----

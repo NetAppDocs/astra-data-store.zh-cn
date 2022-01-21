@@ -17,7 +17,7 @@ summary: 只需几步即可开始使用 Astra 数据存储。
 https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 以获取 Astra Data Store 预览许可证。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 查看 Kubernetes 集群要求
-* 集群必须以运行状况良好的状态运行，并且至少具有四个联机辅助节点和一个主节点。
+* 集群必须以运行状况良好的状态运行，并且至少具有四个联机辅助节点。
 * 属于 Astra Data Store 预览部署的每个 Kubernetes 工作节点都应具有相同接口类型（ SATA ， SAS 或 NVMe ）的 SSD ，并具有相同数量的驱动器，这些驱动器将分配给 Astra Data Store 预览集群。
 * 每个 SSD 都应具有唯一的序列号。
 
@@ -40,7 +40,7 @@ https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册
 * 安装 Astra Trident 。
 * 安装 Kubernetes Snapshot 自定义资源定义（ CRD ）和控制器。
 * 将 Astra Data Store 预览设置为存储后端。
-* 创建 Astra Data Store 预览存储类。
+* 创建默认的 Astra Data Store 预览存储类。
 
 
 [role="quick-margin-para"]

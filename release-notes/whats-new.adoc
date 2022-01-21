@@ -16,13 +16,13 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 
 == 2021 年 12 月 21 日（ 21.12 ）
 
-初始版本的 Astra 数据存储。
+初始版本的 Astra Data Store 预览版。
 
 * link:../concepts/intro.html["它是什么"]
 * link:../concepts/architecture.html["部署模式和组件"]
 * link:../get-started/requirements.html["入门所需的资源"]
 * link:../get-started/install-ads.html["安装"] 和 
-* link:../use/kubectl-commands-ads.html["管理和监控性能"]
+* link:../use/kubectl-commands-ads.html["管理"] 和  性能
 * link:../use/monitor-with-cloud-insights.html["使用 Cloud Insights 进行监控"]
 * link:../support/get-help-ads.html["获取帮助"] 和 
 

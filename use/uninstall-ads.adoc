@@ -120,7 +120,7 @@ NOTE: 即使在删除集群后，操作符， nodeinfo Pod 和集群控制器（
 +
 [listing]
 ----
-~% kubectl delete astradsversion atradsversion -n astrads-system
+~% kubectl delete astradsversion astradsversion -n astrads-system
 ~% kubectl get astradsversion -n astrads-system
 
 ----

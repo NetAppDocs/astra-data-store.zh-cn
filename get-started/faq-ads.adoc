@@ -58,7 +58,7 @@ summary: 如果您只是想快速了解问题解答，此常见问题解答会�
 
 * Astra Data Store 预览版是否支持从专用注册表脱机安装？ * 是。可以从本地注册表脱机安装 Astra Data Store 预览版。请参见 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。但是， Astra Data Store 预览版需要连接（直接或通过代理）到 NetApp 支持后端（ support.netapp.com ）才能继续运行。
 
-* 使用 Astra Data Store 预览版是否需要 Internet 连接？ * Astra Data Store 预览版需要连接到 NetApp AutoSupport 后端，以便定期发送强制的遥测 AutoSupport 捆绑包。此连接可以直接连接，也可以通过代理连接。如果缺少此连接或禁用了 AutoSupport ，则集群将锁定，并且新卷创建将被禁用，直到恢复定期上传的捆绑包为止。
+* 使用 Astra Data Store 预览版是否需要 Internet 连接？ * Astra Data Store 预览版需要连接到 NetApp AutoSupport 后端，以便定期发送强制的遥测 AutoSupport 捆绑包。此连接可以是直接连接，也可以通过代理进行连接。如果缺少此连接或禁用了 AutoSupport ，则集群将锁定，并且新卷创建将被禁用，直到恢复定期上传的捆绑包为止。
 
 * Astra Data Store preview 使用了哪些角色和特权？ * 您需要成为 Kube 管理员才能部署 Astra Data Store 预览运算符。
 
@@ -88,7 +88,7 @@ https://netapp.io/slack["NetApp 容器 Slack 通道"^]
 
 了解相关信息 link:../support/get-help-ads.html["Astra 数据存储支持操作"]。
 
-* 如何提出支持案例或要求对快速问题进行澄清？ * 要提出支持案例或获得有关快速问题的澄清，请在上报告您的问题描述或问题 https://netapp.io/slack["NetApp 容器 Slack 通道"^]。NetApp 支持部门将与您联系，帮助您尽最大努力解决问题。
+* 如何提出支持案例或要求对快速问题进行澄清？ * 要提出支持案例或获得有关快速问题的澄清，请在上报告您的问题描述或问题 https://netapp.io/slack["NetApp 容器 Slack 通道"^]。NetApp 支持部门将与您密切合作，尽最大努力提供帮助。
 
 * 如何申请新功能？ * 如果您对支持的配置或功能有任何疑问，请联系 astra.feedback@netapp.com 。
 
