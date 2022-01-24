@@ -10,7 +10,7 @@ summary: 您可以扩展 Astra 数据存储集群。
 :imagesdir: ../media/concepts/
 
 
-Astra Data Store 预览版支持集群中不同类型和功能的节点。如果要扩展集群，则 Astra Data Store 预览版支持添加具有任何性能功能的节点，只要这些节点不低于集群中性能最低的节点即可。新节点的存储容量必须与现有节点相同。所有节点（包括扩展期间的新节点）至少需要满足中的最低要求 link:../get-started/requirements.html["Astra 数据存储要求"]。
+Astra Data Store 预览版支持集群中不同类型和功能的节点。如果要扩展集群，则 Astra Data Store 预览版支持添加具有任何性能功能的节点，只要这些节点不低于集群中性能最低的节点即可。新节点的存储容量必须与现有节点相同。所有节点（包括扩展期间的新节点）至少需要满足中的最低要求 link:../get-started/requirements.html["Astra Data Store 预览要求"]。
 
 
 

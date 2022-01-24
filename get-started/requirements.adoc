@@ -160,7 +160,7 @@ NOTE: 这些配置中不使用任何 VLAN 标记。
 
 
 
-== CSI 驱动程序
+== Astra Trident
 
 Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Trident 21.10.1 。Astra Data Store 预览版可配置为 link:../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["存储后端"] 使用 Astra Trident 配置永久性卷。
 

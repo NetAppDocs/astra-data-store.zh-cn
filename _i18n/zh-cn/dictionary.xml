@@ -393,7 +393,6 @@
   <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">您可以扩展 Astra 数据存储集群。</block>
   <block id="85c9296df6a3c9630ed684b4af8847a8" category="doc">集群扩展</block>
   <block id="adb8e906da60ee75c25264b57f7ea87b" category="inline-link-macro">Astra 数据存储要求</block>
-  <block id="53ba6f78a5959abd0fed5dd621c61f53" category="paragraph">Astra Data Store 预览版支持集群中不同类型和功能的节点。如果要扩展集群，则 Astra Data Store 预览版支持添加具有任何性能功能的节点，只要这些节点不低于集群中性能最低的节点即可。新节点的存储容量必须与现有节点相同。所有节点（包括扩展期间的新节点）至少需要满足中的最低要求 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>。</block>
   <block id="ef22ff17624b3faeed227ce5c717eb5f" category="inline-link">Astra Control Service 文档</block>
   <block id="6762180adf48075df77efbf264e982ec" category="list-text"><block ref="6762180adf48075df77efbf264e982ec" category="inline-link-rx"></block></block>
   <block id="14d9b10c6196045941347a9e85704b50" category="inline-link">Astra Trident 文档</block>
@@ -717,7 +716,6 @@
   <block id="a33be05f8cf7234feb5f33257c901f01" category="list-text">Data IP ：在与 CIP 相同的子网中，每个节点一（ 1 ）个未使用或未配置的 IP 地址</block>
   <block id="6960e0648bb96ae26e178a20a5b245eb" category="admonition">对于这两种配置，应省略集群自定义资源（ CR ）文件 `asadscluster.YAML` 中的数据网络网关字段。每个节点上的现有路由配置可容纳所有地址。</block>
   <block id="c6614b840aed1f56769d06419ac7f1fa" category="admonition">这些配置中不使用任何 VLAN 标记。</block>
-  <block id="ceedae14ac976bff9044b24f80f01669" category="section-title">CSI 驱动程序</block>
   <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">存储后端</block>
   <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Trident 21.10.1 。Astra Data Store 预览版可配置为 <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> 使用 Astra Trident 配置永久性卷。</block>
   <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 配置</block>
@@ -982,4 +980,6 @@
   <block id="47f8b794122f623881dd8d068fac57ee" category="list-text">集群必须以运行状况良好的状态运行，并且至少具有四个联机辅助节点。</block>
   <block id="7d39093ae7a79f74883015012f6ca82f" category="list-text">安装 Kubernetes Snapshot 自定义资源定义（ CRD ）和控制器。</block>
   <block id="15daf8b029674b0b28ec44dbd2615e14" category="list-text">创建默认的 Astra Data Store 预览存储类。</block>
+  <block id="a8272dc0dc5732e847bfe578c20695d8" category="paragraph">Astra Data Store 预览版支持集群中不同类型和功能的节点。如果要扩展集群，则 Astra Data Store 预览版支持添加具有任何性能功能的节点，只要这些节点不低于集群中性能最低的节点即可。新节点的存储容量必须与现有节点相同。所有节点（包括扩展期间的新节点）至少需要满足中的最低要求 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
+  <block id="086e6c16e3fe8e13c336612ef636aa02" category="section-title">Astra Trident</block>
 </blocks>
