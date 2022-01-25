@@ -624,7 +624,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/kubectl-commands-ads.html">
         管理 Astra 数据存储资产
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/deploy-apps.html">
-        设置应用程序
+        部署测试应用程序
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
         管理集群
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-24 21:55:46 +0000">01/24/2022</time>
+    <time datetime="2022-01-25 17:30:15 +0000">01/25/2022</time>
     
   
 
@@ -751,7 +751,7 @@
 <div class="title">跨度 class="image&gt;&lt;img src="<a href="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"" class="bare">https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"</a> Alt-one"&gt;&lt;/span&gt; 查看 Kubernetes 集群要求</div>
 <ul>
 <li>
-<p>集群必须以运行状况良好的状态运行，并且至少具有四个联机辅助节点。</p>
+<p>集群必须以运行状况良好的状态运行，并且至少具有四个或更多工作节点。</p>
 </li>
 <li>
 <p>属于 Astra Data Store 预览部署的每个 Kubernetes 工作节点都应具有相同接口类型（ SATA ， SAS 或 NVMe ）的 SSD ，并具有相同数量的驱动器，这些驱动器将分配给 Astra Data Store 预览集群。</p>
@@ -774,13 +774,16 @@
 <p>在本地环境中安装 Astra Data Store 预览版。</p>
 </li>
 <li>
-<p>（可选）安装监控操作员。这样，您就可以连接到 NetApp Cloud Insights ，以便显示有关系统运行状况，容量和吞吐量的指标。</p>
-</li>
-<li>
 <p>应用 Astra Data Store 预览许可证。</p>
 </li>
 <li>
 <p>安装 Astra Data Store 预览集群。</p>
+</li>
+<li>
+<p>配置 Astra Data Store 预览监控。</p>
+</li>
+<li>
+<p>如果您使用的是 Red Hat OpenShift ，请在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview 。</p>
 </li>
 </ul>
 </div>
@@ -807,7 +810,7 @@
 <div class="paragraph quick-margin-para">
 <p>详细了解 <a href="../get-started/setup-ads.html">"初始设置过程"</a>。</p>
 </div>
-<div class="paragraph quick-margin-list">
+<div class="paragraph quick-margin-para">
 <p>设置完 Astra Data Store 预览后，您接下来可能会执行以下操作：</p>
 </div>
 <div class="ulist">

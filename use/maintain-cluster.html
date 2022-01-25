@@ -624,7 +624,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/kubectl-commands-ads.html">
         管理 Astra 数据存储资产
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/deploy-apps.html">
-        设置应用程序
+        部署测试应用程序
       </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
         管理集群
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-24 21:55:46 +0000">01/24/2022</time>
+    <time datetime="2022-01-25 17:30:15 +0000">01/25/2022</time>
     
   
 
@@ -716,19 +716,19 @@
           style="border-radius: 50%;"/>
   </a>
   
-  <a target="_blank" href="https://github.com/netapp-dbagwell">
-    <img  class="avatar avatar-small"
-          alt="netapp-dbagwell"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53352450?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-mwallis">
     <img  class="avatar avatar-small"
           alt="netapp-mwallis"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53353653?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-dbagwell">
+    <img  class="avatar avatar-small"
+          alt="netapp-dbagwell"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53352450?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -746,10 +746,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Place a node in maintenance mode">[Place a node in maintenance mode]</a></p>
+<p><a href="#Add a node">[Add a node]</a></p>
 </li>
 <li>
-<p><a href="#Add a node">[Add a node]</a></p>
+<p><a href="#Place a node in maintenance mode">[Place a node in maintenance mode]</a></p>
 </li>
 <li>
 <p><a href="#Replace a node">[Replace a node]</a></p>
@@ -770,116 +770,6 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="将节点置于维护模式">将节点置于维护模式</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>需要执行主机维护或软件包升级时，应将节点置于维护模式。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注">
-</td>
-<td class="content">
-此节点必须已属于 Astra Data Store 预览集群。
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>当节点处于维护模式时，您无法向集群添加节点。在此示例中，我们将 nhcitj1525 置于维护模式。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>显示节点详细信息：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get nodes
-&gt;&gt; Show the output of 'kubectl get nodes'.
-
- [root@scs000039783-1 ~]# kubectl get nodes
- NAME             STATUS   ROLES                  AGE     VERSION
- nhcitjj1525      Ready    &lt;none&gt;                 3d18h   v1.20.0
- nhcitjj1526      Ready    &lt;none&gt;                 3d18h   v1.20.0
- nhcitjj1527      Ready    &lt;none&gt;                 3d18h   v1.20.0
- nhcitjj1528      Ready    &lt;none&gt;                 3d18h   v1.20.0
- scs000039783-1   Ready    control-plane,master   3d18h   v1.20.0</pre>
-</div>
-</div>
-</li>
-<li>
-<p>确保节点尚未处于维护模式：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance list
-NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE                      MAINTENANCE VARIANT
-kubectl astrads    maintenance     create node4 --node-name="nhcitjj1525" --variant=Node
-
-Maintenance mode astrads-system/node4 created</pre>
-</div>
-</div>
-</li>
-<li>
-<p>启用维护模式。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance create &lt;cr-name&gt; --node-name=&lt;&lt;node-name&gt;&gt; --variant=Node
-~% kubectl astrads maintenance create maint1 --node-name="nhcitjj1525" --variant=Node
-Maintenance mode astrads-system/maint1 created</pre>
-</div>
-</div>
-</li>
-<li>
-<p>列出节点。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes list
-NODE NAME       NODE STATUS     CLUSTER NAME
-nhcitjj1525     Added           ftap-astra-012
-nhcitjj1527     Added           ftap-astra-012
-nhcitjj1526     Added           ftap-astra-012
-nhcitjj1528     Added           ftap-astra-012
-...</pre>
-</div>
-</div>
-</li>
-<li>
-<p>检查维护模式的状态：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance list
-NAME    NODE NAME       IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT
-node4   nhcitjj1525     true            ReadyForMaintenance     Node</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>维护` 模式下的 <code>将以 `false</code> 开头，并更改为 <code>true</code> 。<code>M状态</code> 从 <code>PreparingForMaintenance</code> 更改为 <code>ReadyforMaintenance</code> 。</p>
-</div>
-</li>
-<li>
-<p>完成节点维护后，禁用维护模式：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance update maint1 --node-name="nhcitjj1525" --variant=None</pre>
-</div>
-</div>
-</li>
-<li>
-<p>确保节点不再处于维护模式：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance list</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="添加节点">添加节点</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -889,20 +779,30 @@ node4   nhcitjj1525     true            ReadyForMaintenance     Node</pre>
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>如果新节点的数据 IP 尚未加入 astradscluster CR ，请执行以下操作：</p>
+<p>如果新节点的 dataIP 尚未加入 ADSCluster CR ，请执行以下操作：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>编辑 astradscluster CR 并在 ADS Data Networks Addresses 字段中添加额外的 dataIP ：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl edit astradscluster &lt;cluster-name&gt; -n astrads-system
-
-ADS Data Networks:
+<pre>~% kubectl edit astradscluster &lt;cluster-name&gt; -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ADS Data Networks:
     Addresses:  dataIP1, dataIP2, dataIP3, dataIP4, *newdataIP*</pre>
 </div>
 </div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>保存 CR 文件。</p>
 </li>
@@ -938,6 +838,142 @@ ADS Data Networks:
 </div>
 </div>
 <div class="sect1">
+<h2 id="将节点置于维护模式">将节点置于维护模式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>需要执行主机维护或软件包升级时，应将节点置于维护模式。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+此节点必须已属于 Astra Data Store 预览集群。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>当节点处于维护模式时，您无法向集群添加节点。在此示例中，我们会将节点 <code>nhcitj1525</code> 置于维护模式。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>显示节点详细信息：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl get nodes</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> NAME             STATUS   ROLES                  AGE     VERSION
+ nhcitjj1525      Ready    &lt;none&gt;                 3d18h   v1.20.0
+ nhcitjj1526      Ready    &lt;none&gt;                 3d18h   v1.20.0
+ nhcitjj1527      Ready    &lt;none&gt;                 3d18h   v1.20.0
+ nhcitjj1528      Ready    &lt;none&gt;                 3d18h   v1.20.0
+ scs000039783-1   Ready    control-plane,master   3d18h   v1.20.0</pre>
+</div>
+</div>
+</li>
+<li>
+<p>确保节点尚未处于维护模式：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads maintenance list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应（没有节点处于维护模式）：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT</pre>
+</div>
+</div>
+</li>
+<li>
+<p>启用维护模式。</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads maintenance create &lt;cr-name&gt; --node-name=&lt;&lt;node-name&gt;&gt; --variant=Node</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>示例：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads maintenance create maint1 --node-name="nhcitjj1525" --variant=Node
+Maintenance mode astrads-system/maint1 created</pre>
+</div>
+</div>
+</li>
+<li>
+<p>列出节点。</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads nodes list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NODE NAME       NODE STATUS     CLUSTER NAME
+nhcitjj1525     Added           ftap-astra-012
+...</pre>
+</div>
+</div>
+</li>
+<li>
+<p>检查维护模式的状态：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads maintenance list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME    NODE NAME       IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT
+node4   nhcitjj1525     true            ReadyForMaintenance     Node</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>维护` 模式下的 <code>将以 `false</code> 开头，并更改为 <code>true</code> 。<code>M状态</code> 从 <code>PreparingForMaintenance</code> 更改为 <code>ReadyforMaintenance</code> 。</p>
+</div>
+</li>
+<li>
+<p>完成节点维护后，禁用维护模式：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads maintenance update maint1 --node-name="nhcitjj1525" --variant=None</pre>
+</div>
+</div>
+</li>
+<li>
+<p>确保节点不再处于维护模式：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads maintenance list</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="更换节点">更换节点</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -950,8 +986,15 @@ ADS Data Networks:
 <p>列出所有节点：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl astrads nodes list
-NODE NAME           NODE STATUS    CLUSTER NAME
+<pre>~% kubectl astrads nodes list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NODE NAME           NODE STATUS    CLUSTER NAME
 sti-rx2540-534d..   Added       cluster-multinodes-21209
 sti-rx2540-535d...  Added       cluster-multinodes-21209
 ...</pre>
@@ -962,8 +1005,15 @@ sti-rx2540-535d...  Added       cluster-multinodes-21209
 <p>描述集群：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl astrads clusters list
-CLUSTER NAME               CLUSTER STATUS  NODE COUNT
+<pre>~% kubectl astrads clusters list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>CLUSTER NAME               CLUSTER STATUS  NODE COUNT
 cluster-multinodes-21209   created         4</pre>
 </div>
 </div>
@@ -972,9 +1022,15 @@ cluster-multinodes-21209   created         4</pre>
 <p>验证故障节点上的 <code>Node HA</code> 是否标记为 <code>false</code> ：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl describe astradscluster -n astrads-system
-
-Name:         cluster-multinodes-21209
+<pre>~% kubectl describe astradscluster -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Name:         cluster-multinodes-21209
 Namespace:    astrads-system
 Labels:       &lt;none&gt;
 Annotations:  kubectl.kubernetes.io/last-applied-configuration:
@@ -997,11 +1053,18 @@ Status:              Added</pre>
 </div>
 </li>
 <li>
-<p>修改集群 CR 以删除故障节点。节点数将减少为 3 ：</p>
+<p>通过将 `AddsNode Count ' 的值减至 3 ，修改 astradscluster CR 以删除故障节点：</p>
 <div class="listingblock">
 <div class="content">
-<pre> # cat manifests/astradscluster.yaml
-apiVersion: astrads.netapp.io/v1alpha1
+<pre>cat manifests/astradscluster.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: astrads.netapp.io/v1alpha1
 kind: AstraDSCluster
 metadata:
   name: cluster-multinodes-21209
@@ -1081,98 +1144,7 @@ spec:
         - component:
             name: controlplane
             event: daily
-          userMessage: Daily Control Plane AutoSupport bundle
-
-[root@scspr2409016001 42733317_42952507_1x5Node_Astra_DAS-002]# cat manifests/astradscluster.yaml
-apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSCluster
-metadata:
-  name: cluster-multinodes-21209
-  namespace: astrads-system
-spec:
-  # ADS Node Configuration per node settings
-  adsNodeConfig:
-    # Specify CPU limit for ADS components
-    # Supported value: 9
-    cpu: 9
-    # Specify Memory Limit in GiB for ADS Components.
-    # Your kubernetes worker nodes need to have at least this much RAM free
-    # for ADS to function correctly
-    # Supported value: 34
-    memory: 34
-    # [Optional] Specify raw storage consumption limit. The operator will only select drives for a node up to this limit
-    capacity: 600
-    # [Optional] Set a cache device if you do not want auto detection e.g. /dev/sdb
-    # cacheDevice: ""
-    # Set this regex filter to select drives for ADS cluster
-    # drivesFilter: ".*"
-
-  # [Optional] Specify node selector labels to select the nodes for creating ADS cluster
-  # adsNodeSelector:
-  #   matchLabels:
-  #     customLabelKey: customLabelValue
-
-  # Specify the number of nodes that should be used for creating ADS cluster
-  adsNodeCount: 3
-
-  # Specify the IP address of a floating management IP routable from any worker node in the cluster
-  mvip: "172..."
-
-  # Comma separated list of floating IP addresses routable from any host where you intend to mount a NetApp Volume
-  # at least one per node must be specified
-  # addresses: 10.0.0.1,10.0.0.2,10.0.0.3,10.0.0.4,10.0.0.5
-  # netmask: 255.255.255.0
-  adsDataNetworks:
-    - addresses: "172..."
-      netmask: 255.255.252.0
-
-  # [Optional] Specify the network interface names for either all or none
-  adsNetworkInterfaces:
-    managementInterface: "mgmt"
-    clusterInterface: "data"
-    storageInterface: "data"
-
-  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to
-  # adsProtectionDomainKey: ""
-
-  # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
-  monitoringConfig:
-   namespace: "netapp-monitoring"
-   repo: "docker.repo.eng.netapp.com/global/astra"
-
-  autoSupportConfig:
-    # AutoUpload defines the flag to enable or disable AutoSupport upload in the cluster (true/false)
-    autoUpload: true
-    # Enabled defines the flag to enable or disable automatic AutoSupport collection.
-    # When set to false, periodic and event driven AutoSupport collection would be disabled.
-    # It is still possible to trigger an AutoSupport manually while AutoSupport is disabled
-    # enabled: true
-    # CoredumpUpload defines the flag to enable or disable the upload of coredumps for this ADS Cluster
-    # coredumpUpload: false
-    # HistoryRetentionCount defines the number of local (not uploaded) AutoSupport Custom Resources to retain in the cluster before deletion
-    historyRetentionCount: 25
-    # DestinationURL defines the endpoint to transfer the AutoSupport bundle collection
-    destinationURL: "https://testbed.netapp.com/put/AsupPut"
-    # ProxyURL defines the URL of the proxy with port to be used for AutoSupport bundle transfer
-    # proxyURL:
-
-    # Periodic defines the config for periodic/scheduled AutoSupport objects
-    periodic:
-      # Schedule defines the Kubernetes Cronjob schedule
-      - schedule: "0 0 * * *"
-        # PeriodicConfig defines the fields needed to create the Periodic AutoSupports
-        periodicconfig:
-        - component:
-            name: storage
-            event: dailyMonitoring
-          userMessage: Daily Monitoring Storage AutoSupport bundle
-          nodes: all
-        - component:
-            name: controlplane
-            event: daily
-          userMessage: Daily Control Plane AutoSupport bundle
- kubectl apply -f manifests/astradscluster.yaml
-astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured</pre>
+          userMessage: Daily Control Plane AutoSupport bundle</pre>
 </div>
 </div>
 </li>
@@ -1180,25 +1152,62 @@ astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured</pre>
 <p>验证是否已从集群中删除此节点：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl get nodes --show-labels
-NAME                  STATUS ROLES                 AGE   VERSION   LABELS
-sti-astramaster-237   Ready  control-plane,master  24h   v1.20.0
+<pre>~% kubectl get nodes --show-labels</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                  STATUS   ROLES               AGE   VERSION   LABELS
+sti-astramaster-237   Ready control-plane,master   24h   v1.20.0
 sti-rx2540-532d       Ready  &lt;none&gt;                24h   v1.20.0
-sti-rx2540-533d       Ready  &lt;none&gt;                24h
-
-~% kubectl astrads nodes list
-NODE NAME         NODE STATUS     CLUSTER NAME
+sti-rx2540-533d       Ready  &lt;none&gt;                24h</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads nodes list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NODE NAME         NODE STATUS     CLUSTER NAME
 sti-rx2540-534d   Added           cluster-multinodes-21209
 sti-rx2540-535d   Added           cluster-multinodes-21209
-sti-rx2540-536d   Added           cluster-multinodes-21209
-
-~% kubectl get nodes --show-labels
-NAME                STATUS   ROLES                  AGE   VERSION   LABELS
-sti-astramaster-237 Ready    control-plane,master   24h
-sti-rx2540-532d     Ready    &lt;none&gt;                 24h
-
-~% kubectl describe astradscluster -n astrads-system
-Name:         cluster-multinodes-21209
+sti-rx2540-536d   Added           cluster-multinodes-21209</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl get nodes --show-labels</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                STATUS   ROLES                  AGE   VERSION   LABELS
+sti-astramaster-237 Ready    control-plane,master   24h   v1.20.0   beta.kubernetes.io/arch=amd64,
+sti-rx2540-532d     Ready    &lt;none&gt;                 24h   v1.20.0   astrads.netapp.io/node-removal</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl describe astradscluster -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Name:         cluster-multinodes-21209
 Namespace:    astrads-system
 Labels:       &lt;none&gt;
 Kind:         AstraDSCluster
@@ -1222,26 +1231,73 @@ metadata:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl apply -f manifests/astradscluster.yaml
-astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured
-
-~% kubectl get pods -n astrads-system
-NAME                                READY   STATUS    RESTARTS   AGE
+<pre>~% kubectl apply -f manifests/astradscluster.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl get pods -n astrads-system</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME                                READY   STATUS    RESTARTS   AGE
 astrads-cluster-controller...       1/1     Running   1          24h
 astrads-deployment-support...       3/3     Running   0          24h
-astrads-ds-cluster-multinodes-21209 1/1     Running
-
-~% kubectl astrads nodes list
-NODE NAME                NODE STATUS     CLUSTER NAME
+astrads-ds-cluster-multinodes-21209 1/1     Running</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads nodes list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NODE NAME                NODE STATUS     CLUSTER NAME
 sti-rx2540-534d...       Added           cluster-multinodes-21209
-sti-rx2540-535d...       Added           cluster-multinodes-21209
-
-~% kubectl astrads clusters list
-CLUSTER NAME                    CLUSTER STATUS  NODE COUNT
-cluster-multinodes-21209        created         4
-
-~% kubectl astrads drives list
-DRIVE NAME    DRIVE ID    DRIVE STATUS   NODE NAME     CLUSTER NAME
+sti-rx2540-535d...       Added           cluster-multinodes-21209</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads clusters list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>CLUSTER NAME                    CLUSTER STATUS  NODE COUNT
+cluster-multinodes-21209        created         4</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads drives list</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>DRIVE NAME    DRIVE ID    DRIVE STATUS   NODE NAME     CLUSTER NAME
 scsi-36000..  c3e197f2... Active         sti-rx2540... cluster-multinodes-21209</pre>
 </div>
 </div>
@@ -1259,8 +1315,15 @@ scsi-36000..  c3e197f2... Active         sti-rx2540... cluster-multinodes-21209<
 <div class="listingblock">
 <div class="title">在 nodeStatuss.driveStatuses 中显示故障驱动器的集群示例</div>
 <div class="content">
-<pre>$ kubectl get adscl -A -o yaml
-...
+<pre>$ kubectl get adscl -A -o yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
 apiVersion: astrads.netapp.io/v1alpha1
 kind: AstraDSCluster
 ...
@@ -1283,9 +1346,15 @@ nodeStatuses:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kubectl get adsfd -A -o yaml
-
-...
+<pre>$ kubectl get adsfd -A -o yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
 apiVersion: astrads.netapp.io/v1alpha1
 kind: AstraDSFailedDrive
 metadata:
@@ -1307,6 +1376,20 @@ spec:
    state: ReadyToReplace</pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl astrads faileddrive list --cluster arda-6e4b4af</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME       NODE                             CLUSTER        STATE                AGE
+6000c290   sti-rx2540-300b.lab.netapp.com   ard-6e4b4af    ReadyToReplace       13m</pre>
+</div>
+</div>
 <div class="olist arabic">
 <div class="title">步骤</div>
 <ol class="arabic">
@@ -1317,12 +1400,15 @@ spec:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl astrads faileddrive list --cluster arda-6e4b4af
-NAME       NODE                             CLUSTER        STATE                AGE
-6000c290   sti-rx2540-300b.lab.netapp.com   ard-6e4b4af    ReadyToReplace       13m
-
-~%  kubectl astrads faileddrive show-replacements --cluster ard-6e4b4af --name 6000c290
-NAME  IDPATH             SERIAL  PARTITIONCOUNT   MOUNTED   SIZE
+<pre>~%  kubectl astrads faileddrive show-replacements --cluster ard-6e4b4af --name 6000c290</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>响应：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>NAME  IDPATH             SERIAL  PARTITIONCOUNT   MOUNTED   SIZE
 sdh   /scsi-36000c29417  45000c  0                false     100GB</pre>
 </div>
 </div>
@@ -1335,13 +1421,21 @@ sdh   /scsi-36000c29417  45000c  0                false     100GB</pre>
 Drive replacement completed successfully</pre>
 </div>
 </div>
-</li>
-<li>
-<p>如果使用不适当的 ` -replaceWith` 序列号执行 <code>kubectl astrad faileddrive replace</code> ，则会显示类似以下内容的错误：</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+如果使用不适当的 ` -replaceWith` 序列号执行 <code>kubectl astrad faileddrive replace</code> ，则会显示类似以下内容的错误：
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre>~% kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith BAD_SERIAL_NUMBER
-
 Drive 6000c2927 replacement started
 Failed drive 6000c2927 has been set to use BAD_SERIAL_NUMBER as a replacement
 ...
@@ -1368,7 +1462,7 @@ Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 Fir
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../use/kubectl-commands-ads.html">"使用 kubectl 命令管理 Astra Data Store 预览"</a></p>
+<p><a href="../use/kubectl-commands-ads.html">"使用 kubectl 命令管理 Astra Data Store 预览资产"</a></p>
 </li>
 </ul>
 </div>

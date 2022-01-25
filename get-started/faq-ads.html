@@ -624,7 +624,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/kubectl-commands-ads.html">
         管理 Astra 数据存储资产
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/deploy-apps.html">
-        设置应用程序
+        部署测试应用程序
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
         管理集群
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
@@ -703,7 +703,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-24 21:55:46 +0000">01/24/2022</time>
+    <time datetime="2022-01-25 17:30:15 +0000">01/25/2022</time>
     
   
 
@@ -754,12 +754,15 @@
 <p>是否可以使用 Astra Data Store 预览版进行生产？ * 否虽然 Astra Data Store 的设计和开发旨在提供企业级弹性，但作为预览版， Astra Data Store 预览版不适用于生产工作负载。</p>
 </li>
 <li>
-<p>是否可以对虚拟机工作负载使用 Astra Data Store 预览版？ * Astra Data Store 预览版仅限于在 Kubernetes 上运行的应用程序，无论是裸机还是虚拟机。未来版本将支持 Kubernetes 上以及直接在 ESXi 虚拟机上运行的应用程序。了解相关信息 <a href="../get-started/requirements.html">"Astra 数据存储要求"</a>。</p>
+<p>是否可以对虚拟机工作负载使用 Astra Data Store 预览版？ * Astra Data Store 预览版仅限于在 Kubernetes 上运行的应用程序，无论是裸机还是虚拟机。未来版本将支持 Kubernetes 上以及直接在 ESXi 虚拟机上运行的应用程序。请参见 <a href="../get-started/requirements.html">"Astra 数据存储要求"</a>。</p>
 </li>
 <li>
-<p>Astra Data Store 预览版的运行是否依赖于其他 NetApp 产品？ * 是。Astra Data Store preview 要求在工作负载 Kubernetes 集群上部署 NetApp CSI 驱动程序 Astra Trident 21.10.1 及更高版本。了解相关信息 <a href="../get-started/requirements.html">"Astra 数据存储要求"</a>。</p>
+<p>Astra Data Store 预览版的运行是否依赖于其他 NetApp 产品？ *</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>是的。Astra Data Store preview 要求在工作负载 Kubernetes 集群上部署 NetApp CSI 驱动程序 Astra Trident 21.10.1 及更高版本。了解相关信息 <a href="../get-started/requirements.html">"Astra 数据存储要求"</a>。</p>
 </div>
 <div class="paragraph">
 <p>使用 Astra Data Store 预览集群作为存储后端的应用程序可以使用 <a href="https://docs.netapp.com/us-en/astra-control-center/index.html" target="_blank" rel="noopener">"Astra 控制中心"</a> 21.12 版可利用应用程序感知型数据管理功能，包括数据保护，灾难恢复和 Kubernetes 工作负载迁移。</p>
@@ -807,7 +810,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>了解相关信息 <a href="../get-started/requirements.html">"Astra 数据存储要求"</a>。</p>
+<p>请参见 <a href="../get-started/requirements.html">"Astra 数据存储要求"</a>。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -824,16 +827,23 @@
 <div class="ulist">
 <ul>
 <li>
-<p>是否可以在裸机或虚拟机上运行的 Kubernetes 集群上安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览版可以安装在裸机上运行的 Kubernetes 集群或 ESXi 虚拟机上。了解相关信息 <a href="../get-started/requirements.html">"Astra Data Store 预览要求"</a>。</p>
+<p>是否可以在裸机或虚拟机上运行的 Kubernetes 集群上安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览版可以安装在裸机上运行的 Kubernetes 集群或 ESXi 虚拟机上。请参见 <a href="../get-started/requirements.html">"Astra Data Store 预览要求"</a>。</p>
 </li>
 <li>
-<p>哪些版本的 Kubernetes for Astra Data Store 预览版受支持？ * Astra Data Store 预览版可与 v1.20 及更高版本兼容的 Kubernetes 分发版结合使用。但是，目前尚未对所有 Kubernetes 分发版进行验证。了解相关信息 <a href="../get-started/requirements.html">"Astra Data Store 预览要求"</a>。</p>
+<p>支持哪些版本的 Kubernetes for Astra Data Store 预览版？ *</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Astra Data Store 预览版适用于与 v1.20 及更高版本兼容的 Kubernetes 分发版。但是，目前尚未对所有 Kubernetes 分发版进行验证。了解相关信息 <a href="../get-started/requirements.html">"Astra Data Store 预览要求"</a>。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>我的 Kubernetes 集群超过 5 个工作节点。是否可以在其中安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览集群可以部署在 Kubernetes 集群中的 4 个工作节点上。部署完成后，您可以将集群扩展到 5 个辅助节点。</p>
 </li>
 <li>
-<p>我的 Kubernetes 集群超过 5 个工作节点。是否可以在其中安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览集群可以部署在 Kubernetes 集群中的 4 个或 5 个工作节点上。您可以在 Kubernetes 集群中选择要部署 Astra Data Store 预览集群的 4 个或 5 个工作节点。</p>
-</li>
-<li>
-<p>Astra Data Store 预览版是否支持从专用注册表脱机安装？ * 是。可以从本地注册表脱机安装 Astra Data Store 预览版。请参见 <a href="../get-started/install-ads.html">"安装 Astra Data Store 预览版"</a>。但是， Astra Data Store 预览版需要连接（直接或通过代理）到 NetApp 支持后端（ support.netapp.com ）才能继续运行。</p>
+<p>Astra Data Store 预览版是否支持从专用注册表脱机安装？ * 是。可以从本地注册表脱机安装 Astra Data Store 预览版。请参见 <a href="../get-started/install-ads.html">"安装 Astra Data Store 预览版"</a>。但是， Astra 数据存储预览版需要连接（直接或通过代理）到 NetApp AutoSupport 后端（ support.netapp.com ）才能继续运行。</p>
 </li>
 <li>
 <p>使用 Astra Data Store 预览版是否需要 Internet 连接？ * Astra Data Store 预览版需要连接到 NetApp AutoSupport 后端，以便定期发送强制的遥测 AutoSupport 捆绑包。此连接可以是直接连接，也可以通过代理进行连接。如果缺少此连接或禁用了 AutoSupport ，则集群将锁定，并且新卷创建将被禁用，直到恢复定期上传的捆绑包为止。</p>
@@ -877,7 +887,7 @@
 <h2 id="故障排除和支持">故障排除和支持</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>通过 Astra Data Store 预览版，您可以使用 NetApp Container Slack 通道访问社区支持。此渠道由 NetApp 支持和我们的技术营销工程师监控。</p>
+<p>借助 Astra Data Store 预览版，您可以使用 NetApp 容器可宽延通道访问社区支持。此渠道由 NetApp 支持和我们的技术营销工程师监控。</p>
 </div>
 <div class="paragraph">
 <p><a href="https://netapp.io/slack" target="_blank" rel="noopener">"NetApp 容器 Slack 通道"</a></p>
@@ -886,7 +896,7 @@
 <p>预览版要求您的系统连接到云并集成到 NetApp Active IQ 和 AutoSupport 工具中。</p>
 </div>
 <div class="paragraph">
-<p>了解相关信息 <a href="../support/get-help-ads.html">"Astra 数据存储支持操作"</a>。</p>
+<p>请参见 <a href="../support/get-help-ads.html">"Astra 数据存储支持操作"</a>。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -914,7 +924,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>了解相关信息 <a href="../get-started/requirements.html">"Astra Data Store 预览要求"</a>。</p>
+<p>请参见 <a href="../get-started/requirements.html">"Astra Data Store 预览要求"</a>。</p>
 </div>
 </div>
 </div>
