@@ -14,6 +14,7 @@ summary: 要在满足某些环境前提条件后安装 Astra 数据存储库，�
 
 或者，您也可以 link:install-ads-openshift.html["在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版"]。
 
+video::jz6EuryqYps[youtube, ]
 .您需要什么？ #8217 ；将需要什么
 * link:requirements.html["开始安装之前，请为 Astra Data Store 预览部署准备您的环境"]。
 * 访问 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]。 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。

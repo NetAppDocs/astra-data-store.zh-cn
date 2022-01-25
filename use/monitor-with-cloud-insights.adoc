@@ -12,7 +12,7 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 
 您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。
 
-* <<Complete Cloud Insight connection prerequisite tasks>>
+* <<Complete Cloud Insights connection prerequisite tasks>>
 * <<Download and run the installation script>>
 * <<Edit the Cloud Insights connection>>
 * <<Disconnect from Cloud Insights>>
@@ -24,7 +24,7 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 
 
 
-== 完成 Cloud Insight 连接前提条件任务
+== 完成 Cloud Insights 连接前提条件任务
 
 在将 Astra 数据存储与 Cloud Insights 连接之前，您需要：
 
@@ -257,7 +257,7 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 
 
 
-=== 删除 Astra 数据存储收集器
+=== 删除 Astra Data Store 预览收集器
 
 . 登录到 Cloud Insights 。
 . 选择 * 管理 * > * 数据收集器 * 以访问数据收集器页面。

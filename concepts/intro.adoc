@@ -32,7 +32,7 @@ Astra 产品包括：
 ** * Astra 控制中心 * ：使用自管理软件对内部 Kubernetes 工作负载进行数据管理。
 
 
-* * Astra Data Store* ：对容器和 VM 工作负载使用 Kubernetes 本机共享文件服务进行企业数据管理。
+* * Astra Data Store preview * ：对容器和 VM 工作负载使用 Kubernetes 本机共享文件服务进行企业数据管理。
 * * Astra Trident * ：与 NetApp 存储提供商合作，为 Kubernetes 工作负载配置和管理符合容器存储接口（ CSI ）要求的存储。
 
 
@@ -44,7 +44,7 @@ image:astra-product-family.png["Astra 产品系列"]
 
 == Astra Data Store 预览功能
 
-Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：
+Astra Data Store preview 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：
 
 * * Kubernetes 本机共享文件服务 * ：使用标准 NFS 客户端作为容器和 VM 的统一数据存储库，为 Kubernetes 提供共享文件服务原生。​
 * * 云扩展 * ：在同一资源池中提供 Kubernetes 本机多个并行文件系统，以实现类似于云的扩展和利用率，从而无需在集群之外单独管理存储。

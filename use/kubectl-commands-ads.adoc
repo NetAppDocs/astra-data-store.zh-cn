@@ -4,7 +4,7 @@ permalink: use/kubectl-commands-ads.html
 keywords: astra, astra data store, astra datastore, kubectl 
 summary: 您可以将 kubectl 命令直接与 Astra Data Store 结合使用。 
 ---
-= 使用 kubectl 命令管理 Astra Data Store 预览
+= 使用 kubectl 命令管理 Astra Data Store 预览资产
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/get-started/
@@ -41,7 +41,13 @@ summary: 您可以将 kubectl 命令直接与 Astra Data Store 结合使用。
 [listing]
 ----
 kubectl api-resources --api-group astrads.netapp.io
+----
++
+响应：
 
++
+[listing]
+----
 NAME                   SHORTNAMES  APIGROUP           NAMESPACED  KIND
 astradsversions         adsve      astrads.netapp.io  true        AstraDSVersion
 astradsclusters         adscl      astrads.netapp.io  true        AstraDSCluster
@@ -60,8 +66,14 @@ astradsnodemanagements  adsnm      astrads.netapp.io  true        AstraDSNodeMan
 +
 [listing]
 ----
-bash-4.2$ kubectl get ads -A
+kubectl get ads -A
+----
++
+响应：
 
++
+[listing]
+----
 NAMESPACE        NAME                                        AGE
 astrads-system   astradsqospolicy.astrads.netapp.io/bronze   45h
 astrads-system   astradsqospolicy.astrads.netapp.io/gold     45h
@@ -101,7 +113,14 @@ astrads-system   astradslicense.astrads.netapp.io/e0   astrads-cluster-9f1 true 
 +
 [listing]
 ----
-bash-4.2$ kubectl get adsvo -A
+kubectl get adsvo -A
+----
++
+响应：
+
++
+[listing]
+----
 NAMESPACE        NAME       SIZE   IP               CLUSTER                   CREATED
 astrads-system   test234    21Gi   172.25.138.109   astrads-cluster-9f1c99f   true
 astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   true
@@ -118,7 +137,14 @@ astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   tr
 +
 [listing]
 ----
-bash-4.2$ kubectl astrads -h
+kubectl astrads -h
+----
++
+响应：
+
++
+[listing]
+----
 A kubectl plugin for inspecting your AstraDS deployment
 
 Usage:
@@ -164,10 +190,14 @@ Flags:
 +
 [listing]
 ----
-  # Show help for a specific astrads command
+kubectl astrads asup collect --help
+----
++
+响应：
 
-  bash-4.2$ kubectl astrads asup collect --help
-  WARNING: YOU ARE USING A DEV RELEASE
++
+[listing]
+----
   Collect the autosupport bundle by specifying the component to collect. It will default to manual event.
 
   Usage:
@@ -214,6 +244,5 @@ Flags:
       -u, --usermessage string   UserMessage is the additional message to include in the
                                    AutoSupport subject.
                                    (default "Manual event trigger from CLI")
-
 ----
 

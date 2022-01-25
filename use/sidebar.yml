@@ -4,7 +4,7 @@ title: 使用 Astra 数据存储
 entries:
 - title: 管理 Astra 数据存储资产
   url: "/use/kubectl-commands-ads.html"
-- title: 设置应用程序
+- title: 部署测试应用程序
   url: "/use/deploy-apps.html"
 - title: 管理集群
   url: "/use/maintain-cluster.html"
