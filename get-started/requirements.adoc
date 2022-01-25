@@ -71,15 +71,15 @@ NOTE: 为了获得最佳写入性能，您应配置一个专用的高持久性�
 
 Astra Data Store 预览版已通过以下驱动器类型的验证：
 
-* * 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上。
+* * 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上
 +
-** SATA 或 NVMe TLC SSD 。
+** NVMe TLC SSD
 
 
-* * 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版。
+* * 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版
 +
-** 基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库。
-** 驱动器显示为虚拟磁盘或直通驱动器。
+** 基于 SAS 或 NVMe TLC SSD 的数据存储库
+** 驱动器显示为虚拟磁盘或直通驱动器
 
 
 

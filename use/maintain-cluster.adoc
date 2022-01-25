@@ -347,6 +347,7 @@ spec:
 [listing]
 ----
 ~% kubectl get nodes --show-labels
+
 ----
 +
 响应：
@@ -354,6 +355,7 @@ spec:
 +
 [listing]
 ----
+
 NAME                  STATUS   ROLES               AGE   VERSION   LABELS
 sti-astramaster-237   Ready control-plane,master   24h   v1.20.0
 sti-rx2540-532d       Ready  <none>                24h   v1.20.0

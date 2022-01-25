@@ -661,11 +661,6 @@
   <block id="f19b045d12ab371aab144f89dcc13406" category="list-text">Dell R640</block>
   <block id="5036b658f8a53c4fae6b137bbbda7cdb" category="list-text">Dell R740</block>
   <block id="e17640313f77daf8929e4ba5e5d691a6" category="paragraph">Astra Data Store 预览版已通过以下驱动器类型的验证：</block>
-  <block id="dea342ba4eabb4b927f34473091fe6ae" category="list-text">* 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上。</block>
-  <block id="55721dba481df02cbe819287631df710" category="list-text">SATA 或 NVMe TLC SSD 。</block>
-  <block id="985800e585c5b9df03d4a5349f4dfed9" category="list-text">* 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版。</block>
-  <block id="d84d026361d773e49e1bda99e54e83d6" category="list-text">基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库。</block>
-  <block id="90f320e433af1491586744499df8fa50" category="list-text">驱动器显示为虚拟磁盘或直通驱动器。</block>
   <block id="003c6ca2750566a4e0ac19207c3b49c1" category="admonition">如果主机在硬件 RAID 控制器后使用 SSD ，请将硬件 RAID 控制器配置为使用 " 直通 " 模式。</block>
   <block id="0b3dea0c3d33c00792e5cd4182c9c9ad" category="admonition">每个驱动器都应具有唯一的序列号。在虚拟机创建期间，在虚拟机高级设置中添加属性 `disk.enableid=true` 。</block>
   <block id="719d067b229178f03bcfa1da4ac4dede" category="list-title">软件</block>
@@ -986,4 +981,9 @@
   <block id="847bcba6596dcd74ce49891aa01b04cb" category="list-text">集群必须以运行状况良好的状态运行，并且至少具有四个或更多工作节点。</block>
   <block id="b9d6af3a248ddac19c1574ec0ea3368f" category="list-text">配置 Astra Data Store 预览监控。</block>
   <block id="68ae8bfef44263c7568e9225825a9511" category="list-text">如果您使用的是 Red Hat OpenShift ，请在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview 。</block>
+  <block id="e1e135fb56845d917b3148da7cfeb1ee" category="list-text">* 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上</block>
+  <block id="844d33654c81fc2a271afbc6e6e2be29" category="list-text">NVMe TLC SSD</block>
+  <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版</block>
+  <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">基于 SAS 或 NVMe TLC SSD 的数据存储库</block>
+  <block id="09195210bb32cb68478488870fe3d637" category="list-text">驱动器显示为虚拟磁盘或直通驱动器</block>
 </blocks>
