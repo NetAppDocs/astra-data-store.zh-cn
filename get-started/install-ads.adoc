@@ -251,7 +251,7 @@ kubectl astrads license list
 +
 [listing]
 ----
-NAME        ADSCLUSTER                  VALID   PRODUCT                     EVALUATION  ENDDATE     VALIDATED
+NAME        ADSCLUSTER                 VALID   PRODUCT                     EVALUATION  ENDDATE     VALIDATED
 p100000006  astrads-example-cluster    true    Astra Data Store Preview    true        2022-01-23  2021-11-04T14:38:54Z
 ----
 
@@ -366,7 +366,7 @@ kubectl get pods -n astrads-system
 +
 [listing]
 ----
-NAME READY STATUS RESTARTS AGE
+NAME                     READY     STATUS    RESTARTS    AGE
 astrads-cluster-controller-7c67cc7f7b-2jww2 1/1 Running 0 7h31m
 astrads-deployment-support-788b859c65-2qjkn 3/3 Running 19 12d
 astrads-ds-astrads-cluster-1ab0dbc-j9jzc 1/1 Running 0 5d2h

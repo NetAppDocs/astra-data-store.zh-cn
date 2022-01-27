@@ -512,7 +512,6 @@
   <block id="9b5fa79969e9a6e522104cdbe7e5b5d3" category="paragraph">* 是否可以从 Astra Data Store 预览版升级？ * 否Astra Data Store 预览版不适用于生产工作负载，新版本的 Astra Data Store 预览版软件需要全新安装。</block>
   <block id="f8e5d5352b626bd2d029c4bd8ea9d47a" category="summary">安装 Astra 数据存储并满足某些环境前提条件后，您将安装或更新 Astra Trident ，配置 K8s 快照功能，设置存储后端并创建默认存储类。</block>
   <block id="19631c9457203d96b87631ebe7414561" category="doc">设置 Astra Data Store 预览组件</block>
-  <block id="c6b43cb83affec45395d5e8463e67e03" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 K8s 快照功能，设置存储后端并创建默认存储类：</block>
   <block id="b242850ad01d99f75ddfd4f74dfebad7" category="list-text"><block ref="e182f16fc549d59ca5882ebcc8d36a3d" category="inline-xref-macro-rx"></block></block>
   <block id="38dbb49a55339dc2dbba9028c6176375" category="list-text"><block ref="a0e69e669f52a5cafaeb2bea82f6649c" category="inline-xref-macro-rx"></block></block>
   <block id="01b9d33e8be610298a88d84e6d7abbfe" category="list-text"><block ref="dcd2e63384cc1964e08e6b39f6f60b05" category="inline-xref-macro-rx"></block></block>
@@ -525,7 +524,6 @@
   <block id="9cbe472556d86bca1de7978af69e74d5" category="list-text"><block ref="802e7b84d831ea6d56a6d132aa8a7db4" category="inline-link-rx"></block>。</block>
   <block id="c2c5c71258d8e55bd320745371789d00" category="admonition">您可以手动或使用 Helm 部署 Trident 操作员。</block>
   <block id="d79ccdfe6809f469235ccec6dcc85362" category="section-title">安装 Kubernetes Snapshot CRD 和控制器</block>
-  <block id="fb9ed05e85a3a832de77678ce6afc3a6" category="paragraph">要创建 PVC 快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
   <block id="f6a6928c71289ccfc6e517aa2e23c8dd" category="admonition">以下命令示例假设 ` /trident` 作为目录；但是，您使用的目录可以是用于下载 YAML 文件的任何目录。</block>
   <block id="b3f07915b49e4ea1df947a086346e6cc" category="inline-link-macro">开始安装之前，请为 Astra Data Store 预览部署准备您的环境</block>
   <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>。</block>
@@ -986,4 +984,7 @@
   <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版</block>
   <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">基于 SAS 或 NVMe TLC SSD 的数据存储库</block>
   <block id="09195210bb32cb68478488870fe3d637" category="list-text">驱动器显示为虚拟磁盘或直通驱动器</block>
+  <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
+  <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 Kubernetes 快照功能，设置存储后端并创建默认存储类：</block>
+  <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">要创建永久性卷声明（ PVC ）快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
 </blocks>

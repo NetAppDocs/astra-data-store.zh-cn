@@ -24,6 +24,7 @@ AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 
 * <<Configure custom storage AutoSupport collection>>
 * <<List ASUPs in the system>>
 * <<Download an ASUP Bundle>>
+* <<Upload a core file>>
 
 
 
@@ -158,10 +159,10 @@ kubectl astrasds asup list --namespace=astrads-system
 
 [listing]
 ----
-NAMESPACE      NAME                                                SEQUENCE NUMBER EVENT                           SIZE    STATE       LOCAL COLLECTION
-astrads-system  storage-callhome.reboot.unknown-20211115t182151...  1               callhome.reboot.unknown         0       uploaded    astrads-ds-support-tdl2h:
-astrads-system  storage-callhome.reboot.unknown-20211115t182201...  2               callhome.reboot.unknown         0       uploaded    astrads-ds-support-xx6n8:
-astrads-system  storage-callhome.reboot.unknown-20211115t182204...  3               callhome.reboot.unknown         0       uploaded    astrads-ds-support-qghnx:
+NAMESPACE      NAME                                  SEQUENCE NUMBER EVENT                      SIZE  STATE       LOCAL COLLECTION
+astrads-system  storage-callhome.reboot.unknown-...  1               callhome.reboot.unknown    0     uploaded    astrads-ds-support-tdl2h:
+astrads-system  storage-callhome.reboot.unknown-...  2               callhome.reboot.unknown    0     uploaded    astrads-ds-support-xx6n8:
+astrads-system  storage-callhome.reboot.unknown-...  3               callhome.reboot.unknown    0     uploaded    astrads-ds-support-qghnx:
 ----
 
 
@@ -192,9 +193,9 @@ kubectl astrasds asup list --namespace=astrads-system
 +
 [listing]
 ----
-NAMESPACE       NAME                                          SEQUENCE NUMBER   EVENT       SIZE         STATE         LOCAL COLLECTION
+NAMESPACE       NAME                      SEQUENCE NUMBER  EVENT     SIZE       STATE       LOCAL COLLECTION
 
-astrads-system  storage-coredump-20211216t140851311961680     1                 coredump    197848373    compressed    astrads-ds-support-sxxn7:/var/firetap/firegen/persist/core.firestorm.2630_1639665426.gz
+astrads-system  storage-coredump-2021...  1                coredump  197848373  compressed  astrads-ds-support-sxxn7:/var/...
 ----
 . 使用以下 `kubectl` 命令从 ASUP 消息中下载核心文件。使用 ` -o` 选项为下载的文件指定目标目录。
 +
