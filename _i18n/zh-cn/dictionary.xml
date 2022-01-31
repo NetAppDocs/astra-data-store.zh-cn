@@ -123,7 +123,6 @@
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">已知限制</block>
   <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
   <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">NetApp 会定期更新 Astra 数据存储，为您提供新功能，增强功能和错误修复。</block>
-  <block id="fd8fab2b77961e520a179634de8b2fa4" category="doc">此版本的 Astra 数据存储中的内容和 #8217</block>
   <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">我们很高兴地宣布， Astra Data Store 的预览版为 21.12 。</block>
   <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021 年 12 月 21 日（ 21.12 ）</block>
   <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">它是什么</block>
@@ -987,4 +986,5 @@
   <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 Kubernetes 快照功能，设置存储后端并创建默认存储类：</block>
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">要创建永久性卷声明（ PVC ）快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
+  <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">此版本的 Astra 数据存储中的内容</block>
 </blocks>

@@ -4,7 +4,7 @@ permalink: release-notes/whats-new.html
 keywords: what's new, bugs, bug fixes, new features, enhancements 
 summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增强功能和错误修复。 
 ---
-= 此版本的 Astra 数据存储中的内容和 #8217
+= 此版本的 Astra 数据存储中的内容
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/release-notes/
