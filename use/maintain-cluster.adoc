@@ -43,10 +43,10 @@ summary: 您可以在 Astra Data Store 中使用 kubectl 命令来维护集群�
 +
 [listing]
 ----
-ADS Data Networks:
-    Addresses:  dataIP1, dataIP2, dataIP3, dataIP4, *newdataIP*
+adsDataNetworks:
+    -addresses:  dataIP1,dataIP2,dataIP3,dataIP4,*newdataIP*
 ----
-.. 保存 CR 文件。
+.. 保存 CR 。
 .. 将节点添加到 Astra Data Store 预览集群：
 +
 [listing]

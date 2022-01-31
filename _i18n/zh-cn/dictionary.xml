@@ -262,7 +262,6 @@
   <block id="179c07bdb3db1669e2d4e1a337247468" category="section-title">添加节点</block>
   <block id="9a39cfe3410df3b493ee309248b9a863" category="paragraph">要添加的节点应属于 Kubernetes 集群，并且其配置应与集群中的其他节点类似。</block>
   <block id="dcc8b731e63482e766610e7c44274b50" category="list-text">编辑 astradscluster CR 并在 ADS Data Networks Addresses 字段中添加额外的 dataIP ：</block>
-  <block id="2d258c624d61d2388efacfc246d2439e" category="list-text">保存 CR 文件。</block>
   <block id="bf024c9e7bfc344f7b2e8beaba8eb53f" category="list-text">将节点添加到 Astra Data Store 预览集群：</block>
   <block id="653c040f4e29a0c02bb862820aea4503" category="list-text">否则，只需添加节点：</block>
   <block id="16e457b8846355beaf7788602b579a97" category="list-text">验证是否已添加此节点：</block>
@@ -987,4 +986,5 @@
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 Kubernetes 快照功能，设置存储后端并创建默认存储类：</block>
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">要创建永久性卷声明（ PVC ）快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
   <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">此版本的 Astra 数据存储中的内容</block>
+  <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">保存 CR 。</block>
 </blocks>
