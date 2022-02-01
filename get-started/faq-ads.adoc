@@ -106,7 +106,7 @@ https://netapp.io/slack["NetApp 容器 Slack 通道"^]
 
 * 为什么即使我已为 Astra Data Store 预览版配置了大容量驱动器，也无法获得更大的永久性卷？ * Astra Data Store 预览版将为 Astra Data 中所有节点上的所有卷配置的最大容量限制为 1 TiB ，最多 5 TiB 存储预览集群。
 
-请参见 link:../get-started/requirements.html["Astra Data Store 预览要求"]。
+请参见 link:../get-started/requirements.html["Astra Data Store 预览要求"] 和 。
 
 
 

@@ -472,8 +472,6 @@
   <block id="45c48cce2e2d7fbdea1afc51c7c6ad26" category="cell">9</block>
   <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra Data Store 预览版不支持 VM 工作负载。VMware VVol 工作负载支持将在未来版本中提供。</block>
   <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">下一步行动</block>
-  <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">要求</block>
-  <block id="a695e2ec087393b67c5decc922a11745" category="paragraph">确保您的配置符合 <block ref="3675fd04b78685cacd6e23511ab11d10" category="inline-link-macro-rx"></block>。</block>
   <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">如果您只是想快速了解问题解答，此常见问题解答会很有帮助。</block>
   <block id="0fc384ade3fa0a49e6200f91385d65a9" category="doc">有关 Astra Data Store 预览版的常见问题</block>
   <block id="6014dc7d785a91f39eda065d13d62e52" category="paragraph">查找有关 Astra Data Store 预览版的安装，配置，升级和故障排除的常见问题解答。</block>
@@ -973,7 +971,6 @@
   <block id="2f4d5933ff58ee63b72cffb00159b0f4" category="paragraph">* Astra Data Store 预览版是否支持从专用注册表脱机安装？ * 是。可以从本地注册表脱机安装 Astra Data Store 预览版。请参见 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>。但是， Astra 数据存储预览版需要连接（直接或通过代理）到 NetApp AutoSupport 后端（ support.netapp.com ）才能继续运行。</block>
   <block id="f6ef14054d61951d57b5e044756b16ef" category="paragraph">借助 Astra Data Store 预览版，您可以使用 NetApp 容器可宽延通道访问社区支持。此渠道由 NetApp 支持和我们的技术营销工程师监控。</block>
   <block id="b84bc82d6b1290562ebf05231992936a" category="paragraph">请参见 <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>。</block>
-  <block id="9afd9c344216e29885949ef527d064ad" category="paragraph">请参见 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>。</block>
   <block id="847bcba6596dcd74ce49891aa01b04cb" category="list-text">集群必须以运行状况良好的状态运行，并且至少具有四个或更多工作节点。</block>
   <block id="b9d6af3a248ddac19c1574ec0ea3368f" category="list-text">配置 Astra Data Store 预览监控。</block>
   <block id="68ae8bfef44263c7568e9225825a9511" category="list-text">如果您使用的是 Red Hat OpenShift ，请在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview 。</block>
@@ -987,4 +984,6 @@
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">要创建永久性卷声明（ PVC ）快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
   <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">此版本的 Astra 数据存储中的内容</block>
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">保存 CR 。</block>
+  <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">请参见 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> 和 <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>。</block>
+  <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
 </blocks>

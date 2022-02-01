@@ -208,3 +208,9 @@ Astra 数据存储预览版要求启用 AutoSupport 并连接到 AutoSupport 后
 == 下一步行动
 
 查看 link:quick-start.html["快速入门"] 概述。
+
+
+
+== 有关详细信息 ...
+
+link:capabilities.html["Astra 数据存储预览限制"]
