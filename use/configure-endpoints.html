@@ -712,7 +712,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 22:37:34 +0000">02/02/2022</time>
+    <time datetime="2022-02-07 19:12:05 +0000">02/07/2022</time>
     
   
 
@@ -778,7 +778,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl astrads monitoring setup -n &lt;NAMESPACE OF AGENT INSTALLED&gt;  -r &lt;DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES&gt;</pre>
+<pre>~% kubectl astrads monitoring setup -n &lt;NAMESPACE OF AGENT INSTALLED&gt;
+   -r &lt;DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -787,10 +788,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>已安装代理的命名空间：这是监控代理，它是监控操作员的 CR 。</p>
+<p>已安装代理的命名空间：输入监控代理的命名空间，这是监控操作员的 monitoring-NetApp CR 的默认名称。</p>
 </li>
 <li>
-<p>` -r` 是可选的。</p>
+<p>` -r` 是可选的，用于设置 Fluent 或 Telegraf 映像所在的 Docker 注册表。默认情况下，此路径设置为 <code>docker.repo.eng.netapp.com/global/astra</code> ，您可以进行更改。</p>
 </li>
 </ul>
 </div>
@@ -800,7 +801,7 @@
 <h2 id="设置-cloud-insights">设置 Cloud Insights</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>请参见 <a href="../use/monitor-with-cloud-insights.html">"如何设置 NetApp Cloud Insights"</a> 用于 Astra Data Store 预览版。</p>
+<p>要查看日志，设置 Cloud Insights 是可选的；但是，使用 Cloud Insights 查看数据很有帮助。请参见 <a href="../use/monitor-with-cloud-insights.html">"如何设置 NetApp Cloud Insights"</a> 用于 Astra Data Store 预览版。</p>
 </div>
 </div>
 </div>
@@ -808,7 +809,7 @@
 <h2 id="将事件日志流式传输到-elastic">将事件日志流式传输到 Elastic</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>要将 EMS 事件和其他 POD 日志流式传输到将日志流式传输到 Elastic 等第三方端点，请使用 <code>astrad</code> 扩展。</p>
+<p>要将 EMS 事件和其他 POD 日志流式传输到 Elastic 等第三方端点，请使用 <code>astrad</code> 扩展。</p>
 </div>
 <div class="paragraph">
 <p>输入 &#8230;&#8203;</p>

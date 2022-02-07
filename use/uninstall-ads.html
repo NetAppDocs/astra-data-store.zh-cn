@@ -712,7 +712,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 22:37:34 +0000">02/02/2022</time>
+    <time datetime="2022-02-07 19:12:05 +0000">02/07/2022</time>
     
   
 
@@ -750,7 +750,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>要卸载 Astra Data Store 预览版，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和 Astra Data Store 预览命名空间。</p>
+<p>要卸载 Astra Data Store 预览和控制平面，您需要删除工作负载，绑定，卷，导出策略， Astra Data Store 集群，许可证，部署环境和 Astra Data Store 预览命名空间。</p>
 </div>
 <div class="ulist">
 <div class="title">您需要什么？ #8217 ；将需要什么</div>
@@ -881,9 +881,6 @@
 <div class="paragraph">
 <p>删除集群还会从节点卸载底层操作系统，从而停止 <code>fireap</code> 和 <code>netwd</code> 服务。</p>
 </div>
-<div class="paragraph">
-<p>卸载程序大约需要一分钟才能完成。然后，开始删除 Astra Data Store 预览集群范围的资源。</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -896,6 +893,18 @@
 </div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+卸载程序大约需要一分钟才能完成。然后，开始删除 Astra Data Store 预览集群范围的资源。
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -928,8 +937,8 @@
 <p>删除 Astra Data Store 预览安装对象：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete astradsversion astradsversion -n astrads-system
-~% kubectl get astradsversion -n astrads-system</pre>
+<pre>kubectl delete astradsversion astradsversion -n astrads-system
+kubectl get astradsversion -n astrads-system</pre>
 </div>
 </div>
 </li>
@@ -937,11 +946,11 @@
 <p>删除数据存储 DemonSets 和所有 Astra Data Store 预览控制器资源：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete ds --all -n astrads-system
-~% kubectl get ds -n astrads-system
+<pre>kubectl delete ds --all -n astrads-system
+kubectl get ds -n astrads-system
 
-~% kubectl delete deployments --all -n astrads-system
-~% kubectl get deployments -n astrads-system</pre>
+kubectl delete deployments --all -n astrads-system
+kubectl get deployments -n astrads-system</pre>
 </div>
 </div>
 </li>
@@ -949,8 +958,8 @@
 <p>删除其余项目和操作符 YAML 文件：</p>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl delete -f ./manifests/astradsoperator.yaml
-~% kubectl get pods -n astrads-system</pre>
+<pre>kubectl delete -f ./manifests/astradsoperator.yaml
+kubectl get pods -n astrads-system</pre>
 </div>
 </div>
 </li>
@@ -964,7 +973,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl get ns | grep astrads-system</pre>
+<pre>kubectl get ns | grep astrads-system</pre>
 </div>
 </div>
 </div>
@@ -1018,7 +1027,7 @@
 <img src="/us-en/astra-data-store/images/note.svg" alt="注">
 </td>
 <td class="content">
-忽略这些步骤中的 " 未找到资源错误 " 。 
+忽略这些步骤中的 " 未找到资源 " 错误。 
 </td>
 </tr>
 </table>
@@ -1035,7 +1044,7 @@
 <h2 id="手动删除示例">手动删除示例</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>下面显示了执行手动卸载脚本的示例。</p>
+<p>下面显示了手动卸载脚本的示例。</p>
 </div>
 <div class="listingblock">
 <div class="content">
