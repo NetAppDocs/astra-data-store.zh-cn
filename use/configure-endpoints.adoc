@@ -27,25 +27,26 @@ summary: 例如，您可以在 Astra Data Store 中使用 kubectl 命令来配�
 
 [listing]
 ----
-~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>  -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
+~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>
+   -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
 ----
 其中：
 
-* 已安装代理的命名空间：这是监控代理，它是监控操作员的 CR 。
-* ` -r` 是可选的。
+* 已安装代理的命名空间：输入监控代理的命名空间，这是监控操作员的 monitoring-NetApp CR 的默认名称。
+* ` -r` 是可选的，用于设置 Fluent 或 Telegraf 映像所在的 Docker 注册表。默认情况下，此路径设置为 `docker.repo.eng.netapp.com/global/astra` ，您可以进行更改。
 
 
 
 
 == 设置 Cloud Insights
 
-请参见 link:../use/monitor-with-cloud-insights.html["如何设置 NetApp Cloud Insights"] 用于 Astra Data Store 预览版。
+要查看日志，设置 Cloud Insights 是可选的；但是，使用 Cloud Insights 查看数据很有帮助。请参见 link:../use/monitor-with-cloud-insights.html["如何设置 NetApp Cloud Insights"] 用于 Astra Data Store 预览版。
 
 
 
 == 将事件日志流式传输到 Elastic
 
-要将 EMS 事件和其他 POD 日志流式传输到将日志流式传输到 Elastic 等第三方端点，请使用 `astrad` 扩展。
+要将 EMS 事件和其他 POD 日志流式传输到 Elastic 等第三方端点，请使用 `astrad` 扩展。
 
 输入 ...
 
