@@ -51,7 +51,7 @@ Astra Data Store 预览卸载过程将指导您完成以下高级步骤：
 +
 [listing]
 ----
-sed -i -e “s~netappsdsoperator.yaml~astradsoperator.yaml~” uninstall.sh
+sed -i -e 's~netappsdsoperator.yaml~astradsoperator.yaml~' uninstall.sh
 ----
 . 运行以下脚本以指示要卸载的内容：
 +
