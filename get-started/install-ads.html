@@ -501,6 +501,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -582,7 +584,7 @@
         <div class="na-navbar-padding"> 发行说明</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/release-notes/whats-new.html">
-        此版本的 Astra 数据存储中的内容
+        此版本的 Astra 数据存储中的新增功能
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/release-notes/known-issues.html">
         已知问题
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/release-notes/known-limitations.html">
@@ -636,7 +638,9 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/ads-acc-ui.html">
         Astra 控制中心集成
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads.html">
-        卸载 Astra Data Store 预览版
+        使用脚本自动卸载 Astra Data Store 预览版
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads-manual.html">
+        手动卸载不使用脚本的 Astra Data Store 预览版
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
@@ -712,7 +716,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-07 19:12:05 +0000">02/07/2022</time>
+    <time datetime="2022-02-09 14:53:38 +0000">02/09/2022</time>
     
   
 
@@ -1136,7 +1140,7 @@ p100000006  astrads-example-cluster    true    Astra Data Store Preview    true 
 <p>在 <code>adsDataNetworks</code> 中，指定数据网络使用的网络掩码。</p>
 </li>
 <li>
-<p>在 <code>adsNetworkInterfaces</code> 中，将 <code>mGMT</code> 和 <code>data</code> 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</p>
+<p>在 <code>adsNetworkInterfaces</code> 中，将 ` &lt;mgmt_interface_name&gt;` 和 ` &lt;cluster_and_storage_interface_name&gt;` 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1198,13 +1202,14 @@ kind: AstraDSCluster
       <strong>netmask:</strong>
   # Specify the network interface names to use for management, cluster and storage networks.
   # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
-  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
-  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # To move the cluster and storage networks to a different interface than management, specify all three interfaces to use here.
   # NOTE: The cluster and storage networks need to be on the same interface.
   <strong>adsNetworkInterfaces:</strong>
-    <strong>managementInterface: "mgmt"</strong>
-    <strong>clusterInterface: "data"</strong>
-    <strong>storageInterface: "data"</strong>
+    <strong>managementInterface: "&lt;mgmt_interface_name&gt;"</strong>
+    <strong>clusterInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
+    <strong>storageInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
+  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
+    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  <strong># monitoringConfig:</strong>
    <strong># namespace: "netapp-monitoring"</strong>

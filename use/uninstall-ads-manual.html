@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>Search results</title>
+  <title>卸载不带脚本的 Astra Data Store 预览版</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Search results" />
+  <meta property="og:title" content="卸载不带脚本的 Astra Data Store 预览版" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/search.html" />
-	<meta property="og:description" content="" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use/uninstall-ads-manual.html" />
+	<meta property="og:description" content="要卸载 Astra 数据存储，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和命名空间。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
@@ -18,11 +18,9 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="">
-  <meta name="keywords" content=" ">
+  <meta name="description" content="要卸载 Astra 数据存储，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和命名空间。">
+  <meta name="keywords" content=" astra, astra data store, astra datastore, uninstall">
   
-  
-  <meta name="translate" content="false"/>
   
 
   <!-- Icons -->
@@ -74,7 +72,11 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
+    <script src='/zh-cn/astra-data-store/js/na-search.js'></script>
+  
 
+  
+  <script src='/zh-cn/astra-data-store/js/na-pagenav.js'></script>
   
 
   <link rel='stylesheet' href='/zh-cn/astra-data-store/css/prism.css' type='text/css'>
@@ -241,6 +243,26 @@
       </div>
 
       
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-cn/astra-data-store/search.html"
+          data-type="widget" 
+          data-placeholder="搜索文档" 
+          data-no-results-found="未找到与 {query} 匹配的结果。" 
+          data-did-you-mean="搜索 {suggestion}。" 
+          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
+          data-results-found="找到 {hitCount} 个结果"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
     </div>
   </div>
   <div class="n-property-bar__toolbar">
@@ -259,13 +281,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store//search.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store//search.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store//search.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store//search.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -469,6 +491,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use/uninstall-ads-manual.pdf" >
+    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -608,7 +639,7 @@
         Astra 控制中心集成
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads.html">
         使用脚本自动卸载 Astra Data Store 预览版
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads-manual.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads-manual.html">
         手动卸载不使用脚本的 Astra Data Store 预览版
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
@@ -655,7 +686,7 @@
           <a href="/zh-cn/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
         </li>
         <li class="n-breadcrumb__list-item">
-          Search results
+          卸载不带脚本的 Astra Data Store 预览版
         </li>
       </ul>
     </div>
@@ -678,34 +709,454 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Search results</h1>
+  <h1 class="n-doc__component-detail-heading">卸载不带脚本的 Astra Data Store 预览版</h1>
 </div>
 
 
+<p class="page-details">
+  
+    
+    <time datetime="2022-02-09 14:53:38 +0000">02/09/2022</time>
+    
+  
 
-<div id="search-demo-container" class="n-property-bar__search">
-  <div id="react-search" 
-  data-search-html="/zh-cn/astra-data-store/search.html"
-  data-type="page" 
-  data-placeholder="搜索文档" 
-  data-no-results-found="未找到与 {query} 匹配的结果。" 
-  data-did-you-mean="搜索 {suggestion}。" 
-  data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
-  data-results-found="找到 {hitCount} 个结果"
-  data-sk-es-pf-indexes=""></div>
-  <button class="search-all-icon n-property-bar__search-toggle-button" type="button">
-    <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
-      <title>search</title>
-      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#search"></use>
-    </svg>
-  </button>
+<span>提供者
+  <a target="_blank" href="https://github.com/amgrissino">
+    <img  class="avatar avatar-small"
+          alt="amgrissino"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>要在不使用自动脚本的情况下手动卸载 Astra Data Store 预览版，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和 Astra Data Store 预览命名空间。</p>
 </div>
+<div class="paragraph">
+<p>或者，您也可以 <a href="../use/uninstall-ads.html">"使用脚本卸载 Astra Data Store 预览版"</a>。</p>
+</div>
+<div class="ulist">
+<div class="title">您需要什么？ #8217 ；将需要什么</div>
+<ul>
+<li>
+<p>root 管理权限</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Astra Data Store 预览卸载过程将指导您完成以下高级步骤：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Remove existing workloads and bindings">[Remove existing workloads and bindings]</a></p>
+</li>
+<li>
+<p><a href="#Uninstall the Astra Data Store preview cluster and control plane">[Uninstall the Astra Data Store preview cluster and control plane]</a></p>
+</li>
+<li>
+<p><a href="#Delete the license">[Delete the license]</a></p>
+</li>
+<li>
+<p><a href="#Delete the Astra Data Store preview installation">[Delete the Astra Data Store preview installation]</a></p>
+</li>
+<li>
+<p><a href="#Validate the removal of the astrads-system namespace">[Validate the removal of the astrads-system namespace]</a></p>
+</li>
+<li>
+<p><a href="#Ensure containers are not running on worker nodes">[Ensure containers are not running on worker nodes]</a></p>
+</li>
+<li>
+<p><a href="#Delete OpenShift Container Platform resources">[Delete OpenShift Container Platform resources]</a></p>
+</li>
+<li>
+<p><a href="#Troubleshoot the Astra Data Store preview uninstall process">[Troubleshoot the Astra Data Store preview uninstall process]</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="删除现有工作负载和绑定">删除现有工作负载和绑定</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>卸载 Astra Data Store 预览版之前，必须先删除以下内容</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>使用 Astra Data Store 预览版作为存储后端的所有应用程序工作负载</p>
+</li>
+<li>
+<p>使用 Astra Data Store 预览作为后端的 Trident 绑定</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>这样可以确保 Kubernetes 环境保持干净，这在重新安装时非常重要。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="卸载-astra-data-store-预览集群和控制平面">卸载 Astra Data Store 预览集群和控制平面</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>按照以下步骤手动卸载 Astra Data Store 预览版。</p>
+</div>
+<div class="sect2">
+<h3 id="删除卷和导出策略">删除卷和导出策略</h3>
+<div class="paragraph">
+<p>在删除集群之前，您应删除 Astra Data Store 预览卷和导出策略。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+如果不先删除卷和导出策略，则集群删除过程将暂停，直到删除 Astra Data Store 预览卷对象为止。在开始删除集群之前删除这些项会更高效。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>删除卷：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete astradsvolumes --all -A
+~% kubectl get astradsvolumes -A</pre>
+</div>
+</div>
+</li>
+<li>
+<p>删除导出策略：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete astradsexportpolicies --all -A
+~% kubectl get astradsexportpolicies -A</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="删除-astra-data-store-预览集群">删除 Astra Data Store 预览集群</h3>
+<div class="paragraph">
+<p>删除集群时，只会删除 Astra Data Store 预览集群对象自定义资源（ CR ）以及集群范围的资源。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+即使在删除集群后，操作符， nodeinfo Pod 和集群控制器（即 Kubernetes 范围的资源）仍会保持不变。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>删除集群还会从节点卸载底层操作系统，从而停止 <code>fireap</code> 和 <code>netwd</code> 服务。</p>
+</div>
+<div class="paragraph">
+<p>卸载程序大约需要一分钟才能完成。然后，开始删除 Astra Data Store 预览集群范围的资源。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>删除集群：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete astradsclusters --all -A
+~% kubectl get astradsclusters -A</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="删除许可证">删除许可证</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>通过 SSH 连接到集群中的每个工作节点，并验证` fireap` 或 `netwd `未在工作节点中运行。</p>
+</li>
+<li>
+<p>删除 Astra Data Store 预览许可证：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete astradslicenses --all -A
+~% kubectl get astradslicenses -A</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="删除-astra-data-store-预览安装">删除 Astra Data Store 预览安装</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>删除集群中的控制器，操作员，命名空间和支持 Pod 。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>删除 Astra Data Store 预览安装对象：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete astradsversion astradsversion -n astrads-system
+~% kubectl get astradsversion -n astrads-system</pre>
+</div>
+</div>
+</li>
+<li>
+<p>删除数据存储 DemonSets 和所有 Astra Data Store 预览控制器资源：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete ds --all -n astrads-system
+~% kubectl get ds -n astrads-system
 
+~% kubectl delete deployments --all -n astrads-system
+~% kubectl get deployments -n astrads-system</pre>
+</div>
+</div>
+</li>
+<li>
+<p>删除其余项目和操作符 YAML 文件：</p>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl delete -f ./manifests/astradsoperator.yaml
+~% kubectl get pods -n astrads-system</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="验证是否删除了-astrads-system-命名空间">验证是否删除了 astrads-system 命名空间</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>确保以下命令不返回任何结果：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>~% kubectl get ns | grep astrads-system</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="确保工作节点上未运行容器">确保工作节点上未运行容器</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>验证 <code>fireap</code> 或 <code>netwd</code> 等容器是否未在工作节点上运行。在每个节点上运行以下命令。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ssh &lt;mynode1&gt;
+# runc list</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="删除-openshift-容器平台资源">删除 OpenShift 容器平台资源</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果您在 Red Hat OpenShift 容器平台（ OCP ）上安装了 Astra Data Store preview ，则可以卸载 OCP 安全上下文约束（ SCC ）和绑定资源。</p>
+</div>
+<div class="paragraph">
+<p>OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。</p>
+</div>
+<div class="paragraph">
+<p>完成标准卸载过程后，请完成以下步骤。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>删除 SCC 资源：</p>
+<div class="listingblock">
+<div class="content">
+<pre>oc delete -f ads_privileged_scc.yaml</pre>
+</div>
+</div>
+</li>
+<li>
+<p>删除 rolebindings 资源：</p>
+<div class="listingblock">
+<div class="content">
+<pre>oc delete -f oc_role_bindings.yaml</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+忽略这些步骤中的 " 未找到资源错误 " 。 
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>从所有 Kubernetes 节点中删除 ` /var/lib/kubelet/config.yaml` 。 </p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="手动删除示例">手动删除示例</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>下面显示了执行手动卸载脚本的示例。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ kubectl delete astradsvolumes --all -A
+No resources found
+$ kubectl delete astradsexportpolicies --all -A
+No resources found
+$ kubectl delete astradsclusters --all -A
+astradscluster.astrads.netapp.io "astrads-sti-c6220-09-10-11-12" deleted
+
+$ kubectl delete astradslicenses --all -A
+astradslicense.astrads.netapp.io "e900000005" deleted
+
+$ kubectl delete astradsdeployment astradsdeployment -n astrads-system
+astradsdeployment.astrads.netapp.io "astradsdeployment" deleted
+
+$ kubectl delete ds --all -n astrads-system
+daemonset.apps "astrads-ds-astrads-sti-c6220-09-10-11-12" deleted
+daemonset.apps "astrads-ds-nodeinfo-astradsdeployment" deleted
+daemonset.apps "astrads-ds-support" deleted
+
+$ kubectl delete deployments --all -n astrads-system
+deployment.apps "astrads-cluster-controller" deleted
+deployment.apps "astrads-deployment-support" deleted
+deployment.apps "astrads-license-controller" deleted
+deployment.apps "astrads-operator" deleted
+
+$ kubectl delete -f /.../firetap/sds/manifests/netappsdsoperator.yaml
+namespace "astrads-system" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsdeployments.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
+role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-autosupport-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-autosupport-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-metrics-reader" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-proxy-role" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-proxy-rolebinding" deleted
+configmap "astrads-autosupport-cm" deleted
+configmap "astrads-firetap-cm" deleted
+configmap "astrads-fluent-bit-cm" deleted
+configmap "astrads-kevents-asup" deleted
+configmap "astrads-metrics-cm" deleted
+service "astrads-operator-metrics-service" deleted
+ Error from server (NotFound): error when deleting "/.../export/firetap/sds/manifests/netappsdsoperator.yaml": deployments.apps "astrads-operator" not found
+
+$ kubectl get ns | grep astrads-system
+
+[root@sti-rx2540-535c ~]# runc list
+ID      PID     STATUS    BUNDLE       CREATED    OWNER</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="对-astra-data-store-预览卸载过程进行故障排除">对 Astra Data Store 预览卸载过程进行故障排除</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kubernetes v1.20 中的 Astra 数据存储预览卸载过程有时可能会使发生原因 Pod 保持终止状态。</p>
+</div>
+<div class="paragraph">
+<p>如果发生此问题描述 ，请运行以下命令强制删除 <code>astrads-system</code> 命名空间中的所有 Pod ：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl delete pods --all  -n astrads-system   --force --grace-period 0</pre>
+</div>
+</div>
+</div>
+</div>
 
     </article>
     <!-- Page Container -->
   </div>
 
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[卸载不带脚本的 Astra Data Store 预览版](https://docs.netapp.com/zh-cn/astra-data-store/use/uninstall-ads-manual.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/uninstall-ads-manual.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
   
   <div style="clear: both"></div><!-- Main needs to have height -->
 </div>
@@ -829,30 +1280,5 @@
     <script src='/zh-cn/astra-data-store/js/tabbed-blocks.js'></script>
   </body>
 
-  
-  <script>
-      if(hasParameter(window.location.search,'q')) {
-        var queryString = decodeURI(getParameter(window.location.search, 'q'));
-        document.getElementsByClassName("sk-search-box__text")[0].setAttribute("value", queryString);
-      }
-
-      function getParameter(searchString,param) {
-        var params = searchString.split('?&');
-        for(var i=0;i<params.length;i++) {
-          var paramIndex = params[i].indexOf(param+"=");
-          if(paramIndex != -1) {
-            return params[i].substring(paramIndex+param.length+1);
-          }
-        }
-
-        return "";
-      }
-
-      function hasParameter(searchString,param) {
-        searchString = searchString || "";
-        param = param || "";
-        return (searchString.indexOf("?"+param+"=") != -1 || searchString.indexOf("&"+param+"=") != -1);
-      }
-  </script>
   
 </html>
