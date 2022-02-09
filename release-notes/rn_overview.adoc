@@ -10,9 +10,9 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 :imagesdir: ../media/release-notes/
 
 
-我们很高兴地宣布， Astra Data Store 的预览版为 21.12 。
+我们很高兴地宣布， Astra Data Store 预览版为 21.12 预览版。
 
-* link:../release-notes/whats-new.html["此版本的 Astra 数据存储中的内容"]
+* link:../release-notes/whats-new.html["此版本的 Astra Data Store 预览版中的新增功能"]
 * link:../release-notes/known-issues.html["已知问题"]
 * link:../release-notes/known-limitations.html["已知限制"]
 

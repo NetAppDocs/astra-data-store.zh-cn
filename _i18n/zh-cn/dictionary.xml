@@ -113,17 +113,12 @@
   <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">已知问题可确定可能妨碍您成功使用此版本产品的问题。</block>
   <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">已知问题</block>
   <block id="cbf07725210d7794bc72ba637e814463" category="paragraph">已知问题用于确定可能会阻止您成功使用此产品预览版的问题。</block>
-  <block id="0e4fba3a066f36e9068d0c009d7e645b" category="section-title">Astra Data Store 预览版无法识别默认的 Calico WireGuard 接口名称</block>
-  <block id="0a2658de7347bd058fe644ff8377e067" category="paragraph">此错误会导致 Pod 崩溃。作为临时解决策，请更改 Calico 的 Felix 配置中的 wireguardInterfaceName 设置，以指定不带点的接口名称。例如：</block>
-  <block id="7b9da3c0b330f1b48579aeceb36d8fe9" category="paragraph">除了在每个节点上使用新名称创建接口之外，此更改还可能会留下原始 wireguard.cali 接口。删除这些接口以防止此问题描述重复发生。</block>
   <block id="611ef1043a7be23a79c733584b983303" category="section-title">Astra Data Store 预览版无法识别采用 VXLAN 配置和 Calico CNI 的网络接口名称</block>
-  <block id="dbeae861992513b6eb728dc3b93f660d" category="paragraph">此错误会导致 Pod 崩溃。作为临时解决策，禁用 VXLAN 配置。</block>
   <block id="7c88f5c8e51811bf930b3f587b58d58a" category="section-title">如果 Pod 处于崩溃环路中，使用默认活跃度探针值的 MongoDB 部署将失败</block>
   <block id="c4a3b0f34e2b8b73bccefd6f730679b0" category="paragraph">作为临时解决策，请在 MongoDB 部署规范中将活跃度探针 initialDelaySeconds 设置为 600 秒。</block>
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">已知限制</block>
   <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
   <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">NetApp 会定期更新 Astra 数据存储，为您提供新功能，增强功能和错误修复。</block>
-  <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">我们很高兴地宣布， Astra Data Store 的预览版为 21.12 。</block>
   <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021 年 12 月 21 日（ 21.12 ）</block>
   <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">它是什么</block>
   <block id="0366914bfcaaf0f822d79c3c7babc483" category="list-text"><block ref="0366914bfcaaf0f822d79c3c7babc483" category="inline-link-macro-rx"></block></block>
@@ -140,8 +135,6 @@
   <block id="a2349035bf4872c12c78cb2d856a9336" category="list-text"><block ref="be0f477de0f57aea94404872654dcee8" category="inline-link-macro-rx"></block> 和 <block ref="60f068e3a346c283b9ad7095bc3a22bf" category="inline-link-macro-rx"></block></block>
   <block id="0956972ccb3f1ffed4c31a057c597e7d" category="list-text"><block ref="0956972ccb3f1ffed4c31a057c597e7d" category="inline-link-macro-rx"></block></block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">发行说明</block>
-  <block id="9496fd053449dc632695aa62786ebaf1" category="inline-link-macro">此版本的 Astra 数据存储中的内容</block>
-  <block id="1761491776db9658a9d9f4322aef4187" category="list-text"><block ref="1761491776db9658a9d9f4322aef4187" category="inline-link-macro-rx"></block></block>
   <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub 贡献者</block>
   <block id="65ed3c4720fad34d453db54755338725" category="paragraph">在 Twitter @NetAppDoc 上关注我们。通过成为发送有关文档的反馈 <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> 或发送电子邮件至 doccomments@netapp.com 。</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。</block>
@@ -244,13 +237,10 @@
   <block id="ca6aaabf5c74238b64f1f77fc1078fb1" category="paragraph">要在不筛选可能的替代驱动器的情况下列出所有驱动器，请在 `sHow-replacements` 命令中添加 ` -all` 。</block>
   <block id="125f85ae4d1ff2dd68b6b65a8b46611f" category="list-text">如果使用不适当的 ` -replaceWith` 序列号执行 `kubectl astrad faileddrive replace` ，则会显示类似以下内容的错误：</block>
   <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">要卸载 Astra 数据存储，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和命名空间。</block>
-  <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">卸载 Astra Data Store 预览版</block>
   <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">您需要什么？ #8217 ；将需要什么</block>
   <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">root 管理权限</block>
   <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store 预览卸载过程将指导您完成以下高级步骤：</block>
   <block id="05424633f0bd5eefeaa3629e5c4d1ae1" category="list-text"><block ref="cab67cc4c69f00a37ed4ae97c08b5a2c" category="inline-xref-macro-rx"></block></block>
-  <block id="46c883ff8d48945b15db394f9ac2050d" category="list-text"><block ref="c650fcae59c3ef6d3a0e731f55d376df" category="inline-xref-macro-rx"></block></block>
-  <block id="0bc81830f1dfb9de112bee2d6bd91b91" category="list-text"><block ref="26d229d5e2e3968e71c3402c5a09214b" category="inline-xref-macro-rx"></block></block>
   <block id="cacd3064543c7be5a9b55ffd25a40141" category="list-text"><block ref="d494c9949a6c752fae5f375dcac6bb64" category="inline-xref-macro-rx"></block></block>
   <block id="334982a7418a341303b6f2204ca1e0fe" category="list-text"><block ref="621e8ae438ccf9d5bd1e2f424bbe8b78" category="inline-xref-macro-rx"></block></block>
   <block id="85e4b847a7452c3cb60874d0fbf806b3" category="list-text"><block ref="9ae241411ebdbe5b7431af3f015cef5e" category="inline-xref-macro-rx"></block></block>
@@ -556,7 +546,6 @@
   <block id="868e18bdd7bc8799f8c1e1f00b94d58c" category="list-text">将 `mVIP` 字符串更改为可从集群中的任何工作节点路由的浮动管理 IP 的 IP 地址。</block>
   <block id="cc80da2ca49204147d1a136f50492c90" category="list-text">在 `adsDataNetworks` 中，添加一个逗号分隔的浮动 IP 地址列表（`addresses` ），这些地址可从要挂载 NetApp 卷的任何主机路由。每个节点使用一个浮动 IP 地址。数据网络 IP 地址的数量应至少与 Astra Data Store 预览节点的数量相同。对于 Astra Data Store 预览版，这意味着至少有 4 个地址，如果您计划稍后将集群扩展到 5 个节点，则至少需要 5 个地址。</block>
   <block id="29b31f9baad8004ca9125758588d82c3" category="list-text">在 `adsDataNetworks` 中，指定数据网络使用的网络掩码。</block>
-  <block id="dc9f3800ee8e188d0fb3e1fb1687d270" category="list-text">在 `adsNetworkInterfaces` 中，将 `mGMT` 和 `data` 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</block>
   <block id="575504814fb95c79b3ed9e5f1035436b" category="admonition">集群和存储网络必须位于同一接口上。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。</block>
   <block id="8da4a001932be2ff606e6df10493966a" category="inline-xref">监控操作员</block>
   <block id="644ad178aa7628cc443a92bf64c7cfca" category="list-text">（可选） * 显示器配置 * ：如果要配置 <block ref="0f1aa9f35704db6c7d3dfbe726efcbc1" category="inline-xref-macro-rx"></block> （如果您不使用 Astra Control Center 进行监控，则可选），从部分中删除注释，添加应用代理 CR （监控操作员资源）的命名空间（默认值为 `netapp-monitoring` ），然后添加您在先前步骤中使用的注册表的 repo路径 （`yor_registry_path` ）。</block>
@@ -749,7 +738,6 @@
   <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
   <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
   <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
-  <block id="1023cca3cbe0355c454587fe233fb54e" category="list-text"><block ref="7e400ca6d12cb414decd3ba7def8d69f" category="inline-xref-macro-rx"></block></block>
   <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（可选）验证捆绑包的签名：</block>
   <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">创建命名空间以部署 Astra Data Store 预览版</block>
   <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">创建一个 `astrads-system` 命名空间，其中将安装所有 Astra Data Store 预览组件。</block>
@@ -777,15 +765,6 @@
   <block id="a0043c0af3acf54941321b091a08c953" category="list-text">使用 `kubectl apply` 命令进行部署：</block>
   <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">如果已启用 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">之所以需要执行此步骤，是因为 `selinux` 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 `CrashLoopBackoff` 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。</block>
-  <block id="312c22a3876f69404939d1690151fbc4" category="section-title">设置 IP 表</block>
-  <block id="003e4c2f8867f9fd50148b316d4b989e" category="paragraph">OpenShift SDN （ OpenShift 的默认 CNI 插件）不会以掩码形式查询从主机环回接口（ 127.0.1/localhost ）到 HostPorts 的流量。</block>
-  <block id="1b3b86daa5e0644271ca947c2224f310" category="paragraph">Astra Data Store 预览集群需要添加一个 NAT 规则，用于将流量从本地主机转发到集群服务端口（ 9920 ）。</block>
-  <block id="b39a623813791d04ac10ef1fc42a7fc5" category="list-text">记下 NAT 表输出链中当前 `KUBE-HOSTPORTS` 规则的行号。</block>
-  <block id="f510c1d362dbb0428437b2f895e8982a" category="paragraph">在以下示例中， `KUBE-HOSTPORTS` 位于位置 4 。</block>
-  <block id="adcb2cd59b5d01edf7ca1f67e980ac9f" category="list-text">向 `KUBE-HOSTPORTS` 条目上方的 NAT 表添加新规则。</block>
-  <block id="d912cfb09e8afcc3ecc44ba849dbd502" category="list-text">验证新添加的规则是否已添加到 `KUBE-HOSTPORTS` 规则上方的 NAT 表中。</block>
-  <block id="ec3c5f90c4d136c23a12315138fd7c45" category="admonition">在 Astra Data Store 预览集群中的所有节点上执行这些步骤。</block>
-  <block id="c7763a055763bd20203aefad4f95491e" category="admonition">如果 Astra Data Store 预览集群节点重新启动，请重复上述步骤。</block>
   <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">安装概述</block>
   <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">在 OpenShift 上安装 Astra Data Store 预览版</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 预览帐户包括通过 Web 服务单提供的远程技术支持。</block>
@@ -941,7 +920,6 @@
   <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 Kubernetes 快照功能，设置存储后端并创建默认存储类：</block>
   <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">要创建永久性卷声明（ PVC ）快照，需要使用 Kubernetes Snapshot CRC 和控制器。如果尚未为您的环境安装 CRD 和控制器，请运行以下命令进行安装。</block>
-  <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">此版本的 Astra 数据存储中的内容</block>
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">保存 CR 。</block>
   <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">请参见 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> 和 <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>。</block>
   <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
@@ -979,9 +957,7 @@
   <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">选择 * 删除 * 。</block>
   <block id="f5ef604e5c1749fb34d2f40f286b77cb" category="paragraph">监控操作员将更新 Telegraf 和 Fluent 位配置并删除采集单元。</block>
   <block id="937f64044c15c693fee5e345b823c82a" category="paragraph">要卸载 Astra Data Store 预览和控制平面，您需要删除工作负载，绑定，卷，导出策略， Astra Data Store 集群，许可证，部署环境和 Astra Data Store 预览命名空间。</block>
-  <block id="22f4771b27effd4ed241a94c1c3b8fae" category="list-text">通过 SSH 连接到集群中的每个工作节点，并验证` fireap` 或 `netwd `未在工作节点中运行。</block>
   <block id="f40621c004c5b23c3485a800fe73c8df" category="admonition">忽略这些步骤中的 " 未找到资源 " 错误。 </block>
-  <block id="341aec78c4fcb8bc2fd0114d84ad9f59" category="paragraph">下面显示了手动卸载脚本的示例。</block>
   <block id="592559968efa9408ca73078a0281426c" category="list-text">已安装代理的命名空间：输入监控代理的命名空间，这是监控操作员的 monitoring-NetApp CR 的默认名称。</block>
   <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">` -r` 是可选的，用于设置 Fluent 或 Telegraf 映像所在的 Docker 注册表。默认情况下，此路径设置为 `docker.repo.eng.netapp.com/global/astra` ，您可以进行更改。</block>
   <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">要查看日志，设置 Cloud Insights 是可选的；但是，使用 Cloud Insights 查看数据很有帮助。请参见 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> 用于 Astra Data Store 预览版。</block>
@@ -994,4 +970,50 @@
   <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>。</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API</block>
   <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
+  <block id="605c1163c92b6665e6e3a6e4d3e2b5ab" category="section-title">Astra 数据存储预览卸载过程可能会使发生原因 Pod 保持终止状态</block>
+  <block id="c18987560174df439a894c56864d83c2" category="paragraph">Kubernetes v1.20 中的 Astra 数据存储预览卸载过程有时可能会使发生原因 Pod 保持终止状态。</block>
+  <block id="a030a13efde84131d965c146d7bf8f3a" category="inline-link-macro">手动卸载不使用脚本的 Astra Data Store 预览版</block>
+  <block id="a1d719a64af2e2fa944c702e48d96096" category="inline-link-macro">使用脚本自动卸载 Astra Data Store 预览版</block>
+  <block id="0742cb091f55684dbf38e47d41776cc5" category="paragraph">请参见 <block ref="b866e48fdeb7aae2eabda2e75fe60c7f" category="inline-link-macro-rx"></block> 或<block ref="7d1c65f7beae1b21b3f162365b72d51c" category="inline-link-macro-rx"></block>。</block>
+  <block id="39b72bf4e7fc80a70a26d746cbef58ad" category="doc">此版本的 Astra 数据存储中的新增功能</block>
+  <block id="3eb82e828f1c951f4b92741841e7ffc0" category="paragraph">我们很高兴地宣布， Astra Data Store 预览版提供了 2021.12.1 修补程序。</block>
+  <block id="aa1ac4b92c201cc0069ddd9b8f5ef562" category="section-title">2022 年 2 月 8 日（ 2021.12.1 ）</block>
+  <block id="bd8f00179fbca4385570ecda2bce2b26" category="paragraph">适用于 Astra Data Store 预览版（ 21.12 ）的修补版本（ 2021.12.1 ）。</block>
+  <block id="4530f8c7839b1f969ceb5c2a31b6c4ec" category="list-text">在此版本中， Astra Data Store preview 支持使用 Calico CNI 的 VXLAN 配置。</block>
+  <block id="1a7c93d5ddfb9e849dc78f3e532c9c39" category="list-text">Astra Data Store 预览版现在支持启用了 Calico WireGuard 的网络配置。</block>
+  <block id="03c2a88196227c124e45e61db29b2a19" category="list-text">更新的 AstraDSCluster.YAML `adsNetworkInterfaces` 一节提供了经过改进的描述性注释。</block>
+  <block id="172a28b95bfacecd355a263df8cfb2dd" category="list-text">现在，我们提供了新的 Astra Data Store 卸载脚本，作为 kubectl 命令卸载过程的一种更简单的替代方法。</block>
+  <block id="5b386366b4ab49808562bc6fd84e29ca" category="summary">已解决此版本中可能阻止您成功使用此产品的问题。</block>
+  <block id="8e33d0035ce9088a5bcc4cff0c38cf36" category="doc">已解决的问题</block>
+  <block id="479ffb12d996aec220f356434b84d0b6" category="paragraph">此版本的产品已更正以下问题描述 。</block>
+  <block id="3378074c8eeb58b3185929269c8770d7" category="paragraph">此错误会导致 Pod 崩溃。</block>
+  <block id="a75f3479bc8ee07b1c30e1dc43a5f950" category="paragraph">我们很高兴地宣布， Astra Data Store 预览版为 21.12 预览版。</block>
+  <block id="e563ac1a793c6c7311b2c41e978bf313" category="inline-link-macro">此版本的 Astra Data Store 预览版中的新增功能</block>
+  <block id="0a8304d2d371d90a957d4e1ce36197c4" category="list-text"><block ref="0a8304d2d371d90a957d4e1ce36197c4" category="inline-link-macro-rx"></block></block>
+  <block id="468558a9981278b44ae6cb6ec9f51a45" category="doc">卸载不带脚本的 Astra Data Store 预览版</block>
+  <block id="9f72a703d568eb4188aacd99d7e14ab3" category="paragraph">要在不使用自动脚本的情况下手动卸载 Astra Data Store 预览版，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和 Astra Data Store 预览命名空间。</block>
+  <block id="dda8e2faeb675dbd55f4dc4333ca9101" category="inline-link-macro">使用脚本卸载 Astra Data Store 预览版</block>
+  <block id="4d4331643a6c4cdb1d3cff4333651acf" category="paragraph">或者，您也可以 <block ref="10f20f8f0c8029fb16615ac874dc8e91" category="inline-link-macro-rx"></block>。</block>
+  <block id="74c7f82da4ac975c826c5ae87e571b3e" category="list-text"><block ref="0aa963d1fa0308215678c4fc347a4f29" category="inline-xref-macro-rx"></block></block>
+  <block id="27467ea82f97476b92fc774a658ab09e" category="list-text"><block ref="697a537b02595eaae32733e664d168f5" category="inline-xref-macro-rx"></block></block>
+  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">通过 SSH 连接到集群中的每个工作节点，并验证` fireap` 或 `netwd `未在工作节点中运行。</block>
+  <block id="c4bc5ab0b4775b4a9c0dc56e5a147ad0" category="admonition">忽略这些步骤中的 " 未找到资源错误 " 。 </block>
+  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">下面显示了执行手动卸载脚本的示例。</block>
+  <block id="23f386330fd2090f3c6e9816f5db1c72" category="section-title">对 Astra Data Store 预览卸载过程进行故障排除</block>
+  <block id="8b1fa32151850024119fafb21ccb3d78" category="paragraph">如果发生此问题描述 ，请运行以下命令强制删除 `astrads-system` 命名空间中的所有 Pod ：</block>
+  <block id="349659e7f762d959632a5f5df41d5229" category="doc">使用自动脚本卸载 Astra Data Store 预览版</block>
+  <block id="beb97c9f432337b4e23df3290f3b8309" category="inline-link-macro">卸载不带脚本的 Astra Data Store 预览版</block>
+  <block id="5c47adf11d9827e88343a4bdff0bac3d" category="paragraph">或者，您也可以 <block ref="706dcbdb4a2486772e8b2c9892b534ee" category="inline-link-macro-rx"></block>。</block>
+  <block id="0280ad96110683ba834751f8caae2449" category="list-text"><block ref="beebbaa837c0d8f0102332e76a141522" category="inline-xref-macro-rx"></block></block>
+  <block id="e086eb1f9d8ebe5afe55cc047525fc41" category="section-title">卸载 Astra Data Store 集群</block>
+  <block id="9528274a95ae00c713f7ba810614b9d9" category="paragraph">要卸载 Astra Data Store 预览版，您可以使用从 NetApp 支持站点下载的 Astra Data Store tar 文件中的 `uninstall.sh` 脚本。</block>
+  <block id="6d3ae875fc703d9d98a6ac916046e2ce" category="list-text">在 `manifests` 目录中找到 `uninstall.sh` 。</block>
+  <block id="dd48706656a492ee3c3d8405bf558d38" category="list-text">运行以下 `sed` 命令：</block>
+  <block id="450614a3dcd37aa64dd16358c06d694c" category="list-text">运行以下脚本以指示要卸载的内容：</block>
+  <block id="69ff5b52aae09b4aaf83249ef2547012" category="list-text">如果您只想卸载集群，请输入 `uninstall.sh &lt;cluster&gt;`</block>
+  <block id="c7f603430bf030fb2e62840f2f04800f" category="paragraph">否则，如果要卸载所有内容，请输入 `uninstall.sh`</block>
+  <block id="d83aa4400bb8ceb7d02f04215363b8fa" category="admonition">大多数情况下，您将卸载所有内容。如果您稍后要重新部署集群，则可能只需要卸载集群。</block>
+  <block id="15388dda568bd0771380969281e3fb4d" category="list-text">在提示符处，确认要继续并输入 `erasedata`</block>
+  <block id="858c3e811ac734bb143694fc06b49de1" category="list-text">在 `adsNetworkInterfaces` 中，将 ` &lt;mgmt_interface_name&gt;` 和 ` &lt;cluster_and_storage_interface_name&gt;` 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</block>
+  <block id="1b828e66f98e1084d2ec48e088373a14" category="sidebar">此版本的 Astra 数据存储中的新增功能</block>
 </blocks>

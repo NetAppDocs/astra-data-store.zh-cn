@@ -14,5 +14,7 @@ entries:
   url: "/use/configure-endpoints.html"
 - title: Astra 控制中心集成
   url: "/use/ads-acc-ui.html"
-- title: 卸载 Astra Data Store 预览版
+- title: 使用脚本自动卸载 Astra Data Store 预览版
   url: "/use/uninstall-ads.html"
+- title: 手动卸载不使用脚本的 Astra Data Store 预览版
+  url: "/use/uninstall-ads-manual.html"

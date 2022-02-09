@@ -3,7 +3,7 @@ section: release-notes
 title: 发行说明
 url: "/release-notes/rn_overview.html"
 entries:
-- title: 此版本的 Astra 数据存储中的内容
+- title: 此版本的 Astra 数据存储中的新增功能
   url: "/release-notes/whats-new.html"
 - title: 已知问题
   url: "/release-notes/known-issues.html"
