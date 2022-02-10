@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>管理集群</title>
+  <title>使用 Prometheus 和 Grafana 监控指标</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="管理集群" />
+  <meta property="og:title" content="使用 Prometheus 和 Grafana 监控指标" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use/maintain-cluster.html" />
-	<meta property="og:description" content="您可以在 Astra Data Store 中使用 kubectl 命令来维护集群。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html" />
+	<meta property="og:description" content="您可以使用 Prometheus 和 Grafana 监控 Astra 数据存储资产。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
@@ -18,8 +18,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="您可以在 Astra Data Store 中使用 kubectl 命令来维护集群。">
-  <meta name="keywords" content=" astra, astra data store, kubectl">
+  <meta name="description" content="您可以使用 Prometheus 和 Grafana 监控 Astra 数据存储资产。">
+  <meta name="keywords" content=" astra, astra data store, kubectl, endpoints, prometheus, grafana, visualization">
   
   
 
@@ -281,13 +281,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/maintain-cluster.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/maintain-cluster.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/maintain-cluster.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/maintain-cluster.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/monitor-with-prometheus-grafana.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -481,8 +481,12 @@
 
 
 
+
+
+
+
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use/maintain-cluster.pdf" >
+  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use/monitor-with-prometheus-grafana.pdf" >
     <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
     PDF of this page
   </a>
@@ -490,10 +494,6 @@
 
 </ul>
   
-
-
-
-
 
 
 
@@ -631,11 +631,11 @@
         管理 Astra 数据存储资产
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/deploy-apps.html">
         部署测试应用程序
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
         管理集群
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
         使用 Cloud Insights 监控指标
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html">
         使用 Prometheus 和 Grafana 监控指标
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/configure-endpoints.html">
         配置和监控事件日志
@@ -690,7 +690,7 @@
           <a href="/zh-cn/astra-data-store/">Astra&nbsp;Data&nbsp;Store</a>
         </li>
         <li class="n-breadcrumb__list-item">
-          管理集群
+          使用 Prometheus 和 Grafana 监控指标
         </li>
       </ul>
     </div>
@@ -713,7 +713,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">管理集群</h1>
+  <h1 class="n-doc__component-detail-heading">使用 Prometheus 和 Grafana 监控指标</h1>
 </div>
 
 
@@ -725,27 +725,11 @@
   
 
 <span>提供者
-  <a target="_blank" href="https://github.com/amgrissino">
-    <img  class="avatar avatar-small"
-          alt="amgrissino"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/36450105?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-mwallis">
     <img  class="avatar avatar-small"
           alt="netapp-mwallis"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/53353653?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-  <a target="_blank" href="https://github.com/netapp-dbagwell">
-    <img  class="avatar avatar-small"
-          alt="netapp-dbagwell"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53352450?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -758,730 +742,120 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>您可以使用带有 Astra Data Store 预览版的 kubectl 命令来管理集群。</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Add a node">[Add a node]</a></p>
-</li>
-<li>
-<p><a href="#Place a node in maintenance mode">[Place a node in maintenance mode]</a></p>
-</li>
-<li>
-<p><a href="#Replace a node">[Replace a node]</a></p>
-</li>
-<li>
-<p><a href="#Replace a drive">[Replace a drive]</a></p>
-</li>
-</ul>
+<p>您可以使用 Prometheus 和 Grafana 监控 Astra Data Store 预览指标。您可以将 Prometheus 配置为从 Astra Data Store 预览版 Kubernetes 集群指标端点收集指标，并且可以使用 Grafana 将指标数据可视化。</p>
 </div>
 <div class="ulist">
 <div class="title">您需要什么？ #8217 ；将需要什么</div>
 <ul>
 <li>
-<p>安装了 kubectl 和 kubectl-astrad 插件的系统。请参见 <a href="../get-started/install-ads.html">"安装 Astra Data Store 预览版"</a>。</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="添加节点">添加节点</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>要添加的节点应属于 Kubernetes 集群，并且其配置应与集群中的其他节点类似。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>如果新节点的 dataIP 尚未加入 ADSCluster CR ，请执行以下操作：</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>编辑 astradscluster CR 并在 ADS Data Networks Addresses 字段中添加额外的 dataIP ：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl edit astradscluster &lt;cluster-name&gt; -n astrads-system</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>adsDataNetworks:
-    -addresses:  dataIP1,dataIP2,dataIP3,dataIP4,*newdataIP*</pre>
-</div>
-</div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>保存 CR 。</p>
-</li>
-<li>
-<p>将节点添加到 Astra Data Store 预览集群：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes add –cluster &lt;cluster-name&gt;</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>否则，只需添加节点：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes add –cluster &lt;cluster-name&gt;</pre>
-</div>
-</div>
-</li>
-<li>
-<p>验证是否已添加此节点：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes list</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="将节点置于维护模式">将节点置于维护模式</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>需要执行主机维护或软件包升级时，应将节点置于维护模式。</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注">
-</td>
-<td class="content">
-此节点必须已属于 Astra Data Store 预览集群。
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>当节点处于维护模式时，您无法向集群添加节点。在此示例中，我们会将节点 <code>nhcitj1525</code> 置于维护模式。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>显示节点详细信息：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get nodes</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre> NAME             STATUS   ROLES                  AGE     VERSION
- nhcitjj1525      Ready    &lt;none&gt;                 3d18h   v1.20.0
- nhcitjj1526      Ready    &lt;none&gt;                 3d18h   v1.20.0
- nhcitjj1527      Ready    &lt;none&gt;                 3d18h   v1.20.0
- nhcitjj1528      Ready    &lt;none&gt;                 3d18h   v1.20.0
- scs000039783-1   Ready    control-plane,master   3d18h   v1.20.0</pre>
-</div>
-</div>
-</li>
-<li>
-<p>确保节点尚未处于维护模式：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应（没有节点处于维护模式）：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME    NODE NAME  IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT</pre>
-</div>
-</div>
-</li>
-<li>
-<p>启用维护模式。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance create &lt;cr-name&gt; --node-name=&lt;&lt;node-name&gt;&gt; --variant=Node</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>示例：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance create maint1 --node-name="nhcitjj1525" --variant=Node
-Maintenance mode astrads-system/maint1 created</pre>
-</div>
-</div>
-</li>
-<li>
-<p>列出节点。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NODE NAME       NODE STATUS     CLUSTER NAME
-nhcitjj1525     Added           ftap-astra-012
-...</pre>
-</div>
-</div>
-</li>
-<li>
-<p>检查维护模式的状态：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME    NODE NAME       IN MAINTENANCE  MAINTENANCE STATE       MAINTENANCE VARIANT
-node4   nhcitjj1525     true            ReadyForMaintenance     Node</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>维护` 模式下的 <code>将以 `false</code> 开头，并更改为 <code>true</code> 。<code>M状态</code> 从 <code>PreparingForMaintenance</code> 更改为 <code>ReadyforMaintenance</code> 。</p>
-</div>
-</li>
-<li>
-<p>完成节点维护后，禁用维护模式：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance update maint1 --node-name="nhcitjj1525" --variant=None</pre>
-</div>
-</div>
-</li>
-<li>
-<p>确保节点不再处于维护模式：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads maintenance list</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="更换节点">更换节点</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>使用 kubectl 命令和 Astra Data Store 预览版替换集群中的故障节点。</p>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>列出所有节点：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NODE NAME           NODE STATUS    CLUSTER NAME
-sti-rx2540-534d..   Added       cluster-multinodes-21209
-sti-rx2540-535d...  Added       cluster-multinodes-21209
-...</pre>
-</div>
-</div>
-</li>
-<li>
-<p>描述集群：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads clusters list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>CLUSTER NAME               CLUSTER STATUS  NODE COUNT
-cluster-multinodes-21209   created         4</pre>
-</div>
-</div>
-</li>
-<li>
-<p>验证故障节点上的 <code>Node HA</code> 是否标记为 <code>false</code> ：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl describe astradscluster -n astrads-system</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Name:         cluster-multinodes-21209
-Namespace:    astrads-system
-Labels:       &lt;none&gt;
-Annotations:  kubectl.kubernetes.io/last-applied-configuration:
-                {"apiVersion":"astrads.netapp.io/v1alpha1","kind":"AstraDSCluster","metadata":{"annotations":{},"name":"cluster-multinodes-21209","namespa...
-API Version:  astrads.netapp.io/v1alpha1
-Kind:         AstraDSCluster
-
-State:               Disabled
-Variant:             None
-Node HA:             false
-Node ID:             4
-Node Is Reachable:   false
-Node Management IP:  172.21.192.192
-Node Name:           sti-rx2540-532d.ctl.gdl.englab.netapp.com
-Node Role:           Storage
-Node UUID:           6f6b88f3-8411-56e5-b1f0-a8e8d0c946db
-Node Version:        12.75.0.6167444
-Status:              Added</pre>
-</div>
-</div>
-</li>
-<li>
-<p>通过将 `AddsNode Count ' 的值减至 3 ，修改 astradscluster CR 以删除故障节点：</p>
-<div class="listingblock">
-<div class="content">
-<pre>cat manifests/astradscluster.yaml</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSCluster
-metadata:
-  name: cluster-multinodes-21209
-  namespace: astrads-system
-spec:
-  # ADS Node Configuration per node settings
-  adsNodeConfig:
-    # Specify CPU limit for ADS components
-    # Supported value: 9
-    cpu: 9
-    # Specify Memory Limit in GiB for ADS Components.
-    # Your kubernetes worker nodes need to have at least this much RAM free
-    # for ADS to function correctly
-    # Supported value: 34
-    memory: 34
-    # [Optional] Specify raw storage consumption limit. The operator will only select drives for a node up to this limit
-    capacity: 600
-    # [Optional] Set a cache device if you do not want auto detection e.g. /dev/sdb
-    # cacheDevice: ""
-    # Set this regex filter to select drives for ADS cluster
-    # drivesFilter: ".*"
-
-  # [Optional] Specify node selector labels to select the nodes for creating ADS cluster
-  # adsNodeSelector:
-  #   matchLabels:
-  #     customLabelKey: customLabelValue
-
-  # Specify the number of nodes that should be used for creating ADS cluster
-  adsNodeCount: 3
-
-  # Specify the IP address of a floating management IP routable from any worker node in the cluster
-  mvip: "172..."
-
-  # Comma separated list of floating IP addresses routable from any host where you intend to mount a NetApp Volume
-  # at least one per node must be specified
-  # addresses: 10.0.0.1,10.0.0.2,10.0.0.3,10.0.0.4,10.0.0.5
-  # netmask: 255.255.255.0
-  adsDataNetworks:
-    - addresses: "172..."
-      netmask: 255.255.252.0
-
-
-  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to
-  # adsProtectionDomainKey: ""
-
-  # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
-  monitoringConfig:
-   namespace: "netapp-monitoring"
-   repo: "docker.repo.eng.netapp.com/global/astra"
-
-  autoSupportConfig:
-    # AutoUpload defines the flag to enable or disable AutoSupport upload in the cluster (true/false)
-    autoUpload: true
-    # Enabled defines the flag to enable or disable automatic AutoSupport collection.
-    # When set to false, periodic and event driven AutoSupport collection would be disabled.
-    # It is still possible to trigger an AutoSupport manually while AutoSupport is disabled
-    # enabled: true
-    # CoredumpUpload defines the flag to enable or disable the upload of coredumps for this ADS Cluster
-    # coredumpUpload: false
-    # HistoryRetentionCount defines the number of local (not uploaded) AutoSupport Custom Resources to retain in the cluster before deletion
-    historyRetentionCount: 25
-    # DestinationURL defines the endpoint to transfer the AutoSupport bundle collection
-    destinationURL: "https://testbed.netapp.com/put/AsupPut"
-    # ProxyURL defines the URL of the proxy with port to be used for AutoSupport bundle transfer
-    # proxyURL:
-    # Periodic defines the config for periodic/scheduled AutoSupport objects
-    periodic:
-      # Schedule defines the Kubernetes Cronjob schedule
-      - schedule: "0 0 * * *"
-        # PeriodicConfig defines the fields needed to create the Periodic AutoSupports
-        periodicconfig:
-        - component:
-            name: storage
-            event: dailyMonitoring
-          userMessage: Daily Monitoring Storage AutoSupport bundle
-          nodes: all
-        - component:
-            name: controlplane
-            event: daily
-          userMessage: Daily Control Plane AutoSupport bundle</pre>
-</div>
-</div>
-</li>
-<li>
-<p>验证是否已从集群中删除此节点：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get nodes --show-labels</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME                  STATUS   ROLES               AGE   VERSION   LABELS
-sti-astramaster-237   Ready control-plane,master   24h   v1.20.0
-sti-rx2540-532d       Ready  &lt;none&gt;                24h   v1.20.0
-sti-rx2540-533d       Ready  &lt;none&gt;                24h</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NODE NAME         NODE STATUS     CLUSTER NAME
-sti-rx2540-534d   Added           cluster-multinodes-21209
-sti-rx2540-535d   Added           cluster-multinodes-21209
-sti-rx2540-536d   Added           cluster-multinodes-21209</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get nodes --show-labels</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME                STATUS   ROLES                  AGE   VERSION   LABELS
-sti-astramaster-237 Ready    control-plane,master   24h   v1.20.0   beta.kubernetes.io/arch=amd64,
-sti-rx2540-532d     Ready    &lt;none&gt;                 24h   v1.20.0   astrads.netapp.io/node-removal</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl describe astradscluster -n astrads-system</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Name:         cluster-multinodes-21209
-Namespace:    astrads-system
-Labels:       &lt;none&gt;
-Kind:         AstraDSCluster
-Metadata:
-...</pre>
-</div>
-</div>
-</li>
-<li>
-<p>通过修改集群 CR 将节点添加到集群以进行更换。节点数将递增至 4 。验证是否已选取新节点进行添加。</p>
-<div class="listingblock">
-<div class="content">
-<pre>rvi manifests/astradscluster.yaml
-cat manifests/astradscluster.yaml
-apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSCluster
-metadata:
-  name: cluster-multinodes-21209
-  namespace: astrads-system</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl apply -f manifests/astradscluster.yaml</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>astradscluster.astrads.netapp.io/cluster-multinodes-21209 configured</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get pods -n astrads-system</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME                                READY   STATUS    RESTARTS   AGE
-astrads-cluster-controller...       1/1     Running   1          24h
-astrads-deployment-support...       3/3     Running   0          24h
-astrads-ds-cluster-multinodes-21209 1/1     Running</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads nodes list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NODE NAME                NODE STATUS     CLUSTER NAME
-sti-rx2540-534d...       Added           cluster-multinodes-21209
-sti-rx2540-535d...       Added           cluster-multinodes-21209</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads clusters list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>CLUSTER NAME                    CLUSTER STATUS  NODE COUNT
-cluster-multinodes-21209        created         4</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads drives list</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>DRIVE NAME    DRIVE ID    DRIVE STATUS   NODE NAME     CLUSTER NAME
-scsi-36000..  c3e197f2... Active         sti-rx2540... cluster-multinodes-21209</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="更换驱动器">更换驱动器</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>当集群中的驱动器发生故障时，必须尽快更换驱动器以确保数据完整性。驱动器发生故障时，您将在集群 CR 节点状态，集群运行状况信息和指标端点中看到故障驱动器信息。</p>
-</div>
-<div class="listingblock">
-<div class="title">在 nodeStatuss.driveStatuses 中显示故障驱动器的集群示例</div>
-<div class="content">
-<pre>$ kubectl get adscl -A -o yaml</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>...
-apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSCluster
-...
-nodeStatuses:
-  - driveStatuses:
-    - driveID: 31205e51-f592-59e3-b6ec-185fd25888fa
-      driveName: scsi-36000c290ace209465271ed6b8589b494
-      drivesStatus: Failed
-    - driveID: 3b515b09-3e95-5d25-a583-bee531ff3f31
-      driveName: scsi-36000c290ef2632627cb167a03b431a5f
-      drivesStatus: Active
-    - driveID: 0807fa06-35ce-5a46-9c25-f1669def8c8e
-      driveName: scsi-36000c292c8fc037c9f7e97a49e3e2708
-      drivesStatus: Active
-...</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>故障驱动器 CR 会在集群中自动创建，其名称与故障驱动器的 UUID 相对应。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ kubectl get adsfd -A -o yaml</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>...
-apiVersion: astrads.netapp.io/v1alpha1
-kind: AstraDSFailedDrive
-metadata:
-    name: c290a-5000-4652c-9b494
-    namespace: astrads-system
-spec:
-  executeReplace: false
-  replaceWith: ""
- status:
-   cluster: arda-6e4b4af
-   failedDriveInfo:
-     failureReason: AdminFailed
-     inUse: false
-     name: scsi-36000c290ace209465271ed6b8589b494
-     path: /dev/disk/by-id/scsi-36000c290ace209465271ed6b8589b494
-     present: true
-     serial: 6000c290ace209465271ed6b8589b494
-     node: sti-rx2540-300b.ctl.gdl.englab.netapp.com
-   state: ReadyToReplace</pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads faileddrive list --cluster arda-6e4b4af</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME       NODE                             CLUSTER        STATE                AGE
-6000c290   sti-rx2540-300b.lab.netapp.com   ard-6e4b4af    ReadyToReplace       13m</pre>
-</div>
-</div>
-<div class="olist arabic">
-<div class="title">步骤</div>
-<ol class="arabic">
-<li>
-<p>使用 <code>kubectl astrad show-replacements</code> 命令列出可能的替代驱动器，该命令可筛选符合更换限制（未在集群中使用，未挂载，无分区以及等于或大于故障驱动器）的驱动器。</p>
-<div class="paragraph">
-<p>要在不筛选可能的替代驱动器的情况下列出所有驱动器，请在 <code>sHow-replacements</code> 命令中添加 ` -all` 。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~%  kubectl astrads faileddrive show-replacements --cluster ard-6e4b4af --name 6000c290</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>响应：</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>NAME  IDPATH             SERIAL  PARTITIONCOUNT   MOUNTED   SIZE
-sdh   /scsi-36000c29417  45000c  0                false     100GB</pre>
-</div>
-</div>
-</li>
-<li>
-<p>使用 <code>replace</code> 命令将驱动器替换为已传递的序列号。如果 ` -wait` 时间已过，则命令将完成替换或失败。</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads faileddrive replace --cluster arda-6e4b4af --name 6000c290 --replaceWith 45000c --wait
-Drive replacement completed successfully</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注">
-</td>
-<td class="content">
-如果使用不适当的 ` -replaceWith` 序列号执行 <code>kubectl astrad faileddrive replace</code> ，则会显示类似以下内容的错误：
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith BAD_SERIAL_NUMBER
-Drive 6000c2927 replacement started
-Failed drive 6000c2927 has been set to use BAD_SERIAL_NUMBER as a replacement
-...
-Drive replacement didn't complete within 25 seconds
-Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 FiretapUUID:444a5468 Serial:6000c Path:/scsi-36000c FailureReason:AdminFailed Node:sti-b200-0214a.lab.netapp.com} Cluster:astrads-cluster-f51b10a State:ReadyToReplace Conditions:[{Message: "Replacement drive serial specified doesn't exist", Reason: "DriveSelectionFailed", Status: False, Type:' Done"]}</pre>
-</div>
-</div>
-</li>
-<li>
-<p>要重新运行驱动器更换，请使用 ` -force` 和上一个命令：</p>
-<div class="listingblock">
-<div class="content">
-<pre>~%  kubectl astrads replacedrive replace --cluster astrads-cluster-f51b10a --name 6000c2927 --replaceWith VALID_SERIAL_NUMBER --force</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="有关详细信息">有关详细信息 &#8230;&#8203;</h2>
-<div class="sectionbody">
+<p>确保已在 Astra Data Store 预览集群或可与 Astra Data Store 预览集群通信的其他集群上下载并安装 Prometheus 和 Grafana 软件包。按照官方文档中的说明安装每个工具：</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="../use/kubectl-commands-ads.html">"使用 kubectl 命令管理 Astra Data Store 预览资产"</a></p>
+<p><a href="https://prometheus.io/docs/prometheus/latest/installation/" target="_blank" rel="noopener">"安装 Prometheus"</a></p>
+</li>
+<li>
+<p><a href="https://grafana.com/docs/grafana/latest/installation/debian/" target="_blank" rel="noopener">"安装 Grafana"</a></p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p>Prometheus 和 Grafana 需要能够与 Astra Data Store preview Kubernetes 集群进行通信。如果 Astra Data Store 预览集群上未安装 Prometheus 和 Grafana ，则需要确保它们可以与在 Astra Data Store 预览集群上运行的指标服务进行通信。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="配置-prometheus">配置 Prometheus</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra Data Store 预览版可在 Kubernetes 集群中的 TCP 端口 9341 上公开指标服务。您需要配置 Prometheus 以从此服务收集指标。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>为您的 Prometheus 安装编辑 <code>Prometheus.yml</code> 配置文件。</p>
+</li>
+<li>
+<p>添加指向 Astra Data Store 预览服务名称及其端口的服务目标。例如：</p>
+<div class="listingblock">
+<div class="content">
+<pre>scrape_configs:
+static_configs:
+- targets: ['astrads-metrics-service.astrads-system:9341']</pre>
+</div>
+</div>
+</li>
+<li>
+<p>启动 Prometheus 服务。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="配置-grafana">配置 Grafana</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>您可以将 Grafana 配置为显示 Prometheus 收集的指标。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>为您的 Grafana 安装编辑 <code>datasources.yaml</code> 配置文件。</p>
+</li>
+<li>
+<p>将 Prometheus 添加为数据源。例如：</p>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: 1
+
+datasources:
+  - name: astradatastore-prometheus
+    type: prometheus
+    access: proxy
+    url: http://localhost:9090
+    jsonData:
+      manageAlerts: false</pre>
+</div>
+</div>
+</li>
+<li>
+<p>启动 Grafana 服务。</p>
+</li>
+<li>
+<p>按照 Grafana 文档中的说明进行操作 <a href="https://grafana.com/docs/grafana/latest/getting-started/getting-started/" target="_blank" rel="noopener">"开始使用"</a>。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="导入-grafana-信息板模板">导入 Grafana 信息板模板</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>为安装 Astra Data Store 预览版而下载的捆绑包文件包含 Grafana 信息板模板文件，您可以从 Grafana 中导入这些文件。这些信息板模板可帮助您查看 Astra Data Store 预览版中提供的指标类型以及查看方式。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>打开 Astra Data Store 预览 ` .tar.gz` 软件包。</p>
+</li>
+<li>
+<p>打开 <code>manifests</code> 目录。</p>
+</li>
+<li>
+<p>提取 <code>grafana_cluster.json</code> 和 <code>grafana_volume.json</code> 文件。</p>
+</li>
+<li>
+<p>使用 Grafana Web UI ， <a href="https://grafana.com/docs/grafana/latest/dashboards/export-import/" target="_blank" rel="noopener">"将信息板模板文件导入到 Grafana 中"</a>。</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1495,8 +869,8 @@ Current status: {FailedDriveInfo:{InUse:false Present:true Name:scsi-36000c2 Fir
   <div class="page-nav-toolbar">
     <div id="version-dropdown"></div>
     <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[管理集群](https://docs.netapp.com/zh-cn/astra-data-store/use/maintain-cluster.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/maintain-cluster.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[使用 Prometheus 和 Grafana 监控指标](https://docs.netapp.com/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/monitor-with-prometheus-grafana.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
       <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a>
     </div>
     <div class="page-nav-container">
