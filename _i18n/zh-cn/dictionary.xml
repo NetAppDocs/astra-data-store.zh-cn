@@ -1016,4 +1016,31 @@
   <block id="15388dda568bd0771380969281e3fb4d" category="list-text">在提示符处，确认要继续并输入 `erasedata`</block>
   <block id="858c3e811ac734bb143694fc06b49de1" category="list-text">在 `adsNetworkInterfaces` 中，将 ` &lt;mgmt_interface_name&gt;` 和 ` &lt;cluster_and_storage_interface_name&gt;` 值替换为要用于管理，集群和存储的网络接口名称。如果未指定名称，则节点的主接口将用于管理，集群和存储网络连接。</block>
   <block id="1b828e66f98e1084d2ec48e088373a14" category="sidebar">此版本的 Astra 数据存储中的新增功能</block>
+  <block id="211e9e8a4cf9ff3c00e04155da6f31d9" category="summary">您可以使用 Prometheus 和 Grafana 监控 Astra 数据存储资产。</block>
+  <block id="00e0d60d6c6845e2c5c19961e437a70c" category="doc">使用 Prometheus 和 Grafana 监控指标</block>
+  <block id="7b132651c6be946cb45ebbc5729d0fae" category="paragraph">您可以使用 Prometheus 和 Grafana 监控 Astra Data Store 预览指标。您可以将 Prometheus 配置为从 Astra Data Store 预览版 Kubernetes 集群指标端点收集指标，并且可以使用 Grafana 将指标数据可视化。</block>
+  <block id="90895f68c3d61650306b9827ff7c6324" category="list-text">确保已在 Astra Data Store 预览集群或可与 Astra Data Store 预览集群通信的其他集群上下载并安装 Prometheus 和 Grafana 软件包。按照官方文档中的说明安装每个工具：</block>
+  <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">安装 Prometheus</block>
+  <block id="763383a68e405097875c37e8ab57d401" category="list-text"><block ref="763383a68e405097875c37e8ab57d401" category="inline-link-rx"></block></block>
+  <block id="3de41522a35f102d48905bc53fd5c383" category="inline-link">安装 Grafana</block>
+  <block id="a557323906eaeb845274f1275674df7a" category="list-text"><block ref="a557323906eaeb845274f1275674df7a" category="inline-link-rx"></block></block>
+  <block id="a78f5549cd86895c64aa29975a576b48" category="list-text">Prometheus 和 Grafana 需要能够与 Astra Data Store preview Kubernetes 集群进行通信。如果 Astra Data Store 预览集群上未安装 Prometheus 和 Grafana ，则需要确保它们可以与在 Astra Data Store 预览集群上运行的指标服务进行通信。</block>
+  <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">配置 Prometheus</block>
+  <block id="cd93c151a525dff780b53bdf1dee4c20" category="paragraph">Astra Data Store 预览版可在 Kubernetes 集群中的 TCP 端口 9341 上公开指标服务。您需要配置 Prometheus 以从此服务收集指标。</block>
+  <block id="262824fa21333665f816f40f8094f64e" category="list-text">为您的 Prometheus 安装编辑 `Prometheus.yml` 配置文件。</block>
+  <block id="73df1fcf9d0ed4ea97560857f6173bd5" category="list-text">添加指向 Astra Data Store 预览服务名称及其端口的服务目标。例如：</block>
+  <block id="4ce6645d84fcfdc26a06bbcb3cb2200e" category="list-text">启动 Prometheus 服务。</block>
+  <block id="e91d9af5ad925c5de9147c893effa4d4" category="section-title">配置 Grafana</block>
+  <block id="fd629abff45ee23c6bdc73d9d91a66a4" category="paragraph">您可以将 Grafana 配置为显示 Prometheus 收集的指标。</block>
+  <block id="51b365774144e20a83d88f3a9cd021ae" category="list-text">为您的 Grafana 安装编辑 `datasources.yaml` 配置文件。</block>
+  <block id="c3aa2019ef2104794c22ebca3d9699af" category="list-text">将 Prometheus 添加为数据源。例如：</block>
+  <block id="72d2326d0f93988ea6c944cc1f71e4d7" category="list-text">启动 Grafana 服务。</block>
+  <block id="d59dfb8e877e5af488f89204ccb03248" category="list-text">按照 Grafana 文档中的说明进行操作<block ref="1cf3392e814c31461defe80ff0d63d38" category="inline-link-rx"></block>。</block>
+  <block id="9ef9f6e92b5af42394c5f060e5252493" category="section-title">导入 Grafana 信息板模板</block>
+  <block id="b7941e6fc2c5f63e8515ed63676c7d70" category="paragraph">为安装 Astra Data Store 预览版而下载的捆绑包文件包含 Grafana 信息板模板文件，您可以从 Grafana 中导入这些文件。这些信息板模板可帮助您查看 Astra Data Store 预览版中提供的指标类型以及查看方式。</block>
+  <block id="1783d559dc171f13beba29b4df9ac9d9" category="list-text">打开 Astra Data Store 预览 ` .tar.gz` 软件包。</block>
+  <block id="7aa7363407fe50db6732fda1c3546635" category="list-text">打开 `manifests` 目录。</block>
+  <block id="3da799470552bc99d72c76674914bc47" category="list-text">提取 `grafana_cluster.json` 和 `grafana_volume.json` 文件。</block>
+  <block id="7b2ccb49d7bc87351cf57d3e0c234471" category="inline-link">将信息板模板文件导入到 Grafana 中</block>
+  <block id="2d44692dc4e76f18d1b4df631a84302e" category="list-text">使用 Grafana Web UI ，<block ref="2cc34fe35a733f5131c1ab2d18b17aaf" category="inline-link-rx"></block>。</block>
 </blocks>
