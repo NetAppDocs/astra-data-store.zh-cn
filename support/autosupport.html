@@ -720,7 +720,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-10 22:19:20 +0000">02/10/2022</time>
+    <time datetime="2022-02-14 19:30:50 +0000">02/14/2022</time>
     
   
 
@@ -763,7 +763,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>默认情况下，期间会启用 AutoSupport <a href="../get-started/install-ads.html#install-the-astra-data-store-cluster">"Astra Data Store 预览集群安装"</a> 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 <a href="https://mysupport.netapp.com/site/" target="_blank" rel="noopener">"NetApp 支持站点（ NSS ）"</a> 或可供手动下载。</p>
+<p>默认情况下，期间会启用 AutoSupport <a href="../get-started/install-ads.html#install-the-astra-data-store-cluster">"Astra Data Store 预览集群安装"</a> 或在将 AutoSupport 自定义资源（ CR ）应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 <a href="https://mysupport.netapp.com/site/" target="_blank" rel="noopener">"NetApp 支持站点（ NSS ）"</a> 或可供手动下载。</p>
 </div>
 <div class="ulist">
 <div class="title">选项</div>
@@ -799,19 +799,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>定期： ASUP 捆绑包按 CR 中定义的间隔创建。</p>
+<p>* 定期 * ： ASUP 捆绑包按 CR 中定义的间隔创建。</p>
 </li>
 <li>
-<p>User triggered ：您可以手动创建自己的 ASUP 以查看日志。</p>
+<p>* 用户触发 * ：您可以手动创建自己的 ASUP 以查看日志。</p>
 </li>
 <li>
-<p>核心转储：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。</p>
+<p>* 核心转储 * ：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。</p>
 </li>
 <li>
-<p>基于 CallHome 事件：从操作系统的特定 CallHome 事件生成 ASUP 。</p>
+<p>* 基于 CallHome 事件 * ：从操作系统的特定 CallHome 事件生成 ASUP 。</p>
 </li>
 <li>
-<p>基于 Kubernetes 事件：通过控制平面中的特定 Kubernetes 事件生成 ASUP 。</p>
+<p>* 基于 Kubernetes 事件 * ：从控制平面中的特定 Kubernetes 事件生成 ASUP 。</p>
 </li>
 </ul>
 </div>
@@ -821,13 +821,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ControlPlane AutoSupport ：一组 Astra 数据存储预览控制平面日志和 CRS 。</p>
+<p>* ControlPlane CRS* ：一组 Astra 数据存储预览控制平面日志和 AutoSupport 。</p>
 </li>
 <li>
-<p>Storage AutoSupport ：存储报告和性能数据的集合。</p>
+<p>* 存储 AutoSupport * ：存储报告和性能数据的集合。</p>
 </li>
 <li>
-<p>核心转储 AutoSupport ：系统核心转储的集合。</p>
+<p>* 核心转储 AutoSupport * ：系统核心转储的集合。</p>
 </li>
 </ul>
 </div>
@@ -859,7 +859,7 @@
 <p>` &lt;myASUPname&gt;` ：要生成的 AutoSupport CR 的名称。</p>
 </li>
 <li>
-<p>` -e &lt; 事件名称 &gt;` ：触发收集事件名称的事件名称应在 component-YAML （挂载到支持控制器）中预定义。</p>
+<p>` -e &lt; 事件名称 &gt;` ：触发收集的事件名称。事件名称应在 component-yaml 中预定义（该名称已挂载到支持控制器）。</p>
 <div class="paragraph">
 <p>示例</p>
 </div>
@@ -884,13 +884,13 @@
 <p>` -cluster` ：在多集群环境中需要此标志。</p>
 </li>
 <li>
-<p>` -localCollection` ：启用本地收集。默认值为 <code>false 。</code></p>
+<p>` -localCollection` ：启用本地收集。默认值为 <code>false</code> 。</p>
 </li>
 <li>
-<p>` -forceUpload` ：启用强制上传。默认值为 <code>false 。</code></p>
+<p>` -forceUpload` ：启用强制上传。默认值为 <code>false</code> 。</p>
 </li>
 <li>
-<p>` — retry` ：启用重试。默认值为 <code>false 。</code></p>
+<p>` — retry` ：启用重试。默认值为 <code>false</code> 。</p>
 </li>
 </ul>
 </div>
@@ -928,7 +928,7 @@
 <p>` &lt;myASUPname&gt;` ：要生成的 AutoSupport CR 的名称。</p>
 </li>
 <li>
-<p>` -e &lt; 事件名称 &gt;` ：触发收集事件名称的事件名称应在 component-YAML （挂载到支持控制器）中预定义。</p>
+<p>` -e &lt; 事件名称 &gt;` ：触发收集的事件名称。事件名称应在 component-yaml 中预定义（该名称已挂载到支持控制器）。</p>
 <div class="paragraph">
 <p>性能事件示例：</p>
 </div>
@@ -980,13 +980,13 @@
 <p>` -cluster` ：在多集群环境中需要此标志。</p>
 </li>
 <li>
-<p>` -localCollection` ：启用本地收集。默认值为 <code>false 。</code></p>
+<p>` -localCollection` ：启用本地收集。默认值为 <code>false</code> 。</p>
 </li>
 <li>
-<p>` -forceUpload` ：启用强制上传。默认值为 <code>false 。</code></p>
+<p>` -forceUpload` ：启用强制上传。默认值为 <code>false</code> 。</p>
 </li>
 <li>
-<p>` — retry` ：启用重试。默认值为 <code>false 。</code></p>
+<p>` — retry` ：启用重试。默认值为 <code>false</code> 。</p>
 </li>
 </ul>
 </div>
