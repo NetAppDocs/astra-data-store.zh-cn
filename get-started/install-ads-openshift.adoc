@@ -41,6 +41,8 @@ Astra Data Store 预览安装过程将指导您完成以下高级步骤：
 * <<Install the monitoring operator>>
 
 
+如果要启用 Astra Data Store 预览以使用具有机密的映像注册表，请参见 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_enable_Astra_Data_Store_preview_to_work_with_image_registries_with_secret["此知识库文章"]。
+
 
 
 == 下载 Astra Data Store 预览包并提取映像
@@ -685,7 +687,7 @@ kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
 
 === 安装监控操作员
 
-（可选）只有当 Astra Data Store 预览版不会导入到 Astra 控制中心中时，才建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。
+（可选）如果不将 Astra Data Store 预览导入到 Astra 控制中心，建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。
 
 . 运行此安装命令：
 +

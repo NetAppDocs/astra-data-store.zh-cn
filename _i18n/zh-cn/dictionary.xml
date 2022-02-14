@@ -14,26 +14,15 @@
   <block id="1263660ba67e88caf8eb2431d28c44d1" category="list-text"><block ref="c812ac4d7fb1d494d99e57543c82a134" category="inline-xref-macro-rx"></block></block>
   <block id="c8259bf35a2bdc9b87f057557d330e25" category="section-title">AutoSupport 触发器和场景</block>
   <block id="b23b84a773fe2431825b44f4b9bc0ddb" category="paragraph">AutoSupport 捆绑包可通过以下方式触发：</block>
-  <block id="a5facf88e98d4f3b6218267651739d68" category="list-text">定期： ASUP 捆绑包按 CR 中定义的间隔创建。</block>
-  <block id="ec673413fc3a41ebc533e1c38f2e18a1" category="list-text">User triggered ：您可以手动创建自己的 ASUP 以查看日志。</block>
-  <block id="30bf10f9e77440cd5b50c15719c81944" category="list-text">核心转储：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。</block>
-  <block id="c2d8f28a841240c2f4d90140f7810bf1" category="list-text">基于 CallHome 事件：从操作系统的特定 CallHome 事件生成 ASUP 。</block>
-  <block id="3c71d7ce3356413ca73e41268c0f7c83" category="list-text">基于 Kubernetes 事件：通过控制平面中的特定 Kubernetes 事件生成 ASUP 。</block>
   <block id="372fb9362736f0e8d582ec96df84fb6a" category="paragraph">这些触发情形会生成以下 AutoSupport 类型之一：</block>
-  <block id="25a6232591674a3c1dbb24564f4d87fb" category="list-text">Storage AutoSupport ：存储报告和性能数据的集合。</block>
-  <block id="1ced1baf40d2db9de38616ea88ac1a4b" category="list-text">核心转储 AutoSupport ：系统核心转储的集合。</block>
   <block id="4d58342c8fbe7548f0680da50eadd915" category="section-title">配置自定义控制平面 AutoSupport 收集</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步骤</block>
   <block id="704170cc11bda8cddca282c117836b3a" category="list-text">自定义以下命令以创建控制面板集合 CR ：</block>
   <block id="0e06b0da9f80219a18d8739f0120abbd" category="list-text">定义自定义参数：</block>
   <block id="b29d2ef49a96707c2d8b5968d23c62a8" category="list-text">` &lt;myASUPname&gt;` ：要生成的 AutoSupport CR 的名称。</block>
-  <block id="b1779b1163734addf83359e7b817be1d" category="list-text">` -e &lt; 事件名称 &gt;` ：触发收集事件名称的事件名称应在 component-YAML （挂载到支持控制器）中预定义。</block>
   <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">示例</block>
   <block id="c9fcbda668b713374776401ef822c1e8" category="list-text">根据需要为系统添加其他参数：</block>
   <block id="92a4815b61cd107e54a5baa926431efe" category="list-text">` -cluster` ：在多集群环境中需要此标志。</block>
-  <block id="7e1232afa7e6c41607b3fb287f2b8b1e" category="list-text">` -localCollection` ：启用本地收集。默认值为 `false 。`</block>
-  <block id="14435a527eab4059647b1d681292642e" category="list-text">` -forceUpload` ：启用强制上传。默认值为 `false 。`</block>
-  <block id="7559d5f261056c6409821093bd2ec415" category="list-text">` — retry` ：启用重试。默认值为 `false 。`</block>
   <block id="c7e88254029f9cd1420ef53afd3e08fe" category="section-title">配置自定义 Storage AutoSupport 收集</block>
   <block id="aa1f065e1e83bd408811c0d6b5def6ad" category="list-text">自定义以下命令以创建存储收集 CR ：</block>
   <block id="685637f8394db77947ca4501d806f8a0" category="paragraph">性能事件示例：</block>
@@ -575,7 +564,6 @@
   <block id="6203a701a3e7de109a3a27e477c119db" category="paragraph">只有在 Astra 控制中心将 Astra Data Store 预览作为后端进行管理后，才能执行以下步骤。</block>
   <block id="268d42130d32b678b5315bca020d068f" category="list-text">配置 Astra 数据存储预览以供 Astra 控制中心监控：</block>
   <block id="9de66ad79d82936e94f0c6094e0171fb" category="section-title">安装监控操作员</block>
-  <block id="194fbd5a522bc86a2d3b35d737225178" category="paragraph">（可选）只有当 Astra Data Store 预览版不会导入到 Astra 控制中心中时，才建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。</block>
   <block id="75d6f2032046c897df7535bbcf1f2a76" category="list-text">运行此安装命令：</block>
   <block id="322b884d1c713ebd73ac803c20762937" category="list-text">配置用于监控的 Astra Data Store 预览版：</block>
   <block id="510a796972d54f6936dbae0081373fc0" category="inline-link-macro">设置任务</block>
@@ -770,7 +758,6 @@
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 预览帐户包括通过 Web 服务单提供的远程技术支持。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：</block>
   <block id="9028632a1ad8f69c5f424ba9224a7bcd" category="inline-link-macro">Astra Data Store 预览集群安装</block>
-  <block id="4547941b00b06ef9b132d2d05b58369d" category="list-text">ControlPlane AutoSupport ：一组 Astra 数据存储预览控制平面日志和 CRS 。</block>
   <block id="63ef41700dec8384fe67a00749f8ca7d" category="paragraph">您可以创建一个自定义 AutoSupport 收集配置，用于报告控制平面事件。默认情况下，大多数安装都已在期间启用定期事件报告 <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：</block>
   <block id="3fb0de2e8be52ea08e0f98a5ce31ab07" category="paragraph">您可以创建自定义 AutoSupport 收集配置，以报告存储组件事件。默认情况下，大多数安装都已在期间启用定期事件报告 <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>。此操作步骤介绍如何配置 AutoSupport CR ，以便根据您选择的参数进行报告：</block>
   <block id="aef7cd1b81043d55ad8648455fb6ed1b" category="list-text">Setup-snapshot-controller.yaml</block>
@@ -800,7 +787,6 @@
   <block id="aeb709613322d29961877072452bfe23" category="list-text">浏览并选择先前下载的核心文件。</block>
   <block id="d3b3561d6d067e8ee0dccc1a1af988d9" category="paragraph">此时将开始上传。上传完成后，将显示一条成功消息。</block>
   <block id="0c6bf31289bc5bf0b95228b0d2a8ec60" category="inline-link">NetApp 支持站点（ NSS ）</block>
-  <block id="a2ff6cb31659d7f5864cbf551727e519" category="paragraph">默认情况下，期间会启用 AutoSupport <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block> 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> 或可供手动下载。</block>
   <block id="30f6976fd56ced2f4cf61b05186ff1c1" category="admonition">您可以获得有关 Astra Data Store 预览版的社区技术支持。使用创建案例<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> 不适用于预览版本。您可以通过反馈选项联系支持部门，也可以使用 Slack 渠道自助服务。</block>
   <block id="2a78d6757f0c5e50314bbac0fd7b7197" category="list-text"><block ref="2a78d6757f0c5e50314bbac0fd7b7197" category="inline-link-rx"></block></block>
   <block id="915175f508b5f3177445a98b51f0097f" category="list-text"><block ref="4bd40507b5d2224d965f5d4747d374a9" category="inline-link-rx"></block></block>
@@ -822,7 +808,6 @@
   <block id="293acccfcaa84144747d7d17dbd3128e" category="list-text">创建 ads_sc_example.yaml ：</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="summary">了解如何解决您可能遇到的一些常见问题。</block>
   <block id="79c5785e2761673e59d8eea6f1277fe2" category="paragraph"><block ref="79c5785e2761673e59d8eea6f1277fe2" category="inline-link-rx"></block></block>
-  <block id="6987bbde2267c8be13f8b6d922b41b0c" category="list-text"><block ref="dcf5b80fa05febc0501b6d9fcc7d3ab0" category="inline-link-macro-rx"></block> 这是 Astra Data Store 预览安装说明的一部分。</block>
   <block id="45c6d9e32db908ddd56d04c07d49c401" category="list-text"><block ref="bfb34ca8335b0b73a54237f9edc747d4" category="inline-link-macro-rx"></block> 这是 Astra Data Store 预览安装说明的一部分。</block>
   <block id="de6bf4315ca097a0bda1ff06c7c49a20" category="list-text"><block ref="e1e29d7386d2d73bd3f1ef7e80229929" category="inline-link-rx"></block>。</block>
   <block id="4b41569e5e1165e5cfb321225dc3ea12" category="list-text"><block ref="35d6f1edf9ca8898423c009341c23fb1" category="inline-xref-macro-rx"></block></block>
@@ -1043,4 +1028,21 @@
   <block id="3da799470552bc99d72c76674914bc47" category="list-text">提取 `grafana_cluster.json` 和 `grafana_volume.json` 文件。</block>
   <block id="7b2ccb49d7bc87351cf57d3e0c234471" category="inline-link">将信息板模板文件导入到 Grafana 中</block>
   <block id="2d44692dc4e76f18d1b4df631a84302e" category="list-text">使用 Grafana Web UI ，<block ref="2cc34fe35a733f5131c1ab2d18b17aaf" category="inline-link-rx"></block>。</block>
+  <block id="34b3129a0cc4bfe6d36482f72fbceee9" category="paragraph">默认情况下，期间会启用 AutoSupport <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block> 或在将 AutoSupport 自定义资源（ CR ）应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> 或可供手动下载。</block>
+  <block id="efcf6fe8760b2393a176eae5edd579ed" category="list-text">* 定期 * ： ASUP 捆绑包按 CR 中定义的间隔创建。</block>
+  <block id="6dddcaa90ae5efda3acfa80c5ea3d08b" category="list-text">* 用户触发 * ：您可以手动创建自己的 ASUP 以查看日志。</block>
+  <block id="ab453bb9b40d04efb13294adfa92d853" category="list-text">* 核心转储 * ：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。</block>
+  <block id="bf0399c5eb2b0f5f3eb0cd0ba5f1130a" category="list-text">* 基于 CallHome 事件 * ：从操作系统的特定 CallHome 事件生成 ASUP 。</block>
+  <block id="3302ab6f089dba6c4edfb1215d444440" category="list-text">* 基于 Kubernetes 事件 * ：从控制平面中的特定 Kubernetes 事件生成 ASUP 。</block>
+  <block id="a1b9b3ffe4b26cb4a38e4dbca38671a7" category="list-text">* ControlPlane CRS* ：一组 Astra 数据存储预览控制平面日志和 AutoSupport 。</block>
+  <block id="b31894ec7a83e74505e86d91ddc53dd0" category="list-text">* 存储 AutoSupport * ：存储报告和性能数据的集合。</block>
+  <block id="e50b54ace80e3ce4ca4ed367489ffcbc" category="list-text">* 核心转储 AutoSupport * ：系统核心转储的集合。</block>
+  <block id="4eec994b5541d8211d5fe63ef587bf8b" category="list-text">` -e &lt; 事件名称 &gt;` ：触发收集的事件名称。事件名称应在 component-yaml 中预定义（该名称已挂载到支持控制器）。</block>
+  <block id="cee7078672c2b41aee5273a73b2b27f2" category="list-text">` -localCollection` ：启用本地收集。默认值为 `false` 。</block>
+  <block id="36f3b10b6a20048e99e47d216f11571a" category="list-text">` -forceUpload` ：启用强制上传。默认值为 `false` 。</block>
+  <block id="3af5eea542f5f2a1367599696b0d68c1" category="list-text">` — retry` ：启用重试。默认值为 `false` 。</block>
+  <block id="6dedadcf69af735efd40c0adf449157c" category="list-text"><block ref="c369dcf4e21885768bae8a032bc23010" category="inline-link-macro-rx"></block> 这是 Astra Data Store 预览安装说明的一部分。</block>
+  <block id="1892645d2782c9bf9dc34851d08c3fc0" category="inline-link">此知识库文章</block>
+  <block id="9d360497e26014d0f465e4f870bdeadc" category="paragraph">如果要启用 Astra Data Store 预览以使用具有机密的映像注册表，请参见<block ref="31862b8c922a22dfae2a0bc44d5fcca7" category="inline-link-rx"></block>。</block>
+  <block id="8b3692dee4534020feae3ae8064407c3" category="paragraph">（可选）如果不将 Astra Data Store 预览导入到 Astra 控制中心，建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。</block>
 </blocks>

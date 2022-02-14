@@ -16,7 +16,7 @@ AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 
 * 存储
 
 
-默认情况下，期间会启用 AutoSupport link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"] 或者在将 AutoSupport CR 应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 https://mysupport.netapp.com/site/["NetApp 支持站点（ NSS ）"^] 或可供手动下载。
+默认情况下，期间会启用 AutoSupport link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 预览集群安装"] 或在将 AutoSupport 自定义资源（ CR ）应用于集群后。启用后， AutoSupport （ ASUP ）捆绑包将自动上传到 https://mysupport.netapp.com/site/["NetApp 支持站点（ NSS ）"^] 或可供手动下载。
 
 .选项
 * <<AutoSupport triggers and scenarios>>
@@ -33,18 +33,18 @@ AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 
 
 AutoSupport 捆绑包可通过以下方式触发：
 
-* 定期： ASUP 捆绑包按 CR 中定义的间隔创建。
-* User triggered ：您可以手动创建自己的 ASUP 以查看日志。
-* 核心转储：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。
-* 基于 CallHome 事件：从操作系统的特定 CallHome 事件生成 ASUP 。
-* 基于 Kubernetes 事件：通过控制平面中的特定 Kubernetes 事件生成 ASUP 。
+* * 定期 * ： ASUP 捆绑包按 CR 中定义的间隔创建。
+* * 用户触发 * ：您可以手动创建自己的 ASUP 以查看日志。
+* * 核心转储 * ：如果节点上存在核心转储，则会生成 ASUP ，并将核心发送给 NetApp 进行进一步调查。
+* * 基于 CallHome 事件 * ：从操作系统的特定 CallHome 事件生成 ASUP 。
+* * 基于 Kubernetes 事件 * ：从控制平面中的特定 Kubernetes 事件生成 ASUP 。
 
 
 这些触发情形会生成以下 AutoSupport 类型之一：
 
-* ControlPlane AutoSupport ：一组 Astra 数据存储预览控制平面日志和 CRS 。
-* Storage AutoSupport ：存储报告和性能数据的集合。
-* 核心转储 AutoSupport ：系统核心转储的集合。
+* * ControlPlane CRS* ：一组 Astra 数据存储预览控制平面日志和 AutoSupport 。
+* * 存储 AutoSupport * ：存储报告和性能数据的集合。
+* * 核心转储 AutoSupport * ：系统核心转储的集合。
 
 
 
@@ -64,7 +64,7 @@ kubectl astasds asup collect -c controlplane --namespace=astrads-system
 .. 定义自定义参数：
 +
 *** ` <myASUPname>` ：要生成的 AutoSupport CR 的名称。
-*** ` -e < 事件名称 >` ：触发收集事件名称的事件名称应在 component-YAML （挂载到支持控制器）中预定义。
+*** ` -e < 事件名称 >` ：触发收集的事件名称。事件名称应在 component-yaml 中预定义（该名称已挂载到支持控制器）。
 +
 示例
 
@@ -78,9 +78,9 @@ kubectl astrasds asup collect -c controlplane custom-asup-name -e debug --namesp
 .. 根据需要为系统添加其他参数：
 +
 *** ` -cluster` ：在多集群环境中需要此标志。
-*** ` -localCollection` ：启用本地收集。默认值为 `false 。`
-*** ` -forceUpload` ：启用强制上传。默认值为 `false 。`
-*** ` — retry` ：启用重试。默认值为 `false 。`
+*** ` -localCollection` ：启用本地收集。默认值为 `false` 。
+*** ` -forceUpload` ：启用强制上传。默认值为 `false` 。
+*** ` — retry` ：启用重试。默认值为 `false` 。
 
 
 
@@ -104,7 +104,7 @@ kubectl astrasds asup collect -c storage --namespace=astrads-system
 .. 定义自定义参数：
 +
 *** ` <myASUPname>` ：要生成的 AutoSupport CR 的名称。
-*** ` -e < 事件名称 >` ：触发收集事件名称的事件名称应在 component-YAML （挂载到支持控制器）中预定义。
+*** ` -e < 事件名称 >` ：触发收集的事件名称。事件名称应在 component-yaml 中预定义（该名称已挂载到支持控制器）。
 +
 性能事件示例：
 
@@ -136,9 +136,9 @@ kubectl astrads asup collect -c storage --nodes example1,example2,example3
 .. 根据需要为系统添加其他参数：
 +
 *** ` -cluster` ：在多集群环境中需要此标志。
-*** ` -localCollection` ：启用本地收集。默认值为 `false 。`
-*** ` -forceUpload` ：启用强制上传。默认值为 `false 。`
-*** ` — retry` ：启用重试。默认值为 `false 。`
+*** ` -localCollection` ：启用本地收集。默认值为 `false` 。
+*** ` -forceUpload` ：启用强制上传。默认值为 `false` 。
+*** ` — retry` ：启用重试。默认值为 `false` 。
 
 
 

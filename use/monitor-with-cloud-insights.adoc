@@ -29,7 +29,7 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 
 在将 Astra 数据存储与 Cloud Insights 连接之前，您需要完成以下任务：
 
-* link:../get-started/install-ads.html["安装 Astra 数据存储监控操作员"] 这是 Astra Data Store 预览安装说明的一部分。
+* link:../get-started/install-ads.html#install-the-monitoring-operator["安装 Astra 数据存储监控操作员"] 这是 Astra Data Store 预览安装说明的一部分。
 * link:../get-started/install-ads.html["安装 kubectl-astrad 二进制文件"] 这是 Astra Data Store 预览安装说明的一部分。
 * https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["创建 Cloud Insights 帐户"^]。
 * 确保以下命令可用： `jk ， curl ， grep` 和 `JQ`
