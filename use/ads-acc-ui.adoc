@@ -18,8 +18,8 @@ summary: 您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra �
 
 要使用适用于 Astra Data Store 的 Astra 控制中心 UI 预览版，您需要完成以下任务：
 
-* link:../get-started/setup_overview.html#add-cluster["添加安装了 Astra Data Store 的底层 Kubernetes 集群"^]。
-* link:../get-started/setup_overview.html#add-a-storage-backend["为该集群添加 Astra Data Store 预览存储后端"]。
+* https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-cluster["将运行 Astra 数据存储的底层 Kubernetes 集群添加到 Astra 控制中心"]。
+* https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend["将 Astra Data Store 预览作为存储后端添加到 Astra 控制中心"]。
 +
 
 NOTE: 如果您添加了存储后端，并且不存在具有 Astra Data Store 预览版的 Kubernetes 集群，则需要先添加一个集群。

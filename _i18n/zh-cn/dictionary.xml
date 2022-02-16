@@ -947,10 +947,6 @@
   <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">` -r` 是可选的，用于设置 Fluent 或 Telegraf 映像所在的 Docker 注册表。默认情况下，此路径设置为 `docker.repo.eng.netapp.com/global/astra` ，您可以进行更改。</block>
   <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">要查看日志，设置 Cloud Insights 是可选的；但是，使用 Cloud Insights 查看数据很有帮助。请参见 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> 用于 Astra Data Store 预览版。</block>
   <block id="d9d6ed14c600162e996a2b655fe76a5b" category="paragraph">要将 EMS 事件和其他 POD 日志流式传输到 Elastic 等第三方端点，请使用 `astrad` 扩展。</block>
-  <block id="dd28600b37d206c458b334bd7ffb8392" category="inline-link-macro">添加安装了 Astra Data Store 的底层 Kubernetes 集群</block>
-  <block id="486935e8eec639b9908b1b27009a3d45" category="list-text"><block ref="0abc3178943c2e313a51344a5a71a6f4" category="inline-link-macro-rx"></block>。</block>
-  <block id="97bf50f54963d01dea9409c25b12a862" category="inline-link-macro">为该集群添加 Astra Data Store 预览存储后端</block>
-  <block id="2f0c9fb30324413f2ab0cdaea50981c0" category="list-text"><block ref="bad2a7ffbfb74e3294d159537164f102" category="inline-link-macro-rx"></block>。</block>
   <block id="fb1b2d57a629a279f6ff0d53a5227a85" category="inline-link">监控节点，磁盘和永久性卷声明（ PVC ）</block>
   <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>。</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API</block>
@@ -1045,4 +1041,8 @@
   <block id="1892645d2782c9bf9dc34851d08c3fc0" category="inline-link">此知识库文章</block>
   <block id="9d360497e26014d0f465e4f870bdeadc" category="paragraph">如果要启用 Astra Data Store 预览以使用具有机密的映像注册表，请参见<block ref="31862b8c922a22dfae2a0bc44d5fcca7" category="inline-link-rx"></block>。</block>
   <block id="8b3692dee4534020feae3ae8064407c3" category="paragraph">（可选）如果不将 Astra Data Store 预览导入到 Astra 控制中心，建议使用监控操作员。如果您的 Astra 数据存储预览实例是独立部署，使用 Cloud Insights 监控遥测或将日志流式传输到 Elastic 等第三方端点，则可以安装监控操作员。</block>
+  <block id="ae5562b31c4323f309fb889a9b093cdf" category="inline-link">将运行 Astra 数据存储的底层 Kubernetes 集群添加到 Astra 控制中心</block>
+  <block id="fc8f50043a90344f7ed3abf976a2c2bf" category="list-text"><block ref="4c0801f62183e0e2f60f1c6b67702af3" category="inline-link-rx"></block>。</block>
+  <block id="75dda14e63e81d459a63d119ddf1df01" category="inline-link">将 Astra Data Store 预览作为存储后端添加到 Astra 控制中心</block>
+  <block id="463b550d7836a6234ad681f2c2eb84f6" category="list-text"><block ref="6ba69dca5449a718fd2d8fff37a9e3af" category="inline-link-rx"></block>。</block>
 </blocks>
