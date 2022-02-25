@@ -295,7 +295,7 @@ OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 j
 +
 [listing]
 ----
-sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`
+sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml
 ----
 . 在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。
 
@@ -332,6 +332,10 @@ kubectl apply -f ./manifests/astradsoperator.yaml
 ----
 +
 响应：
+
++
+
+NOTE: 根据您执行的是标准安装还是 OCP 安装，命名空间响应可能会有所不同。
 
 +
 [listing]
