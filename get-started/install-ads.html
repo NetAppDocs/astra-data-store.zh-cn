@@ -9,7 +9,7 @@
   <meta property="og:title" content="安装 Astra Data Store 预览版" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/get-started/install-ads.html" />
-	<meta property="og:description" content="要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。" />
+	<meta property="og:description" content="要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载此软件包并按照以下步骤进行安装。如何在 OpenShift 上安装 Astra 数据存储" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
@@ -18,8 +18,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。">
-  <meta name="keywords" content=" astra, astra data store, install, deploy, download">
+  <meta name="description" content="要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载此软件包并按照以下步骤进行安装。如何在 OpenShift 上安装 Astra 数据存储">
+  <meta name="keywords" content=" astra, astra data store, install, deploy, download, openshift, red hat, ocp">
   
   
 
@@ -423,19 +423,6 @@
 
 
 
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          <a target="_blank" 
-            
-              href="/zh-cn/astra-data-store/pdfs/sidebar/安装概述.pdf" 
-            
-          >
-            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
-            安装概述
-          </a>
-          
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
   <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/get-started/install-ads.pdf" >
     <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
@@ -444,17 +431,6 @@
 </li>
 
 </ul>
-  
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
   
 
 
@@ -611,14 +587,9 @@
         Astra Data Store 预览要求
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/quick-start.html">
         快速启动 Astra Data Store 预览
-      </a></li><li class="subfolders "><a href="/zh-cn/astra-data-store/get-started/install-overview.html">
-        <div class="na-navbar-padding"> 安装概述</div>
-      </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/install-ads.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/install-ads.html">
         安装 Astra Data Store 预览版
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/install-ads-openshift.html">
-        在 OpenShift 上安装 Astra Data Store 预览版
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/setup-ads.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/setup-ads.html">
         设置 Astra Data Store 预览组件
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/capabilities.html">
         Astra 数据存储预览限制
@@ -720,7 +691,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-16 23:51:11 +0000">02/16/2022</time>
+    <time datetime="2022-02-25 16:29:50 +0000">02/25/2022</time>
     
   
 
@@ -758,10 +729,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>要安装 Astra Data Store 预览版，请从下载安装包 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp 支持站点"</a> 并完成此操作步骤中所述的安装步骤。</p>
-</div>
-<div class="paragraph">
-<p>或者，您也可以 <a href="install-ads-openshift.html">"在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版"</a>。</p>
+<p>要安装 Astra Data Store 预览版，请从下载安装包 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp 支持站点"</a> 并完成此操作步骤 中所述的安装步骤。</p>
 </div>
 <div class="videoblock">
 <div class="content">
@@ -792,7 +760,10 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Astra Data Store 预览安装过程将指导您完成以下高级步骤：</p>
+<p>Astra Data Store 预览安装过程将指导您完成以下高级步骤。</p>
+</div>
+<div class="paragraph">
+<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时才需要执行某些步骤，并且这些步骤仅指定为 OCP 。在非 OCP Kubernetes 集群上部署时，可以跳过这些步骤。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -801,6 +772,18 @@
 </li>
 <li>
 <p><a href="#Copy the binary and push images to your local registry">[Copy the binary and push images to your local registry]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Create a namespace to deploy Astra Data Store preview">[OCP only: Create a namespace to deploy Astra Data Store preview]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Create a custom SCC">[OCP only: Create a custom SCC]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Create the roles and role bindings">[OCP only: Create the roles and role bindings]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Prepare the worker nodes">[OCP only: Prepare the worker nodes]</a></p>
 </li>
 <li>
 <p><a href="#Install the Astra Data Store preview operator">[Install the Astra Data Store preview operator]</a></p>
@@ -918,6 +901,245 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml</pre>
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="仅限-ocp-创建命名空间以部署-astra-data-store-预览版">仅限 OCP ：创建命名空间以部署 Astra Data Store 预览版</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>创建一个 <code>astrads-system</code> 命名空间，其中将安装所有 Astra Data Store 预览组件。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>创建命名空间：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create -f ads_namespace.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>示例： ads_namespace.yaml</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: operator
+  name: astrads-system</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="仅限-ocp-创建自定义-scc">仅限 OCP ：创建自定义 SCC</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。</p>
+</div>
+<div class="paragraph">
+<p>受限 SCC 不提供 Astra Data Store 预览集群 Pod 所需的权限。使用此操作步骤可为 Astra 数据存储预览提供所需的权限（在示例中列出）。</p>
+</div>
+<div class="paragraph">
+<p>将自定义 SCC 分配给 Astra Data Store 预览命名空间的默认服务帐户。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>创建自定义 SCC ：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create -f ads_privileged_scc.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>示例： ads_privileged_scc.yaml</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>allowHostDirVolumePlugin: true
+allowHostIPC: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+- '*'
+allowedUnsafeSysctls:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    kubernetes.io/description: 'ADS privileged. Grant with caution.'
+    release.openshift.io/create-only: "true"
+  name: ads-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:astrads-system:default
+volumes:
+- '*'</pre>
+</div>
+</div>
+</li>
+<li>
+<p>使用 <code>oc get SCC</code> 命令显示新添加的 SCC ：</p>
+<div class="listingblock">
+<div class="content">
+<pre># oc get scc/ads-privileged
+NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
+ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   &lt;no value&gt;   false            ["*"]
+#</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="仅-ocp-创建角色和角色绑定">仅 OCP ：创建角色和角色绑定</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>为 Astra Data Store 预览版创建所需的角色和角色绑定，以供默认服务帐户使用。</p>
+</div>
+<div class="paragraph">
+<p>以下 YAML 定义可分配 <code>astrads.netapp.io</code> API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>创建定义的角色和角色绑定：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create -f oc_role_bindings.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>示例： oc_role_Bindings.yaml</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: privcrole
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - ads-privileged
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-scc-rolebinding
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: privcrole
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ownerref
+  namespace: astrads-system
+rules:
+- apiGroups:
+  - astrads.netapp.io
+  resources:
+  - '*/finalizers'
+  verbs:
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: or-rb
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ownerref
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="仅限-ocp-准备工作节点">仅限 OCP ：准备工作节点</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。</p>
+</div>
+<div class="paragraph">
+<p>OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 <code>kubelet config</code> 文件的 YAML 格式。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`</pre>
+</div>
+</div>
+</li>
+<li>
+<p>在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+如果不执行此操作，则 Astra Data Store 预览集群安装将失败。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1250,6 +1472,31 @@ kind: AstraDSCluster
 <div class="content">
 <pre>kubectl apply -f ./manifests/astradscluster.yaml</pre>
 </div>
+</div>
+</li>
+<li>
+<p>（仅限 OCP ）如果启用了 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 <code>selinux</code> 上下文。</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+之所以需要执行此步骤，是因为 <code>selinux</code> 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 <code>CrashLoopBackoff</code> 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
