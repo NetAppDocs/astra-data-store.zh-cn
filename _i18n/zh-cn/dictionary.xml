@@ -486,7 +486,6 @@
   <block id="cd0b441465398fa0d75eba9947c66599" category="list-text">创建 trident CSI ：</block>
   <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">验证是否已添加存储类：</block>
   <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">验证 Astra Trident 后端是否已使用默认存储类参数进行更新：</block>
-  <block id="f6b5c68237555d09d9a7f7e2de93b432" category="summary">要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。</block>
   <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">注册</block>
   <block id="dfcac5e258bdfa0f1d552f9e95472f56" category="inline-link-macro">NetApp 许可证文件（ NLF ）</block>
   <block id="ad3b46ea44ef643f0aa6cf10b5cddef7" category="inline-link">注册</block>
@@ -706,8 +705,6 @@
   <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>。</block>
   <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">如果您使用的是 Red Hat OpenShift ，请使用 OpenShift 安装 Astra Data Store</block>
   <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>。</block>
-  <block id="d3d764264531a47774f6224c0245037c" category="inline-link-macro">在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版</block>
-  <block id="012afa59aa5540c24544e89ee39ecf33" category="paragraph">或者，您也可以 <block ref="ec1d518175157305e3ede5bea61d33e3" category="inline-link-macro-rx"></block>。</block>
   <block id="a425a235822edd430a58eacccd757806" category="paragraph">Astra 数据存储预览已通过以下 CNI 的验证：</block>
   <block id="66f992fd154333db12979224b40bb01d" category="list-text">适用于 Vanilla Kubernetes 集群的 Calico 和 Weave Net CNI</block>
   <block id="1c6ba40a804a7b27053cbc1e9b881a53" category="list-text">适用于 Red Hat OpenShift 容器平台（ OCP ）的 OpenShift SDN</block>
@@ -753,8 +750,6 @@
   <block id="a0043c0af3acf54941321b091a08c953" category="list-text">使用 `kubectl apply` 命令进行部署：</block>
   <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">如果已启用 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">之所以需要执行此步骤，是因为 `selinux` 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 `CrashLoopBackoff` 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。</block>
-  <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">安装概述</block>
-  <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">在 OpenShift 上安装 Astra Data Store 预览版</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 预览帐户包括通过 Web 服务单提供的远程技术支持。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：</block>
   <block id="9028632a1ad8f69c5f424ba9224a7bcd" category="inline-link-macro">Astra Data Store 预览集群安装</block>
@@ -794,7 +789,6 @@
   <block id="1e16f2b8556745da1de7a0b75522a635" category="paragraph"><block ref="1e16f2b8556745da1de7a0b75522a635" category="inline-link-rx"></block></block>
   <block id="bb77e148c413e9e6fe81c660d1b64bcb" category="list-text">下载 <block ref="07b1214d7f04b151683fccdcb3396163" category="inline-link-macro-rx"></block>：</block>
   <block id="6087aa1a980e9fb03c3d42ed429d3090" category="list-text">下载 <block ref="424f4872df67a1a5528184cc2ca8dc8c" category="inline-link-macro-rx"></block>：</block>
-  <block id="2f67cd55143c2541e6edf7020c06c3d5" category="paragraph">要安装 Astra Data Store 预览版，请从下载安装包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并完成此操作步骤中所述的安装步骤。</block>
   <block id="74bc6e591c8afde1756c60343fc6adb7" category="list-text">访问<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>。<block ref="a14d2f1983300ed8731dcf11dfa18e8a" category="inline-link-rx"></block> 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。</block>
   <block id="3f18a8915118a57279458e475c19506d" category="list-text">答 <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> 用于 Astra Data Store 预览。下载许可证的说明将在您之后发送给您<block ref="ef54037861aa5e9e926253483ef1a002" category="inline-link-rx"></block>。</block>
   <block id="06e707c9bfaad1d590b948f0c4975ea0" category="list-text">登录到<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。</block>
@@ -1045,4 +1039,18 @@
   <block id="fc8f50043a90344f7ed3abf976a2c2bf" category="list-text"><block ref="4c0801f62183e0e2f60f1c6b67702af3" category="inline-link-rx"></block>。</block>
   <block id="75dda14e63e81d459a63d119ddf1df01" category="inline-link">将 Astra Data Store 预览作为存储后端添加到 Astra 控制中心</block>
   <block id="463b550d7836a6234ad681f2c2eb84f6" category="list-text"><block ref="6ba69dca5449a718fd2d8fff37a9e3af" category="inline-link-rx"></block>。</block>
+  <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载此软件包并按照以下步骤进行安装。如何在 OpenShift 上安装 Astra 数据存储</block>
+  <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">要安装 Astra Data Store 预览版，请从下载安装包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并完成此操作步骤 中所述的安装步骤。</block>
+  <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store 预览安装过程将指导您完成以下高级步骤。</block>
+  <block id="48b85b5d24f1050cddd92b2569a3d7d6" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时才需要执行某些步骤，并且这些步骤仅指定为 OCP 。在非 OCP Kubernetes 集群上部署时，可以跳过这些步骤。</block>
+  <block id="06511bd701b1be04064c0b42e9cab089" category="list-text"><block ref="60600013397dfec6ca46381b39ae39f3" category="inline-xref-macro-rx"></block></block>
+  <block id="6b304521db7471f07f8ff21ab6379311" category="list-text"><block ref="5184f3b4b84888db746c615b831fbfa7" category="inline-xref-macro-rx"></block></block>
+  <block id="175212d41d3aa10559d2124b6221c6a9" category="list-text"><block ref="6af5fc26efcf86593457394860cec4f6" category="inline-xref-macro-rx"></block></block>
+  <block id="b7c4e1d462c1474c0f853e5f7398ac52" category="list-text"><block ref="b4bf96f1d944d36dbf8b7aa8a7932243" category="inline-xref-macro-rx"></block></block>
+  <block id="a2fc1f9c02730bbe98a8674816fe470e" category="section-title">仅限 OCP ：创建命名空间以部署 Astra Data Store 预览版</block>
+  <block id="78e10172f6f4b75a10617e31c10c3d5b" category="section-title">仅限 OCP ：创建自定义 SCC</block>
+  <block id="2df285027c0d59c311ecb70dd41834c7" category="section-title">仅 OCP ：创建角色和角色绑定</block>
+  <block id="d886a832387eaadb4f847ec48c2582f4" category="section-title">仅限 OCP ：准备工作节点</block>
+  <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。</block>
+  <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（仅限 OCP ）如果启用了 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
 </blocks>

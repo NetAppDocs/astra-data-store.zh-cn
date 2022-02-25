@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: get-started/install-ads.html 
-keywords: astra, astra data store, install, deploy, download 
-summary: 要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载该软件包并按照所述步骤进行安装。 
+keywords: astra, astra data store, install, deploy, download, openshift, red hat, ocp 
+summary: 要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载此软件包并按照以下步骤进行安装。如何在 OpenShift 上安装 Astra 数据存储 
 ---
 = 安装 Astra Data Store 预览版
 :hardbreaks:
@@ -10,9 +10,7 @@ summary: 要在满足某些环境前提条件后安装 Astra 数据存储库，�
 :imagesdir: ../media/get-started/
 
 
-要安装 Astra Data Store 预览版，请从下载安装包 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并完成此操作步骤中所述的安装步骤。
-
-或者，您也可以 link:install-ads-openshift.html["在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store 预览版"]。
+要安装 Astra Data Store 预览版，请从下载安装包 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并完成此操作步骤 中所述的安装步骤。
 
 video::jz6EuryqYps[youtube, ]
 .您需要什么？ #8217 ；将需要什么
@@ -24,10 +22,16 @@ video::jz6EuryqYps[youtube, ]
 * Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。
 
 
-Astra Data Store 预览安装过程将指导您完成以下高级步骤：
+Astra Data Store 预览安装过程将指导您完成以下高级步骤。
+
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时才需要执行某些步骤，并且这些步骤仅指定为 OCP 。在非 OCP Kubernetes 集群上部署时，可以跳过这些步骤。
 
 * <<Download the Astra Data Store preview bundle and extract the images>>
 * <<Copy the binary and push images to your local registry>>
+* <<OCP only: Create a namespace to deploy Astra Data Store preview>>
+* <<OCP only: Create a custom SCC>>
+* <<OCP only: Create the roles and role bindings>>
+* <<OCP only: Prepare the worker nodes>>
 * <<Install the Astra Data Store preview operator>>
 * <<Deploy the Astra Data Store preview version YAML>>
 * <<Apply the Astra Data Store preview license>>
@@ -100,6 +104,204 @@ done
 sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml
 ----
 
+
+
+
+== 仅限 OCP ：创建命名空间以部署 Astra Data Store 预览版
+
+创建一个 `astrads-system` 命名空间，其中将安装所有 Astra Data Store 预览组件。
+
+. 创建命名空间：
++
+[listing]
+----
+kubectl create -f ads_namespace.yaml
+----
++
+示例： ads_namespace.yaml
+
++
+[listing]
+----
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: operator
+  name: astrads-system
+----
+
+
+
+
+== 仅限 OCP ：创建自定义 SCC
+
+OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。
+
+受限 SCC 不提供 Astra Data Store 预览集群 Pod 所需的权限。使用此操作步骤可为 Astra 数据存储预览提供所需的权限（在示例中列出）。
+
+将自定义 SCC 分配给 Astra Data Store 预览命名空间的默认服务帐户。
+
+.步骤
+. 创建自定义 SCC ：
++
+[listing]
+----
+kubectl create -f ads_privileged_scc.yaml
+----
++
+示例： ads_privileged_scc.yaml
+
++
+[listing]
+----
+allowHostDirVolumePlugin: true
+allowHostIPC: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+- '*'
+allowedUnsafeSysctls:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    kubernetes.io/description: 'ADS privileged. Grant with caution.'
+    release.openshift.io/create-only: "true"
+  name: ads-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:astrads-system:default
+volumes:
+- '*'
+----
+. 使用 `oc get SCC` 命令显示新添加的 SCC ：
++
+[listing]
+----
+# oc get scc/ads-privileged
+NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
+ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no value>   false            ["*"]
+#
+----
+
+
+
+
+== 仅 OCP ：创建角色和角色绑定
+
+为 Astra Data Store 预览版创建所需的角色和角色绑定，以供默认服务帐户使用。
+
+以下 YAML 定义可分配 `astrads.netapp.io` API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。
+
+. 创建定义的角色和角色绑定：
++
+[listing]
+----
+kubectl create -f oc_role_bindings.yaml
+----
++
+示例： oc_role_Bindings.yaml
+
++
+[listing]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: privcrole
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - ads-privileged
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-scc-rolebinding
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: privcrole
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ownerref
+  namespace: astrads-system
+rules:
+- apiGroups:
+  - astrads.netapp.io
+  resources:
+  - '*/finalizers'
+  verbs:
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: or-rb
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ownerref
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+----
+
+
+
+
+== 仅限 OCP ：准备工作节点
+
+准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。
+
+OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 `kubelet config` 文件的 YAML 格式。
+
+.步骤
+. 在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。
++
+[listing]
+----
+sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`
+----
+. 在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。
+
+
+
+NOTE: 如果不执行此操作，则 Astra Data Store 预览集群安装将失败。
 
 
 
@@ -357,6 +559,21 @@ kind: AstraDSCluster
 ----
 kubectl apply -f ./manifests/astradscluster.yaml
 ----
+. （仅限 OCP ）如果启用了 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。
++
+[listing]
+----
+sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/
+----
++
+[listing]
+----
+sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/
+----
++
+
+NOTE: 之所以需要执行此步骤，是因为 `selinux` 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 `CrashLoopBackoff` 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。
+
 . 等待几分钟，以完成集群创建操作，然后验证 Pod 是否正在运行：
 +
 [listing]
