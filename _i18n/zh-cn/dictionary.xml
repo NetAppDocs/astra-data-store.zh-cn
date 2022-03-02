@@ -892,9 +892,7 @@
   <block id="b9d6af3a248ddac19c1574ec0ea3368f" category="list-text">配置 Astra Data Store 预览监控。</block>
   <block id="68ae8bfef44263c7568e9225825a9511" category="list-text">如果您使用的是 Red Hat OpenShift ，请在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview 。</block>
   <block id="e1e135fb56845d917b3148da7cfeb1ee" category="list-text">* 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上</block>
-  <block id="844d33654c81fc2a271afbc6e6e2be29" category="list-text">NVMe TLC SSD</block>
   <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版</block>
-  <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">基于 SAS 或 NVMe TLC SSD 的数据存储库</block>
   <block id="09195210bb32cb68478488870fe3d637" category="list-text">驱动器显示为虚拟磁盘或直通驱动器</block>
   <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
   <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 Kubernetes 快照功能，设置存储后端并创建默认存储类：</block>
@@ -1054,4 +1052,6 @@
   <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（仅限 OCP ）如果启用了 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">根据您执行的是标准安装还是 OCP 安装，命名空间响应可能会有所不同。</block>
+  <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA 或 NVMe TLC SSD</block>
+  <block id="e90425f62a91773b5d2173b487308075" category="list-text">基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库</block>
 </blocks>
