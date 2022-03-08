@@ -51,7 +51,7 @@ adsDataNetworks:
 +
 [listing]
 ----
-~% kubectl astrads nodes add –cluster <cluster-name>
+~% kubectl astrads nodes add --cluster <cluster-name>
 ----
 
 
@@ -59,7 +59,7 @@ adsDataNetworks:
 +
 [listing]
 ----
-~% kubectl astrads nodes add –cluster <cluster-name>
+~% kubectl astrads nodes add --cluster <cluster-name>
 ----
 . 验证是否已添加此节点：
 +
