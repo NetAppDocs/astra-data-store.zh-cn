@@ -629,11 +629,6 @@
   <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 配置</block>
   <block id="8830b15b981296d5edf3d00560d26ed2" category="paragraph">这些 CNI 要求禁用主机防火墙（ firewalld ）。</block>
   <block id="950dab43d2896e395e031a5adfdb2982" category="section-title">永久性卷共享要求</block>
-  <block id="68c57e9c9ed620f9a7a94775279db0f6" category="paragraph">每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。对于 Astra Data Store 预览版中的永久性卷，请考虑以下要求：</block>
-  <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="list-title">要求</block>
-  <block id="9f24f02fc8600bb479ba376e4e8d115d" category="list-text">NFSv4.1 客户端 / 服务器必须安装在 Kubernetes 集群上。</block>
-  <block id="b9e835c1024473d6793b9eb0f6dbf66c" category="list-text">必须在工作节点上安装 nfs-utils 软件包。</block>
-  <block id="abb957fb7548aff796259f85d536571f" category="list-text">Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。</block>
   <block id="e48fa26d86f93c0095683fa3998fe381" category="inline-link">请在此处注册</block>
   <block id="0dab9f614d7de2d86a6e3ab5423bb50e" category="section-title">AutoSupport 配置</block>
   <block id="8e15885329078651f14e154e8002de30" category="paragraph">Astra 数据存储预览版要求启用 AutoSupport 并连接到 AutoSupport 后端。这可以通过直接 Internet 访问或代理配置来实现。</block>
@@ -1054,4 +1049,5 @@
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">根据您执行的是标准安装还是 OCP 安装，命名空间响应可能会有所不同。</block>
   <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA 或 NVMe TLC SSD</block>
   <block id="e90425f62a91773b5d2173b487308075" category="list-text">基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库</block>
+  <block id="d3d7772cf5833ab8ee28fbbe73cec01b" category="paragraph">每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。</block>
 </blocks>

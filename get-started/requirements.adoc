@@ -181,13 +181,7 @@ Astra 数据存储预览已通过以下 CNI 的验证：
 
 == 永久性卷共享要求
 
-每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。对于 Astra Data Store 预览版中的永久性卷，请考虑以下要求：
-
-.要求
-* NFSv4.1 客户端 / 服务器必须安装在 Kubernetes 集群上。
-* 必须在工作节点上安装 nfs-utils 软件包。
-* Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。
-
+每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。
 
 
 
