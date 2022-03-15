@@ -678,24 +678,24 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-14 19:12:14 +0000">03/14/2022</time>
+    <time datetime="2022-03-15 16:17:20 +0000">03/15/2022</time>
     
   
 
 <span>提供者
-  <a target="_blank" href="https://github.com/netapp-dbagwell">
-    <img  class="avatar avatar-small"
-          alt="netapp-dbagwell"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/53352450?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/amgrissino">
     <img  class="avatar avatar-small"
           alt="amgrissino"
           width="20" height="20"
           src="https://avatars.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/netapp-dbagwell">
+    <img  class="avatar avatar-small"
+          alt="netapp-dbagwell"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/53352450?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -748,9 +748,6 @@
 <div class="paragraph">
 <p>Astra Data Store 预览安装过程将指导您完成以下高级步骤。</p>
 </div>
-<div class="paragraph">
-<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时才需要执行某些步骤，并且这些步骤仅指定为 OCP 。在非 OCP Kubernetes 集群上部署时，可以跳过这些步骤。</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
@@ -760,16 +757,7 @@
 <p><a href="#Copy the binary and push images to your local registry">[Copy the binary and push images to your local registry]</a></p>
 </li>
 <li>
-<p><a href="#OCP only: Create a namespace to deploy Astra Data Store preview">[OCP only: Create a namespace to deploy Astra Data Store preview]</a></p>
-</li>
-<li>
-<p><a href="#OCP only: Create a custom SCC">[OCP only: Create a custom SCC]</a></p>
-</li>
-<li>
-<p><a href="#OCP only: Create the roles and role bindings">[OCP only: Create the roles and role bindings]</a></p>
-</li>
-<li>
-<p><a href="#OCP only: Prepare the worker nodes">[OCP only: Prepare the worker nodes]</a></p>
+<p><a href="#OpenShift procedure">[OpenShift procedure]</a></p>
 </li>
 <li>
 <p><a href="#Install the Astra Data Store preview operator">[Install the Astra Data Store preview operator]</a></p>
@@ -891,10 +879,19 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="仅限-ocp-创建命名空间以部署-astra-data-store-预览版">仅限 OCP ：创建命名空间以部署 Astra Data Store 预览版</h2>
+<h2 id="openshift-操作步骤">OpenShift 操作步骤</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要以下操作步骤 。可以跳过此操作步骤 ，以便在非 OCP Kubernetes 集群上部署。</p>
+</div>
+<div class="exampleblock">
+<div class="title">示例 1. 详细信息</div>
+<div class="content">
+<div class="paragraph">
 <p>创建一个 <code>astrads-system</code> 命名空间，其中将安装所有 Astra Data Store 预览组件。</p>
+</div>
+<div class="paragraph">
+<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -921,11 +918,6 @@ metadata:
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="仅限-ocp-创建自定义-scc">仅限 OCP ：创建自定义 SCC</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。</p>
 </div>
@@ -935,8 +927,10 @@ metadata:
 <div class="paragraph">
 <p>将自定义 SCC 分配给 Astra Data Store 预览命名空间的默认服务帐户。</p>
 </div>
+<div class="paragraph">
+<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</p>
+</div>
 <div class="olist arabic">
-<div class="title">步骤</div>
 <ol class="arabic">
 <li>
 <p>创建自定义 SCC ：</p>
@@ -1003,16 +997,14 @@ ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   &lt
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="仅-ocp-创建角色和角色绑定">仅 OCP ：创建角色和角色绑定</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>为 Astra Data Store 预览版创建所需的角色和角色绑定，以供默认服务帐户使用。</p>
 </div>
 <div class="paragraph">
 <p>以下 YAML 定义可分配 <code>astrads.netapp.io</code> API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。</p>
+</div>
+<div class="paragraph">
+<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1088,19 +1080,16 @@ subjects:
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="仅限-ocp-准备工作节点">仅限 OCP ：准备工作节点</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。</p>
 </div>
 <div class="paragraph">
 <p>OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 <code>kubelet config</code> 文件的 YAML 格式。</p>
 </div>
+<div class="paragraph">
+<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</p>
+</div>
 <div class="olist arabic">
-<div class="title">步骤</div>
 <ol class="arabic">
 <li>
 <p>在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。</p>
@@ -1126,6 +1115,8 @@ subjects:
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 </div>
 </div>
