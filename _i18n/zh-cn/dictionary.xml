@@ -1035,19 +1035,15 @@
   <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载此软件包并按照以下步骤进行安装。如何在 OpenShift 上安装 Astra 数据存储</block>
   <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">要安装 Astra Data Store 预览版，请从下载安装包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并完成此操作步骤 中所述的安装步骤。</block>
   <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store 预览安装过程将指导您完成以下高级步骤。</block>
-  <block id="48b85b5d24f1050cddd92b2569a3d7d6" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时才需要执行某些步骤，并且这些步骤仅指定为 OCP 。在非 OCP Kubernetes 集群上部署时，可以跳过这些步骤。</block>
-  <block id="06511bd701b1be04064c0b42e9cab089" category="list-text"><block ref="60600013397dfec6ca46381b39ae39f3" category="inline-xref-macro-rx"></block></block>
-  <block id="6b304521db7471f07f8ff21ab6379311" category="list-text"><block ref="5184f3b4b84888db746c615b831fbfa7" category="inline-xref-macro-rx"></block></block>
-  <block id="175212d41d3aa10559d2124b6221c6a9" category="list-text"><block ref="6af5fc26efcf86593457394860cec4f6" category="inline-xref-macro-rx"></block></block>
-  <block id="b7c4e1d462c1474c0f853e5f7398ac52" category="list-text"><block ref="b4bf96f1d944d36dbf8b7aa8a7932243" category="inline-xref-macro-rx"></block></block>
-  <block id="a2fc1f9c02730bbe98a8674816fe470e" category="section-title">仅限 OCP ：创建命名空间以部署 Astra Data Store 预览版</block>
-  <block id="78e10172f6f4b75a10617e31c10c3d5b" category="section-title">仅限 OCP ：创建自定义 SCC</block>
-  <block id="2df285027c0d59c311ecb70dd41834c7" category="section-title">仅 OCP ：创建角色和角色绑定</block>
-  <block id="d886a832387eaadb4f847ec48c2582f4" category="section-title">仅限 OCP ：准备工作节点</block>
   <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（仅限 OCP ）如果启用了 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">根据您执行的是标准安装还是 OCP 安装，命名空间响应可能会有所不同。</block>
   <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA 或 NVMe TLC SSD</block>
   <block id="e90425f62a91773b5d2173b487308075" category="list-text">基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库</block>
   <block id="d3d7772cf5833ab8ee28fbbe73cec01b" category="paragraph">每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。</block>
+  <block id="85ae37cc7f15413a66f075500ab9bb21" category="list-text"><block ref="c971d40cbaa6eb788778a2dba59a7d25" category="inline-xref-macro-rx"></block></block>
+  <block id="2747c0766e2771ab043a0800e63b80a7" category="section-title">OpenShift 操作步骤</block>
+  <block id="9f6ec430b518fa5326fa28dc6b4aa003" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要以下操作步骤 。可以跳过此操作步骤 ，以便在非 OCP Kubernetes 集群上部署。</block>
+  <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">详细信息</block>
+  <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</block>
 </blocks>

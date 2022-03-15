@@ -24,14 +24,9 @@ video::jz6EuryqYps[youtube, ]
 
 Astra Data Store 预览安装过程将指导您完成以下高级步骤。
 
-只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时才需要执行某些步骤，并且这些步骤仅指定为 OCP 。在非 OCP Kubernetes 集群上部署时，可以跳过这些步骤。
-
 * <<Download the Astra Data Store preview bundle and extract the images>>
 * <<Copy the binary and push images to your local registry>>
-* <<OCP only: Create a namespace to deploy Astra Data Store preview>>
-* <<OCP only: Create a custom SCC>>
-* <<OCP only: Create the roles and role bindings>>
-* <<OCP only: Prepare the worker nodes>>
+* <<OpenShift procedure>>
 * <<Install the Astra Data Store preview operator>>
 * <<Deploy the Astra Data Store preview version YAML>>
 * <<Apply the Astra Data Store preview license>>
@@ -107,9 +102,15 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml
 
 
 
-== 仅限 OCP ：创建命名空间以部署 Astra Data Store 预览版
+== OpenShift 操作步骤
 
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要以下操作步骤 。可以跳过此操作步骤 ，以便在非 OCP Kubernetes 集群上部署。
+
+.详细信息
+====
 创建一个 `astrads-system` 命名空间，其中将安装所有 Astra Data Store 预览组件。
+
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。
 
 . 创建命名空间：
 +
@@ -132,17 +133,14 @@ metadata:
 ----
 
 
-
-
-== 仅限 OCP ：创建自定义 SCC
-
 OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。
 
 受限 SCC 不提供 Astra Data Store 预览集群 Pod 所需的权限。使用此操作步骤可为 Astra 数据存储预览提供所需的权限（在示例中列出）。
 
 将自定义 SCC 分配给 Astra Data Store 预览命名空间的默认服务帐户。
 
-.步骤
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。
+
 . 创建自定义 SCC ：
 +
 [listing]
@@ -204,13 +202,11 @@ ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no
 ----
 
 
-
-
-== 仅 OCP ：创建角色和角色绑定
-
 为 Astra Data Store 预览版创建所需的角色和角色绑定，以供默认服务帐户使用。
 
 以下 YAML 定义可分配 `astrads.netapp.io` API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。
+
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。
 
 . 创建定义的角色和角色绑定：
 +
@@ -282,15 +278,12 @@ subjects:
 ----
 
 
-
-
-== 仅限 OCP ：准备工作节点
-
 准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。
 
 OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 `kubelet config` 文件的 YAML 格式。
 
-.步骤
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。
+
 . 在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。
 +
 [listing]
@@ -303,6 +296,7 @@ sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml
 
 NOTE: 如果不执行此操作，则 Astra Data Store 预览集群安装将失败。
 
+====
 
 
 == 安装 Astra Data Store 预览运算符
