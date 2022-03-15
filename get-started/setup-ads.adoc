@@ -71,7 +71,7 @@ kubectl apply -f trident/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
 +
 [listing]
 ----
-customresourcedefinition.apiextensions.k8s.io/volumesnapshotclasses.snapshot.storage.k8s.io created
+customresourcedefinition.apiextensions.k8s.io/volumesnapshotclasses.snapshot.storage.k8s.io configured
 ----
 . 应用 snapshot.storage.k8s.io_volumesnapshotcontents.yaml ：
 +
@@ -85,7 +85,7 @@ kubectl apply -f trident/snapshot.storage.k8s.io_volumesnapshotcontents.yaml
 +
 [listing]
 ----
-customresourcedefinition.apiextensions.k8s.io/volumesnapshotcontents.snapshot.storage.k8s.io created
+customresourcedefinition.apiextensions.k8s.io/volumesnapshotcontents.snapshot.storage.k8s.io configured
 ----
 . 应用 snapshot.storage.k8s.io_volumesnapshots.yaml ：
 +
@@ -99,7 +99,7 @@ kubectl apply -f trident/snapshot.storage.k8s.io_volumesnapshots.yaml
 +
 [listing]
 ----
-customresourcedefinition.apiextensions.k8s.io/volumesnapshots.snapshot.storage.k8s.io created
+customresourcedefinition.apiextensions.k8s.io/volumesnapshots.snapshot.storage.k8s.io configured
 ----
 . 应用 setup-snapshot-controller.yaml ：
 +
@@ -113,7 +113,7 @@ kubectl apply -f trident/setup-snapshot-controller.yaml
 +
 [listing]
 ----
-deployment.apps/snapshot-controller created
+deployment.apps/snapshot-controller configured
 ----
 . 应用 rbac 快照控制器 .yaml ：
 +
@@ -127,11 +127,11 @@ kubectl apply -f trident/rbac-snapshot-controller.yaml
 +
 [listing]
 ----
-serviceaccount/snapshot-controller created
-clusterrole.rbac.authorization.k8s.io/snapshot-controller-runner created
-clusterrolebinding.rbac.authorization.k8s.io/snapshot-controller-role created
-role.rbac.authorization.k8s.io/snapshot-controller-leaderelection created
-rolebinding.rbac.authorization.k8s.io/snapshot-controller-leaderelection created
+serviceaccount/snapshot-controller configured
+clusterrole.rbac.authorization.k8s.io/snapshot-controller-runner configured
+clusterrolebinding.rbac.authorization.k8s.io/snapshot-controller-role configured
+role.rbac.authorization.k8s.io/snapshot-controller-leaderelection configured
+rolebinding.rbac.authorization.k8s.io/snapshot-controller-leaderelection configured
 ----
 . 验证是否已应用 CRD YAML 文件：
 +
@@ -297,7 +297,7 @@ cd <trident-installer or path to folder containing tridentctl>
 vi ads_sc_example.yaml
 ----
 +
-响应：
+示例
 
 +
 [listing]

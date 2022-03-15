@@ -1046,4 +1046,5 @@
   <block id="9f6ec430b518fa5326fa28dc6b4aa003" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要以下操作步骤 。可以跳过此操作步骤 ，以便在非 OCP Kubernetes 集群上部署。</block>
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">详细信息</block>
   <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</block>
+  <block id="d53320adbca5e8d343a11ce083d101a7" category="list-text">登录到<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并下载 Astra Data Store 预览包（`2021.12.01_ads.tar` ）。</block>
 </blocks>

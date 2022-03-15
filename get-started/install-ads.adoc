@@ -41,18 +41,18 @@ Astra Data Store 预览安装过程将指导您完成以下高级步骤。
 
 == 下载 Astra Data Store 预览包并提取映像
 
-. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载 Astra Data Store 预览包（`2021.12.01_ads.tar` ）。
 . （可选）使用以下命令验证捆绑包的签名：
 +
 [listing]
 ----
-openssl dgst -sha256 -verify 2021.12_astradatastore.pub -signature 2021.12_astradatastore.sig 2021.12_astradatastore.tar
+openssl dgst -sha256 -verify 2021.12_ads.pub -signature 2021.12_ads.sig 2021.12.01_ads.tar
 ----
 . 提取映像：
 +
 [listing]
 ----
-tar -xvf 2021.12_astradatastore.tar
+tar -xvf 2021.12.01_ads.tar
 ----
 
 
@@ -676,7 +676,7 @@ kubectl logs -n astrads-system <astrads cluster controller pod name>
 +
 [listing]
 ----
-kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
+kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
 ----
 
 
@@ -696,7 +696,7 @@ kubectl apply -f ./manifests/monitoring_operator.yaml
 +
 [listing]
 ----
-kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
+kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
 ----
 
 
