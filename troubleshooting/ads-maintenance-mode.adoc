@@ -6,6 +6,7 @@ summary: 需要执行主机维护或软件包升级时，应将节点置于维�
 ---
 = 将节点置于维护模式
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

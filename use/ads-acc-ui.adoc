@@ -6,6 +6,7 @@ summary: 您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra �
 ---
 = 将 Astra 控制中心与 Astra Data Store 预览结合使用
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

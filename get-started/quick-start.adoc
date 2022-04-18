@@ -6,6 +6,7 @@ summary: 只需几步即可开始使用 Astra 数据存储。
 ---
 = 快速启动 Astra Data Store 预览
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

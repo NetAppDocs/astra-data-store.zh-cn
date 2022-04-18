@@ -6,6 +6,7 @@ summary: Astra 数据存储可以部署在一个独立的 Kubernetes 集群上�
 ---
 = Astra Data Store 预览部署模式
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

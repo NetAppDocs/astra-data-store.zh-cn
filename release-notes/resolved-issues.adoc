@@ -6,6 +6,7 @@ summary: 已解决此版本中可能阻止您成功使用此产品的问题。
 ---
 = 已解决的问题
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

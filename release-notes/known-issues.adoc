@@ -6,6 +6,7 @@ summary: 已知问题可确定可能妨碍您成功使用此版本产品的问�
 ---
 = 已知问题
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
@@ -24,7 +25,7 @@ summary: 已知问题可确定可能妨碍您成功使用此版本产品的问�
 
 Kubernetes v1.20 中的 Astra 数据存储预览卸载过程有时可能会使发生原因 Pod 保持终止状态。
 
-请参见 link:../use/uninstall-ads-manual.html["手动卸载不使用脚本的 Astra Data Store 预览版"] 或。
+请参见 link:../use/uninstall-ads-manual.html["手动卸载不使用脚本的 Astra Data Store 预览版"] 或link:../use/uninstall-ads.html["使用脚本自动卸载 Astra Data Store 预览版"]。
 
 
 

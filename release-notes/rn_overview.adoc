@@ -6,6 +6,7 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 ---
 = 发行说明
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

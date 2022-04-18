@@ -7,6 +7,7 @@ summary: Astra 数据存储为 Kubernetes 原生容器化应用程序提供持�
 ---
 = Astra Data Store 预览文档
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 将 kubectl 命令与 Astra 数据存储一起使用以替换节点。
 ---
 = 更换节点
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

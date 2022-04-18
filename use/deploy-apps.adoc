@@ -6,6 +6,7 @@ summary: 以下是部署可与 Astra Data Store 结合使用的测试应用程�
 ---
 = 部署测试应用程序
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

@@ -6,6 +6,7 @@ summary: 要卸载 Astra 数据存储，您需要删除工作负载，绑定，�
 ---
 = 使用自动脚本卸载 Astra Data Store 预览版
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

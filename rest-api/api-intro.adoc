@@ -6,6 +6,7 @@ summary: Astra Control 具有一个 REST API ，可用于使用编程语言或 C
 ---
 = 使用 Astra Control REST API 实现自动化
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/rest-api/
 

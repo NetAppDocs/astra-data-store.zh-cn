@@ -6,6 +6,7 @@ summary: 您可以使用 Prometheus 和 Grafana 监控 Astra 数据存储资产�
 ---
 = 使用 Prometheus 和 Grafana 监控指标
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 
@@ -15,8 +16,8 @@ summary: 您可以使用 Prometheus 和 Grafana 监控 Astra 数据存储资产�
 .您需要什么？ #8217 ；将需要什么
 * 确保已在 Astra Data Store 预览集群或可与 Astra Data Store 预览集群通信的其他集群上下载并安装 Prometheus 和 Grafana 软件包。按照官方文档中的说明安装每个工具：
 +
-** https://prometheus.io/docs/prometheus/latest/installation/["安装 Prometheus"^]
-** https://grafana.com/docs/grafana/latest/installation/debian/["安装 Grafana"^]
+** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_deploy_Prometheus_with_Astra_Data_Store["安装 Prometheus"^]
+** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_set_up_Grafana_for_monitoring_Astra_Data_Store_cluster["安装 Grafana"^]
 
 
 * Prometheus 和 Grafana 需要能够与 Astra Data Store preview Kubernetes 集群进行通信。如果 Astra Data Store 预览集群上未安装 Prometheus 和 Grafana ，则需要确保它们可以与在 Astra Data Store 预览集群上运行的指标服务进行通信。

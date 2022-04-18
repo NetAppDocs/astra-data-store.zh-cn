@@ -6,6 +6,7 @@ summary: 您可以将 kubectl 命令直接与 Astra Data Store 结合使用。
 ---
 = 使用 kubectl 命令管理 Astra Data Store 预览资产
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

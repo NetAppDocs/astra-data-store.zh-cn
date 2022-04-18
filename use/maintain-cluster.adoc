@@ -6,6 +6,7 @@ summary: 您可以在 Astra Data Store 中使用 kubectl 命令来维护集群�
 ---
 = 管理集群
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

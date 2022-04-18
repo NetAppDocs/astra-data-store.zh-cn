@@ -6,6 +6,7 @@ summary: 例如，您可以在 Astra Data Store 中使用 kubectl 命令来配�
 ---
 = 配置和监控事件日志
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

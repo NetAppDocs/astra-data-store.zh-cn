@@ -6,6 +6,7 @@ summary: Astra Data Store 采用精简配置，零块消除，数据压缩和重
 ---
 = Astra Data Store 预览版中的存储效率
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

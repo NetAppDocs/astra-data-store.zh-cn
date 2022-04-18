@@ -6,6 +6,7 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 ---
 = 此版本的 Astra 数据存储中的新增功能
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
@@ -33,10 +34,10 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 * link:../concepts/intro.html["它是什么"]
 * link:../concepts/architecture.html["部署模式和组件"]
 * link:../get-started/requirements.html["入门所需的资源"]
-* link:../get-started/install-ads.html["安装"] 和 
-* link:../use/kubectl-commands-ads.html["管理"] 和  性能
+* link:../get-started/install-ads.html["安装"] 和 link:../get-started/setup-ads.html["设置"]
+* link:../use/kubectl-commands-ads.html["管理"] 和 link:../use/monitor-with-cloud-insights.html["监控"] 性能
 * link:../use/monitor-with-cloud-insights.html["使用 Cloud Insights 进行监控"]
-* link:../support/get-help-ads.html["获取帮助"] 和 
+* link:../support/get-help-ads.html["获取帮助"] 和 link:../support/autosupport.html["使用自动支持监控"]
 
 
 

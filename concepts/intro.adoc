@@ -6,6 +6,7 @@ summary: Astra 数据存储是一种 Kubernetes 原生共享文件服务，适�
 ---
 = Astra 数据存储预览简介
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

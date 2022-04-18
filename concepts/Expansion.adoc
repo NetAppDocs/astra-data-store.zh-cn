@@ -6,6 +6,7 @@ summary: 您可以扩展 Astra 数据存储集群。
 ---
 = 集群扩展
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

@@ -6,6 +6,7 @@ summary: 首先验证对您的环境的支持。
 ---
 = Astra Data Store 预览要求
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

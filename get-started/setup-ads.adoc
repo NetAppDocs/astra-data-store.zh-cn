@@ -6,6 +6,7 @@ summary: 安装 Astra 数据存储并满足某些环境前提条件后，您将�
 ---
 = 设置 Astra Data Store 预览组件
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

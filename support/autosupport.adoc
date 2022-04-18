@@ -6,6 +6,7 @@ summary: NetApp 通过多种方式为 Astra Data Store 预览版提供支持。�
 ---
 = 自动支持监控
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/support/
 

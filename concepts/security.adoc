@@ -6,6 +6,7 @@ summary: Astra 数据存储可通过多种方法确保客户端和管理员对�
 ---
 = Astra Data Store 中的安全性预览
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

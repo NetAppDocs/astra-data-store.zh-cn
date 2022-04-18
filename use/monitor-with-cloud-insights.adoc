@@ -6,6 +6,7 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 ---
 = 使用 Cloud Insights 监控指标
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

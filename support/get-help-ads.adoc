@@ -6,6 +6,7 @@ summary: NetApp 以多种方式为 Astra 数据存储提供支持。全天候提
 ---
 = 获取帮助
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/support/
 

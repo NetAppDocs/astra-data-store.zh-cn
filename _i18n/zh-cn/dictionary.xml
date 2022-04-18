@@ -319,8 +319,6 @@
   <block id="3962691e8a7c8b7a00673c9035950515" category="list-text">有关命令的详细信息，请使用 `astrad [command] -help` 。</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">法律声明提供对版权声明、商标、专利等的访问。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
-  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
-  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
   <block id="bd9a92025f272fdbcf82dbe7c6751b8e" category="inline-link-macro">Astra Data Store 21.12 版本的通知</block>
   <block id="1f6cc7061c99b2f46c25473fe9b7ea3a" category="paragraph"><block ref="1f6cc7061c99b2f46c25473fe9b7ea3a" category="inline-link-macro-rx"></block></block>
   <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">您可以扩展 Astra 数据存储集群。</block>
@@ -493,7 +491,6 @@
   <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">角色和权限</block>
   <block id="806b5637c063705c8d625e758efc64b6" category="list-text">了解 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> 由 Astra Data Store 预览版使用。</block>
   <block id="1e822a9286ce82521a4c839250498223" category="list-text">Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。</block>
-  <block id="59d5f0097f4998113fed5d843c64f82e" category="paragraph">Astra Data Store 预览安装过程将指导您完成以下高级步骤：</block>
   <block id="a556f5398142ae7011d0de50dc8b6c5b" category="list-text"><block ref="8d9993295d6b271ce4d01f645185155b" category="inline-xref-macro-rx"></block></block>
   <block id="6d0f824f6a186eea3583d29e3aed365a" category="list-text"><block ref="28f9f989c873aca847e12e3f56387e81" category="inline-xref-macro-rx"></block></block>
   <block id="b70c468b8ef55be96953554233f196f8" category="list-text"><block ref="038e87b146a54831da5266e118724b0a" category="inline-xref-macro-rx"></block></block>
@@ -693,57 +690,27 @@
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">常见问题解答</block>
   <block id="9242577a835539354b36df9d5785b04f" category="paragraph">Astra Data Store 预览版具有以下资源限制。</block>
   <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra Data Store 预览会限制性能，不应用于性能特征化。</block>
-  <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">选择以下 Astra Data Store 安装过程之一</block>
-  <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra 数据存储安装概述</block>
-  <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">选择并完成以下 Astra Data Store 安装过程之一：</block>
-  <block id="d99bdf0294b88b88ebeb7c5a3dd478d0" category="inline-link-macro">使用标准流程安装 Astra 数据存储</block>
-  <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>。</block>
-  <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">如果您使用的是 Red Hat OpenShift ，请使用 OpenShift 安装 Astra Data Store</block>
-  <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>。</block>
   <block id="a425a235822edd430a58eacccd757806" category="paragraph">Astra 数据存储预览已通过以下 CNI 的验证：</block>
   <block id="66f992fd154333db12979224b40bb01d" category="list-text">适用于 Vanilla Kubernetes 集群的 Calico 和 Weave Net CNI</block>
   <block id="1c6ba40a804a7b27053cbc1e9b881a53" category="list-text">适用于 Red Hat OpenShift 容器平台（ OCP ）的 OpenShift SDN</block>
   <block id="5d12f25a06af3175aac5ead4076ccaa5" category="list-text">Cilium for Google Anthos</block>
-  <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">如何在 OpenShift 中安装 Astra 数据存储</block>
-  <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">在 Red Hat OpenShift 容器平台上安装 Astra Data Store 预览版</block>
-  <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">为部署 Astra Data Store 准备您的环境</block>
-  <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">开始安装之前， <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>。</block>
-  <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">NetApp 许可证文件</block>
-  <block id="5e33d62267635f1264e9a158679068f0" category="list-text">答 <block ref="137bea87b1ed38b6b747ca593fab05eb" category="inline-link-macro-rx"></block> （ nlf ），用于 Astra Data Store 预览。注册后，系统将向您发送许可证下载说明。</block>
-  <block id="fb124d22233366c281eae5c20e8f50a5" category="inline-link-macro">角色和特权</block>
-  <block id="3fbcff5931f9df10a12c3e41b3b6e99c" category="list-text">了解 <block ref="05c77a29e62e6b5374baaf8c208c49d9" category="inline-link-macro-rx"></block> 由 Astra Data Store 预览版使用。</block>
-  <block id="0b5bf43f901bdaa6ab67ba6ba2b415f0" category="list-text">Internet 连接。Astra Data Store 预览版不支持带气流的环境。要直接或通过代理访问 support.netapp.com ，需要 Internet 连接。</block>
-  <block id="bbe48fb854ea022537208eeeff822f91" category="section-title">关于此任务</block>
-  <block id="66a4210255768fa7ce150f406e4d2de3" category="list-text"><block ref="8aad3752e2094aac1115c216d64491e4" category="inline-xref-macro-rx"></block></block>
-  <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
-  <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
-  <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
-  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">（可选）验证捆绑包的签名：</block>
-  <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">创建命名空间以部署 Astra Data Store 预览版</block>
   <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">创建一个 `astrads-system` 命名空间，其中将安装所有 Astra Data Store 预览组件。</block>
   <block id="7baf7b8d385cfa43e2ebd4decbe383e8" category="list-text">创建命名空间：</block>
   <block id="9484da3843b6d29183c961f5805374c0" category="paragraph">示例： ads_namespace.yaml</block>
-  <block id="7a981942788d33c4001730188b89e6db" category="section-title">创建自定义 SCC</block>
   <block id="9279e1a9a6dc21e00ad8bfe646d12d80" category="paragraph">OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。</block>
   <block id="d84d14dd008a483ff803734de04a9be6" category="paragraph">受限 SCC 不提供 Astra Data Store 预览集群 Pod 所需的权限。使用此操作步骤可为 Astra 数据存储预览提供所需的权限（在示例中列出）。</block>
   <block id="2593c56a647b16e5b609f03e09ff7e38" category="paragraph">将自定义 SCC 分配给 Astra Data Store 预览命名空间的默认服务帐户。</block>
   <block id="a404b42248dc15fc7c9f96beb39ce0bf" category="list-text">创建自定义 SCC ：</block>
   <block id="675d6759427bcd3ef0478a3576c113b4" category="paragraph">示例： ads_privileged_scc.yaml</block>
   <block id="44988a3cdc9c8d194b4f0791b2fd559e" category="list-text">使用 `oc get SCC` 命令显示新添加的 SCC ：</block>
-  <block id="1ff7f0ad4e23e88d48bae4f9be6bf1d6" category="section-title">创建角色和角色绑定</block>
   <block id="fc67753b692b97bd691fc9ce7e3373f7" category="paragraph">为 Astra Data Store 预览版创建所需的角色和角色绑定，以供默认服务帐户使用。</block>
   <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">以下 YAML 定义可分配 `astrads.netapp.io` API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。</block>
   <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">创建定义的角色和角色绑定：</block>
   <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">示例： oc_role_Bindings.yaml</block>
-  <block id="d7dde07915bbe8056e6854c2b5e50480" category="section-title">准备工作节点</block>
   <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。</block>
   <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 `kubelet config` 文件的 YAML 格式。</block>
   <block id="619b377b67311492e2301f498fa6a192" category="list-text">在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。</block>
-  <block id="8116c401bbe8d3e819e7fbeab37dfd9c" category="list-text">在应用集群 YAML 之前，在所有 Kubernetes 节点上完成此操作步骤。</block>
   <block id="e75a81ccddd342b222755829558870b4" category="admonition">如果不执行此操作，则 Astra Data Store 预览集群安装将失败。</block>
-  <block id="ab99eb629243e2831288d50f19591112" category="list-text">使用 `kubectl apply` 命令部署操作员：</block>
-  <block id="a0043c0af3acf54941321b091a08c953" category="list-text">使用 `kubectl apply` 命令进行部署：</block>
-  <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">如果已启用 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">之所以需要执行此步骤，是因为 `selinux` 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 `CrashLoopBackoff` 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 预览帐户包括通过 Web 服务单提供的远程技术支持。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：</block>
@@ -786,9 +753,7 @@
   <block id="6087aa1a980e9fb03c3d42ed429d3090" category="list-text">下载 <block ref="424f4872df67a1a5528184cc2ca8dc8c" category="inline-link-macro-rx"></block>：</block>
   <block id="74bc6e591c8afde1756c60343fc6adb7" category="list-text">访问<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>。<block ref="a14d2f1983300ed8731dcf11dfa18e8a" category="inline-link-rx"></block> 如果您还没有完全访问的 NetApp 支持站点帐户，请进行预览。</block>
   <block id="3f18a8915118a57279458e475c19506d" category="list-text">答 <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> 用于 Astra Data Store 预览。下载许可证的说明将在您之后发送给您<block ref="ef54037861aa5e9e926253483ef1a002" category="inline-link-rx"></block>。</block>
-  <block id="06e707c9bfaad1d590b948f0c4975ea0" category="list-text">登录到<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并下载 Astra Data Store 预览包（`2021.12_asadatastore.tar` ）。</block>
   <block id="99fe05ab680c40d38239fb7349931f94" category="paragraph">要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。<block ref="757d0023964aa1a63172c6b6c4a3c459" category="inline-link-rx"></block> 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。</block>
-  <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">要在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview ，请从下载安装包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并完成此操作步骤中所述的安装步骤。</block>
   <block id="b2d8407a2a6a35cada2688cd35c7c330" category="paragraph"><block ref="0bcb35f051e8c1238923547e4a123c09" category="inline-link-rx"></block> 以获取 Astra Data Store 预览许可证。</block>
   <block id="d6de7af55cd34df4b1343663f9fa47a7" category="inline-link">由 Astra 控制中心管理的集群的要求</block>
   <block id="9cca478435cbf9a301f081bd39778626" category="admonition">如果您计划从 Astra 控制中心管理 Astra Data Store 预览集群，请确保您的 Astra Data Store 预览集群符合<block ref="83b31cb7736faa6a9df5c1f9a84caa88" category="inline-link-rx"></block> 除了此处概述的要求之外。</block>
@@ -989,9 +954,7 @@
   <block id="7b132651c6be946cb45ebbc5729d0fae" category="paragraph">您可以使用 Prometheus 和 Grafana 监控 Astra Data Store 预览指标。您可以将 Prometheus 配置为从 Astra Data Store 预览版 Kubernetes 集群指标端点收集指标，并且可以使用 Grafana 将指标数据可视化。</block>
   <block id="90895f68c3d61650306b9827ff7c6324" category="list-text">确保已在 Astra Data Store 预览集群或可与 Astra Data Store 预览集群通信的其他集群上下载并安装 Prometheus 和 Grafana 软件包。按照官方文档中的说明安装每个工具：</block>
   <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">安装 Prometheus</block>
-  <block id="763383a68e405097875c37e8ab57d401" category="list-text"><block ref="763383a68e405097875c37e8ab57d401" category="inline-link-rx"></block></block>
   <block id="3de41522a35f102d48905bc53fd5c383" category="inline-link">安装 Grafana</block>
-  <block id="a557323906eaeb845274f1275674df7a" category="list-text"><block ref="a557323906eaeb845274f1275674df7a" category="inline-link-rx"></block></block>
   <block id="a78f5549cd86895c64aa29975a576b48" category="list-text">Prometheus 和 Grafana 需要能够与 Astra Data Store preview Kubernetes 集群进行通信。如果 Astra Data Store 预览集群上未安装 Prometheus 和 Grafana ，则需要确保它们可以与在 Astra Data Store 预览集群上运行的指标服务进行通信。</block>
   <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">配置 Prometheus</block>
   <block id="cd93c151a525dff780b53bdf1dee4c20" category="paragraph">Astra Data Store 预览版可在 Kubernetes 集群中的 TCP 端口 9341 上公开指标服务。您需要配置 Prometheus 以从此服务收集指标。</block>
@@ -1047,4 +1010,18 @@
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">详细信息</block>
   <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</block>
   <block id="d53320adbca5e8d343a11ce083d101a7" category="list-text">登录到<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并下载 Astra Data Store 预览包（`2021.12.01_ads.tar` ）。</block>
+  <block id="9f656569b5b0db7993b62a5b0072ded3" category="list-text"><block ref="9f656569b5b0db7993b62a5b0072ded3" category="inline-link-rx"></block></block>
+  <block id="0e21520e616fa6a17ae2ececc6c27419" category="list-text"><block ref="0e21520e616fa6a17ae2ececc6c27419" category="inline-link-rx"></block></block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版权</block>
+  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">商标</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp 、 NetApp 徽标和 NetApp 商标页面上列出的标记是 NetApp 、 Inc. 的商标。其他公司和产品名称可能是其各自所有者的商标。</block>
+  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">专利</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">有关 NetApp 拥有的专利的最新列表，请访问：</block>
+  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隐私政策</block>
+  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">开放源代码</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。</block>
 </blocks>
