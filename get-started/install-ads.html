@@ -717,7 +717,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:55:55 +0000">04/18/2022</time>
+    <time datetime="2022-04-25 21:52:38 +0000">04/25/2022</time>
     
   
 
@@ -1091,42 +1091,6 @@ subjects:
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。</p>
-</div>
-<div class="paragraph">
-<p>OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 <code>kubelet config</code> 文件的 YAML 格式。</p>
-</div>
-<div class="paragraph">
-<p>只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。</p>
-<div class="listingblock">
-<div class="content">
-<pre>sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml</pre>
-</div>
-</div>
-</li>
-<li>
-<p>在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注">
-</td>
-<td class="content">
-如果不执行此操作，则 Astra Data Store 预览集群安装将失败。
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
