@@ -279,24 +279,6 @@ subjects:
 ----
 
 
-准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。
-
-OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 `kubelet config` 文件的 YAML 格式。
-
-只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。
-
-. 在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。
-+
-[listing]
-----
-sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml
-----
-. 在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。
-
-
-
-NOTE: 如果不执行此操作，则 Astra Data Store 预览集群安装将失败。
-
 ====
 
 
