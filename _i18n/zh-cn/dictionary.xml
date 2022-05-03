@@ -707,10 +707,6 @@
   <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">以下 YAML 定义可分配 `astrads.netapp.io` API 组中的 Astra Data Store 预览资源所需的各种角色（通过绑定）。</block>
   <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">创建定义的角色和角色绑定：</block>
   <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">示例： oc_role_Bindings.yaml</block>
-  <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">准备用于 Astra Data Store 预览集群部署的工作节点。在 Astra 数据存储预览集群使用的所有工作节点上执行此操作步骤。</block>
-  <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift 对 kubelet 配置文件（` /var/lib/kubelet/config.json` ）使用 json 格式。Astra Data Store 预览集群会查找 `kubelet config` 文件的 YAML 格式。</block>
-  <block id="619b377b67311492e2301f498fa6a192" category="list-text">在启动集群安装之前，在每个工作节点上创建 ` /var/lib/kubelet/config.yaml` 文件。</block>
-  <block id="e75a81ccddd342b222755829558870b4" category="admonition">如果不执行此操作，则 Astra Data Store 预览集群安装将失败。</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">之所以需要执行此步骤，是因为 `selinux` 会阻止这些目录处于可写状态，从而导致支持 Pod 进入 `CrashLoopBackoff` 状态。需要对 Astra Data Store 预览集群中的所有节点执行此步骤。</block>
   <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和可宽延的渠道。您的 Astra Data Store 预览帐户包括通过 Web 服务单提供的远程技术支持。</block>
   <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport 监控 Astra 数据存储预览系统运行时间和信息，并向 NetApp 支持部门发送消息。根据您的配置，可以监控以下系统组件：</block>
@@ -998,7 +994,6 @@
   <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">要在满足某些环境前提条件后安装 Astra 数据存储库，您需要下载此软件包并按照以下步骤进行安装。如何在 OpenShift 上安装 Astra 数据存储</block>
   <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">要安装 Astra Data Store 预览版，请从下载安装包<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并完成此操作步骤 中所述的安装步骤。</block>
   <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store 预览安装过程将指导您完成以下高级步骤。</block>
-  <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">在应用集群 YAML 之前，在所有 Kubernetes 工作节点上完成此操作步骤 。</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">（仅限 OCP ）如果启用了 SELinux ，请为 Astra Data Store 预览集群中节点上的以下目录重新标记 `selinux` 上下文。</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">根据您执行的是标准安装还是 OCP 安装，命名空间响应可能会有所不同。</block>
   <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA 或 NVMe TLC SSD</block>
@@ -1024,4 +1019,5 @@
   <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">开放源代码</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。</block>
+  <block id="a44aabf523591d454f3c29d4f0b04192" category="paragraph">在设置监控之前、您需要在`astrads-system`命名空间中有一个活动的Astra数据存储集群。</block>
 </blocks>

@@ -649,6 +649,8 @@ kubectl logs -n astrads-system <astrads cluster controller pod name>
 
 您可以为 Astra 控制中心监控或其他遥测服务监控配置 Astra 数据存储预览。
 
+在设置监控之前、您需要在`astrads-system`命名空间中有一个活动的Astra数据存储集群。
+
 
 
 === 为 Astra 控制中心预览配置监控
