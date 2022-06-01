@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>将 Astra 控制中心与 Astra Data Store 预览结合使用</title>
+  <title>更新Astra Data Store许可证</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="将 Astra 控制中心与 Astra Data Store 预览结合使用" />
+  <meta property="og:title" content="更新Astra Data Store许可证" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use/ads-acc-ui.html" />
-	<meta property="og:description" content="您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra 数据存储任务。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use/update-ads-license.html" />
+	<meta property="og:description" content="您可以使用命令行更新Astra数据存储的已安装许可证。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra 数据存储任务。">
-  <meta name="keywords" content=" astra, astra data store, astra control center"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="您可以使用命令行更新Astra数据存储的已安装许可证。">
+  <meta name="keywords" content=" astra, astra data store, kubectl"><!-- Icons -->
   <link rel="icon" href="/zh-cn/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[将 Astra 控制中心与 Astra Data Store 预览结合使用](https://docs.netapp.com/zh-cn/astra-data-store/use/ads-acc-ui.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/ads-acc-ui.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[更新Astra Data Store许可证](https://docs.netapp.com/zh-cn/astra-data-store/use/update-ads-license.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/update-ads-license.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/ads-acc-ui.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/update-ads-license.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -358,7 +358,7 @@
         
         
         
-        <a target="_blank" href="/zh-cn/astra-data-store/pdfs/fullsite-sidebar/Astra_Data_Store_预览文档.pdf" >
+        <a target="_blank" href="/zh-cn/astra-data-store/pdfs/fullsite-sidebar/Astra_Data_Store_文档.pdf" >
           <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
 
 
@@ -488,13 +488,67 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/监控Astra数据存储.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            监控Astra数据存储
+          </a>
+          
 
 
 
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/安全的Astra数据存储.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            安全的Astra数据存储
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use/ads-acc-ui.pdf" >
+  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use/update-ads-license.pdf" >
     <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
     PDF of this page
   </a>
@@ -502,6 +556,43 @@
 
 </ul>
   
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/zh-cn/astra-data-store/pdfs/sidebar/将Astra数据存储与VMware结合使用.pdf" 
+            
+          >
+            <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+            将Astra数据存储与VMware结合使用
+          </a>
+          
+
+
+
+
+
+
 
 
 
@@ -546,6 +637,8 @@
     
 
   
+
+
 
 
 
@@ -602,7 +695,7 @@
         <div class="na-navbar-padding"> 概念</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/intro.html">
-        Astra 数据存储简介
+        了解 Astra 数据存储
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/architecture.html">
         部署模式
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/expansion.html">
@@ -615,38 +708,63 @@
         <div class="na-navbar-padding"> 入门</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/requirements.html">
-        Astra Data Store 预览要求
+        Astra 数据存储要求
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/quick-start.html">
-        快速启动 Astra Data Store 预览
+        Astra 数据存储快速入门
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/install-ads.html">
-        安装 Astra Data Store 预览版
+        安装 Astra 数据存储
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/setup-ads.html">
-        设置 Astra Data Store 预览组件
+        设置Astra数据存储组件
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/capabilities.html">
-        Astra 数据存储预览限制
+        Astra数据存储限制
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/get-started/faq-ads.html">
         常见问题解答
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 使用 Astra 数据存储</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/kubectl-commands-ads.html">
-        管理 Astra 数据存储资产
+        管理Astra数据存储资源
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/deploy-apps.html">
         部署测试应用程序
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/maintain-cluster.html">
         管理集群
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 监控Astra数据存储</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-cloud-insights.html">
         使用 Cloud Insights 监控指标
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/monitor-with-prometheus-grafana.html">
         使用 Prometheus 和 Grafana 监控指标
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/configure-endpoints.html">
         配置和监控事件日志
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/ads-acc-ui.html">
-        Astra 控制中心集成
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 安全的Astra数据存储</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/manage-certificates.html">
+        管理安全证书
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/manage-keys.html">
+        管理外部密钥
+      </a></li></ul></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/update-ads-license.html">
+        更新Astra Data Store许可证
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/upgrade-ads.html">
+        升级Astra数据存储
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads.html">
-        使用脚本自动卸载 Astra Data Store 预览版
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/uninstall-ads-manual.html">
-        手动卸载不使用脚本的 Astra Data Store 预览版
+        卸载Astra数据存储
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 将Astra数据存储与VMware结合使用</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/use-ads-vmware-overview.html">
+        了解采用VMware的Astra Data Store
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/ads-vmware-requirements.html">
+        采用VMware的Astra Data Store要求
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/setup-ads-vmware.html">
+        使用VMware设置Astra数据存储
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html">
+        监控VMware安装的组件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/manage-ads-vmware.html">
+        管理VMware安装的Astra Data Store组件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/uninstall-ads-vmware.html">
+        从VMware集成环境中卸载Astra Data Store
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 知识和支持</div>
       </a>
@@ -656,7 +774,9 @@
         获取帮助
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/support/autosupport.html">
         自动支持监控
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/ads-earlier-versions.html">
+        早期版本
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/legal-notices.html">
         法律声明
       </a></li></ul>
 </div>
@@ -716,14 +836,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">将 Astra 控制中心与 Astra Data Store 预览结合使用</h1>
+  <h1 class="n-doc__component-detail-heading">更新Astra Data Store许可证</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:55:55 +0000">04/18/2022</time>
+    <time datetime="2022-06-01 01:09:13 +0000">06/01/2022</time>
     
   
 
@@ -733,76 +853,58 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>您可以使用 Astra 控制中心用户界面（ UI ）执行 Astra Data Store 预览任务。</p>
+<p>您可以更新已安装的Astra数据存储评估许可证、以延长评估期限。您可以使用以下三种方法之一更新许可证：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>要使用Astra控制中心更新Astra数据存储许可证、请参见 <a href="https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html#update-a-storage-backend-license">"更新存储后端许可证"</a>。</p>
+</li>
+<li>
+<p>要使用Astra VMware插件更新Astra Data Store许可证、请参见 <a href="../use-vmware/manage-ads-vmware.html">"使用VMware管理Astra数据存储"</a>。</p>
+</li>
+<li>
+<p>要使用命令行更新Astra Data Store许可证、请参见 <a href="#Update the Astra Data Store license using the command line">[Update the Astra Data Store license using the command line]</a>。</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="为-astra-数据存储预览设置-astra-控制中心">为 Astra 数据存储预览设置 Astra 控制中心</h2>
+<h2 id="使用命令行更新astra-data-store许可证">使用命令行更新Astra Data Store许可证</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>要使用适用于 Astra Data Store 的 Astra 控制中心 UI 预览版，您需要完成以下任务：</p>
+<p>您可以使用`kubectl`实用程序更新Astra Data Store许可证。</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-cluster">"将运行 Astra 数据存储的底层 Kubernetes 集群添加到 Astra 控制中心"</a>。</p>
+<p>应用从NetApp获得的替代NetApp许可证文件(NLF)。在运行命令之前、输入集群的名称(<code>&lt;Astra-Data-Store-cluster-name&gt;</code>)和许可证文件的路径(<code>&lt;file_path/file.txt&gt;</code>)：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl astrads license add --license-file-path &lt;file_path/file.txt&gt; --ads-cluster-name &lt;Astra-Data-Store-cluster-name&gt; -n astrads-system</pre>
+</div>
+</div>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend">"将 Astra Data Store 预览作为存储后端添加到 Astra 控制中心"</a>。</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="注">
-</td>
-<td class="content">
-如果您添加了存储后端，并且不存在具有 Astra Data Store 预览版的 Kubernetes 集群，则需要先添加一个集群。
-</td>
-</tr>
-</table>
-</div>
-</li>
-</ul>
+<p>验证是否已添加此许可证：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl astrads license list</pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="您可以在-astra-控制中心执行的操作">您可以在 Astra 控制中心执行的操作</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>在为 Astra 数据存储预览设置 Astra 控制中心后，您可以使用 Astra 控制中心 UI 完成以下任务：</p>
+<p>您应看到类似于以下内容的响应：</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/monitor-protect.html" target="_blank" rel="noopener">"使用 Astra 控制中心监控 Astra Data Store 预览资产的运行状况"</a>。</p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html" target="_blank" rel="noopener">"管理 Astra Data Store 预览后端存储"</a>。</p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/use/view-dashboard.html" target="_blank" rel="noopener">"监控节点，磁盘和永久性卷声明（ PVC ）"</a>。</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre>NAME        ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
+p100000006  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z</pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="有关详细信息">有关详细信息 &#8230;&#8203;</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 系列简介"</a></p>
 </li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra 控制中心文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API"</a></p>
-</li>
-</ul>
+</ol>
 </div>
 </div>
 </div>

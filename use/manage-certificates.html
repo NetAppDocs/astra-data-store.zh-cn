@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>了解 Astra 数据存储</title>
+  <title>管理安全证书</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="了解 Astra 数据存储" />
+  <meta property="og:title" content="管理安全证书" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/concepts/intro.html" />
-	<meta property="og:description" content="Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use/manage-certificates.html" />
+	<meta property="og:description" content="您可以在Astra数据存储中手动撤消已泄露或已过期的证书。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。">
-  <meta name="keywords" content=" introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="您可以在Astra数据存储中手动撤消已泄露或已过期的证书。">
+  <meta name="keywords" content=" astra, astra data store, kubectl, certs, cert, certificate, certificates, revoke, security, secure, expired, compromised, regenerate, generate"><!-- Icons -->
   <link rel="icon" href="/zh-cn/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[了解 Astra 数据存储](https://docs.netapp.com/zh-cn/astra-data-store/concepts/intro.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/intro.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[管理安全证书](https://docs.netapp.com/zh-cn/astra-data-store/use/manage-certificates.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/manage-certificates.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/manage-certificates.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/manage-certificates.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/manage-certificates.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/manage-certificates.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/manage-certificates.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -409,15 +409,6 @@
             概念
           </a>
           
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/concepts/intro.pdf" >
-    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -543,6 +534,15 @@
             安全的Astra数据存储
           </a>
           
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use/manage-certificates.pdf" >
+    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -694,7 +694,7 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 概念</div>
       </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/intro.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/intro.html">
         了解 Astra 数据存储
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/architecture.html">
         部署模式
@@ -740,7 +740,7 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 安全的Astra数据存储</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/manage-certificates.html">
+      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/manage-certificates.html">
         管理安全证书
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use/manage-keys.html">
         管理外部密钥
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">了解 Astra 数据存储</h1>
+  <h1 class="n-doc__component-detail-heading">管理安全证书</h1>
 </div>
 
 
@@ -853,107 +853,71 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。</p>
-</div>
-<div class="paragraph">
-<p>借助 Astra 数据存储，您可以执行以下操作：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>* 支持 Kubernetes 容器化工作负载 * ：使用您习惯使用的企业级数据管理服务和工具。</p>
-</li>
-<li>
-<p>* 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，以提供自动化，可重复的服务，消除 developers​ 带来的复杂性。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Astra数据存储库是Astra产品系列的一部分。了解 <a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra系列"</a>。</p>
+<p>Astra数据存储在集群的软件组件之间使用相互传输层安全(MTLS)加密。每个Astra Data Store集群都有一个自签名根CA证书(<code>astrads-cert</code>)和一个中间CA证书(<code>astrads-cert -&lt;cluster_name&gt;</code>)。这些证书由Astra数据存储操作员管理；操作员会在每个证书到期日期前7天自动续订这些证书。您也可以手动撤消这些证书。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-数据存储功能">Astra 数据存储功能</h2>
+<h2 id="撤消证书">撤消证书</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：</p>
+<p>如果Astra数据存储控制器、节点或CA证书受到影响、您可以通过删除其MTLS密钥来撤消该证书。执行此操作时、Astra数据存储操作员会自动颁发一个新证书。您可以随时撤消Astra数据存储证书。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>* Kubernetes 本机共享文件服务 * ：使用标准 NFS 客户端作为容器和 VM 的统一数据存储库，为 Kubernetes 提供共享文件服务原生。​</p>
-</li>
-<li>
-<p>* 云扩展 * ：在同一资源池中提供 Kubernetes 本机多个并行文件系统，以实现类似于云的扩展和利用率，从而无需在集群之外单独管理存储。</p>
-</li>
-<li>
-<p>* API 优先方法 * ：将基础架构作为代码交付用于自动化集群和工作负载 management​ 。</p>
-</li>
-<li>
-<p>* 企业级数据管理 * ：提供自动化应用程序感知型数据保护和灾难恢复：</p>
-<div class="ulist">
-<ul>
-<li>
-<p>* NetApp 技术 * ：利用 NetApp 数据管理技术执行快照，备份，复制和克隆，以便用户可以在 Kubernetes 中构建和部署企业级应用程序。​</p>
-</li>
-<li>
-<p>* 故障恢复能力 * ：对 Kubernetes 本机工作负载使用复制和擦除编码技术，以提高故障恢复能力。</p>
-</li>
-<li>
-<p>* 数据效率 * ：通过实时重复数据删除和数据压缩功能进行扩展时控制成本。</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+如果您撤消CA证书、则此操作将撤消由该CA签名的任何证书。
+</td>
+</tr>
+</table>
 </div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>登录到Astra Data Store集群中的控制器节点。</p>
 </li>
 <li>
-<p>* 适合您的现有环境 * ：支持基于微服务的工作负载和传统工作负载，为主要 Kubernetes 分发版提供服务，提供文件存储，并在您选择的 hardware​ 上运行。</p>
-</li>
-<li>
-<p>* 与 NetApp Cloud Insights * 集成：为持续 optimization​ 提供可观察性，分析和监控功能。​</p>
-</li>
-</ul>
+<p>列出系统上的现有证书。例如：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl get secrets -n astrads-system | grep astrads-cert</pre>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="开始使用-astra-data-store">开始使用 Astra Data Store</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>首先， <a href="../get-started/requirements.html">"了解 Astra 数据存储的要求"</a>。</p>
 </div>
 <div class="paragraph">
-<p>然后， <a href="../get-started/quick-start.html">"开始使用"</a>。</p>
+<p>输出应类似于以下内容：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>astrads-cert-astrads-cluster-controller                   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-cluster-f23d158                      kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-dms-astrads-cluster-f23d158       kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-support-astrads-cluster-f23d158   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-support-astrads-cluster-f23d158      kubernetes.io/tls     4      6d6h
+astrads-cert-root                                         kubernetes.io/tls     4      6d6h
+astrads-cert-sti-net-com                                  kubernetes.io/tls     5      6d6h</pre>
 </div>
 </div>
+</li>
+<li>
+<p>在输出中、记下需要撤消的证书的名称。</p>
+</li>
+<li>
+<p>使用`kubectl`实用程序撤消证书、并将`certificate_name`替换为证书的名称。例如：</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl delete secret CERTIFICATE_NAME -n astrads-system</pre>
 </div>
-<div class="sect1">
-<h2 id="有关详细信息">有关详细信息 &#8230;&#8203;</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 系列简介"</a></p>
+</div>
 </li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service 文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra 控制中心文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident 文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"使用 Astra Control API"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights 文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP 文档"</a></p>
-</li>
-</ul>
+</ol>
+</div>
+<div class="paragraph">
+<p>现有证书将被撤消、并自动生成一个新证书。</p>
 </div>
 </div>
 </div>

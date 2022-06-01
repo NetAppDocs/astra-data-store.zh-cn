@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>了解 Astra 数据存储</title>
+  <title>监控VMware安装的组件</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="了解 Astra 数据存储" />
+  <meta property="og:title" content="监控VMware安装的组件" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/concepts/intro.html" />
-	<meta property="og:description" content="Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html" />
+	<meta property="og:description" content="您可以使用vCenter插件监控Astra Data Store性能。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra 数据存储是一种 Kubernetes 原生共享文件服务，适用于容器和 VM 工作负载，可提供企业级数据管理。">
-  <meta name="keywords" content=" introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="您可以使用vCenter插件监控Astra Data Store性能。">
+  <meta name="keywords" content=" astra, astra data store, vmware, vcenter, esxi"><!-- Icons -->
   <link rel="icon" href="/zh-cn/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[了解 Astra 数据存储](https://docs.netapp.com/zh-cn/astra-data-store/concepts/intro.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/intro.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[监控VMware安装的组件](https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use-vmware/monitor-ads-vmware.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-data-store/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-data-store/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/intro.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -409,15 +409,6 @@
             概念
           </a>
           
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/concepts/intro.pdf" >
-    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -593,6 +584,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/astra-data-store/pdfs/pages/use-vmware/monitor-ads-vmware.pdf" >
+    <img src="/zh-cn/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -694,7 +694,7 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 概念</div>
       </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/intro.html">
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/intro.html">
         了解 Astra 数据存储
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/concepts/architecture.html">
         部署模式
@@ -759,7 +759,7 @@
         采用VMware的Astra Data Store要求
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/setup-ads-vmware.html">
         使用VMware设置Astra数据存储
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html">
         监控VMware安装的组件
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/use-vmware/manage-ads-vmware.html">
         管理VMware安装的Astra Data Store组件
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">了解 Astra 数据存储</h1>
+  <h1 class="n-doc__component-detail-heading">监控VMware安装的组件</h1>
 </div>
 
 
@@ -853,77 +853,154 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。Astra 数据存储为容器和 VM 工作负载提供原生共享文件服务，并提供 NetApp 企业数据管理。</p>
-</div>
-<div class="paragraph">
-<p>借助 Astra 数据存储，您可以执行以下操作：</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>* 支持 Kubernetes 容器化工作负载 * ：使用您习惯使用的企业级数据管理服务和工具。</p>
-</li>
-<li>
-<p>* 将 Kubernetes 的 " 应用程序即服务 " 平台用于开发运营 * ：创建弹性的软件定义自助式平台，以提供自动化，可重复的服务，消除 developers​ 带来的复杂性。</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Astra数据存储库是Astra产品系列的一部分。了解 <a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra系列"</a>。</p>
+<p>您可以使用适用于VMware vSphere的NetApp Astra插件监控Astra Data Store安装的组件。您可以监控系统的运行状况、包括存储后端、VASA Provider、VM和VVOL。您还可以查看容量和vCenter信息。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-数据存储功能">Astra 数据存储功能</h2>
+<h2 id="使用适用于vmware-vsphere的astra插件信息板监控系统的运行状况">使用适用于VMware vSphere的Astra插件信息板监控系统的运行状况</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store 可通过以下功能为您的云原生 applications​ 提供端到端 Kubernetes 本机存储和数据管理：</p>
+<p>使用VMware环境管理Astra数据存储涉及监控存储后端和VASA提供程序的整体运行状况。</p>
+</div>
+<div class="paragraph">
+<p>使用适用于VMware vSphere的NetApp Astra插件信息板、您可以查看以下信息：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>* Kubernetes 本机共享文件服务 * ：使用标准 NFS 客户端作为容器和 VM 的统一数据存储库，为 Kubernetes 提供共享文件服务原生。​</p>
+<p>此vCenter中所有存储后端的已用物理容量和可用容量。您可以将鼠标悬停在信息上并查看更多详细信息。</p>
 </li>
 <li>
-<p>* 云扩展 * ：在同一资源池中提供 Kubernetes 本机多个并行文件系统，以实现类似于云的扩展和利用率，从而无需在集群之外单独管理存储。</p>
+<p>运行状况良好且运行状况不正常的存储后端和VASA提供程序</p>
 </li>
 <li>
-<p>* API 优先方法 * ：将基础架构作为代码交付用于自动化集群和工作负载 management​ 。</p>
+<p>排名前10位的VM的延迟、IOPS、吞吐量和容量利用率。</p>
 </li>
-<li>
-<p>* 企业级数据管理 * ：提供自动化应用程序感知型数据保护和灾难恢复：</p>
+</ul>
+</div>
+<div class="paragraph">
+<p>在信息板中、您可以执行多项附加任务：</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>* NetApp 技术 * ：利用 NetApp 数据管理技术执行快照，备份，复制和克隆，以便用户可以在 Kubernetes 中构建和部署企业级应用程序。​</p>
+<p>监控容量</p>
 </li>
 <li>
-<p>* 故障恢复能力 * ：对 Kubernetes 本机工作负载使用复制和擦除编码技术，以提高故障恢复能力。</p>
+<p>使用现有存储后端。请参见 <a href="../use-vmware/setup-ads-vmware.html">"设置存储后端"</a>。</p>
 </li>
 <li>
-<p>* 数据效率 * ：通过实时重复数据删除和数据压缩功能进行扩展时控制成本。</p>
+<p>访问产品文档</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">查看信息板的步骤</div>
+<ol class="arabic">
+<li>
+<p>访问适用于VMware vSphere的Astra插件。</p>
+</li>
+<li>
+<p>在概述页面中、查看以下部分：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>*存储后端*部分：您可以单击存储后端和VASA提供程序的状态以查看其状态的详细信息。您也可以单击以查看所有存储后端。</p>
+</li>
+<li>
+<p>*存储后端容量*部分：查看选定vCenter中存储后端的总物理已用容量和可用容量。要更改vCenter Server、请单击右上角的vCenter Server选项。</p>
+</li>
+<li>
+<p>*虚拟机*部分：查看容量利用率排名前10位的虚拟机。</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="提示">
+</td>
+<td class="content">
+您可以改为单击表标题来显示所需内容、例如、延迟较高的前10个VM。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">在其他视图中监控Astra数据存储的步骤</div>
+<ol class="arabic">
+<li>
+<p>访问以下视图以监控Astra数据存储组件：</p>
+<div class="ulist">
+<ul>
+<li>
+<p>*虚拟机*选项卡：列出由Astra数据存储管理的所有虚拟机、与信息板相比、信息板仅列出排名前10位的虚拟机。</p>
+</li>
+<li>
+<p>*存储*深入分析：显示与存储系统关联的主机、虚拟机和数据存储库。</p>
+</li>
+<li>
+<p>*虚拟机存储*视图：提供VASA提供程序创建的VVOL的详细信息。</p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p>* 适合您的现有环境 * ：支持基于微服务的工作负载和传统工作负载，为主要 Kubernetes 分发版提供服务，提供文件存储，并在您选择的 hardware​ 上运行。</p>
-</li>
-<li>
-<p>* 与 NetApp Cloud Insights * 集成：为持续 optimization​ 提供可观察性，分析和监控功能。​</p>
-</li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="开始使用-astra-data-store">开始使用 Astra Data Store</h2>
+<h2 id="查看存储后端阈值设置">查看存储后端阈值设置</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>首先， <a href="../get-started/requirements.html">"了解 Astra 数据存储的要求"</a>。</p>
+<p>存储后端容量阈值设置用于控制何时在存储后端的所有数据存储库上显示警报通知。</p>
 </div>
 <div class="paragraph">
-<p>然后， <a href="../get-started/quick-start.html">"开始使用"</a>。</p>
+<p>使用适用于VMware vSphere的Astra插件部署或添加存储后端时、系统会设置以下默认阈值：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>90%全满会生成红色警报</p>
+</li>
+<li>
+<p>80%全满会生成黄色警报</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>您可以在VMware中查看系统生成警报的级别。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="注">
+</td>
+<td class="content">
+对于Astra数据存储早期访问计划、如果在多个数据中心中使用同一个存储容器、则可能会看到数据存储库的警报不正确。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>访问适用于VMware vSphere的NetApp Astra插件。</p>
+</li>
+<li>
+<p>从左侧导航栏中、选择*设置*。</p>
+</li>
+<li>
+<p>查看设置阈值。</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -933,25 +1010,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 系列简介"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service 文档"</a></p>
-</li>
-<li>
 <p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra 控制中心文档"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident 文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"使用 Astra Control API"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights 文档"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP 文档"</a></p>
+<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 系列简介"</a></p>
 </li>
 </ul>
 </div>
