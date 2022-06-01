@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: ads-earlier-versions.html 
+keywords: astra data store, version, ads, astra 
+summary: 有关早期版本的文档、请参见Astra Data Store。 
+---
+= 早期版本的Astra数据存储
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+可提供先前版本的文档。
+
+* https://docs.netapp.com/us-en/astra-data-store-2112/index.html["Astra Data Store 21.12文档"^]
+

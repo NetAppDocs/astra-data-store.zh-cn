@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/monitor-ads-vmware.html 
+keywords: astra, astra data store, vmware, vcenter, esxi 
+summary: 您可以使用vCenter插件监控Astra Data Store性能。 
+---
+= 监控VMware安装的组件
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+您可以使用适用于VMware vSphere的NetApp Astra插件监控Astra Data Store安装的组件。您可以监控系统的运行状况、包括存储后端、VASA Provider、VM和VVOL。您还可以查看容量和vCenter信息。
+
+
+
+== 使用适用于VMware vSphere的Astra插件信息板监控系统的运行状况
+
+使用VMware环境管理Astra数据存储涉及监控存储后端和VASA提供程序的整体运行状况。
+
+使用适用于VMware vSphere的NetApp Astra插件信息板、您可以查看以下信息：
+
+* 此vCenter中所有存储后端的已用物理容量和可用容量。您可以将鼠标悬停在信息上并查看更多详细信息。
+* 运行状况良好且运行状况不正常的存储后端和VASA提供程序
+* 排名前10位的VM的延迟、IOPS、吞吐量和容量利用率。
+
+
+在信息板中、您可以执行多项附加任务：
+
+* 监控容量
+* 使用现有存储后端。请参见 link:../use-vmware/setup-ads-vmware.html["设置存储后端"]。
+* 访问产品文档
+
+
+.查看信息板的步骤
+. 访问适用于VMware vSphere的Astra插件。
+. 在概述页面中、查看以下部分：
++
+.. *存储后端*部分：您可以单击存储后端和VASA提供程序的状态以查看其状态的详细信息。您也可以单击以查看所有存储后端。
+.. *存储后端容量*部分：查看选定vCenter中存储后端的总物理已用容量和可用容量。要更改vCenter Server、请单击右上角的vCenter Server选项。
+.. *虚拟机*部分：查看容量利用率排名前10位的虚拟机。
+
+
+
+
+
+TIP: 您可以改为单击表标题来显示所需内容、例如、延迟较高的前10个VM。
+
+.在其他视图中监控Astra数据存储的步骤
+. 访问以下视图以监控Astra数据存储组件：
++
+** *虚拟机*选项卡：列出由Astra数据存储管理的所有虚拟机、与信息板相比、信息板仅列出排名前10位的虚拟机。
+** *存储*深入分析：显示与存储系统关联的主机、虚拟机和数据存储库。
+** *虚拟机存储*视图：提供VASA提供程序创建的VVOL的详细信息。
+
+
+
+
+
+
+== 查看存储后端阈值设置
+
+存储后端容量阈值设置用于控制何时在存储后端的所有数据存储库上显示警报通知。
+
+使用适用于VMware vSphere的Astra插件部署或添加存储后端时、系统会设置以下默认阈值：
+
+* 90%全满会生成红色警报
+* 80%全满会生成黄色警报
+
+
+您可以在VMware中查看系统生成警报的级别。
+
+
+NOTE: 对于Astra数据存储早期访问计划、如果在多个数据中心中使用同一个存储容器、则可能会看到数据存储库的警报不正确。
+
+.步骤
+. 访问适用于VMware vSphere的NetApp Astra插件。
+. 从左侧导航栏中、选择*设置*。
+. 查看设置阈值。
+
+
+
+
+== 有关详细信息 ...
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra 控制中心文档"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]
+

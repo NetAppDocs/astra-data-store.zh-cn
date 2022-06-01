@@ -4,26 +4,30 @@ permalink: get-started/setup-ads.html
 keywords: astra, astra data store, setup, trident, backend 
 summary: 安装 Astra 数据存储并满足某些环境前提条件后，您将安装或更新 Astra Trident ，配置 K8s 快照功能，设置存储后端并创建默认存储类。 
 ---
-= 设置 Astra Data Store 预览组件
+= 设置Astra数据存储组件
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-安装 Astra Data Store 预览版并满足某些环境前提条件后，您将安装 Astra Trident ，配置 Kubernetes 快照功能，设置存储后端并创建默认存储类：
+你先请 link:../get-started/install-ads.html#install-a-standalone-astra-data-store["安装了独立的Astra数据存储库"] 并解决了一些问题 link:../get-started/requirements.html["环境前提条件"]、您将安装Astra Trident、配置Kubernetes快照功能、设置存储后端并创建默认存储类：
+
+
+NOTE: 如果您使用Astra控制中心部署Astra数据存储、则无需执行这些步骤、除非您打算进行设置 <<Configure Astra Data Store monitoring,其他监控选项>>。
 
 * <<Install Astra Trident>>
 * <<Install Kubernetes snapshot CRDs and Controller>>
 * <<Set up Astra Data Store as storage backend>>
 * <<Create a default Astra Data Store storage class>>
+* <<Configure Astra Data Store monitoring>>
 
 
 
 
 == 安装 Astra Trident
 
-对于 Astra Data Store 预览版，您需要安装 Astra Trident 21.10.1 。您可以使用以下选项之一安装 Astra Trident ：
+对于Astra数据存储、您需要安装Astra Trident 21.10.1或更高版本。您可以使用以下选项之一安装 Astra Trident ：
 
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html["使用 tridentctl 安装 Astra Trident"^]。
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html["使用 Trident 操作员安装 Astra Trident"^]。
@@ -43,7 +47,7 @@ NOTE: 您可以手动或使用 Helm 部署 Trident 操作员。
 NOTE: 以下命令示例假设 ` /trident` 作为目录；但是，您使用的目录可以是用于下载 YAML 文件的任何目录。
 
 .您需要什么？ #8217 ；将需要什么
-* link:requirements.html["开始安装之前，请为 Astra Data Store 预览部署准备您的环境"]。
+* link:requirements.html["开始安装之前、请为部署Astra Data Store准备您的环境"]。
 * 下载 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes 快照控制器 YAML 文件"^]：
 +
 ** Setup-snapshot-controller.yaml
@@ -183,6 +187,10 @@ vi ads_backend.json
 ----
 . 配置 JSON 文件：
 +
+
+NOTE: 以下步骤将提供一个JSON示例。
+
++
 .. 将 ` "cluster"` 值更改为 Astra Data Store 集群的集群名称。
 .. 将 ` "namespace"` 值更改为要用于创建卷的命名空间。
 .. 将 ` "autoExportPolicy"` 值更改为 `true` ，除非为此后端设置了 exportpolicy CR 。
@@ -226,7 +234,7 @@ cat kubeconf.json | base64 | tr -d '\n'
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
-        "qosPolicy": "bronze"
+        "qosPolicy": "silver"
     },
     "storage": [
         {
@@ -234,7 +242,7 @@ cat kubeconf.json | base64 | tr -d '\n'
                 "performance": "extreme"
             },
             "defaults": {
-                "qosPolicy": "bronze"
+                "qosPolicy": "gold"
             }
         },
         {
@@ -242,7 +250,7 @@ cat kubeconf.json | base64 | tr -d '\n'
                 "performance": "premium"
             },
             "defaults": {
-                "qosPolicy": "bronze"
+                "qosPolicy": "silver"
             }
         },
         {
@@ -303,16 +311,22 @@ vi ads_sc_example.yaml
 +
 [listing]
 ----
+allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: trident-csi
+  creationTimestamp: "2022-05-09T18:05:21Z"
+  name: ads-silver
+  resourceVersion: "3361772"
+  uid: lo023456-da4b-51e3-b430-3aa1e3bg111a
+mountOptions:
+- vers=4
+parameters:
+  backendType: astrads-nas
+  selector: performance=premium
 provisioner: csi.trident.netapp.io
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
-allowVolumeExpansion: true
-mountOptions:
-  - vers=4.1
 ----
 .. 创建 trident CSI ：
 +
@@ -334,7 +348,7 @@ storageclass.storage.k8s.io/trident-csi created
 +
 [listing]
 ----
-kubectl get storageclass -A
+kubectl get storageclass
 ----
 +
 响应：
@@ -343,7 +357,7 @@ kubectl get storageclass -A
 [listing]
 ----
 NAME          PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-trident-csi   csi.trident.netapp.io   Delete          Immediate           true                   6h29m
+ads-silver    csi.trident.netapp.io   Delete          Immediate           true                   6h29m
 ----
 . 更改为下载 Trident 安装程序的目录：
 +
@@ -395,7 +409,7 @@ items:
     storage:
     - defaults:
         exportPolicy: ""
-        qosPolicy: bronze
+        qosPolicy: gold
         size: ""
         snapshotDir: ""
         snapshotPolicy: ""
@@ -406,7 +420,7 @@ items:
       zone: ""
     - defaults:
         exportPolicy: ""
-        qosPolicy: bronze
+        qosPolicy: silver
         size: ""
         snapshotDir: ""
         snapshotPolicy: ""
@@ -495,8 +509,42 @@ items:
         snapshots:
           offer: true
       storageClasses:
-      *- trident-csi*
+      *- ads-silver*
       supportedTopologies: null
   volumes: []
+----
+
+
+
+
+== 配置Astra数据存储监控
+
+(可选)您可以配置Astra数据存储以供其他遥测服务监控。如果您不使用Astra控制中心进行Astra数据存储监控、或者希望将监控扩展到其他端点、则建议使用此操作步骤。
+
+如果您的Astra数据存储实例是独立部署、使用Cloud Insights 监控遥测或将日志流式传输到Elastic等第三方端点、则可以安装监控操作员。
+
+
+NOTE: 对于Astra控制中心部署、监控操作员会自动进行配置。您可以跳过以下操作步骤 的前两个命令。
+
+在设置监控之前、您需要在`astrads-system`命名空间中有一个活动的Astra数据存储集群。
+
+.步骤
+. 运行此安装命令：
++
+[listing]
+----
+kubectl apply -f ./manifests/monitoring_operator.yaml
+----
+. 配置用于监控的Astra数据存储：
++
+[listing]
+----
+kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
+----
+. 配置Astra数据存储以将EMS日志流式传输到弹性端点：
++
+[listing]
+----
+kubectl astrads monitoring es --port <portname> --host <hostname>
 ----
 

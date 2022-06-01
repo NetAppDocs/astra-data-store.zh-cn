@@ -11,12 +11,12 @@ summary: 以下是部署可与 Astra Data Store 结合使用的测试应用程�
 :imagesdir: ../media/use/
 
 
-以下是部署可与 Astra Data Store 预览版结合使用的测试应用程序的步骤。
+以下是部署可与 Astra Data Store 结合使用的测试应用程序的步骤。
 
 在此示例中，我们使用 Helm 存储库从 BitNami 部署 MongoDB 图表。
 
 .您需要什么？ #8217 ；将需要什么
-* 部署和配置了 Astra Data Store 预览集群
+* 已部署和配置Astra Data Store集群
 * Trident 安装已完成
 
 

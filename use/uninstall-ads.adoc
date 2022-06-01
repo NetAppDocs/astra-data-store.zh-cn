@@ -4,48 +4,58 @@ permalink: use/uninstall-ads.html
 keywords: astra, astra data store, astra datastore, uninstall 
 summary: 要卸载 Astra 数据存储，您需要删除工作负载，绑定，卷，导出策略，集群， 许可证，部署环境和命名空间。 
 ---
-= 使用自动脚本卸载 Astra Data Store 预览版
+= 使用自动化脚本卸载Astra Data Store
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 
 
-要卸载 Astra Data Store 预览和控制平面，您需要删除工作负载，绑定，卷，导出策略， Astra Data Store 集群，许可证，部署环境和 Astra Data Store 预览命名空间。
+要卸载Astra数据存储和控制平台、您需要删除工作负载、绑定、卷、导出策略、Astra数据存储集群、许可证、部署环境和Astra数据存储命名空间。
 
-或者，您也可以 link:../use/uninstall-ads-manual.html["卸载不带脚本的 Astra Data Store 预览版"]。
+卸载可使用不同的方法完成：
+
+* <<Uninstall Astra Data Store with an automated script>>
+* <<Uninstall Astra Data Store manually without a script>>
+* <<Troubleshoot the Astra Data Store uninstall process>>
+
+
+
+
+== 使用自动化脚本卸载Astra Data Store
+
+此过程使用自动脚本卸载Astra数据存储。
 
 .您需要什么？ #8217 ；将需要什么
 * root 管理权限
 
 
-Astra Data Store 预览卸载过程将指导您完成以下高级步骤：
+Astra数据存储卸载过程将指导您完成以下高级步骤：
 
 * <<Remove existing workloads and bindings>>
 * <<Uninstall Astra Data Store cluster>>
 * <<Validate the removal of the astrads-system namespace>>
 * <<Ensure containers are not running on worker nodes>>
 * <<Delete OpenShift Container Platform resources>>
-* <<Troubleshoot the Astra Data Store preview uninstall process>>
 
 
 
 
-== 删除现有工作负载和绑定
+=== 删除现有工作负载和绑定
 
-卸载 Astra Data Store 预览版之前，必须先删除以下内容
+卸载Astra数据存储之前、必须先删除以下内容
 
-* 使用 Astra Data Store 预览版作为存储后端的所有应用程序工作负载
-* 使用 Astra Data Store 预览作为后端的 Trident 绑定
+* 使用Astra Data Store作为存储后端的所有应用程序工作负载
+* 使用Astra数据存储作为后端的Trident绑定
 
 
 这样可以确保 Kubernetes 环境保持干净，这在重新安装时非常重要。
 
 
 
-== 卸载 Astra Data Store 集群
+=== 卸载 Astra Data Store 集群
 
-要卸载 Astra Data Store 预览版，您可以使用从 NetApp 支持站点下载的 Astra Data Store tar 文件中的 `uninstall.sh` 脚本。
+要卸载Astra Data Store、您可以使用从NetApp支持站点下载的Astra Data Store tar文件中的`uninstall.sh`脚本。
 
 . 在 `manifests` 目录中找到 `uninstall.sh` 。
 . 运行以下 `sed` 命令：
@@ -192,7 +202,7 @@ secret "astrads-autosupport-certs" deleted
 
 
 
-== 验证是否删除了 astrads-system 命名空间
+=== 验证是否删除了 astrads-system 命名空间
 
 确保以下命令不返回任何结果：
 
@@ -202,7 +212,7 @@ kubectl get ns | grep astrads-system
 ----
 
 
-== 确保工作节点上未运行容器
+=== 确保工作节点上未运行容器
 
 验证 `fireap` 或 `netwd` 等容器是否未在工作节点上运行。在每个节点上运行以下命令。
 
@@ -213,9 +223,9 @@ ssh <mynode1>
 ----
 
 
-== 删除 OpenShift 容器平台资源
+=== 删除 OpenShift 容器平台资源
 
-如果您在 Red Hat OpenShift 容器平台（ OCP ）上安装了 Astra Data Store preview ，则可以卸载 OCP 安全上下文约束（ SCC ）和绑定资源。
+如果您在Red Hat OpenShift容器平台(OCP)上安装了Astra数据存储、则可以卸载OCP安全上下文约束(SCC)和绑定资源。
 
 OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。
 
@@ -237,14 +247,292 @@ oc delete -f oc_role_bindings.yaml
 
 NOTE: 忽略这些步骤中的 " 未找到资源 " 错误。 
 
-. 从所有 Kubernetes 节点中删除 ` /var/lib/kubelet/config.yaml` 。 
 
 
 
 
-== 对 Astra Data Store 预览卸载过程进行故障排除
+== 手动卸载Astra数据存储、而不使用脚本
 
-Kubernetes v1.20 中的 Astra 数据存储预览卸载过程有时可能会使发生原因 Pod 保持终止状态。
+此过程无需脚本即可手动卸载Astra数据存储。
+
+要在不使用自动脚本的情况下手动卸载Astra数据存储、您需要删除工作负载、绑定、卷、导出策略、集群、 许可证、部署环境和Astra Data Store命名空间。
+
+.您需要什么？ #8217 ；将需要什么
+* root 管理权限
+
+
+Astra数据存储卸载过程将指导您完成以下高级步骤：
+
+* <<Remove existing workloads and bindings>>
+* <<Uninstall the Astra Data Store cluster and control plane>>
+* <<Delete the license>>
+* <<Delete the Astra Data Store installation>>
+* <<Validate the removal of the astrads-system namespace>>
+* <<Ensure containers are not running on worker nodes>>
+* <<Delete OpenShift Container Platform resources>>
+
+
+
+
+=== 删除现有工作负载和绑定
+
+卸载Astra数据存储之前、必须先删除以下内容
+
+* 使用Astra Data Store作为存储后端的所有应用程序工作负载
+* 使用Astra数据存储作为后端的Trident绑定
+
+
+这样可以确保 Kubernetes 环境保持干净，这在重新安装时非常重要。
+
+
+
+=== 卸载Astra数据存储集群和控制平面
+
+按照以下步骤手动卸载Astra数据存储。
+
+
+
+==== 删除卷和导出策略
+
+在删除集群之前、您应删除Astra Data Store卷和导出策略。
+
+
+TIP: 如果不先删除卷和导出策略、则集群删除过程将暂停、直到删除Astra Data Store volumes对象为止。在开始删除集群之前删除这些项会更高效。
+
+.步骤
+. 删除卷：
++
+[listing]
+----
+~% kubectl delete astradsvolumes --all -A
+~% kubectl get astradsvolumes -A
+----
+. 删除导出策略：
++
+[listing]
+----
+~% kubectl delete astradsexportpolicies --all -A
+~% kubectl get astradsexportpolicies -A
+
+----
+
+
+
+
+==== 删除Astra数据存储集群
+
+删除集群时、只会删除Astra Data Store集群对象自定义资源(CR)以及集群范围的资源。
+
+
+NOTE: 即使在删除集群后，操作符， nodeinfo Pod 和集群控制器（即 Kubernetes 范围的资源）仍会保持不变。
+
+删除集群还会从节点卸载底层操作系统，从而停止 `fireap` 和 `netwd` 服务。
+
+卸载程序大约需要一分钟才能完成。然后、开始删除Astra Data Store集群范围的资源。
+
+. 删除集群：
++
+[listing]
+----
+~% kubectl delete astradsclusters --all -A
+~% kubectl get astradsclusters -A
+----
+
+
+
+
+=== 删除许可证
+
+. 通过 SSH 连接到集群中的每个工作节点，并验证` fireap` 或 `netwd `未在工作节点中运行。
+. 删除Astra Data Store许可证：
++
+[listing]
+----
+~% kubectl delete astradslicenses --all -A
+~% kubectl get astradslicenses -A
+
+----
+
+
+
+
+=== 删除Astra Data Store安装
+
+删除集群中的控制器，操作员，命名空间和支持 Pod 。
+
+. 删除Astra Data Store安装对象：
++
+[listing]
+----
+~% kubectl delete astradsversion astradsversion -n astrads-system
+~% kubectl get astradsversion -n astrads-system
+
+----
+. 删除数据存储DemonSets和所有Astra Data Store控制器资源：
++
+[listing]
+----
+~% kubectl delete ds --all -n astrads-system
+~% kubectl get ds -n astrads-system
+
+~% kubectl delete deployments --all -n astrads-system
+~% kubectl get deployments -n astrads-system
+----
+. 删除其余项目和操作符 YAML 文件：
++
+[listing]
+----
+~% kubectl delete -f ./manifests/astradsoperator.yaml
+~% kubectl get pods -n astrads-system
+
+----
+
+
+
+
+=== 验证是否删除了 astrads-system 命名空间
+
+确保以下命令不返回任何结果：
+
+[listing]
+----
+~% kubectl get ns | grep astrads-system
+----
+
+
+=== 确保工作节点上未运行容器
+
+验证 `fireap` 或 `netwd` 等容器是否未在工作节点上运行。在每个节点上运行以下命令。
+
+[listing]
+----
+ssh <mynode1>
+# runc list
+----
+
+
+=== 删除 OpenShift 容器平台资源
+
+如果您在Red Hat OpenShift容器平台(OCP)上安装了Astra数据存储、则可以卸载OCP安全上下文约束(SCC)和绑定资源。
+
+OpenShift 使用安全上下文约束（ SCC ）来控制 Pod 可以执行的操作。
+
+完成标准卸载过程后，请完成以下步骤。
+
+. 删除 SCC 资源：
++
+[listing]
+----
+oc delete -f ads_privileged_scc.yaml
+----
+. 删除 rolebindings 资源：
++
+[listing]
+----
+oc delete -f oc_role_bindings.yaml
+----
++
+
+NOTE: 忽略这些步骤中的 " 未找到资源错误 " 。 
+
+
+
+
+
+=== 手动删除示例
+
+下面显示了执行手动卸载脚本的示例。
+
+[listing]
+----
+$ kubectl delete astradsvolumes --all -A
+No resources found
+$ kubectl delete astradsexportpolicies --all -A
+No resources found
+$ kubectl delete astradsclusters --all -A
+astradscluster.astrads.netapp.io "astrads-sti-c6220-09-10-11-12" deleted
+
+$ kubectl delete astradslicenses --all -A
+astradslicense.astrads.netapp.io "e900000005" deleted
+
+$ kubectl delete astradsdeployment astradsdeployment -n astrads-system
+astradsdeployment.astrads.netapp.io "astradsdeployment" deleted
+
+$ kubectl delete ds --all -n astrads-system
+daemonset.apps "astrads-ds-astrads-sti-c6220-09-10-11-12" deleted
+daemonset.apps "astrads-ds-nodeinfo-astradsdeployment" deleted
+daemonset.apps "astrads-ds-support" deleted
+
+$ kubectl delete deployments --all -n astrads-system
+deployment.apps "astrads-cluster-controller" deleted
+deployment.apps "astrads-deployment-support" deleted
+deployment.apps "astrads-license-controller" deleted
+deployment.apps "astrads-operator" deleted
+
+$ kubectl delete -f /.../firetap/sds/manifests/netappsdsoperator.yaml
+namespace "astrads-system" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsdeployments.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
+role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-autosupport-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-autosupport-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-metrics-reader" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-proxy-role" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-proxy-rolebinding" deleted
+configmap "astrads-autosupport-cm" deleted
+configmap "astrads-firetap-cm" deleted
+configmap "astrads-fluent-bit-cm" deleted
+configmap "astrads-kevents-asup" deleted
+configmap "astrads-metrics-cm" deleted
+service "astrads-operator-metrics-service" deleted
+ Error from server (NotFound): error when deleting "/.../export/firetap/sds/manifests/netappsdsoperator.yaml": deployments.apps "astrads-operator" not found
+
+$ kubectl get ns | grep astrads-system
+
+[root@sti-rx2540-535c ~]# runc list
+ID      PID     STATUS    BUNDLE       CREATED    OWNER
+----
+
+
+== 对Astra数据存储卸载过程进行故障排除
+
+如果需要对卸载过程进行故障排除、请查看以下建议。
+
+
+
+=== Pod处于终止状态
+
+Astra数据存储卸载过程有时可能会使发生原因 Pod在Kubernetes中保持终止状态。
 
 如果发生此问题描述 ，请运行以下命令强制删除 `astrads-system` 命名空间中的所有 Pod ：
 
@@ -252,3 +540,108 @@ Kubernetes v1.20 中的 Astra 数据存储预览卸载过程有时可能会使�
 ----
 kubectl delete pods --all  -n astrads-system   --force --grace-period 0
 ----
+
+
+=== 服务质量策略指向旧集群
+
+如果您仅删除Astra数据存储集群并对其进行重新部署、则可能无法创建永久性卷声明(PVC)或卷、因为服务质量(QoS)策略指向旧集群且找不到。
+
+. 要避免这种情况、请在删除Astra Data Store集群后手动删除QoS策略：
++
+[listing]
+----
+kubectl delete AstraDSQosPolicy --all -A
+----
+. 删除整个Astra Data Store部署(而不仅仅是集群)：
++
+[listing]
+----
+uninstall.sh all
+----
+
+
+
+
+=== 删除或卸载Astra数据存储后未删除密钥提供程序CRS
+
+如果为要删除或卸载的Astra Data Store集群配置了外部密钥提供程序、则可能需要手动清理未删除的任何密钥提供程序CR。
+
+.详细信息
+====
+按照以下临时解决策 说明进行操作：
+
+.步骤
+. 确认未删除密钥提供程序CRS：
++
+[listing]
+----
+kubectl get astradskeyprovider --selector astrads.netapp.io/cluster=astrads-cluster-example -n astrads-system
+----
++
+响应：
+
++
+[listing]
+----
+NAME                   AGE
+externalkeyprovider1   94s
+----
+. 删除密钥提供程序CRS：
++
+.. 删除此查找器：
++
+[listing]
+----
+kubectl edit astradskeyprovider -n astrads-system
+----
+.. 删除下面突出显示的查找器行：
++
+[listing]
+----
+kubectl edit astradskeyprovider externalkeyprovider1 -n astrads-system
+----
++
+[listing, subs="+quotes"]
+----
+apiVersion: astrads.netapp.io/v1beta1
+kind: AstraDSKeyProvider
+metadata:
+  creationTimestamp: "2022-05-24T16:38:27Z"
+  *finalizers:*
+  *- astrads.netapp.io/astradskeyprovider-finalizer*
+  generation: 1
+  labels:
+    astrads.netapp.io/cluster: astrads-cluster-example
+    astrads.netapp.io/rsid: "1"
+  name: externalkeyprovider1
+  namespace: astrads-system
+  resourceVersion: "1134699"
+  uid: a11111b2-31c0-4575-b7f3-97f9abla1bla
+spec:
+  cluster: astrads-cluster-example
+  kmipServer:
+    hostnames:
+    - 10.xxx.xxx.xxx
+    port: 5696
+    secretRef: externalkeyprovider1
+status:
+  keyProviderUUID: a1b2cd34-4fc6-5bae-9184-2288c673181d
+  kmipServerStatus:
+    capabilities: '{ KMIP_library_version()=17367809, KMIP_library_version_str()="KMIP
+      1.9.3a  8-Apr-2019", KMIP_library_version_tag()="KMIP part of KMIP 1.9.3a  8-Apr-2019",
+      KMIP_library_is_eval()=false, KMIP_library_fips_capable()=true(FIPS140), KMIP_SSL_provider_build_version()=268444095,
+      KMIP_SSL_provider_version()=268444095, KMIP_SSL_provider_version_str()="OpenSSL
+      1.0.2zb-fips  23 Sep 2021" }'
+    keyServerUUID: 8422bdd0-74ad-579d-81bd-6d544ac4224a
+----
+.. 删除此查找器后、删除密钥提供程序CR：
++
+[listing]
+----
+kubectl delete astradskeyprovider <key-provider-cr-name> -n astrads-system
+----
+
+
+
+
+====

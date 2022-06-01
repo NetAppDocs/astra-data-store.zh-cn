@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: use/upgrade-ads.html 
+keywords: astra, astra data store, kubectl, upgrade 
+summary: 您可以将Astra数据存储升级到最新版本。 
+---
+= 升级Astra数据存储
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+您可以升级Astra数据存储以利用最新功能和修复。您可以使用Astra Data Store `kubectl`扩展来升级Astra Data Store。
+
+
+
+== 使用kubectl升级Astra数据存储
+
+您可以使用Astra Data Store `kubectl`扩展来升级Astra Data Store。
+
+
+
+=== 下载Astra Data Store软件包并提取映像
+
+.步骤
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载Astra数据存储捆绑包(`Astra_Data_Store_2022.05.tar`)。
+. （可选）使用以下命令验证捆绑包的签名：
++
+[listing]
+----
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+----
+. 创建目录：
++
+[listing]
+----
+mkdir Astra_Data_Store_2022.05
+cd Astra_Data_Store_2022.05
+----
+. 提取映像：
++
+[listing]
+----
+tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.tar
+----
++
+
+NOTE: 这些图像将提取到工作目录中创建的`astrads/images`目录中。
+
+
+
+
+
+=== 将二进制文件和推送映像复制到本地注册表
+
+.步骤
+. 将kubectl-astrad二进制文件从用于提取映像的目录复制到安装了Kubernetes kubectl二进制文件的标准路径(在以下示例中使用`/usr/bin/`作为路径)。kubectl-astrad是一个自定义kubectl扩展、用于安装和管理Astra数据存储集群。
++
+
+TIP: 使用`which kubectl`命令查找安装kubectl二进制文件的路径。
+
++
+[listing]
+----
+cp -p .astrads/bin/kubectl-astrads /usr/bin/.
+----
+. 将Astra Data Store映像目录中的文件添加到本地注册表中。
++
+
+NOTE: 有关自动加载映像的信息，请参见下面的示例脚本。
+
++
+.. 登录到注册表：
++
+[listing]
+----
+docker login [your_registry_path]
+----
+.. 将环境变量设置为要推送Astra数据存储映像的注册表路径；例如、`repo.company.com`。
++
+[listing]
+----
+export REGISTRY=repo.company.com/astrads
+----
+.. 运行以下脚本、将映像加载到Docker、标记映像并将其推送到本地注册表：
++
+[listing]
+----
+for astraImageFile in $(ls astrads/images/*.tar) ; do
+   astraImage=$(docker load --input ${astraImageFile} | sed 's~Loaded image(s): ~~')
+   astraImageShort=`echo $astraImage | sed 's~.*/~~'`
+   docker tag ${astraImage} ${REGISTRY}/${astraImageShort}
+   docker push ${REGISTRY}/${astraImageShort}
+done
+sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml
+----
+
+
+
+
+
+
+=== 执行升级
+
+.步骤
+. 将`astradsoperator.yaml`文件复制到本地目录：
++
+[source, sh]
+----
+cp /PATH/TO/FILE/astradsoperator.yaml ./
+----
+. 升级操作员。将大写的参数替换为适用于您环境的信息：
++
+[source, kubectl]
+----
+kubectl-astrads upgrade ads-operator --repository-url REPOSITORY_URL --operator-yaml astradsoperator.yaml
+----
+. 开始升级Astra Data Store。将大写的参数替换为适用于您环境的信息：
++
+[source, kubectl]
+----
+kubectl-astrads upgrade ads-version --repository-url REPOSITORY_URL --ads-version-yaml ./astrads/manifests/astradsversion.yaml
+----
++
+此时将显示一条消息、通知您升级已启动、需要几分钟才能完成。
+
+

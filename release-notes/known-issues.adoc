@@ -11,21 +11,41 @@ summary: 已知问题可确定可能妨碍您成功使用此版本产品的问�
 :imagesdir: ../media/release-notes/
 
 
-已知问题用于确定可能会阻止您成功使用此产品预览版的问题。
+已知问题可确定可能妨碍您成功使用此版本产品的问题。
 
 
 
-== 如果 Pod 处于崩溃环路中，使用默认活跃度探针值的 MongoDB 部署将失败
+== Astra Data Store 2202.05早期访问计划(EAP)版本
 
-作为临时解决策，请在 MongoDB 部署规范中将活跃度探针 initialDelaySeconds 设置为 600 秒。
+此版本包含这些已知问题。请仔细查看这些已知问题。
 
 
 
-== Astra 数据存储预览卸载过程可能会使发生原因 Pod 保持终止状态
+=== 存储后端任务未显示在vSphere中
 
-Kubernetes v1.20 中的 Astra 数据存储预览卸载过程有时可能会使发生原因 Pod 保持终止状态。
+提交使用现有存储后端或删除存储后端的操作时、此任务不会显示在vSphere客户端的近期任务面板中。
 
-请参见 link:../use/uninstall-ads-manual.html["手动卸载不使用脚本的 Astra Data Store 预览版"] 或link:../use/uninstall-ads.html["使用脚本自动卸载 Astra Data Store 预览版"]。
+
+
+=== 创建VM时会创建额外的文件夹
+
+在vSphere中创建VM时、有时会创建其他文件夹、而不是在数据存储库下为每个VM创建一个文件夹。
+
+
+
+=== 适用于VMware vSphere的Astra插件中经过筛选的视图间歇性不显示数据
+
+虚拟机的表列筛选器有时会省略经过筛选的数据。而筛选后的视图则显示正在加载图标。要解决此问题、您可以转到另一个视图并重置筛选器以再次显示数据。
+
+
+
+=== Kubernetes工作节点上的IP地址限制
+
+在以下情况下、创建Astra Data Store集群失败：
+
+. Kubernetes工作节点的IP地址托管在未分配给Astra数据存储的接口上。
+. 此IP地址与分配给Astra数据存储集群的集群/数据IP地址位于同一子网中。
+
 
 
 

@@ -11,7 +11,13 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 :imagesdir: ../media/use/
 
 
-您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。
+您可以使用Cloud Insights 监控Astra数据存储指标。
+
+以下是Cloud Insights 中显示的一些示例Astra数据存储指标：image:ci_ui_metrics.png["显示 Astra 数据存储指标的 Cloud Insights"]
+
+您还可以使用显示在Astra数据存储中生成的指标列表 <<Open Metrics API help>>。
+
+您可以完成以下任务：
 
 * <<Complete Cloud Insights connection prerequisite tasks>>
 * <<Acquisition Unit storage>>
@@ -20,18 +26,14 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 * <<Disconnect from Cloud Insights>>
 
 
-以下是 Cloud Insights 中显示的一些示例 Astra 数据存储预览指标：image:ci_ui_metrics.png["显示 Astra 数据存储指标的 Cloud Insights"]
-
-您还可以使用显示在 Astra Data Store 预览版中生成的指标列表 <<Open Metrics API help>>。
-
 
 
 == 完成 Cloud Insights 连接前提条件任务
 
 在将 Astra 数据存储与 Cloud Insights 连接之前，您需要完成以下任务：
 
-* link:../get-started/install-ads.html#install-the-monitoring-operator["安装 Astra 数据存储监控操作员"] 这是 Astra Data Store 预览安装说明的一部分。
-* link:../get-started/install-ads.html["安装 kubectl-astrad 二进制文件"] 这是 Astra Data Store 预览安装说明的一部分。
+* link:../get-started/install-ads.html#install-the-monitoring-operator["安装 Astra 数据存储监控操作员"] 这是Astra Data Store安装说明的一部分。
+* link:../get-started/install-ads.html["安装 kubectl-astrad 二进制文件"] 这是Astra Data Store安装说明的一部分。
 * https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["创建 Cloud Insights 帐户"^]。
 * 确保以下命令可用： `jk ， curl ， grep` 和 `JQ`
 
@@ -39,7 +41,7 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 收集以下信息：
 
 * 对以下类别具有读 / 写权限的 * Cloud Insights API 访问令牌 * ：采集单元，数据收集，数据载入和日志载入。此选项将用于读 / 写操作，设置采集单元以及设置数据载入过程。
-* * Kubernetes API 服务器 IP 地址和端口 * 。用于监控 Astra Data Store 预览集群。
+* * Kubernetes API 服务器 IP 地址和端口 * 。用于监控Astra数据存储集群。
 * * Kubernetes API 令牌 * 。此选项用于调用 Kubernetes API 。
 * * 永久性卷配置 * 。有关如何配置永久性卷的信息。
 
@@ -56,13 +58,13 @@ summary: 您可以使用 Cloud Insights 指标监控 Astra 数据存储资产。
 
 == 下载并运行安装脚本
 
-Cloud Insights 提供了 Bash 脚本，用于通过监控操作员启用 Astra 数据存储预览监控。安装脚本将安装一个采集单元以及 Astra Data Store 收集器，一个 Telegraf 代理和一个 Fluent Bit 代理。
+Cloud Insights 提供了Bash脚本、用于通过监控操作员启用Astra数据存储监控。安装脚本将安装一个采集单元、其中包含Astra Data Store收集器和一个Fluent Bit Agent。
 
 下载 Cloud Insights 租户域名和选定的 Cloud Insights API 访问令牌后，此令牌将嵌入安装程序脚本中。
 
 然后，指标将按如下所示发送：
 
-* Telegraf 将向 Cloud Insights 数据湖发送指标。
+* Cloud Insights 采集单元将指标发送到Cloud Insights 数据湖。
 * Fluent Bit 会将日志发送到日志载入服务。
 
 
@@ -134,7 +136,6 @@ Configuring Cloud Insights monitoring for Astra Data Store . . .
 Configuring monitoring namespace
 ...
 Configuring output sink and Fluent Bit plugins
-Configuring Telegraf plugins
 Configuring Acquisition Unit
 ...
 Acquisition Unit has been installed successfully.
@@ -189,23 +190,6 @@ Configuration done!
     domain-name: bzl9ngz.gst-adsdemo.ci-dev.netapp.com
     name: CI
   serviceAccount: sa-netapp-monitoring
-  telegraf:
-  - name: ads-open-metric
-    outputs:
-    - sink: CI
-    run-mode:
-    - ReplicaSet
-    substitutions:
-    - key: URLS
-      values:
-      - http://astrads-metrics-service.astrads-system.svc.cluster.local:9341
-    - key: METRIC_TYPE
-      value: ads-metric
-    - key: ADS_CATEGORY
-      value: netapp_ads
-    - key: ADS_CLUSTER_NAME
-      value: meg-ads-21-22-28-29-30
-  - name: agent
 status:
   au-pod-status: UP
   au-uuid: eddeccc6-3aa3-4dd2-a98c-220085fae6a9
@@ -260,17 +244,17 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 . 保存并退出编辑器窗口。
 
 
-监控操作员将更新 Telegraf 和 Fluent Bit 以使用新的 Cloud Insights API 访问令牌。
+监控操作员将更新Fluent Bit以使用新的Cloud Insights API访问令牌。
 
 
 
 == 断开与 Cloud Insights 的连接
 
-要断开与 Cloud Insights 的连接，您需要先从 Cloud Insights UI 中删除 Astra 数据存储收集器。完成后，您可以从监控操作员中删除采集单元， Telegraf 和 Fluent 位配置。
+要断开与 Cloud Insights 的连接，您需要先从 Cloud Insights UI 中删除 Astra 数据存储收集器。完成此操作后、您可以从监控操作员中删除采集单元、Telegraf (如果已配置)和Fluent Bit配置。
 
 
 
-=== 删除 Astra Data Store 预览收集器
+=== 删除 Astra 数据存储收集器
 
 . 登录到 Cloud Insights 。
 . 选择 * 管理 * > * 数据收集器 * 以访问数据收集器页面。
@@ -281,7 +265,7 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 
 
 
-=== 删除采集单元， Telegraf 和 Fluent 位
+=== 删除采集单元、Telegraf (如果已配置)和Fluent Bit
 
 . 编辑代理 CR ：
 +
@@ -291,11 +275,11 @@ kubectl --namespace netapp-monitoring edit agent agent-monitoring-netapp
 ----
 . 找到 `au` 部分并将 `isenabled` 设置为 `false`
 . 找到 `flual-bit` 部分，然后删除名为 `ads-tail -CI` 的插件。如果没有其他插件，您可以删除 `flual-bit` 部分。
-. 找到 `telraf` 部分，然后删除名为 `ads-open-metric` 的插件。如果没有其他插件，您可以删除 `电报` 部分。
+. 如果配置了Telegraf、请找到`telecraf`部分、然后删除名为`ads-open-metric`的插件。如果没有其他插件，您可以删除 `电报` 部分。
 . 找到 `output-sink` 部分，然后卸下名为 `CI` 的接收器。
 . 保存并退出编辑器窗口。
 +
-监控操作员将更新 Telegraf 和 Fluent 位配置并删除采集单元 POD 。
+监控操作员将更新Telegraf (如果已配置)和Fluent Bit配置、并删除采集单元POD。
 
 . 如果您使用本地目录作为采集单元 PV ，而不是存储配置程序，请删除这些 PV ：
 +
@@ -316,13 +300,13 @@ kubectl delete pv au-lib au-log au-pv
 
 
 
-监控操作员将更新 Telegraf 和 Fluent 位配置并删除采集单元。
+监控操作员将更新Telegraf (如果已配置)和Fluent Bit配置、并删除采集单元。
 
 
 
 == 打开指标 API 帮助
 
-下面列出了可用于从 Astra Data Store 预览版收集指标的 API 。
+下面列出了可用于从Astra数据存储收集指标的API。
 
 * "help" 行说明了指标。
 * "type" 行表示指标是量表还是计数器。

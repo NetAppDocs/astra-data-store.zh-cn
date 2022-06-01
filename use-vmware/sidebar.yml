@@ -1,0 +1,16 @@
+---
+section: use-vmware
+title: 将Astra数据存储与VMware结合使用
+entries:
+- title: 了解采用VMware的Astra Data Store
+  url: "/use-vmware/use-ads-vmware-overview.html"
+- title: 采用VMware的Astra Data Store要求
+  url: "/use-vmware/ads-vmware-requirements.html"
+- title: 使用VMware设置Astra数据存储
+  url: "/use-vmware/setup-ads-vmware.html"
+- title: 监控VMware安装的组件
+  url: "/use-vmware/monitor-ads-vmware.html"
+- title: 管理VMware安装的Astra Data Store组件
+  url: "/use-vmware/manage-ads-vmware.html"
+- title: 从VMware集成环境中卸载Astra Data Store
+  url: "/use-vmware/uninstall-ads-vmware.html"

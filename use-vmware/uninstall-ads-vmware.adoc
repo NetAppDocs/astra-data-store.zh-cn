@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/uninstall-ads-vmware.html 
+keywords: astra, astra data store, uninstall, remove, vmware, vcenter, esxi 
+summary: 您可以从vSphere环境中卸载Astra数据存储及其相关组件。 
+---
+= 从VMware集成环境中卸载Astra Data Store
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+您可以从vSphere环境中卸载Astra数据存储及其相关组件。
+
+请参见 link:../use/uninstall-ads.html["这些说明"] 卸载Astra数据存储时。
+
+
+
+== 有关详细信息 ...
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra 控制中心文档"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]
+

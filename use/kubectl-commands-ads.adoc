@@ -4,40 +4,34 @@ permalink: use/kubectl-commands-ads.html
 keywords: astra, astra data store, astra datastore, kubectl 
 summary: 您可以将 kubectl 命令直接与 Astra Data Store 结合使用。 
 ---
-= 使用 kubectl 命令管理 Astra Data Store 预览资产
+= 使用kubectl命令管理Astra Data Store资源
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-您可以使用 kubectl 命令和 Kubernetes API 扩展来管理 Astra Data Store 预览资产。
+您可以使用kubectl命令和Kubernetes API扩展来管理Astra Data Store资源。
 
 要了解如何部署示例应用程序，请参见 link:../use/deploy-apps.html["部署测试应用程序"]。
 
-有关以下集群维护信息，请参见 link:../use/maintain-cluster.html["管理集群"]：
-
-* 将节点置于维护模式
-* 更换驱动器
-* 添加节点
-* 更换节点
-
+有关集群维护信息、请参见 link:../use/maintain-cluster.html["管理集群"]。
 
 .您需要什么？ #8217 ；将需要什么
-* 您安装在中的 Astra Data Store 预览 kubectl 插件 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]
+* 您安装在中的Astra Data Store kubectl插件 link:../get-started/install-ads.html["安装 Astra 数据存储"]
 
 
 
 
-== 列出适用于 Astra Data Store 预览版的 Kubernetes 自定义 API 资源
+== 列出适用于Astra数据存储的Kubernetes自定义API资源
 
-您可以在 Kubernetes 中使用 kubectl 命令与 Astra Data Store 预览集群进行交互并观察其状态。
+您可以在Kubernetes中使用kubectl命令与Astra Data Store集群进行交互并观察其状态。
 
-从 `api-resources` 命令中列出的每个项目都代表一个 Kubernetes 自定义资源定义（ CRD ）， Astra Data Store 预览版可在内部使用该定义定义定义（ CRD ）来管理集群。
+`api-resources`命令中列出的每个项都表示一个Kubernetes自定义资源定义(CRD)、Astra Data Store可在内部使用该定义定义来管理集群。
 
-此列表对于获取每个 Astra Data Store 预览对象的短名称以减少键入效果特别有用，如后面所示。
+此列表对于获取每个Astra Data Store对象的短名称以减少键入内容特别有用、如后面所示。
 
-. 显示用于 Astra Data Store 预览的 Kubernetes 自定义 API 资源列表：
+. 显示适用于Astra数据存储的Kubernetes自定义API资源列表：
 +
 [listing]
 ----
@@ -49,21 +43,23 @@ kubectl api-resources --api-group astrads.netapp.io
 +
 [listing]
 ----
-NAME                   SHORTNAMES  APIGROUP           NAMESPACED  KIND
-astradsversions         adsve      astrads.netapp.io  true        AstraDSVersion
-astradsclusters         adscl      astrads.netapp.io  true        AstraDSCluster
-astradslicenses         adsli      astrads.netapp.io  true        AstraDSLicense
-astradsnodeinfoes       adsni      astrads.netapp.io  true        AstraDSNodeInfo
-astradsvolumes          adsvo      astrads.netapp.io  true        AstraDSVolume
-astradsqospolicies      adsqp      astrads.netapp.io  true        AstraDSQosPolicy
-astradsexportpolicies   adsep      astrads.netapp.io  true        AstraDSExportPolicy
-astradsvolumesnapshots  adsvs      astrads.netapp.io  true        AstraDSVolumeSnapshot
-astradsvolumefiles      adsvf      astrads.netapp.io  true        AstraDSVolumeFiles
-astradsautosupports     adsas      astrads.netapp.io  true        AstraDSAutoSupport
-astradsfaileddrives     adsfd      astrads.netapp.io  true        AstraDSFailedDrive
-astradsnodemanagements  adsnm      astrads.netapp.io  true        AstraDSNodeManagement
+NAME                   SHORTNAMES  APIGROUP            NAMESPACED  KIND
+astradsautosupports    adsas   astrads.netapp.io/v1alpha1 true   AstraDSAutoSupport
+astradscloudsnapshots  adscs   astrads.netapp.io/v1alpha1 true   AstraDSCloudSnapshot
+astradsclusters        adscl   astrads.netapp.io/v1alpha1 true   AstraDSCluster
+astradsexportpolicies  adsep   astrads.netapp.io/v1alpha1 true   AstraDSExportPolicy
+astradsfaileddrives    adsfd   astrads.netapp.io/v1alpha1 true   AstraDSFailedDrive
+astradslicenses        adsli   astrads.netapp.io/v1alpha1 true   AstraDSLicense
+astradsnfsoptions      adsnf   astrads.netapp.io/v1alpha1 true   AstraDSNfsOption
+astradsnodeinfoes      adsni   astrads.netapp.io/v1alpha1 true   AstraDSNodeInfo
+astradsnodemanagements adsnm   astrads.netapp.io/v1alpha1 true   AstraDSNodeManagement
+astradsqospolicies     adsqp   astrads.netapp.io/v1alpha1 true   AstraDSQosPolicy
+astradsversions        adsve   astrads.netapp.io/v1alpha1 true   AstraDSVersion
+astradsvolumefiles     adsvf   astrads.netapp.io/v1alpha1 true   AstraDSVolumeFiles
+astradsvolumes         adsvo   astrads.netapp.io/v1alpha1 true   AstraDSVolume
+astradsvolumesnapshots adsvs   astrads.netapp.io/v1alpha1 true   AstraDSVolumeSnapshot
 ----
-. 要获取 Kubernetes 集群中所有当前的 Astra Data Store 预览对象，请使用 `kubectl get ADS -a` 命令：
+. 要获取Kubernetes集群中的所有当前Astra Data Store对象、请使用`kubectl get ADS -a`命令：
 +
 [listing]
 ----
@@ -134,7 +130,7 @@ astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   tr
 
 `kubectl astrad` 命令包含一个 ` -h` 交换机，可为您提供使用情况和标志文档。
 
-. 显示有关 Astra Data Store preview kubectl 扩展中所有命令的帮助：
+. 显示有关Astra Data Store kubectl扩展中所有命令的帮助：
 +
 [listing]
 ----

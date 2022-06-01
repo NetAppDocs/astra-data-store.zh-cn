@@ -1,0 +1,365 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/setup-ads-vmware.html 
+keywords: astra, vmware, vcenter, astra data store 
+summary: 您可以使用Astra vCenter插件和VMware vSphere本机功能部署和管理Astra数据存储。 
+---
+= 使用VMware设置Astra数据存储
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use-vmware/
+
+
+您可以将Astra数据存储设置为存储后端、并使用适用于VMware vSphere的NetApp Astra插件对其进行管理。
+
+在VMware中设置Astra数据存储涉及以下任务：
+
+* <<Activate VMware vSphere services using Astra Control Center>>。
+* <<Add a vCenter using Astra Control Center>>。
+* <<Create a custom SCC (if using OpenShift)>>
+* <<Use an existing storage backend in the Astra Plugin for VMware vSphere>>。
+* <<Create a datastore using the Astra Plugin for VMware vSphere>>。
+* <<Generate VM storage policies>>。
+
+
+在使用VMware设置Astra数据存储之前、您需要确保满足以下要求：
+
+* Astra控制中心是 https://docs.netapp.com/us-en/astra-control-center/get-started/install_overview.html["已安装"] 并进行设置。
+* Astra Data Store已获得许可并已部署。请参见 link:../get-started/install-ads.html["安装 Astra 数据存储"]。
+
+
+
+NOTE: 对于Astra数据存储早期访问计划("EAP")版本、必须将Astra控制中心和Astra数据存储部署在两个不同的Kubernetes集群中。
+
+* 用于部署Astra控制中心和Astra数据存储的Kubernetes集群必须已由Astra控制中心进行管理。
+* 已启用NFSv3。
+* 在添加vCenter之前、您已上传Astra控制中心和VASA提供程序包。 https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["请参见管理软件包"^]。
+
+
+
+
+== 使用Astra控制中心激活VMware vSphere服务
+
+通过激活Astra控制中心上的vSphere服务、开始在VMware中设置Astra数据存储。
+
+
+NOTE: 默认情况下、Astra控制中心中的VMware vSphere服务未启用。
+
+. 登录到 Astra 控制中心。
+. 从左侧导航栏中选择*集群*。
++
+横幅将显示一条消息、指出VMware vSphere服务尚未启用。
+
+. 选择*启用VMware vSphere服务*。
++
+此操作可能需要一段时间。启用服务后、*添加vCenter*按钮将启用。
+
+
+
+
+
+== 使用Astra控制中心添加vCenter
+
+添加第一个vCenter、用于注册适用于VMware vSphere的Astra插件。
+
+要将vCenter添加到Astra控制中心、您必须具有管理权限。
+
+
+TIP: 在将插件注册到VMware vSphere后、适用于VMware vSphere的Astra插件图标将显示在VMware快捷方式页面中。
+
+. 登录到 Astra 控制中心。
+. 从左侧导航栏中选择*集群*。
+. 选择*添加vCenter*。
+. 输入vCenter Server详细信息、vCenter端口以及管理用户名和密码、以便将其提供给Astra控制中心。
++
+
+TIP: 这样可以在VMware vSphere客户端中为此vCenter部署Astra插件。
+
+. 选择 * 添加 * 。
++
+vCenter将显示在集群页面上、受管vCenter的总数将在Astra控制信息板上进行更新。此操作还会启动适用于VMware vSphere的Astra插件部署。
+
+
+
+
+
+=== 验证是否添加了vCenter
+
+新添加的vCenter将显示在"Clusters"页面和"Dashboard"上。
+
+
+TIP: vCenter和Kubernetes集群都会显示在Astra控制中心信息板上。
+
+. 访问Astra控制中心。
+. 从左侧导航栏中选择*集群*。
+. 验证新管理的vCenter是否显示在"Clusters"页面上。
+. 从左侧导航栏中选择 * 信息板 * 。
+. 在Astra控制中心信息板中、记下新的受管vCenter集群作为*受管*计数的一部分。
++
+
+TIP: 受管集群计数包括vCenter和Kubernetes集群。
+
+. 要查看集群详细信息、请单击*受管*计数。
++
+此时将显示集群页面。
+
+
+
+
+
+== 创建自定义SCC (如果使用OpenShift)
+
+如果您使用的是OpenShift、则可以选择分配安全上下文约束(SCC)、以控制Pod可以执行的操作并控制Pod可以访问的内容。
+
+默认情况下，任何容器的执行都将获得受限的 SCC ，并且仅获得该 SCC 定义的功能。受限SCC不提供VASA Provider Pod所需的权限。使用此操作步骤 为VASA Provider部署所使用的服务帐户提供所需的更高权限(在示例中列出)。
+
+为Astra Data Store "NTV-system"命名空间的各种默认服务帐户分配一个自定义SCC、该命名空间由特权和节点-导出程序的SCC混合而组成。
+
+只有在 Red Hat OpenShift 容器平台（ OCP ）上部署时，才需要执行以下步骤。
+
+. 创建名为`vp-backend_privileged_scc.yaml`的自定义SCC：
++
+[listing]
+----
+kubectl create -f vp_backend_privileged_scc.yaml
+----
++
+示例：VP_backend_privileged_SCC.YAML
+
++
+[listing]
+----
+allowHostDirVolumePlugin: true
+allowHostIPC: false
+allowHostNetwork: true
+allowHostPID: false
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+  - '*'
+allowedUnsafeSysctls:
+  - '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  name: vpbackend-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+  - '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:ntv-system:default
+  - system:serviceaccount:ntv-system:ntv-auth-svc
+  - system:serviceaccount:ntv-system:ntv-autosupport
+  - system:serviceaccount:ntv-system:ntv-compliance-svc
+  - system:serviceaccount:ntv-system:ntv-datastore-svc
+  - system:serviceaccount:ntv-system:ntv-metallb-controller
+  - system:serviceaccount:ntv-system:ntv-metallb-speaker
+  - system:serviceaccount:ntv-system:ntv-mongodb
+  - system:serviceaccount:ntv-system:ntv-nfs-svc
+  - system:serviceaccount:ntv-system:ntv-rabbitmq-svc
+  - system:serviceaccount:ntv-system:ntv-storage-svc
+  - system:serviceaccount:ntv-system:ntv-vault
+  - system:serviceaccount:ntv-system:ntv-vault-admin
+  - system:serviceaccount:ntv-system:ntv-vault-agent-injector
+  - system:serviceaccount:ntv-system:ntv-vault-controller
+  - system:serviceaccount:ntv-system:ntv-vault-initializer
+  - system:serviceaccount:ntv-system:ntv-vcenter-svc
+  - system:serviceaccount:ntv-system:ntv-vm-management-svc
+  - system:serviceaccount:ntv-system:ntv-watcher-svc
+  - system:serviceaccount:ntv-system:ntv-vault-sa-vault-tls
+  - system:serviceaccount:ntv-system:ntv-gateway-svc
+  - system:serviceaccount:ntv-system:ntv-jobmanager-svc
+  - system:serviceaccount:ntv-system:ntv-vasa-svc
+volumes:
+  - '*'
+----
+. 使用 `oc get SCC` 命令显示新添加的 SCC ：
++
+[listing]
+----
+oc get scc vpbackend-privileged
+----
++
+响应：
+
++
+[listing]
+----
+NAME                 PRIV  CAPS  SELINUX  RUNASUSER FSGROUP  SUPGROUP PRIORITY   READONLYROOTFS VOLUMES
+vpbackend-privileged true ["*"]  RunAsAny RunAsAny  RunAsAny RunAsAny <no value> false          ["*"]
+----
+
+
+
+
+== 在适用于VMware vSphere的Astra插件中使用现有存储后端
+
+使用Astra控制中心UI添加vCenter后、使用适用于VMware vSphere的Astra插件添加Astra数据存储存储后端。
+
+此过程将完成以下操作：
+
+* 将现有存储后端添加到选定vCenter。
+* 向选定vCenter注册VASA Provider。VASA提供程序可在VMware和Astra Data Store之间提供通信。
+* 将VASA Provider自签名证书添加到存储后端。
+
+
+
+NOTE: 有时、您添加的vCenter可能需要10分钟才能显示在存储后端向导中。
+
+
+NOTE: Astra数据存储不应与多个vCenter共享。
+
+.步骤
+. 访问适用于VMware vSphere的NetApp Astra插件。
+. 从左侧导航栏中选择*适用于VMware vSphere的Astra插件*、或者从快捷方式页面中选择*适用于VMware vSphere的Astra插件*图标。
+. 从适用于VMware vSphere的Astra插件概述页面中、选择*使用现有存储后端*。或者、从左侧导航栏中选择*存储后端*>*添加*、然后选择*使用现有存储后端*。
+. 选择现有的Astra数据存储作为存储后端、然后选择*下一步*。
+. 在VASA Provider页面上、输入VASA Provider名称、IP地址(如果使用负载平衡器)、用户名和密码。
++
+
+TIP: 对于用户名、可以使用字母数字字符和下划线。请勿输入任何特殊字符。用户名的第一个字母必须以字母字符开头。
+
+. 指示是否要部署负载平衡器并输入IP地址、此地址将用于访问VASA提供程序。此IP必须是一个与节点IP不同的可路由可用IP。启用负载平衡器后、Metallb将部署在Astra Data Store Kubernetes集群中、并配置为分配可用IP。
++
+
+NOTE: 如果要使用Google Anthos集群进行部署、请选择不部署负载平衡器、因为Anthos已经将metalb作为负载平衡器运行。在VASA Provider CR (v1beta1_vasaprovider.yaml)中、metalb Deploy标志应设置为false。
+
++
+如果选择不部署负载平衡器、则假定已部署并配置负载平衡器、以便为类型为*负载平衡器*的Kubernetes服务分配IP。
+
++
+
+TIP: 此时、尚未部署VASA Provider。
+
+. 选择 * 下一步 * 。
+. 在证书页面上、查看自签名证书的证书信息。
+. 选择 * 下一步 * 。
+. 查看摘要信息。
+. 选择 * 添加 * 。
++
+此操作将部署VASA Provider。
+
+
+
+
+
+=== 在适用于VMware vSphere的Astra插件中验证存储后端
+
+注册Astra Data Store存储后端后、它将显示在适用于VMware vSphere的Astra插件存储后端列表中。
+
+您可以确定存储后端状态和VASA Provider状态。您还可以查看每个存储后端的已用容量。
+
+选择存储后端后、您还可以查看已用容量和可用容量、数据缩减比率以及内部网络管理IP地址。
+
+.步骤
+. 在适用于VMware vSphere的NetApp Astra插件中、从左侧导航栏中选择*存储后端*。
+. 选择Astra Data Store存储后端以查看摘要选项卡。
+. 查看VASA提供程序的已用和可用容量、数据精简率和状态。
+. 选择其他选项卡可查看有关VM、数据存储库、主机和存储节点的信息。
+
+
+
+
+== 使用适用于VMware vSphere的Astra插件创建数据存储库
+
+添加存储后端并注册适用于VMware vSphere的Astra插件后、您可以在VMware中创建数据存储库。
+
+您可以将数据存储库添加到数据中心、计算或主机集群。
+
+
+NOTE: 您不能使用同一存储后端在同一数据中心下创建多个数据存储库。
+
+您可以使用NFS协议添加VVol数据存储库类型。
+
+.步骤
+. 访问适用于VMware vSphere的Astra插件。
+. 从插件菜单中、选择*创建数据存储库*。
+. 输入新的数据存储库名称、类型(VVol)和协议(NFS)。
+. 选择 * 下一步 * 。
+. 从存储页面中、选择您刚刚创建的Astra Data Store存储后端。
++
+
+TIP: 您不能使用具有现有数据存储库的存储后端。
+
+. 选择 * 下一步 * 。
+. 在摘要页面中、查看相关信息。
+. 选择 * 创建 * 。
++
+
+NOTE: 如果遇到与扫描失败或常规系统错误相关的错误、 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html["在vCenter上重新扫描/同步存储提供程序"] 然后尝试重新创建数据存储库。
+
+
+
+
+
+== 生成VM存储策略
+
+创建数据存储库后、在创建VM之前、您应使用REST API UI中的`/virtual/apI/v1/vCenters/VM-storage-policies`生成预先设计的VM存储策略。
+
+.步骤
+. 要访问REST API UI页面、请转到`https://<ads_gateway_ip>:8443`。
+. 转至API `POST /virtual/apI/auth/login`并提供用户名、密码和vCenter主机名。
++
+响应：
+
++
+[listing]
+----
+{
+  "vmware-api-session-id": "212f4d6447b05586ab1509a76c6e7da56d29cc5b",
+  "vcenter-guid": "8e475060-b3c8-4267-bf0f-9d472d592d39"
+}
+----
+. 转至API `GET /virtual/apI/auth/validate-session`并完成以下步骤：
++
+.. 使用上面生成的`vmware-api-session-id`和`vCenter-guid`作为标头。
+.. 选择*立即试用*。
++
+响应：(身份验证截断如下)：
+
++
+[listing]
+----
+authorization: eyJhbGciOiJSUzI1NiIsInR...9h15DYYvClT3oA  connection: keep-alive  content-type: application/json  date: Wed,18 May 2022 13:31:18 GMT  server: nginx  transfer-encoding: chunked
+----
+
+
+. 转至API `虚拟化/apI/v1/vcenters /vm-storage-policies`、并将在上一响应中生成的承载令牌添加为"authorization"。
++
+此时将显示"200"响应、并生成三个VM存储策略。
+
+. 在vCenter存储策略页面上验证新的虚拟机存储策略(名为铜牌、银牌和金牌)。
+. 请继续创建VM。
+
+
+
+
+== 下一步行动
+
+接下来、您可能需要执行以下任务：
+
+* 创建VM。
+* 挂载数据存储库。请参见 link:../use-vmware/manage-ads-vmware.html#mount-a-datastore["挂载数据存储库"]。
+
+
+
+
+== 有关详细信息 ...
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra 控制中心文档"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]
+

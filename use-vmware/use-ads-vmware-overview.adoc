@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/use-ads-vmware-overview.html 
+keywords: astra, astra data store, astra vcenter plug-in, vmware, vcenter, esxi 
+summary: 您可以使用Astra vCenter插件用户界面执行Astra数据存储任务。 
+---
+= 了解采用VMware的Astra Data Store
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astra数据存储既支持容器化工作负载、也支持虚拟化工作负载。通过与VVOL和基于存储策略的管理相集成、vSphere管理员可以应用存储服务质量。适用于VMware vSphere的NetApp Astra插件可提供熟悉的管理和监控体验、从而消除了繁琐的存储任务。
+
+适用于VMware vSphere的Astra插件具有以下优势：
+
+* VM粒度存储配置、具有完整的VVOL和VASA集成功能
+* 基于存储策略的管理集成
+* 适用于vSphere原生 管理的vCenter插件
+
+
+下图显示了采用VMware的Astra系列生态系统。image:astra-ads-architecture-diagram-v4-vmware.png["Astra 架构图和组件"]
+
+
+
+== 有关详细信息 ...
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra 控制中心文档"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]
+

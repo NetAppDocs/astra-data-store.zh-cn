@@ -13,23 +13,22 @@ summary: 例如，您可以在 Astra Data Store 中使用 kubectl 命令来配�
 
 要监控事件管理系统（ EMS ）日志，您可以执行以下高级任务：
 
-* <<Configure monitoring in the Astra Data Store preview cluster custom resource (CR)>>
+* <<Configure monitoring in the Astra Data Store cluster custom resource (CR)>>
 * <<Set up Cloud Insights>>
 * <<Stream event logs to Elastic>>。
 
 
 
 
-== 在 Astra Data Store 预览集群自定义资源（ CR ）中配置监控
+== 在Astra Data Store集群自定义资源(CR)中配置监控
 
-如果尚未在 Astra Data Store 预览集群 CR 上配置监控选项，您可以使用 `astrad` extensions 进行设置。
+如果尚未在Astra Data Store集群CR上配置监控选项、您可以使用`astrad` extensions进行设置。
 
 输入 ...
 
 [listing]
 ----
-~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>
-   -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
+kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED> -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
 ----
 其中：
 
@@ -41,7 +40,7 @@ summary: 例如，您可以在 Astra Data Store 中使用 kubectl 命令来配�
 
 == 设置 Cloud Insights
 
-要查看日志，设置 Cloud Insights 是可选的；但是，使用 Cloud Insights 查看数据很有帮助。请参见 link:../use/monitor-with-cloud-insights.html["如何设置 NetApp Cloud Insights"] 用于 Astra Data Store 预览版。
+要查看日志，设置 Cloud Insights 是可选的；但是，使用 Cloud Insights 查看数据很有帮助。请参见 link:../use/monitor-with-cloud-insights.html["如何设置 NetApp Cloud Insights"] 用于Astra数据存储。
 
 
 
@@ -53,7 +52,7 @@ summary: 例如，您可以在 Astra Data Store 中使用 kubectl 命令来配�
 
 [listing]
 ----
-~% kubectl astrads monitoring --host <ELASTIC HOST NAME> --port <ELASTIC HOST PORT> es
+kubectl astrads monitoring --host <ELASTIC HOST NAME> --port <ELASTIC HOST PORT> es
 ----
 
 NOTE: 弹性主机名可以是 IP 地址。

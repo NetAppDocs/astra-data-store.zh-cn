@@ -4,30 +4,39 @@ permalink: get-started/requirements.html
 keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
 summary: 首先验证对您的环境的支持。 
 ---
-= Astra Data Store 预览要求
+= Astra 数据存储要求
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-首先验证您的环境是否满足 Astra Data Store 预览要求。
+首先验证您的环境是否满足Astra Data Store要求。
 
-Astra Data Store 预览版既支持裸机部署，也支持基于 VM 的部署。Astra Data Store 预览集群可以在具有四个或更多工作节点的 Kubernetes 集群上运行。Astra Data Store 预览软件可以与在同一 Kubernetes 集群上运行的其他应用程序共存。
+Astra数据存储既支持裸机部署、也支持基于VM的部署。Astra数据存储集群可以在具有四个或更多工作节点的Kubernetes集群上运行。Astra Data Store软件可以与在同一Kubernetes集群上运行的其他应用程序共存。
 
-Astra Data Store 预览版仅支持使用 Astra Trident CSI 驱动程序为 Kubernetes 工作负载配置永久性卷。未来版本的 Astra Data Store 将支持 VM 工作负载。
+* <<Kubernetes worker node resources>>
+* <<Hardware and software>>
+* <<Networking>>
+* <<Astra Trident>>
+* <<Container Network Interfaces>>
+* <<Licensing>>
 
 
-NOTE: 如果您计划从 Astra 控制中心管理 Astra Data Store 预览集群，请确保您的 Astra Data Store 预览集群符合 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirements["由 Astra 控制中心管理的集群的要求"^] 除了此处概述的要求之外。
+
+NOTE: 如果您计划从Astra控制中心管理Astra数据存储集群、请确保您的Astra数据存储集群符合 https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#kubernetes-cluster-general-requirements["由 Astra 控制中心管理的集群的要求"^] 除了此处概述的要求之外。
 
 
 
-== Kubernetes 工作节点资源要求
+== Kubernetes工作节点资源
 
-以下是在 Kubernetes 集群中每个工作节点上分配给 Astra Data Store 预览软件所需的资源要求：
+以下是在Kubernetes集群中每个工作节点上分配给Astra Data Store软件所需的资源要求：
 
 |===
 | 资源 | 最小值 | 最大值 
+
+
+| Astra数据存储集群中的节点数 | 4. | 16. 
 
 
 | 数据驱动器的数量  a| 
@@ -40,60 +49,65 @@ NOTE: 如果您计划从 Astra 控制中心管理 Astra Data Store 预览集群�
 | 数据驱动器大小 | 100 GiB | 4 TiB 
 
 
-| 可选缓存设备的数量 | 1 （大小为 8 GiB 或更大） | 不适用 
-
-
-| vCPU 数量 | 10 | 10 
-
-
-| RAM | 35 GiB | 35 GiB 
+| 可选缓存设备的数量 | 1 (8 GiB大小) | 不适用 
 |===
+Astra数据存储支持每个Kubernetes工作节点的以下vCPU和RAM组合：
+
+* 9个vCPU、RAM为38 GiB
+* 23个vCPU、94 GiB RAM
+
+
 
 NOTE: 为了获得最佳写入性能，您应配置一个专用的高持久性，低延迟，低容量缓存设备。
 
 每个工作节点都有以下附加要求：
 
-* 主机磁盘（启动）上要存储 Astra Data Store 预览日志文件的可用空间为 100 GiB 或更大。
+* 主机磁盘(启动)上要存储Astra Data Store日志文件的可用空间为100 GiB或更大。
 * 至少为集群，数据和管理流量提供一个 10GbE 或更快的网络接口。此外，还可以使用一个额外的 1GbE 或更快的接口来隔离管理流量。
 
 
 
 
-== 硬件和软件要求
+== 硬件和软件：
 
-已在以下硬件平台，软件和存储配置上验证 Astra Data Store 预览软件。请访问 link:../support/get-help-ads.html["NetApp 社区支持"] 如果您的 Kubernetes 集群配置不同。
+已在以下硬件平台、软件和存储配置上验证Astra Data Store软件。请访问 link:../support/get-help-ads.html["NetApp 社区支持"] 如果您的 Kubernetes 集群配置不同。
 
-.硬件平台
-* HPE DL360
-* HPE DL380
+
+
+=== 硬件平台
+
 * Dell R640
 * Dell R740
-
-
-Astra Data Store 预览版已通过以下驱动器类型的验证：
-
-* * 裸机部署 * ： Astra Data Store 预览版直接安装在没有任何虚拟机管理程序的 Linux 集群上的 Kubernetes 集群上
-+
-** SATA 或 NVMe TLC SSD
-
-
-* * 基于 VM 的部署 * ：在 ESXi 集群上托管的 Linux VM 上的 Kubernetes 集群上安装 Astra Data Store 预览版
-+
-** 基于 SATA ， SAS 或 NVMe TLC SSD 的数据存储库
-** 驱动器显示为虚拟磁盘或直通驱动器
+* HPE DL360
+* HPE DL380
+* 联想SR630
+* 联想SR650
 
 
 
+NOTE: 基于VM的部署还可以使用上列为兼容的服务器 https://www.vmware.com/resources/compatibility/search.php["VMware 兼容性指南"^]。
 
 
-NOTE: 如果主机在硬件 RAID 控制器后使用 SSD ，请将硬件 RAID 控制器配置为使用 " 直通 " 模式。
+
+=== 存储
+
+Astra数据存储已通过SATA、SAS和NVMe TLC SSD的验证。
+
+对于基于VM的部署、您可以使用以虚拟磁盘或直通驱动器形式提供的驱动器。
+
+[NOTE]
+====
+* 如果主机在硬件 RAID 控制器后使用 SSD ，请将硬件 RAID 控制器配置为使用 " 直通 " 模式。
+* 每个驱动器都应具有唯一的序列号。在虚拟机创建期间，在虚拟机高级设置中添加属性 `disk.enableid=true` 。
 
 
-NOTE: 每个驱动器都应具有唯一的序列号。在虚拟机创建期间，在虚拟机高级设置中添加属性 `disk.enableid=true` 。
+====
 
-.软件
-* 虚拟机管理程序： Astra Data Store 预览版已通过基于 VMware 的 VM 部署与 ESXi 7.0 的验证。Astra Data Store 预览版不支持基于 KVM 的部署。
-* 已在以下主机操作系统上验证 Astra Data Store 预览版：
+
+=== 软件
+
+* 虚拟机管理程序：Astra Data Store已通过使用vSphere 7.0部署基于VMware的虚拟机的验证。Astra数据存储不支持基于KVM的部署。
+* 已在以下主机操作系统上验证Astra数据存储：
 +
 ** Red Hat Enterprise Linux 8.4
 ** Red Hat Enterprise Linux 8.2
@@ -103,24 +117,24 @@ NOTE: 每个驱动器都应具有唯一的序列号。在虚拟机创建期间�
 ** Ubuntu 20.04
 
 
-* Astra Data Store 预览版已通过以下 Kubernetes 分发版的验证：
+* Astra数据存储已通过以下Kubernetes分发版的验证：
 +
-** Red Hat OpenShift 4.7
-** Google Anthos 1.7
-** Kubernetes 1.21
-** Kubernetes 1.20
+** Red Hat OpenShift 4.6到4.9
+** Google Anthos 1.8到1.10
+** Kubernetes 1.20至1.23
+** Rancher RKE1.3.3
 
 
 
 
 
-NOTE: Astra Data Store 预览版需要使用 Astra Trident 21.10.1 版进行存储配置和编排。请参见 link:setup-ads.html#install-astra-trident["Astra Trident 安装说明"]。
+NOTE: Astra数据存储需要使用Astra Trident进行存储配置和编排。支持Astra Trident 21.10.1至22.04版。请参见 link:setup-ads.html#install-astra-trident["Astra Trident 安装说明"]。
 
 
 
-== 网络要求
+== 网络
 
-Astra Data Store 预览版要求每个集群为 MVIP 配置一个 IP 地址。它必须是与 MIP 位于同一子网中的未使用或未配置的 IP 地址。Astra Data Store 预览管理界面应与 Kubernetes 节点的管理界面相同。
+Astra数据存储要求每个集群为MVIP配置一个IP地址。它必须是与 MIP 位于同一子网中的未使用或未配置的 IP 地址。Astra数据存储管理接口应与Kubernetes节点的管理接口相同。
 
 此外，还可以按下表所述配置每个节点：
 
@@ -154,49 +168,40 @@ NOTE: 此表使用了以下缩写词： mip ： management IP address cip ： cl
 
 |===
 
-NOTE: 对于这两种配置，应省略集群自定义资源（ CR ）文件 `asadscluster.YAML` 中的数据网络网关字段。每个节点上的现有路由配置可容纳所有地址。
-
-
 NOTE: 这些配置中不使用任何 VLAN 标记。
 
 
 
 == Astra Trident
 
-Astra Data Store 预览版要求应用程序 Kubernetes 集群运行 Astra Trident 21.10.1 。Astra Data Store 预览版可配置为 link:../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["存储后端"] 使用 Astra Trident 配置永久性卷。
+Astra数据存储要求应用程序Kubernetes集群运行Astra Trident进行存储配置和编排。支持Astra Trident 21.10.1至22.04版。Astra数据存储可配置为 link:../get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["存储后端"] 使用 Astra Trident 配置永久性卷。
 
 
 
-== CNI 配置
+== 容器网络接口
 
-Astra 数据存储预览已通过以下 CNI 的验证：
+Astra数据存储已通过以下容器网络接口(CNI)的验证。
 
+* 适用于RKE集群的Calico
 * 适用于 Vanilla Kubernetes 集群的 Calico 和 Weave Net CNI
 * 适用于 Red Hat OpenShift 容器平台（ OCP ）的 OpenShift SDN
 * Cilium for Google Anthos
 
 
-这些 CNI 要求禁用主机防火墙（ firewalld ）。
+[NOTE]
+====
+* 随Cilium CNI部署的Astra数据存储需要portmap插件才能支持hostPort。您可以通过将`cnis-canding-mode：portmap`添加到cilial-config configMap并重新启动Cilium Pod来启用CNI链模式。
+* 只有Calico和OpenShift SDN CNI才支持启用了防火墙的配置。
 
 
-
-== 永久性卷共享要求
-
-每个 Astra Data Store 预览集群都支持使用永久性卷来满足该集群上安装的任何应用程序的存储需求。Kubernetes 应用程序使用通过 NFSv4.1 共享的永久性卷访问文件，这需要使用 AUTH_SYS 身份验证方法。
-
+====
 
 
 == 许可
 
-要获得完整功能， Astra Data Store 预览版需要获得 Astra Data Store 预览许可证。 https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 以获取 Astra Data Store 预览许可证。注册后，系统将向您发送许可证下载说明。
+要启用全部功能、Astra数据存储需要有效的许可证。
 
-
-
-== AutoSupport 配置
-
-Astra 数据存储预览版要求启用 AutoSupport 并连接到 AutoSupport 后端。这可以通过直接 Internet 访问或代理配置来实现。
-
-。 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["用于发送强制遥测 AutoSupport 捆绑包的定期设置"] 不应更改。如果禁用定期发送 AutoSupport 捆绑包，则集群将被锁定，并且无法创建新卷，直到再次启用定期设置为止。
+https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 以获取Astra Data Store许可证。注册后，系统将向您发送许可证下载说明。
 
 
 
@@ -208,4 +213,4 @@ Astra 数据存储预览版要求启用 AutoSupport 并连接到 AutoSupport 后
 
 == 有关详细信息 ...
 
-link:capabilities.html["Astra 数据存储预览限制"]
+link:capabilities.html["Astra数据存储限制"]

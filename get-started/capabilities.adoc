@@ -4,40 +4,33 @@ permalink: get-started/capabilities.html
 keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
 summary: 首先验证对您的环境的支持。 
 ---
-= Astra 数据存储预览限制
+= Astra数据存储早期访问计划(EAP)版本限制
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra 数据存储是 Kubernetes 原生的共享文件软件定义存储（ SDS ）解决方案，适用于内部数据中心，可帮助客户管理其云原生应用程序。
-
-Astra Data Store 预览版具有以下资源限制。
+在早期访问计划期间、Astra数据存储具有以下资源限制。
 
 |===
 | 资源 | 最小值 | 最大值 
 
 
-| Astra Data Store 预览集群中的节点数 | 4. | 5. 
+| Astra数据存储集群中的节点数 | 4. | 16. 
 
 
-| 每个节点的永久性卷数 | 不适用 | 10 
+| 每个节点的永久性卷数 | 不适用 | 50 
 
 
-| 每个节点的永久性卷的总已配置容量 | 不适用 | 1 TiB 
+| 卷大小 | 20 MiB | 2 TiB 
 
 
-| 卷大小 | 20 MiB | 1 TiB 
-
-
-| 每个卷的快照数 | 0 | 256 
+| 每个卷的快照数 | 0 | 1023 
 
 
 | 每个卷的克隆数 | 0 | 9 
+
+
+| 每个节点的VM数 | 0 | 50 
 |===
-
-NOTE: Astra Data Store 预览版不支持 VM 工作负载。VMware VVol 工作负载支持将在未来版本中提供。
-
-
-NOTE: Astra Data Store 预览会限制性能，不应用于性能特征化。

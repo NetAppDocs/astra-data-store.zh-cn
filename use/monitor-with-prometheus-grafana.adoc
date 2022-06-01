@@ -11,27 +11,27 @@ summary: 您可以使用 Prometheus 和 Grafana 监控 Astra 数据存储资产�
 :imagesdir: ../media/use/
 
 
-您可以使用 Prometheus 和 Grafana 监控 Astra Data Store 预览指标。您可以将 Prometheus 配置为从 Astra Data Store 预览版 Kubernetes 集群指标端点收集指标，并且可以使用 Grafana 将指标数据可视化。
+您可以使用Prometheus和Grafana监控Astra数据存储指标。您可以将Prometheus配置为从Astra Data Store Kubernetes集群指标端点收集指标、并且可以使用Grafana将指标数据可视化。
 
 .您需要什么？ #8217 ；将需要什么
-* 确保已在 Astra Data Store 预览集群或可与 Astra Data Store 预览集群通信的其他集群上下载并安装 Prometheus 和 Grafana 软件包。按照官方文档中的说明安装每个工具：
+* 确保已在Astra数据存储集群或可与Astra数据存储集群通信的其他集群上下载并安装Prometheus和Grafana软件包。按照官方文档中的说明安装每个工具：
 +
 ** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_deploy_Prometheus_with_Astra_Data_Store["安装 Prometheus"^]
 ** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_set_up_Grafana_for_monitoring_Astra_Data_Store_cluster["安装 Grafana"^]
 
 
-* Prometheus 和 Grafana 需要能够与 Astra Data Store preview Kubernetes 集群进行通信。如果 Astra Data Store 预览集群上未安装 Prometheus 和 Grafana ，则需要确保它们可以与在 Astra Data Store 预览集群上运行的指标服务进行通信。
+* Prometheus和Grafana需要能够与Astra Data Store Kubernetes集群进行通信。如果Astra Data Store集群上未安装Prometheus和Grafana、则需要确保它们可以与Astra Data Store集群上运行的指标服务进行通信。
 
 
 
 
 == 配置 Prometheus
 
-Astra Data Store 预览版可在 Kubernetes 集群中的 TCP 端口 9341 上公开指标服务。您需要配置 Prometheus 以从此服务收集指标。
+Astra数据存储在Kubernetes集群中的TCP端口9341上公开指标服务。您需要配置 Prometheus 以从此服务收集指标。
 
 .步骤
 . 为您的 Prometheus 安装编辑 `Prometheus.yml` 配置文件。
-. 添加指向 Astra Data Store 预览服务名称及其端口的服务目标。例如：
+. 添加指向Astra Data Store服务名称及其端口的服务目标。例如：
 +
 [listing]
 ----
@@ -72,10 +72,10 @@ datasources:
 
 == 导入 Grafana 信息板模板
 
-为安装 Astra Data Store 预览版而下载的捆绑包文件包含 Grafana 信息板模板文件，您可以从 Grafana 中导入这些文件。这些信息板模板可帮助您查看 Astra Data Store 预览版中提供的指标类型以及查看方式。
+为安装Astra数据存储而下载的捆绑包文件包含Grafana信息板模板文件、您可以从Grafana中导入这些文件。这些信息板模板可帮助您查看Astra数据存储提供的指标类型以及查看方式。
 
 .步骤
-. 打开 Astra Data Store 预览 ` .tar.gz` 软件包。
+. 打开Astra Data Store `.tar.gz`软件包。
 . 打开 `manifests` 目录。
 . 提取 `grafana_cluster.json` 和 `grafana_volume.json` 文件。
 . 使用 Grafana Web UI ， https://grafana.com/docs/grafana/latest/dashboards/export-import/["将信息板模板文件导入到 Grafana 中"^]。

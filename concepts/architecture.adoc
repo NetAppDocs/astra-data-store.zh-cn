@@ -4,58 +4,58 @@ permalink: concepts/architecture.html
 keywords: astra, astra datastore, architecture, deployment, astra data store, kubernetes, netapp, clusters, trident 
 summary: Astra 数据存储可以部署在一个独立的 Kubernetes 集群上，该集群为在单独集群中运行的 Kubernetes 应用程序提供永久性卷，也可以部署在同时在同一节点池中托管其他应用程序的 Kubernetes 集群上，或者部署在同时在不同节点池中托管应用程序的 Kubernetes 集群上。 
 ---
-= Astra Data Store 预览部署模式
+= Astra Data Store 部署模式
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra Data Store 预览版使用与 Kubernetes 部署和协调的应用程序直接管理主机上的存储驱动器。
+Astra数据存储使用与Kubernetes部署和协调的应用程序直接管理主机上的存储驱动器。
 
-您可以使用以下选项之一在裸机或虚拟服务器上安装 Astra Data Store 预览版：
+您可以使用以下选项之一在裸机或虚拟服务器上安装Astra数据存储：
 
 * 部署在一个独立的专用 Kubernetes 集群上，为在单独集群（独立集群）中运行的 Kubernetes 应用程序提供永久性卷。
 * 在 Kubernetes 集群上部署，同时在同一节点池（融合集群）上托管其他工作负载应用程序。
 * 在 Kubernetes 集群上部署，同时在其他节点池（离散集群）上托管其他工作负载应用程序。
 
 
-link:../get-started/requirements.html["了解有关 Astra Data Store 硬件要求的更多信息"]。
+link:../get-started/requirements.html["了解有关Astra Data Store硬件要求的更多信息"]。
 
-Astra Data Store 预览是 Astra 产品系列的一部分。要了解有关整个 Astra 系列的观点，请参见 https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]。
+Astra数据存储库是Astra产品系列的一部分。有关整个Astra系列的视角、请参见 https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 系列简介"^]。
 
 
 
-== Astra Data Store 预览生态系统
+== Astra Data Store 生态系统
 
-Astra Data Store 预览版可用于以下内容：
+Astra数据存储可与以下各项配合使用：
 
 * * Astra 控制中心 * ：使用 Astra 控制中心软件对内部环境中的 Kubernetes 集群进行应用程序感知型数据管理。轻松备份 Kubernetes 应用程序，将数据迁移到其他集群以及即时创建有效的应用程序克隆。
 +
-Astra 控制中心支持具有 ONTAP 的 Astra Trident 存储后端或 Astra 数据存储预览存储后端的 OpenShift Kubernetes 集群。
+Astra控制中心支持具有ONTAP 的Astra Trident存储后端或Astra数据存储后端的Kubernetes集群。
 
 * * Astra Trident * ：作为由 NetApp 维护的完全受支持的开源存储配置程序和编排程序， Astra Trident 使您能够为 Docker 和 Kubernetes 管理的容器化应用程序创建存储卷。
 +
-您可以使用 Astra Trident 在 Astra Data Store 预览版上创建卷。
+您可以使用Astra Trident在Astra数据存储库上创建卷。
 
 * * Cloud Insights * ： Cloud Insights 是一款 NetApp 云基础架构监控工具，可用于监控由 Control 管理的 Kubernetes 集群的性能和利用率。Cloud Insights 将存储使用量与工作负载相关联。
 +
-在 Astra Control 中启用 Cloud Insights 连接后，遥测信息将显示在 Astra Control UI 页面中。Cloud Insights 显示有关在 Astra 数据存储预览版中管理的资源的信息。
+在 Astra Control 中启用 Cloud Insights 连接后，遥测信息将显示在 Astra Control UI 页面中。Cloud Insights 显示有关在Astra数据存储库中管理的资源的信息。
 
 
 
 
 
-== Astra Data Store 预览界面
+== Astra 数据存储接口
 
 您可以使用不同的界面完成任务：
 
-* * Web 用户界面（ UI ） * ： Astra 控制服务和 Astra 控制中心使用同一个基于 Web 的 UI ，您可以在其中管理，迁移和保护应用程序。此 UI 还会显示有关 Astra Data Store 预览卷的信息。
-* * API * ： Astra 控制服务和 Astra 控制中心使用相同的 Astra 控制 API 。使用 API ，您可以执行与使用 UI 相同的任务。您还可以使用 Astra Control API 检索有关 Astra Data Store 预览的信息。
-* * kubectl 命令 * ：要使用 Astra Data Store 预览版，您可以直接使用 kubectl 命令。
-* * Kubernetes 扩展 * ：此外，您还可以使用 Astra Data Store 预览 Kubernetes API 扩展。
+* * Web 用户界面（ UI ） * ： Astra 控制服务和 Astra 控制中心使用同一个基于 Web 的 UI ，您可以在其中管理，迁移和保护应用程序。此UI还会显示有关Astra数据存储卷的信息。
+* * API * ： Astra 控制服务和 Astra 控制中心使用相同的 Astra 控制 API 。使用 API ，您可以执行与使用 UI 相同的任务。您还可以使用Astra Control API检索有关Astra数据存储的信息。
+* *。kubectl commands*：要使用Astra Data Store、您可以直接使用kubectl命令。
+* * Kubernetes扩展*：此外、您还可以使用Astra Data Store Kubernetes API扩展。
 +
-自定义资源定义（ CRD ）是 Kubernetes REST API 的扩展，该 API 是在部署 Astra Data Store 预览运算符时创建的。外部实体通过调用 Kubernetes API 服务器与 CRD 进行交互。Astra Data Store 预览版会监控特定 CRD 的更新，然后调用内部 REST API 。
+自定义资源定义(CRD)是对Kubernetes REST API的扩展、该API是在部署Astra Data Store操作员时创建的。外部实体通过调用 Kubernetes API 服务器与 CRD 进行交互。Astra Data Store会监控特定CRD的更新、然后调用内部REST API。
 
 
 

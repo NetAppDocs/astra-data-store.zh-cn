@@ -4,74 +4,80 @@ permalink: get-started/faq-ads.html
 keywords: faq, frequently asked questions, astra, astra data store, kubernetes, persistent volumes 
 summary: 如果您只是想快速了解问题解答，此常见问题解答会很有帮助。 
 ---
-= 有关 Astra Data Store 预览版的常见问题
+= 有关Astra数据存储的常见问题
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
-查找有关 Astra Data Store 预览版的安装，配置，升级和故障排除的常见问题解答。
+查找有关Astra Data Store Early Access计划版本的安装、配置、升级和故障排除的常见问题解答。
 
 
 
 == 一般问题
 
-* 是否可以使用 Astra Data Store 预览版进行生产？ * 否虽然 Astra Data Store 的设计和开发旨在提供企业级弹性，但作为预览版， Astra Data Store 预览版不适用于生产工作负载。
+*是否可以使用Astra数据存储早期访问计划版本进行生产？*否虽然Astra数据存储库的设计和开发旨在提供企业级故障恢复能力、但Astra数据存储库的早期访问计划版本不适用于生产工作负载。
 
-* 是否可以对虚拟机工作负载使用 Astra Data Store 预览版？ * Astra Data Store 预览版仅限于在 Kubernetes 上运行的应用程序，无论是裸机还是虚拟机。未来版本将支持 Kubernetes 上以及直接在 ESXi 虚拟机上运行的应用程序。请参见 link:../get-started/requirements.html["Astra 数据存储要求"]。
+*是否可以对虚拟机工作负载使用Astra数据存储？*是。Astra数据存储同时支持Kubernetes和VMware VVol工作负载。
 
-* Astra Data Store 预览版的运行是否依赖于其他 NetApp 产品？ *
+请参见 link:../use-vmware/use-ads-vmware-overview.html["了解采用VMware的Astra Data Store"]。
 
-是的。Astra Data Store preview 要求在工作负载 Kubernetes 集群上部署 NetApp CSI 驱动程序 Astra Trident 21.10.1 及更高版本。了解相关信息 link:../get-started/requirements.html["Astra 数据存储要求"]。
+*是否可以使用VMware vSphere管理Astra数据存储？*是的、可以使用适用于VMware vSphere的NetApp Astra插件在vCenter中本机管理Astra数据存储。请参见 link:../use-vmware/manage-ads-vmware.html["管理VMware安装的Astra Data Store组件"]。
 
-使用 Astra Data Store 预览集群作为存储后端的应用程序可以使用 https://docs.netapp.com/us-en/astra-control-center/index.html["Astra 控制中心"^] 21.12 版可利用应用程序感知型数据管理功能，包括数据保护，灾难恢复和 Kubernetes 工作负载迁移。
+* Astra数据存储是否依赖于其他NetApp产品才能正常运行？*
 
-* 如何管理 Astra Data Store 预览集群？ * 您可以使用 kubectl 命令和 Kubernetes API 扩展来管理 Astra Data Store 预览资产。
+是的。Astra Data Store要求在工作负载Kubernetes集群上部署NetApp CSI驱动程序Astra Trident 21.10.1及更高版本。了解相关信息 link:../get-started/requirements.html["Astra 数据存储要求"]。
+
+要启用VMware工作流和适用于VMware vSphere的NetApp Astra插件、需要使用Astra控制中心。
+
+使用Astra Data Store集群作为存储后端的应用程序可以使用 https://docs.netapp.com/us-en/astra-control-center/index.html["Astra 控制中心"^] 利用应用程序感知型数据管理功能、包括数据保护、灾难恢复和Kubernetes工作负载迁移。
+
+*如何管理Astra数据存储集群？*您可以使用kubectl命令和Kubernetes API扩展来管理Astra数据存储资源。
 
 `kubectl astrad` 命令包含一个 ` -h` 交换机，可为您提供使用情况和标志文档。
 
-* 如何监控 Astra 数据存储预览集群指标？ * 您可以使用 Cloud Insights 监控 Astra 数据存储预览指标。请参见 link:../use/monitor-with-cloud-insights.html["使用 Cloud Insights 监控指标"]。
+*如何监控Astra数据存储集群指标？*您可以使用Cloud Insights 监控Astra数据存储指标(请参见 link:../use/monitor-with-cloud-insights.html["使用 Cloud Insights 监控指标"])或Kubernetes原生 监控(请参见 link:../use/monitor-with-prometheus-grafana.html["使用Prometheus和Grafana进行监控"]）。
 
 您还可以监控日志。请参见 link:../use/configure-endpoints.html["配置和监控事件日志"]。
 
-* 我是否可以在 Kubernetes 集群中将 Astra 数据存储预览与 ONTAP 或其他存储提供程序结合使用？ * 是。Astra Data Store 预览版可与应用程序集群中的其他存储提供程序结合使用。
+*我是否可以在Kubernetes集群中将Astra数据存储与ONTAP 或其他存储提供程序结合使用？*是。Astra数据存储可与应用程序集群中的其他存储提供程序结合使用。
 
-* 如果从 Astra Data Store 预览版中删除 Kubernetes 集群，则是否会卸载 Astra Trident ？ * 如果卸载 Astra Data Store 预览版，则不会从集群中卸载 Astra Trident 。如果需要卸载 Astra Trident ，则必须单独执行此操作。
+*如果从Astra数据存储库中删除Kubernetes集群、则是否会卸载Astra Trident？*如果卸载Astra数据存储库、则不会从集群中卸载Astra Trident。如果需要卸载 Astra Trident ，则必须单独执行此操作。
 
 
 
 == 许可
 
-* Astra Data Store 预览版是否需要许可证？ * 是， Astra Data Store 预览版需要 NetApp 许可证文件（ NLF ）。
+* Astra数据存储是否需要许可证？*是的、Astra数据存储需要早期访问计划的评估版NetApp许可证文件(NLF)。
 
 请参见 link:../get-started/requirements.html["Astra 数据存储要求"]。
 
-* Astra Data Store 预览许可证有效多长时间？ * Astra Data Store 预览许可证的默认期限为自下载日期起 90 天。
+* Astra Data Store评估许可证有效期有多长时间？* Astra Data Store许可证的默认期限为自下载日期起90天。
 
 
 
-== 在 Kubernetes 集群上安装和使用 Astra Data Store 预览版
+== 在Kubernetes集群上安装和使用Astra数据存储
 
-* 是否可以在裸机或虚拟机上运行的 Kubernetes 集群上安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览版可以安装在裸机上运行的 Kubernetes 集群或 ESXi 虚拟机上。请参见 link:../get-started/requirements.html["Astra Data Store 预览要求"]。
+*是否可以在运行于裸机或虚拟机上的Kubernetes集群上安装Astra数据存储？*是。Astra数据存储可以安装在裸机上运行的Kubernetes集群或vSphere VM上。请参见 link:../get-started/requirements.html["Astra 数据存储要求"]。
 
-* 支持哪些版本的 Kubernetes for Astra Data Store 预览版？ *
+*支持哪些版本的Kubernetes for Astra Data Store？*
 
-Astra Data Store 预览版适用于与 v1.20 及更高版本兼容的 Kubernetes 分发版。但是，目前尚未对所有 Kubernetes 分发版进行验证。了解相关信息 link:../get-started/requirements.html["Astra Data Store 预览要求"]。
+Astra数据存储可与v1.20及更高版本兼容的Kubernetes分发版配合使用。但是，目前尚未对所有 Kubernetes 分发版进行验证。了解相关信息 link:../get-started/requirements.html["Astra 数据存储要求"]。
 
-* 我的 Kubernetes 集群超过 5 个工作节点。是否可以在其中安装 Astra Data Store 预览版？ * 是。Astra Data Store 预览集群可以部署在 Kubernetes 集群中的 4 个工作节点上。部署完成后，您可以将集群扩展到 5 个辅助节点。
+*我的Kubernetes集群超过4个工作节点。是否可以在其中安装Astra数据存储？*是。Astra数据存储集群最初必须部署在Kubernetes集群中的4个辅助节点上。部署完成后、您可以将集群最多扩展到16个辅助节点。
 
-* Astra Data Store 预览版是否支持从专用注册表脱机安装？ * 是。可以从本地注册表脱机安装 Astra Data Store 预览版。请参见 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。但是， Astra 数据存储预览版需要连接（直接或通过代理）到 NetApp AutoSupport 后端（ support.netapp.com ）才能继续运行。
+* Astra数据存储是否支持从专用注册表脱机安装？*是。可以从本地注册表脱机安装Astra数据存储。请参见 link:../get-started/install-ads.html["安装 Astra 数据存储"]。
 
-* 使用 Astra Data Store 预览版是否需要 Internet 连接？ * Astra Data Store 预览版需要连接到 NetApp AutoSupport 后端，以便定期发送强制的遥测 AutoSupport 捆绑包。此连接可以是直接连接，也可以通过代理进行连接。如果缺少此连接或禁用了 AutoSupport ，则集群将锁定，并且新卷创建将被禁用，直到恢复定期上传的捆绑包为止。
+*是否需要Internet连接才能使用Astra Data Store？*否、Astra Data Store Early Access Program不需要Internet连接。但是、建议连接到NetApp AutoSupport 后端、以便定期发送遥测捆绑包。此连接可以是直接连接，也可以通过代理进行连接。
 
-* Astra Data Store preview 使用了哪些角色和特权？ * 您需要成为 Kube 管理员才能部署 Astra Data Store 预览运算符。
+* Astra数据存储使用哪些角色和特权？*您需要成为Kube管理员才能部署Astra数据存储操作员。
 
-Astra Data Store preview 具有一个名为 `astrads-ds-nodeinfo-asadsversion` 的特权取消命名集，用于发现在选择节点时使用的节点资源。
+Astra数据存储具有一个名为`astrads-ds-nodeinfo`的特权取消命名集、用于发现在选择节点时使用的节点资源。
 
-此外，操作员还将使用特权 Kubernetes 作业在选定工作节点上安装存储集群的容器，以构建 Astra Data Store 预览存储集群。
+此外、操作员还将使用具有权限的Kubernetes作业在选定工作节点上安装存储集群的容器、以构建Astra Data Store存储集群。
 
-* 在安装 Astra Data Store 预览版时需要更新哪些清单文件？ * 来自从下载的 Astra Data Store 预览版软件包 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]，您将获得以下清单：
+从下载的Astra Data Store捆绑包中*安装Astra Data Store需要更新哪些清单文件？* https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]，您将获得以下清单：
 
 * astradscluster.yaml
 * astradsoperator.yaml
@@ -79,17 +85,15 @@ Astra Data Store preview 具有一个名为 `astrads-ds-nodeinfo-asadsversion` �
 * monitoring_operator.yaml
 
 
-您需要使用特定于部署的配置更新 `astradscluster.yaml` 清单。请参见 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。
+您需要使用特定于部署的配置更新 `astradscluster.yaml` 清单。请参见 link:../get-started/install-ads.html["安装 Astra 数据存储"]。
 
 
 
 == 故障排除和支持
 
-借助 Astra Data Store 预览版，您可以使用 NetApp 容器可宽延通道访问社区支持。此渠道由 NetApp 支持和我们的技术营销工程师监控。
+借助Astra Data Store、您可以使用NetApp容器可宽延通道访问社区支持。此渠道由 NetApp 支持和我们的技术营销工程师监控。
 
 https://netapp.io/slack["NetApp 容器 Slack 通道"^]
-
-预览版要求您的系统连接到云并集成到 NetApp Active IQ 和 AutoSupport 工具中。
 
 请参见 link:../support/get-help-ads.html["Astra 数据存储支持操作"]。
 
@@ -97,20 +101,18 @@ https://netapp.io/slack["NetApp 容器 Slack 通道"^]
 
 * 如何申请新功能？ * 如果您对支持的配置或功能有任何疑问，请联系 astra.feedback@netapp.com 。
 
-* 如何生成支持日志包？ * 请参见 link:../support/get-help-ads.html#generate-support-bundle-to-provide-to-netapp-support["生成支持包"] 有关为 Astra Data Store 预览版设置和下载支持日志包的说明。
+* 如何生成支持日志包？ * 请参见 link:../support/get-help-ads.html#generate-support-bundle-to-provide-to-netapp-support["生成支持包"] 有关为Astra数据存储设置和下载支持日志包的说明。
 
-* Astra Data Store 预览无法找到我的 Kubernetes 节点。如何修复此问题？ * 请参见 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。
+* Astra数据存储无法找到我的Kubernetes节点。如何修复此问题？ * 请参见 link:../get-started/install-ads.html["安装 Astra 数据存储"]。
 
-* IPv6 地址是否可用于管理，数据和集群网络？ * 否， Astra Data Store 预览版仅支持 IPv4 地址。未来版本的 Astra Data Store 预览版将增加 IPv6 支持。
+* IPv6地址是否可用于管理、数据和集群网络？*否、Astra数据存储仅支持IPv4地址。未来版本的Astra Data Store将增加对IPv6的支持。
 
-* 在 Astra Data Store 预览版上配置卷时使用的是什么 NFS 版本？ * 默认情况下，对于为 Kubernetes 应用程序配置的所有卷， Astra Data Store 预览版支持 NFS v4.1 。
+*在Astra Data Store上配置卷时使用的是什么NFS版本？*对于为Kubernetes应用程序配置的所有卷、Astra Data Store支持NFS v4.1、而对于为VMware工作负载配置的所有卷、则支持NFSv3。
 
-* 为什么即使我已为 Astra Data Store 预览版配置了大容量驱动器，也无法获得更大的永久性卷？ * Astra Data Store 预览版将为 Astra Data 中所有节点上的所有卷配置的最大容量限制为 1 TiB ，最多 5 TiB 存储预览集群。
-
-请参见 link:../get-started/requirements.html["Astra Data Store 预览要求"] 和 link:capabilities.html["Astra 数据存储预览限制"]。
+请参见 link:../get-started/requirements.html["Astra 数据存储要求"] 和 link:capabilities.html["Astra数据存储限制"]。
 
 
 
-== 升级 Astra Data Store 预览版
+== 升级Astra数据存储
 
-* 是否可以从 Astra Data Store 预览版升级？ * 否Astra Data Store 预览版不适用于生产工作负载，新版本的 Astra Data Store 预览版软件需要全新安装。
+*是否可以从Astra Data Store预览版升级？*是。您可以从Astra数据存储早期访问计划版本升级到未来版本。

@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: use/manage-certificates.html 
+keywords: astra, astra data store, kubectl, certs, cert, certificate, certificates, revoke, security, secure, expired, compromised, regenerate, generate 
+summary: 您可以在Astra数据存储中手动撤消已泄露或已过期的证书。 
+---
+= 管理安全证书
+:allow-uri-read: 
+
+
+Astra数据存储在集群的软件组件之间使用相互传输层安全(MTLS)加密。每个Astra Data Store集群都有一个自签名根CA证书(`astrads-cert`)和一个中间CA证书(`astrads-cert -<cluster_name>`)。这些证书由Astra数据存储操作员管理；操作员会在每个证书到期日期前7天自动续订这些证书。您也可以手动撤消这些证书。
+
+
+
+== 撤消证书
+
+如果Astra数据存储控制器、节点或CA证书受到影响、您可以通过删除其MTLS密钥来撤消该证书。执行此操作时、Astra数据存储操作员会自动颁发一个新证书。您可以随时撤消Astra数据存储证书。
+
+
+NOTE: 如果您撤消CA证书、则此操作将撤消由该CA签名的任何证书。
+
+.步骤
+. 登录到Astra Data Store集群中的控制器节点。
+. 列出系统上的现有证书。例如：
++
+[listing]
+----
+kubectl get secrets -n astrads-system | grep astrads-cert
+----
++
+输出应类似于以下内容：
+
++
+[listing]
+----
+astrads-cert-astrads-cluster-controller                   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-cluster-f23d158                      kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-dms-astrads-cluster-f23d158       kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-support-astrads-cluster-f23d158   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-support-astrads-cluster-f23d158      kubernetes.io/tls     4      6d6h
+astrads-cert-root                                         kubernetes.io/tls     4      6d6h
+astrads-cert-sti-net-com                                  kubernetes.io/tls     5      6d6h
+----
+. 在输出中、记下需要撤消的证书的名称。
+. 使用`kubectl`实用程序撤消证书、并将`certificate_name`替换为证书的名称。例如：
++
+[listing]
+----
+kubectl delete secret CERTIFICATE_NAME -n astrads-system
+----
+
+
+现有证书将被撤消、并自动生成一个新证书。

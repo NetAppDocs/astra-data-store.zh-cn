@@ -11,10 +11,10 @@ summary: NetApp 以多种方式为 Astra 数据存储提供支持。全天候提
 :imagesdir: ../media/support/
 
 
-NetApp 通过多种方式为 Astra Data Store 预览版提供支持。全天候提供免费自助服务支持选项，例如知识库（ KB ）文章和可宽延的渠道。
+NetApp 以多种方式为 Astra 数据存储提供支持。全天候提供免费自助服务支持选项，例如知识库（ KB ）文章和可宽延的渠道。
 
 
-IMPORTANT: 您可以获得有关 Astra Data Store 预览版的社区技术支持。使用创建案例 https://mysupport.netapp.com/site/["NetApp 支持站点（ NSS ）"^] 不适用于预览版本。您可以通过反馈选项联系支持部门，也可以使用 Slack 渠道自助服务。
+IMPORTANT: 您可以获得Astra Data Store的社区技术支持。使用创建案例 https://mysupport.netapp.com/site/["NetApp 支持站点（ NSS ）"^] 不适用于此版本。您可以通过反馈选项联系支持部门，也可以使用 Slack 渠道自助服务。
 
 
 
@@ -24,7 +24,7 @@ IMPORTANT: 您可以获得有关 Astra Data Store 预览版的社区技术支持
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["知识库（需要登录）"^]
 +
-搜索与 Astra Data Store 预览相关的文章，常见问题解答或中断修复信息。
+搜索与Astra数据存储相关的文章、常见问题解答或中断修复信息。
 
 * 文档。
 +

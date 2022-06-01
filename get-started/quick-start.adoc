@@ -4,56 +4,54 @@ permalink: get-started/quick-start.html
 keywords: get started, quick start, astra, astra data store, deploy, deployment, kubernetes 
 summary: 只需几步即可开始使用 Astra 数据存储。 
 ---
-= 快速启动 Astra Data Store 预览
+= Astra 数据存储快速入门
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-此页面简要概述了开始使用 Astra Data Store 预览版所需的步骤。每个步骤中的链接将转到一个页面，其中提供了更多详细信息。
+此页面简要概述了开始使用Astra数据存储所需的步骤。每个步骤中的链接将转到一个页面，其中提供了更多详细信息。
 
-试用！如果要尝试使用 Astra Data Store 预览版，可以使用 90 天预览许可证。
-
-https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 以获取 Astra Data Store 预览许可证。
+试用！如果要试用Astra数据存储、可以使用90天评估许可证。 https://www.netapp.com/cloud-services/astra/data-store-form/["请在此处注册"^] 获取Astra Data Store许可证。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt-one"></span> 查看 Kubernetes 集群要求
 * 集群必须以运行状况良好的状态运行，并且至少具有四个或更多工作节点。
-* 属于 Astra Data Store 预览部署的每个 Kubernetes 工作节点都应具有相同接口类型（ SATA ， SAS 或 NVMe ）的 SSD ，并具有相同数量的驱动器，这些驱动器将分配给 Astra Data Store 预览集群。
+* 属于Astra Data Store部署的每个Kubernetes工作节点都应具有相同接口类型(SATA、SAS或NVMe)的SSD、并具有相同数量的驱动器、这些驱动器将分配给Astra Data Store集群。
 * 每个 SSD 都应具有唯一的序列号。
 
 
 [role="quick-margin-para"]
-了解更多信息 link:../get-started/requirements.html["Astra Data Store 预览要求"]。
+了解更多信息 link:../get-started/requirements.html["Astra 数据存储要求"]。
 
-.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt-twe"></span> 下载并安装 Astra Data Store 预览版
-* 从下载 Astra Data Store 预览版 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]。
-* 在本地环境中安装 Astra Data Store 预览版。
-* 应用 Astra Data Store 预览许可证。
-* 安装 Astra Data Store 预览集群。
-* 配置 Astra Data Store 预览监控。
-* 如果您使用的是 Red Hat OpenShift ，请在 Red Hat OpenShift 容器平台（ OCP ）上安装 Astra Data Store preview 。
+.跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt-twe"></span>下载并安装Astra数据存储
+* 从下载Astra数据存储 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^]。
+* 在本地环境中安装Astra数据存储。
+* 应用Astra Data Store许可证。
+* 安装Astra数据存储集群。
 
 
 [role="quick-margin-para"]
-了解更多信息 link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。
+了解更多信息 link:../get-started/install-ads.html["安装Astra数据存储"]。
 
 .跨度 class="image><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png"[] Alt-Three </span> 完成一些初始设置任务
 * 安装 Astra Trident 。
 * 安装 Kubernetes Snapshot 自定义资源定义（ CRD ）和控制器。
-* 将 Astra Data Store 预览设置为存储后端。
-* 创建默认的 Astra Data Store 预览存储类。
+* 将Astra数据存储设置为存储后端。
+* 创建默认的Astra Data Store存储类。
+* 为遥测服务配置Astra数据存储。
 
 
 [role="quick-margin-para"]
 详细了解 link:../get-started/setup-ads.html["初始设置过程"]。
 
 [role="quick-margin-para"]
-设置完 Astra Data Store 预览后，您接下来可能会执行以下操作：
+完成Astra数据存储的设置后、您接下来可能会执行以下操作：
 
-* 使用 kubectl 命令和 kubectl astrad 扩展来管理集群，包括将节点置于维护模式，更换驱动器或更换节点等任务。了解更多信息 link:../use/kubectl-commands-ads.html["如何在 Astra Data Store 预览版中使用 kubectl 命令"]。
+* 使用 kubectl 命令和 kubectl astrad 扩展来管理集群，包括将节点置于维护模式，更换驱动器或更换节点等任务。了解更多信息 link:../use/kubectl-commands-ads.html["如何对Astra数据存储使用kubectl命令"]。
 * 配置监控端点。了解更多信息 link:../use/configure-endpoints.html["配置监控端点"]。
+* link:../use-vmware/use-ads-vmware-overview.html["将Astra数据存储与VMware结合使用"]。
 
 
 [role="quick-margin-para"]
-link:../get-started/install-ads.html["安装 Astra Data Store 预览版"]。
+link:../get-started/install-ads.html["安装 Astra 数据存储"]。

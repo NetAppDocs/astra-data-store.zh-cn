@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: release-notes/known-limitations.html 
-keywords: astra, control center, limitations, known limitations, interoperability 
+keywords: astra, astra data store, control center, limitations, known limitations, interoperability 
 summary: 已知限制确定了本产品版本不支持的平台、设备或功能、或者这些平台、设备或功能无法与产品正确交互操作。仔细审查这些限制。 
 ---
 = 已知限制
@@ -11,37 +11,45 @@ summary: 已知限制确定了本产品版本不支持的平台、设备或功�
 :imagesdir: ../media/release-notes/
 
 
-已知限制表示此产品预览版不支持或无法与之正确交互的平台，设备或功能。仔细审查这些限制。
+已知限制用于确定此产品的早期访问计划(EAP)版本不支持或无法与之正确交互的平台、设备或功能。
 
 
 
-== 不支持删除一个或多个节点的功能
+== Astra Data Store 2022.05早期访问计划(EAP)版本
 
-Astra Data Store 预览版支持更换发生故障的节点，但不支持节点删除功能。
-
-
-
-== 不支持添加或删除驱动器的功能
-
-Astra Data Store 预览版支持更换故障驱动器，但不支持在现有集群中添加或删除驱动器。
+此版本包含这些已知限制。请仔细查看这些已知限制。
 
 
 
-== 启用防火墙后，未验证 Astra Data Store 预览功能
+=== VMware集成限制
 
-Astra Data Store 预览版要求禁用主机 firewalld 。尚未验证使用 Calico HostEndpoint 等 CNI 工具启用防火墙。
+不支持以下功能：
 
-
-
-== 升级或修补程序需要全新安装
-
-Astra Data Store 预览版不适用于生产工作负载。
-
+* VM工作流：
++
+** 克隆VM、包括从模板克隆
+** 在先前删除VM磁盘后连接该磁盘
 
 
-== 基于 Ubuntu 的裸机或虚拟机直通部署需要 NVMe TLC SSD
+* VVol复制
+* 删除VVol数据存储库
+* 一流磁盘(FCD)
+* VMware vMotion
+* 链接模式vCenter服务器
+* 合规性警报和通知
+* 多vCenter和多VASA Provider配置
++
+** 支持每个vCenter配置一个VASA Provider
 
-此限制不适用于基于 RHEL ， RHCOS 或 CentOS 的部署。
+
+* 基于存储策略的管理仅适用于VM级别、在创建VM后无法修改。
+
+
+
+
+==== 无法同时调整多个VM磁盘的大小
+
+对于此版本、一次只能调整一个磁盘的大小。如果您尝试一次调整多个磁盘的大小、则调整大小操作仅适用于第一个磁盘。
 
 
 

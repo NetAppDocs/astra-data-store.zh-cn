@@ -47,4 +47,4 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 
 通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。
 
-link:NOTICE_AstraDataStore_Preview_21.12.pdf["Astra Data Store 21.12 版本的通知"^]
+link:NOTICE_AstraDataStore.pdf["有关Astra Data Store "EAP"版本的通知"^]
