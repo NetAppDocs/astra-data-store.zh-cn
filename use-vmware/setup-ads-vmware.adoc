@@ -33,7 +33,6 @@ summary: 您可以使用Astra vCenter插件和VMware vSphere本机功能部署�
 NOTE: 对于Astra数据存储早期访问计划("EAP")版本、必须将Astra控制中心和Astra数据存储部署在两个不同的Kubernetes集群中。
 
 * 用于部署Astra控制中心和Astra数据存储的Kubernetes集群必须已由Astra控制中心进行管理。
-* 已启用NFSv3。
 * 在添加vCenter之前、您已上传Astra控制中心和VASA提供程序包。 https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["请参见管理软件包"^]。
 
 

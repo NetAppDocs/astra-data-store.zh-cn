@@ -38,7 +38,6 @@ Astra数据存储使用VMware VASA Provider作为API接口与存储进行通信�
 
 * 在Kubernetes集群上运行的Astra Control Center实例
 * 在Kubernetes集群上运行的许可的Astra Data Store实例
-* 在Astra Data Store集群上启用了NFSv3
 
 
 
