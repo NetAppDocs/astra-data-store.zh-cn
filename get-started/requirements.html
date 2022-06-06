@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">简体中文</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">简体中文</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -679,7 +671,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/index.html">
         Astra 数据存储文档
       </a></li><li class="subfolders "><a href="/zh-cn/astra-data-store/release-notes/rn_overview.html">
@@ -843,7 +835,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 01:09:13 +0000">06/01/2022</time>
+    <time datetime="2022-06-06 15:56:01 +0000">06/06/2022</time>
     
   
 
@@ -1216,6 +1208,130 @@ Astra数据存储需要使用Astra Trident进行存储配置和编排。支持As
 </tr>
 </table>
 </div>
+<div class="sect2">
+<h3 id="防火墙注意事项">防火墙注意事项</h3>
+<div class="paragraph">
+<p>在强制实施网络防火墙流量筛选的环境中、必须将防火墙配置为允许传入下表中列出的端口和协议的流量。"IP Address"列使用以下缩写：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>mip：每个节点的管理接口上的主IP地址</p>
+</li>
+<li>
+<p>cip：每个节点的集群接口上的主IP地址</p>
+</li>
+<li>
+<p>DIP：在节点上配置的一个或多个数据IP地址</p>
+</li>
+<li>
+<p>MVIP：在一个集群节点上配置的管理虚拟IP地址</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">端口/协议</th>
+<th class="tableblock halign-left valign-top">IP 地址</th>
+<th class="tableblock halign-left valign-top">目的</th>
+<th class="tableblock halign-left valign-top">注释：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111 TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据IP在运行时在集群节点之间移动。每个节点应允许所有数据IP (或整个子网)使用此流量。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">442/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">635 TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据IP在运行时在集群节点之间移动。每个节点应允许所有数据IP (或整个子网)使用此流量。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2010/UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">集群/节点发现</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">包括与UDP端口2010之间的单播和广播流量、包括回复。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049 TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据IP在运行时在集群节点之间移动。每个节点应允许所有数据IP (或整个子网)使用此流量。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2181-2183/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">分布式通信</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2443/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2443/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVIP地址可由任何集群节点托管、并可在运行时根据需要重新定位。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4000-4006/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">集群内RPC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4045-4046/ TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据IP在运行时在集群节点之间移动。每个节点应允许所有数据IP (或整个子网)使用此流量。</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7700/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">会话管理器</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9919/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMS-API</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9920/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMS-REST服务器</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICMP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP + DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">节点内通信、运行状况检查</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据IP在运行时在集群节点之间移动。每个节点应允许所有数据IP (或整个子网)使用此流量。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1444,4 +1560,5 @@ Astra数据存储需要使用Astra Trident进行存储配置和编排。支持As
     </script>
     <script src='/zh-cn/astra-data-store/js/www-ntap.js'></script>
     <script src='/zh-cn/astra-data-store/js/tabbed-blocks.js'></script>
+    <script src='/zh-cn/astra-data-store/js/sidebar.js'></script>
   </body></html>

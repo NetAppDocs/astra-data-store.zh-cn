@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">简体中文</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">简体中文</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/astra-data-store/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/kubectl-commands-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/kubectl-commands-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/kubectl-commands-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/kubectl-commands-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/kubectl-commands-ads.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/kubectl-commands-ads.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/astra-data-store/use/kubectl-commands-ads.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/kubectl-commands-ads.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/kubectl-commands-ads.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/kubectl-commands-ads.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -679,7 +671,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-data-store/index.html">
         Astra 数据存储文档
       </a></li><li class="subfolders "><a href="/zh-cn/astra-data-store/release-notes/rn_overview.html">
@@ -843,7 +835,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 01:09:13 +0000">06/01/2022</time>
+    <time datetime="2022-06-06 15:56:01 +0000">06/06/2022</time>
     
   
 
@@ -990,12 +982,12 @@ astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   tr
 <h2 id="使用-kubectl-扩展上的-help-选项">使用 kubectl 扩展上的 help 选项</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>kubectl astrad</code> 命令包含一个 ` -h` 交换机，可为您提供使用情况和标志文档。</p>
+<p>NetApp为`kubectl`命令提供了`astrad`扩展、可用于执行Astra Data Store集群管理任务、例如添加许可证、管理节点、解决问题以及扩展Astra Data Store集群。<code>astrad`扩展包括一个</code>-h`选项、用于提供有关如何使用扩展以及执行哪些任务的信息。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>显示有关Astra Data Store kubectl扩展中所有命令的帮助：</p>
+<p>显示有关Astra Data Store `kubectl`扩展中所有命令的帮助：</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl astrads -h</pre>
@@ -1260,4 +1252,5 @@ Flags:
     </script>
     <script src='/zh-cn/astra-data-store/js/www-ntap.js'></script>
     <script src='/zh-cn/astra-data-store/js/tabbed-blocks.js'></script>
+    <script src='/zh-cn/astra-data-store/js/sidebar.js'></script>
   </body></html>
