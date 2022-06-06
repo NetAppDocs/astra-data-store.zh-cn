@@ -128,9 +128,9 @@ astrads-system   test2345   21Gi   172.25.138.111   astrads-cluster-9f1c99f   tr
 
 == 使用 kubectl 扩展上的 help 选项
 
-`kubectl astrad` 命令包含一个 ` -h` 交换机，可为您提供使用情况和标志文档。
+NetApp为`kubectl`命令提供了`astrad`扩展、可用于执行Astra Data Store集群管理任务、例如添加许可证、管理节点、解决问题以及扩展Astra Data Store集群。`astrad`扩展包括一个`-h`选项、用于提供有关如何使用扩展以及执行哪些任务的信息。
 
-. 显示有关Astra Data Store kubectl扩展中所有命令的帮助：
+. 显示有关Astra Data Store `kubectl`扩展中所有命令的帮助：
 +
 [listing]
 ----

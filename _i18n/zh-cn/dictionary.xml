@@ -1078,7 +1078,6 @@
   <block id="baf5104decf1df7c0d01680a0fac5d63" category="paragraph">此列表对于获取每个Astra Data Store对象的短名称以减少键入内容特别有用、如后面所示。</block>
   <block id="8704b0033f94a1a48678372e5b1f4390" category="list-text">显示适用于Astra数据存储的Kubernetes自定义API资源列表：</block>
   <block id="fad556266e89b103a86dd39fca3ccd0a" category="list-text">要获取Kubernetes集群中的所有当前Astra Data Store对象、请使用`kubectl get ADS -a`命令：</block>
-  <block id="cc8571449845ca795003fd08d9365e42" category="list-text">显示有关Astra Data Store kubectl扩展中所有命令的帮助：</block>
   <block id="e8eecb3aa42b284e39abeefdde9013b7" category="list-text">已部署和配置Astra Data Store集群</block>
   <block id="578ed768fff66a5aeb6875422b9eb215" category="doc">使用自动化脚本卸载Astra Data Store</block>
   <block id="c45239f2713b77020a62bc3b90b2b01a" category="paragraph">要卸载Astra数据存储和控制平台、您需要删除工作负载、绑定、卷、导出策略、Astra数据存储集群、许可证、部署环境和Astra数据存储命名空间。</block>
@@ -1419,4 +1418,46 @@
   <block id="b0e9cf9a3ccb14e8777b0e4e01a3be2b" category="admonition">根据您执行的是标准安装还是、命名空间响应可能会有所不同 <block ref="728e3e3ba272087f962f2836c5b78f78" category="inline-link-macro-rx"></block>。</block>
   <block id="0b020ac775306a4f6b602f9e099d0f12" category="list-text">使用`kubectl apply`进行部署：</block>
   <block id="23f6b8ddca772ff60ea1ebc8df6eb39d" category="list-text">* Astra控制中心*：如果您已使用Astra控制中心部署Astra数据存储、则无需遵循这些原则 <block ref="453b1912b089f4f5a9a483bab5626f2b" category="inline-link-macro-rx"></block> 除非您要配置任何其他监控选项。部署Astra数据存储后、您可以使用Astra控制中心UI完成以下任务：</block>
+  <block id="8eeabb510c88baa97726463f841b437b" category="paragraph">NetApp为`kubectl`命令提供了`astrad`扩展、可用于执行Astra Data Store集群管理任务、例如添加许可证、管理节点、解决问题以及扩展Astra Data Store集群。`astrad`扩展包括一个`-h`选项、用于提供有关如何使用扩展以及执行哪些任务的信息。</block>
+  <block id="95486e2e7d202b4428ab4a3ec663b0ae" category="list-text">显示有关Astra Data Store `kubectl`扩展中所有命令的帮助：</block>
+  <block id="fed04d92462b9c6b365491814a84fb50" category="section-title">防火墙注意事项</block>
+  <block id="1a9f3bb325bdf0352e776d9b71f0dfd4" category="paragraph">在强制实施网络防火墙流量筛选的环境中、必须将防火墙配置为允许传入下表中列出的端口和协议的流量。"IP Address"列使用以下缩写：</block>
+  <block id="294f76b6bf4f817dcd73116a0f580b39" category="list-text">mip：每个节点的管理接口上的主IP地址</block>
+  <block id="93722d1030368aefcb8dcd03593da015" category="list-text">cip：每个节点的集群接口上的主IP地址</block>
+  <block id="90a4911af0c4049cc2e61d808b117a3e" category="list-text">DIP：在节点上配置的一个或多个数据IP地址</block>
+  <block id="60e2242d6a12fc9769a6f60369f92bb5" category="list-text">MVIP：在一个集群节点上配置的管理虚拟IP地址</block>
+  <block id="d026a497f6bd5f087751e2712ca15345" category="cell">端口/协议</block>
+  <block id="75ba8d70e3692ba200f0e0df37b4d2ae" category="cell">IP 地址</block>
+  <block id="261addf78c7b2c961032b3dd08ba0b1f" category="cell">目的</block>
+  <block id="f4c6f851b00d5518bf888815de279aba" category="cell">注释：</block>
+  <block id="f78f6ee75a7bafcf09aaff6b8a50f1d4" category="cell">111 TCP</block>
+  <block id="b941a28ed6d936315cc87c8a5e15b1d6" category="cell">DIP</block>
+  <block id="1d1a594959ec615f56516f5d0f5e8ddb" category="cell">NFS</block>
+  <block id="f3ca4db1db26970553df3fb4659623d1" category="cell">数据IP在运行时在集群节点之间移动。每个节点应允许所有数据IP (或整个子网)使用此流量。</block>
+  <block id="45326682468852b81797aafde5e0c15f" category="cell">442/TCP</block>
+  <block id="d4a7c7245dbe134b096894227b0ee16b" category="cell">MIP</block>
+  <block id="db974238714ca8de634a7ce1d083a14f" category="cell">API</block>
+  <block id="a0e5b258a8cc51d589e58a8bddfb909f" category="cell">635 TCP</block>
+  <block id="7b9e40a421a776f137cad026dd3ec0ba" category="cell">2010/UDP</block>
+  <block id="1a7ef04e5047296ee156f22f43eadd25" category="cell">CIP</block>
+  <block id="69a600f1b66c98287db05ab33221bf2c" category="cell">集群/节点发现</block>
+  <block id="84fd5f8a9091b3389e1846795d0ac5e0" category="cell">包括与UDP端口2010之间的单播和广播流量、包括回复。</block>
+  <block id="95f66cbf2ff4349bc67aaf685141a2fb" category="cell">2049 TCP</block>
+  <block id="6b182985a49012b24c2972881cb0af4c" category="cell">2181-2183/TCP</block>
+  <block id="989046586e10c54bef27f01dd4804e95" category="cell">分布式通信</block>
+  <block id="7c9173e8449f2344c92ef3b0a6f191fb" category="cell">2443/TCP</block>
+  <block id="7ded4ca42319833daf1e9577fc5c6ccc" category="cell">MVIP</block>
+  <block id="77797e04c846b44c8e89628502f9f7b9" category="cell">MVIP地址可由任何集群节点托管、并可在运行时根据需要重新定位。</block>
+  <block id="22c7150cee646d323dbe927ffaa00ab3" category="cell">4000-4006/TCP</block>
+  <block id="861656d6c7c1c330a3956d8f7dc3d99b" category="cell">集群内RPC</block>
+  <block id="bf96160875ef29f5b6571f5d98969271" category="cell">4045-4046/ TCP</block>
+  <block id="e214dbeedf59c5ee63ae01b4a270466b" category="cell">7700/TCP</block>
+  <block id="e044dcdd6505dbf411b17455ec40fcbc" category="cell">会话管理器</block>
+  <block id="3197b0b91edfeeebfc30698f93e1ee88" category="cell">9919/TCP</block>
+  <block id="8af9ff758f107c54a1addfc55790bccf" category="cell">DMS-API</block>
+  <block id="56219f04d28f1844d316d5190f4321cc" category="cell">9920/TCP</block>
+  <block id="cfe156c1306338f2ddb769aa7803cdf0" category="cell">DMS-REST服务器</block>
+  <block id="7d6fe0dd606232f7155fdeae2ea620a9" category="cell">ICMP</block>
+  <block id="467653e20f06c3650935c1eb1ce36030" category="cell">CIP + DIP</block>
+  <block id="9715191847525c91e6fda56e2ee0a99e" category="cell">节点内通信、运行状况检查</block>
 </blocks>
