@@ -1460,4 +1460,5 @@
   <block id="7d6fe0dd606232f7155fdeae2ea620a9" category="cell">ICMP</block>
   <block id="467653e20f06c3650935c1eb1ce36030" category="cell">CIP + DIP</block>
   <block id="9715191847525c91e6fda56e2ee0a99e" category="cell">节点内通信、运行状况检查</block>
+  <block id="9fb754c9c56f6f84f2fe43112a05f265" category="admonition">对于Astra Data Store Early Access Program (EAP)版本、如果要使用Astra Control Center管理Astra Data Store并启用VMware工作流、请仅在`pcloud`命名空间上部署Astra Control Center。</block>
 </blocks>

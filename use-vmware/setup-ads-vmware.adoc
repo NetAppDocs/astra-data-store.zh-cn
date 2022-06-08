@@ -26,6 +26,10 @@ summary: 您可以使用Astra vCenter插件和VMware vSphere本机功能部署�
 在使用VMware设置Astra数据存储之前、您需要确保满足以下要求：
 
 * Astra控制中心是 https://docs.netapp.com/us-en/astra-control-center/get-started/install_overview.html["已安装"] 并进行设置。
++
+
+NOTE: 对于Astra Data Store Early Access Program (EAP)版本、如果要使用Astra Control Center管理Astra Data Store并启用VMware工作流、请仅在`pcloud`命名空间上部署Astra Control Center。
+
 * Astra Data Store已获得许可并已部署。请参见 link:../get-started/install-ads.html["安装 Astra 数据存储"]。
 
 
