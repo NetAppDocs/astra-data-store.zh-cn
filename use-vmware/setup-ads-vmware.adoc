@@ -69,7 +69,7 @@ NOTE: 默认情况下、Astra控制中心中的VMware vSphere服务未启用。
 要将vCenter添加到Astra控制中心、您必须具有管理权限。
 
 
-TIP: 在将插件注册到VMware vSphere后、适用于VMware vSphere的Astra插件图标将显示在VMware快捷方式页面中。
+TIP: 在将插件注册到VMware vSphere后、适用于VMware vSphere的Astra插件图标将显示在VMware快捷方式页面中。有时、在注册适用于VMware vSphere的Astra插件后、此插件不会立即显示。在这种情况下、请等待几秒钟、然后刷新浏览器。
 
 . 登录到 Astra 控制中心。
 . 从左侧导航栏中选择*集群*。
