@@ -1461,4 +1461,6 @@
   <block id="9715191847525c91e6fda56e2ee0a99e" category="cell">节点内通信、运行状况检查</block>
   <block id="9fb754c9c56f6f84f2fe43112a05f265" category="admonition">对于Astra Data Store Early Access Program (EAP)版本、如果要使用Astra Control Center管理Astra Data Store并启用VMware工作流、请仅在`pcloud`命名空间上部署Astra Control Center。</block>
   <block id="a013c4206bb1d6d5c2ec96679a9ea56d" category="admonition">在将插件注册到VMware vSphere后、适用于VMware vSphere的Astra插件图标将显示在VMware快捷方式页面中。有时、在注册适用于VMware vSphere的Astra插件后、此插件不会立即显示。在这种情况下、请等待几秒钟、然后刷新浏览器。</block>
+  <block id="7d8019149f75b25a53d2461a1eb477f2" category="inline-link">将节点添加到Astra控制中心的存储后端集群</block>
+  <block id="27a8ed330fb0e757a7fd3ce6f78a92d1" category="list-text"><block ref="27a8ed330fb0e757a7fd3ce6f78a92d1" category="inline-link-rx"></block></block>
 </blocks>
