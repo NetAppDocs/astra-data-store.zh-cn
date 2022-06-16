@@ -1463,4 +1463,12 @@
   <block id="a013c4206bb1d6d5c2ec96679a9ea56d" category="admonition">在将插件注册到VMware vSphere后、适用于VMware vSphere的Astra插件图标将显示在VMware快捷方式页面中。有时、在注册适用于VMware vSphere的Astra插件后、此插件不会立即显示。在这种情况下、请等待几秒钟、然后刷新浏览器。</block>
   <block id="7d8019149f75b25a53d2461a1eb477f2" category="inline-link">将节点添加到Astra控制中心的存储后端集群</block>
   <block id="27a8ed330fb0e757a7fd3ce6f78a92d1" category="list-text"><block ref="27a8ed330fb0e757a7fd3ce6f78a92d1" category="inline-link-rx"></block></block>
+  <block id="de93102ec4b436fc99e2d5c4f2461e28" category="section-title">无法从Astra控制中心Web UI卸载Astra数据存储</block>
+  <block id="b7865115c7c6bc24a8349abcbc4bb445" category="paragraph">如果您从Astra控制中心Web UI启动了Astra数据存储卸载过程、则此过程有时可能会失败。</block>
+  <block id="ce9e26154d02db4cb2b8782df2d32138" category="paragraph">如果发生此问题描述 、请执行以下步骤。</block>
+  <block id="0562e69710e3b4fd2b95653650194299" category="list-text">登录到<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 并将Astra数据存储捆绑包(`Astra_Data_Store_2022.05.tar`)下载到可以访问Astra数据存储所在的Kubernetes集群的计算机上。</block>
+  <block id="7dc32dcac8a46d2290bd5cd5f198681a" category="list-text">登录到已下载Astra数据存储捆绑包的计算机。</block>
+  <block id="cd111719eb2a51044ba027133eadbca4" category="list-text">提取捆绑包的内容：</block>
+  <block id="59f54f26ac5b828c04c0feead1cda5dc" category="list-text">更改为存储卸载脚本的清单目录：</block>
+  <block id="9a73786dc4f684fddd37eafd0ce31132" category="list-text">手动删除Astra数据存储：</block>
 </blocks>

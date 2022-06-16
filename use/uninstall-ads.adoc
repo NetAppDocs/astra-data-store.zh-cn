@@ -645,3 +645,33 @@ kubectl delete astradskeyprovider <key-provider-cr-name> -n astrads-system
 
 
 ====
+
+
+=== 无法从Astra控制中心Web UI卸载Astra数据存储
+
+如果您从Astra控制中心Web UI启动了Astra数据存储卸载过程、则此过程有时可能会失败。
+
+如果发生此问题描述 、请执行以下步骤。
+
+.步骤
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并将Astra数据存储捆绑包(`Astra_Data_Store_2022.05.tar`)下载到可以访问Astra数据存储所在的Kubernetes集群的计算机上。
+. 登录到已下载Astra数据存储捆绑包的计算机。
+. 提取捆绑包的内容：
++
+[listing]
+----
+tar -xvf <path to tar file>/Astra_Data_Store_2022.05.tar
+----
+. 更改为存储卸载脚本的清单目录：
++
+[listing]
+----
+cd astrads/manifests/
+----
+. 手动删除Astra数据存储：
++
+[listing]
+----
+./uninstall all
+----
+
