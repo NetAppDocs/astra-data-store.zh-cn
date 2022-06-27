@@ -11,7 +11,20 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 :imagesdir: ../media/release-notes/
 
 
-我们很高兴地宣布发布了2022.05早期访问计划(EAP)版本的Astra数据存储。
+我们很高兴地宣布发布了2022.05.001早期访问计划(EAP)版本的Astra数据存储。
+
+
+
+== 2022年6月28日(2022.05.001版"EAP)"
+
+适用于Astra Data Store "EAP"版本(22.05)的此修补程序版本(2022.05.001)包括以下改进：
+
+* Astra数据存储和Astra控制中心现在可以在同一集群中运行。
+* 从vSphere中删除VVol数据存储库工作流现已可用。
+
+
+
+NOTE: 此版本要求更新随kubectl-Astra插件附带的Astra控制中心版本。
 
 
 

@@ -24,25 +24,25 @@ summary: 您可以将Astra数据存储升级到最新版本。
 === 下载Astra Data Store软件包并提取映像
 
 .步骤
-. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载Astra数据存储捆绑包(`Astra_Data_Store_2022.05.tar`)。
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载Astra数据存储捆绑包(`Astra_Data_Store_2022.05.01.tar`)。
 . （可选）使用以下命令验证捆绑包的签名：
 +
 [listing]
 ----
-openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.01.pub -signature Astra_Data_Store_2022.05.01.sig 2022.12.01_ads.tar
 ----
 . 创建目录：
 +
 [listing]
 ----
-mkdir Astra_Data_Store_2022.05
-cd Astra_Data_Store_2022.05
+mkdir Astra_Data_Store_2022.05.01
+cd Astra_Data_Store_2022.05.01
 ----
 . 提取映像：
 +
 [listing]
 ----
-tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.tar
+tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.01.tar
 ----
 +
 

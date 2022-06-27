@@ -11,7 +11,7 @@ summary: NetApp 会定期更新 Astra 数据存储，为您提供新功能，增
 :imagesdir: ../media/release-notes/
 
 
-我们很高兴地宣布发布了2022.05早期访问计划(EAP)版本的Astra数据存储。
+我们很高兴地宣布发布了2022.05.001早期访问计划(EAP)版本的Astra数据存储。
 
 * link:../release-notes/whats-new.html["此版本的 Astra 数据存储中的新增功能"]
 * link:../release-notes/known-issues.html["已知问题"]

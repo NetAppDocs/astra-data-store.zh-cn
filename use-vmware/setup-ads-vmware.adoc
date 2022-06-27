@@ -31,11 +31,6 @@ summary: 您可以使用Astra vCenter插件和VMware vSphere本机功能部署�
 NOTE: 对于Astra Data Store Early Access Program (EAP)版本、如果要使用Astra Control Center管理Astra Data Store并启用VMware工作流、请仅在`pcloud`命名空间上部署Astra Control Center。
 
 * Astra Data Store已获得许可并已部署。请参见 link:../get-started/install-ads.html["安装 Astra 数据存储"]。
-
-
-
-NOTE: 对于Astra数据存储早期访问计划("EAP")版本、必须将Astra控制中心和Astra数据存储部署在两个不同的Kubernetes集群中。
-
 * 用于部署Astra控制中心和Astra数据存储的Kubernetes集群必须已由Astra控制中心进行管理。
 * 在添加vCenter之前、您已上传Astra控制中心和VASA提供程序包。 https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["请参见管理软件包"^]。
 
@@ -221,7 +216,7 @@ vpbackend-privileged true ["*"]  RunAsAny RunAsAny  RunAsAny RunAsAny <no value>
 
 
 
-NOTE: 有时、您添加的vCenter可能需要10分钟才能显示在存储后端向导中。
+NOTE: 有时、添加的存储后端可能需要几分钟时间才能显示在存储后端向导中。
 
 
 NOTE: Astra数据存储不应与多个vCenter共享。

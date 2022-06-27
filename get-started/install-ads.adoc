@@ -58,7 +58,7 @@ NOTE: 要在Rancher RKE环境中安装Astra数据存储、请完成以下安装�
 
 === 下载Astra Data Store软件包并提取映像
 
-. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载Astra数据存储捆绑包(`Astra_Data_Store_2022.05.tar`)。
+. 登录到 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp 支持站点"^] 并下载Astra数据存储捆绑包(`Astra_Data_Store_2022.05.01.tar`)。
 +
 
 NOTE: 如果要查找早期版本的捆绑包的说明、请参见 link:../ads-earlier-versions.html["该版本的文档"]。
@@ -67,20 +67,20 @@ NOTE: 如果要查找早期版本的捆绑包的说明、请参见 link:../ads-e
 +
 [listing]
 ----
-openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.01.pub -signature Astra_Data_Store_2022.05.01.sig 2022.12.01_ads.tar
 ----
 . 创建目录：
 +
 [listing]
 ----
-mkdir Astra_Data_Store_2022.05
-cd Astra_Data_Store_2022.05
+mkdir Astra_Data_Store_2022.05.01
+cd Astra_Data_Store_2022.05.01
 ----
 . 提取映像：
 +
 [listing]
 ----
-tar -xvf <path to tar file>/Astra_Data_Store_2022.05.tar
+tar -xvf <path to tar file>/Astra_Data_Store_2022.05.01.tar
 ----
 +
 

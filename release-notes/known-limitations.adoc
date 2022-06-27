@@ -15,7 +15,7 @@ summary: 已知限制确定了本产品版本不支持的平台、设备或功�
 
 
 
-== Astra Data Store 2022.05早期访问计划(EAP)版本
+== Astra Data Store 2022.05.001早期访问计划(EAP)版本
 
 此版本包含这些已知限制。请仔细查看这些已知限制。
 
@@ -32,7 +32,6 @@ summary: 已知限制确定了本产品版本不支持的平台、设备或功�
 
 
 * VVol复制
-* 删除VVol数据存储库
 * 一流磁盘(FCD)
 * VMware vMotion
 * 链接模式vCenter服务器
